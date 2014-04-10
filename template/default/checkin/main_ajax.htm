@@ -1,0 +1,19 @@
+$CheckinCalendar
+
+<!--{if $checkin['visted']}-->
+<div class="checkin_click">
+	<div class="click"><a href="javascript:;" class="btn" onclick="checkin_btn();">已签到</a>
+	</div>
+</div>
+<!--{else}-->
+<div class="checkin_click">
+	<input id="checkinmood" type="hidden"  name="checkinmood" value="$defaultmood">
+	<input id="checkintext" type="hidden"  name="checkintext" value="">
+	<div class="click"><a href="javascript:;" class="btn" onclick="checkin_btn();">开始签到</a></div>
+	<div class="mood"><img src="$moodlist[$defaultmood][mood]"></div>
+	<div class="text" onclick="checkin_input();"><a href="javascript:checkin_input();void(0);">$moodlist[$defaultmood][text]</a>
+	<input type="input" autocomplete="off"   name="text" onChange="$('checkintext').value=this.value" value="$moodlist[$defaultmood][text]"></div>
+	
+</div>
+<!--{/if}-->
+

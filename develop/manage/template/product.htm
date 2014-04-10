@@ -1,0 +1,49 @@
+<!--{subtemplate common/header}-->
+<!--{eval include template('header',0, './develop/manage/template');}-->
+
+
+
+		<div class="mgcont">
+
+			<div class="mgtit">
+				$manageitem_array[$action]
+			</div>
+			<form method="post" autocomplete="off" action="manage.php?action={$action}&operation=update" enctype="multipart/form-data">
+			<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+			<!--{if $id}-->
+			<input type="hidden" name="id" value="{$id}" />
+			<!--{/if}-->
+			
+			<table class="distproduct" cellpadding="2" cellspacing="2" border="0" width="100%">
+				<tr  class="tit">
+					<td  colspan="2">分发权限</td>
+				</tr>
+				<tr>
+					<td  class="tit">稳定版版本</td>
+					<td  ><input type="text" name="product[stable]" value="{$product['stable']}" /></td>
+				</tr>
+				<tr>
+					<td  class="tit">稳定版更新时间</td>
+					<td  ><input type="text" name="product[stabledateline]" value="{$product['stabledateline']}" /></td>
+				</tr>
+				<tr>
+					<td  class="tit">开发版版本</td>
+					<td  ><input type="text" name="product[develop]" value="{$product['develop']}" /></td>
+				</tr>
+				<tr>
+					<td  class="tit">开发版更新时间</td>
+					<td  ><input type="text" name="product[developdateline]" value="{$product['developdateline']}" /></td>
+				</tr>
+				<tr>
+					<td ></td>
+					<td ><button type="submit" id="postsubmit" class="whitec darkga mfont" value="true" name="topicsubmit"><span>更新</span></button>
+					</td>
+				</tr>
+			</table>
+			</form>
+		</div><!-- mgcont -->
+	</div><!-- manage -->
+
+</div>
+
+<!--{subtemplate common/footer}-->

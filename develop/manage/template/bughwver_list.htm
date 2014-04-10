@@ -1,0 +1,114 @@
+<!--{subtemplate common/header}-->
+	<!--{eval include template('header',0, './develop/manage/template');}-->
+	<div class="mgcont">
+		<div class="mgtit">
+			$manageitem_array[$action]
+			<p>
+				<!--{if $myPermission['hardware']}-->
+				<a href="manage.php?action=$action&operation=update"{if $operation=='update'} class="select"{/if}>添加硬件</a>
+				<!--{/if}-->
+				<!--{if $myPermission['version']}-->
+				<a href="manage.php?action=$action&operation=vupdate"{if $operation=='vupdate'} class="select"{/if}>添加版本</a>
+				<!--{/if}-->
+				<!--{if $myPermission['bugattr']}-->
+				<a href="manage.php?action=$action&operation=aupdate"{if $operation=='aupdate'} class="select"{/if}>添加问题属性</a>
+				<!--{/if}-->
+				<a href="manage.php?action=$action&operation=list"{if $operation=='list'} class="select"{/if}>列表</a>
+			</p>
+		</div>
+	<!--{if $myPermission['hardware']}-->
+	<table class="bughwvertable" style="float:left;" cellpadding="0" cellspacing="0" border="0">
+		<tr class="bann">
+			<td colspan="5">硬件列表 ( 用于列表检索 )</td>
+		</tr>
+		<tr class="tit">
+			<td width="10%" class="left">ID</td>
+			<td width="40%" class="left">名称</td>
+			<td width="10%">类型</td>
+			<td width="10%">创建时间</td>
+			<td width="15%">操作</td>
+		</tr>
+		<!--{if $bughwlist}-->
+			<!--{loop $bughwlist $i $value}-->
+		<tr{if $i%2==1} class="diff"{/if}>
+			<td width="10%" class="left">$value[id]</td>
+			<td width="40%" class="left">$value[title]</td>
+			<td width="5%">{$_Data['hardware'][$value[type]]}</td>
+			<td>{echo date('m-d H:i',$value[dateline]);}</td>
+			<td><a href="manage.php?action={$action}&operation=update&id={$value[id]}">编辑</a> | <a href="manage.php?action={$action}&operation=delete&id={$value[id]}">删除</a></td>
+		</tr>
+			<!--{/loop}-->
+		<!--{else}-->
+		<tr>
+			<td colspan="5">查询不到任何数据</td>
+		</tr>
+		<!--{/if}-->
+	</table>
+	<!--{/if}-->
+	<!--{if $myPermission['version']}-->
+	<table class="bughwvertable" style="float:left;" cellpadding="0" cellspacing="0" border="0">
+		<tr class="bann">
+			<td colspan="5">版本列表 ( 用于列表检索 )</td>
+		</tr>
+		<tr class="tit">
+			<td width="10%" class="left">ID</td>
+			<td width="40%" class="left">名称</td>
+			<td width="20%">类型</td>
+			<td width="10%">创建时间</td>
+			<td width="15%">操作</td>
+		</tr>
+		<!--{if $bugverlist}-->
+			<!--{loop $bugverlist $i $value}-->
+		<tr{if $i%2==1} class="diff"{/if}>
+			<td width="10%" class="left">$value[id]</td>
+			<td width="40%" class="left">$value[title]</td>
+			<td width="5%">{$_Data['version'][$value[type]]}</td>
+			<td>{echo date('m-d H:i',$value[dateline]);}</td>
+			<td><a href="manage.php?action={$action}&operation=vupdate&id={$value[id]}">编辑</a> | <a href="manage.php?action={$action}&operation=vdelete&id={$value[id]}">删除</a></td>
+		</tr>
+			<!--{/loop}-->
+		<!--{else}-->
+		<tr>
+			<td colspan="5">查询不到任何数据</td>
+		</tr>
+		<!--{/if}-->
+	</table>
+	<!--{/if}-->
+
+<!--{if $myPermission['bugattr']}-->
+	<table class="bughwvertable" style="float:left;" cellpadding="0" cellspacing="0" border="0">
+		<tr class="bann">
+			<td colspan="5">BUG问题属性 ( 用于用户信息收集 )</td>
+		</tr>
+		<tr class="tit">
+			<td width="10%" class="left">ID</td>
+			<td width="40%" class="left">名称</td>
+			<td width="20%">类型</td>
+			<td width="10%">创建时间</td>
+			<td width="15%">操作</td>
+		</tr>
+		<!--{if $bugattrlist}-->
+			<!--{loop $bugattrlist $i $value}-->
+		<tr{if $i%2==1} class="diff"{/if}>
+			<td width="10%" class="left">$value[id]</td>
+			<td width="40%" class="left">$value[title] {if $value[inputtype]}[选择框]{else}[输入框]{/if}</td>
+			<td width="5%">{$_Data['bugattr'][$value[type]]}</td>
+			<td>{echo date('m-d H:i',$value[dateline]);}</td>
+			<td><a href="manage.php?action={$action}&operation=aupdate&id={$value[id]}">编辑</a> | <a href="manage.php?action={$action}&operation=adelete&id={$value[id]}">删除</a></td>
+		</tr>
+			<!--{/loop}-->
+		<!--{else}-->
+		<tr>
+			<td colspan="5">查询不到任何数据</td>
+		</tr>
+		<!--{/if}-->
+	</table>
+	<!--{/if}-->
+
+
+	</div><!-- mgcont -->
+</div><!-- manage -->
+
+</div>
+
+<!--{subtemplate common/footer}-->

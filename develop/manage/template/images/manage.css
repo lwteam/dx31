@@ -1,0 +1,23 @@
+.managetable{margin:5px 0px;}
+.managetable td {text-align: center;height:35px}
+
+.mgmenu {width:150px;overflow:hidden; height: 390px;float: left;margin-right: 15px;}
+.mgmenu { border-right: 1px solid #CDCDCD ; padding-right:15px; }
+
+.mgmenu h3, .mgcont h3 {
+	height: 32px;
+	border-bottom: 3px solid #416E98;
+	font-size: 22px;
+	font-weight: 100;
+	line-height: 25px;
+	_line-height:28px; 
+	color: black;
+	margin-bottom:1px;
+	font-family: "Microsoft YaHei",verdana,arial,helvetica,sans-serif;
+}
+.mgcont h3{}
+.mgmenu ul { height:500px;border:1px solid #d4dde5; border-top:0; background:#eaeff2;}
+.mgmenu li { width:148px; height:34px; float:left; font-size:14px; line-height:34px; border-bottom:1px solid #d4dde5;}
+.mgmenu li.select { border-right: 2px solid #A0BCD6;background:#DBE5EF;}
+.mgmenu li span { font-family: Georgia, Sans-Serif;width:20px;overflow:hidden;float:left; padding:0px 0px 0px 9px }
+.mgcont {  overflow:hidden;  }

@@ -1,0 +1,33 @@
+<!--{template article/header}-->
+<div id="bc">
+	<div class="breadcrumbs">
+		<a href="./">Wearable</a><span class="pipe"></span>
+		<a href="index.php?act=tags">标签</a><span class="pipe"></span>
+	</div>
+</div>
+
+<div id="classtop">
+	<h1>标签</h1>
+</div>
+
+<div id="main">
+		<div id="box">
+			<!--{loop $Tags $Tagstype}-->
+			<!--{eval $typeid = $Tagstype[0]['typeid']}-->
+			<div class="boxcontent">
+				<div class="stitle"><h3 class="ht bluec">$ArticleType[$typeid]</h3></div>
+				<div class="taglist">
+				<!--{loop $Tagstype $v}-->
+					<a href="index.php?act=tag&id=$v[id]"  title="$v[name]"><em></em>$v[name]</a>
+				<!--{/loop}-->
+				</div>
+			</div>
+			<!--{/loop}-->
+
+		</div>
+
+
+</div>
+
+<div id="bg"></div>
+<!--{template article/footer}-->

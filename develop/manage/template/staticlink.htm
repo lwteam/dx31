@@ -1,0 +1,85 @@
+<!--{subtemplate common/header}-->
+<!--{eval include template('header',0, './develop/manage/template');}-->
+
+	<div class="mgcont">
+		<h3>$manageitem_array[$action]</h3>
+		<div class="mgcont">
+
+<h1 id="sti" class="mt"> <em class="wx " id="returnmessage"> ① 版块静态定制列表  </em> </h1>
+<table class="managetable" cellpadding="2" cellspacing="2" border="1" width="100%">
+<tr>
+	<td width="5%">排序</td>
+	<td width="15%">版区名称</td>
+	<td width="15%">版块名称</td>
+	<td width="30%">静态URL别名</td>
+	<td width="10%">管理</td>
+</tr>
+<!--{loop $partforumslist $value}-->
+	<tr>
+		<td width="5%">{$value[order]}</td>
+		<td width="15%" colspan="2"  style="text-align: left;padding-left:20px"><a href="forum.php?mod=forumdisplay&fid={$value[fid]}" target="_blank" style="color:red"> {$value[name]} / $value[fid]<!--{if $value[name] != $forumslist[$value[fid]][name]}--> <SUB>/ {$forumslist[$value[fid]][name]}</SUB><!--{/if}--></a></td>
+		<td width="30%"><!--{if $value[staticname]}--><a href="/{$value[staticname]}/" target="_blank" style="color:red">/{$value[staticname]}/</a><!--{/if}--></td>
+		<td width="10%"><a href="manage.php?action={$action}&id={$value[fid]}#staticlink">自定义</a></td>
+	</tr>
+	<!--{loop $value['subforums'] $value2}-->
+	<tr>
+		<td width="5%">{$value[order]}</td>
+		<td width="15%" colspan="2"  style="text-align: right;padding-right:20px"><a href="forum.php?mod=forumdisplay&fid={$value2[fid]}" target="_blank"> {$value2[name]} / $value2[fid]<!--{if $value2[name] != $forumslist[$value2[fid]][name]}--> <SUB>/ {$forumslist[$value2[fid]][name]}</SUB><!--{/if}-->
+		<td width="30%"><!--{if $value2[staticname]}--><a href="/{$value2[staticname]}/" target="_blank" style="color:red">/{$value2[staticname]}/</a><!--{/if}--></td>
+		<td width="10%"><a href="manage.php?action={$action}&id={$value2[fid]}#staticlink">自定义</a></td>
+	</tr>
+	<!--{/loop}-->
+<!--{/loop}-->
+</table>
+<a name="staticlink"></a>
+<form method="post" autocomplete="off" id="postform" action="manage.php?action={$action}" enctype="multipart/form-data">
+	<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+
+	<h1 id="sti" class="mt"> <em class="wx " id="returnmessage"><a href="manage.php?action={$action}"> ② 定制静态URL别名</a></em></h1>
+	<div id="postbox">
+
+		<div class="pbt cl">
+			<div class="z" > <span>
+					<select name="forumstatic[fid]" style="width: 25.8em" onchange="changefid(this)">
+<!--{loop $partforumslist $value}-->
+	<option value ="$value[fid]" style="color:red" {if $value[fid] == $forumstatic[fid]}selected="selected"{/if}>$value[name]</option>
+	<!--{loop $value['subforums'] $value2}-->
+	<option value ="$value2[fid]" value ="$value2[fid]" {if $value2[fid] == $forumstatic[fid]}selected="selected"{/if}>&nbsp;&nbsp;&nbsp;|- $value2[name]</option>
+	<!--{/loop}-->
+<!--{/loop}-->
+					</select>
+
+<script type="text/javascript">
+	var forumstatic=new Object();{LF}
+	<!--{loop $staticlink $value}-->
+	forumstatic.f{$value[fid]}="{$value[staticname]}";
+	<!--{/loop}-->
+  	function changefid(fid){
+		var key = 'f'+fid.value;
+		if(forumstatic[key] != undefined){
+			$('forumstatic_staticname').value = forumstatic[key];
+		}else{
+			$('forumstatic_staticname').value = '';
+		}
+  	}
+  </script>
+
+				</span> <span id="subjectchk">&nbsp;定制版块</span></div>
+		</div>
+		<div class="pbt cl">
+			<div class="z"> <span><input id="forumstatic_staticname" type="text" name="forumstatic[staticname]" value="{$forumstatic[staticname]}" id="subject" class="px"  onkeyup="strLenCalc(this, 'checklen', 80);" tabindex="1" style="width: 25em" />
+				</span> <span id="subjectchk">静态URL别名</span></div>
+		</div>
+		<div class="mtm"> </div>
+		<div class="mtm mbm">
+			<button type="submit" id="postsubmit" class="pn pnc" value="true" name="topicsubmit"><span>编辑应用</span></button>
+			<input type="hidden" id="postsave" name="save" value="" />
+		</div>
+	</div>
+</form>
+
+		</div>
+	</div>
+</div></div>
+
+<!--{subtemplate common/footer}-->

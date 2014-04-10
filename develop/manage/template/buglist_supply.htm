@@ -1,0 +1,23 @@
+<div class="buglist_inbox">
+
+<form method="post" id="buglistpostform">
+
+<table cellpadding="2" cellspacing="2" border="0">
+<tbody>
+
+<tr>
+	<td>需要用户补充信息的原因（用户前台可看到）<br>
+	<textarea name="message"   style="height:50px;width:400px" ></textarea></td>
+</tr>
+<tr>
+	<td>后台备注<br>
+	<textarea name="note" style="height:50px;width:400px"></textarea></td>
+</tr>
+<tr>
+	<td>
+	<button type="button" onclick="javascript:BMDialog.post('$id','supply');"> 提 交 </button>
+	<button type="button" onclick="javascript:BMDialog.close();"> 取 消 </button>
+	</td>
+</tr>
+</tbody></table>
+</form></div>

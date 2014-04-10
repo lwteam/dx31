@@ -1,0 +1,104 @@
+<!--{subtemplate common/header}-->
+<!--{eval include template('header',0, './develop/manage/template');}-->
+
+
+
+		<div class="mgcont">
+
+			<div class="mgtit">
+				$manageitem_array[$action]
+				<p><a href="manage.php?action=manage&operation=update"{if $operation=='update'} class="select"{/if}>添加</a><a href="manage.php?action=manage&operation=list"{if $operation=='list'} class="select"{/if}>列表</a></p>
+			</div>
+			<form method="post" autocomplete="off" action="manage.php?action={$action}&operation=update" enctype="multipart/form-data">
+			<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+			<!--{if $id}-->
+			<input type="hidden" name="id" value="{$id}" />
+			<!--{/if}-->
+			
+			<table class="distpermission" cellpadding="2" cellspacing="2" border="0" width="100%">
+				<tr  class="tit">
+					<td  colspan="2">分发权限</td>
+				</tr>
+				<tr>
+					<td  class="tit">用户名</td>
+					<td  ><input type="text" name="Permission[username]" value="{$Permission_One['username']}" /></td>
+				</tr>
+				<tr>
+					<td  class="tit">中文姓名</td>
+					<td  ><input type="text" name="Permission[name]" value="{$Permission_One['name']}" /></td>
+				</tr>
+				<tr>
+					<td class="tit">用户级别</td>
+					<td >
+						<input type="radio" name="Permission[dist]" {if !$Permission_One['dist']}checked{/if} value="0" 	>无级别
+						<input type="radio" name="Permission[dist]" {if $Permission_One['dist']==1}checked{/if} value="1" 	>产品经理 
+						<input type="radio" name="Permission[dist]" {if $Permission_One['dist']==2}checked{/if} value="2" 	>产品工程师
+						<input type="radio" name="Permission[dist]" {if $Permission_One['dist']==3}checked{/if} value="3" 	>反馈工程师
+						<input type="radio" name="Permission[dist]" {if $Permission_One['dist']==4}checked{/if} value="4" 	>信息专员
+					 </td>
+				</tr>
+
+				<tr>
+					<td class="tit">权限列表</td>
+					<td>
+						<table  cellpadding="2" cellspacing="2" border="1" width="700">
+						<tr>
+							<td width="200">权限</td>
+							<td>关联权限设置</td>
+						</tr>
+
+						<!--{eval $i=1;}-->
+						<!--{loop $myPermission['permission'] $key $value}-->
+						<!--{eval $ischecked = in_array($value,$Permission_One['permission']);}-->
+						<tr>
+							<td><input type="checkbox" id="$value" name="Permission[permission][]" {if $ischecked}checked="true"{/if}
+							onchange="ShowPermBody(this)" value="$value" $onchange> 
+							$i $manageitem_array[$value]</td>
+							<td>
+							<div id="{$value}_layer" style="display:{echo $ischecked?'':'none'}">
+							
+							<!--{if $value == 'buglist'}-->
+								<select name="Permission[buglist]" >
+									<option value="0">- 无归属 -</option>
+									$BugClassSelect
+								</select>
+							<!--{elseif  $value == 'bughwver'}-->
+								检索硬件类型:<br>
+								$HWClassSelect
+								<br>检索版本类型:<br>
+								$VERClassSelect
+								<br>BUG问题属性类型:<br>
+								$ATTClassSelect
+							<!--{elseif  $value == 'diyforum'}-->
+								<select name="Permission[forum]" >
+									<option value="0">- 无归属 -</option>
+									$forumselect
+								</select>
+							<!--{/if}-->
+							</div>
+							</td>
+						</tr>
+						<!--{eval $i++;}-->
+						<!--{/loop}-->
+						</table>
+					</td>
+				</tr>
+				
+				<tr>
+					<td ></td>
+					<td ><button type="submit" id="postsubmit" class="whitec darkga mfont" value="true" name="topicsubmit"><span>更新权限</span></button>
+					</td>
+				</tr>
+			</table>
+			</form>
+		</div><!-- mgcont -->
+	</div><!-- manage -->
+<script>
+
+function ShowPermBody(_this){
+	$(_this.id+'_layer').style.display = _this.checked?'':'none';
+}
+</script>
+</div>
+
+<!--{subtemplate common/footer}-->

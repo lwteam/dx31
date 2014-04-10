@@ -1,0 +1,103 @@
+<!--{subtemplate common/header}-->
+	<!--{eval include template('header',0, './develop/manage/template');}-->
+	<div class="mgcont">
+		<div class="mgtit">
+			$manageitem_array[$action] / 
+			我的级别:{if $myPermission[dist]==1}产品经理
+			{elseif $myPermission[dist]==2}产品工程师
+			{elseif $myPermission[dist]==3}反馈工程师
+			{elseif $myPermission[dist]==4}信息专员{/if}
+			<p>
+			<!--{if in_array($myPermission['dist'], array(-1,1,4))}-->
+			<a href="manage.php?action=buglist&operation=list&handling=-1"{if $handling==-1} class="select"{/if}>全部状态</a>
+			<!--{/if}-->
+			<!--{loop $_Data['buglist_handling'] $k $v}-->
+				<!--{if $k>0}-->
+				<a href="manage.php?action=buglist&operation=list&handling=$k"{if $handling==$k} class="select"{/if}>$v[title]</a>
+				<!--{/if}-->
+			<!--{/loop}-->
+			</p>
+		</div>
+		
+		<table class="buglisttable qtipload" cellpadding="0" cellspacing="0" border="0">
+		<tr class="tit">
+			<td width="20"></td>
+			<td width="80" class="left">分类</td>
+			<td width="80" class="left">遇到人数</td>
+			<td  class="left">标题</td>
+			<td width="100">机型</td>
+			<td width="100">版本</td>
+			<td width="120">创建时间</td>
+			<td  width="100" class="left">当前流程</td>
+			<td  width="100" class="left">处理人</td>
+			<td  width="160" class="left">操作</td>
+		</tr>
+		<!--{if $buglists}-->
+		<!--{loop $buglists $i $value}-->
+
+		<tr{if $i%2==1} class="diff"{/if}>
+			<td></td>
+			<td class="left"><b>$_Data['buglist'][$value[classid]]</b></td>
+			<td class="left">$value[samenum]人</td>
+		    <td class="left _qtip_tr">
+				<a href="forum.php?mod=viewthread&fid=$value[fid]&tid=$value[tid]" target="_blank" title="提问人: $value[author] 浏览量:$value[views]  回复数:$value[replies] ">$value[subject]</a>
+				<!--{if $value['note']}-->
+				<span class="buglist_note" title="[ {$value['note']['username']} ] $value['note']['name'] $value['note']['itcode'] {echo date('Y-m-d H:i',$value[note][dateline]);} 备注">$value['note']['message']</span>
+				<!--{/if}-->
+
+				<!--{if $value[supply] && $value[supplytime]}--><span title="用户已经于{echo date('Y-m-d H:i',$value[supplytime]);}补充信息" style="color:#EE00EE">[已补]</span>
+				<!--{elseif $value[supply]}--><span title="工程师已设置该问题当前状态下需要用户补充信息" style="color:#EE82EE">[补充]</span>
+				<!--{/if}-->
+			</td>
+			<td>$BugOption[hardware][$value[hardware]][title]</td>
+			<td>$BugOption[version][$value[version]][title]</td>
+			<td class="left _qtip_tr"><span title="问题创建时间: {echo date('Y-m-d H:i',$value[dateline]);}">{echo date('m-d H:i',$value[dateline]);}</span></td>
+			<td  class="left">
+			<!--{loop $_Data['buglist_handling'] $k $v}-->
+				<!--{if $k == $value['handling']}-->
+				<span class="handling" style="color:$v[color]">$v[title]</span> 
+				<!--{/if}-->
+			<!--{/loop}-->
+			</td>
+			<td  class="left _qtip_lc">
+			<a href="home.php?mod=space&uid=$value['handlingarray']['uid']" title="[ {$value['handlingarray']['username']} ] $value['handlingarray']['name'] $value['handlingarray']['itcode']  {echo date('Y-m-d H:i',$value['handlingarray']['dateline']);}
+			">$value['handlingarray']['name']</a></td>
+			<td class="left _qtip_lc">
+			<a onclick="BMDialog.property($value[tid],'#show_$value[tid]');" href="javascript:void(0);" >查看属性</a>
+			<!--{if  BugWorkPerm($myPermission,$value)}-->
+				<a  onclick="BMDialog.get(this,$value[tid]);" href="javascript:void(0);" title="处理该问题的流程">处理</a>
+				<!--{if $value['handling'] != 3}-->
+				 <a onclick="BMDialog.get(this,$value[tid],'supply');" href="javascript:void(0);" title="操作让用户补充信息">补充</a>
+				<!--{/if}-->
+				<a onclick="BMDialog.get(this,$value[tid],'note');" href="javascript:void(0);" title="对信息进行后台备注,备注的内容显示在标题后">备注</a>
+			<!--{/if}-->
+			</td>
+		</tr>
+
+		<tr >
+			<td id="show_$value[tid]" style="display:none" colspan="10">查询不到任何数据</th>
+		</tr>
+
+		<!--{/loop}-->
+		<!--{else}-->
+		<tr>
+			<td colspan="10">查询不到任何数据</th>
+		</tr>
+		<!--{/if}-->
+		</table>
+
+	</div><!-- mgcont -->
+</div><!-- manage -->
+
+</div>
+<script>
+jQuery('._qtip_tr [title!=""]').qtip({
+	position: {my: 'bottom left', at: 'top left',adjust:{method: 'flip'}}
+});
+
+jQuery('._qtip_lc [title!=""]').qtip({
+	position: {my: 'center right', at: 'center left',adjust:{method: 'flip'}}
+});
+</script>
+
+<!--{subtemplate common/footer}-->

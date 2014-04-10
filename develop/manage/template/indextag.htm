@@ -1,0 +1,98 @@
+<!--{subtemplate common/header}-->
+<!--{eval include template('header',0, './develop/manage/template');}-->
+
+	<div class="mgcont">
+		<h3>$manageitem_array[$action]</h3>
+		<div class="mgcont">
+
+<h1 id="sti" class="mt"> <em class="wx " id="returnmessage"> ① 标签列表 </em> 
+<div style="float:right;margin:0;padding:0;display:inline">
+<form accept-charset="UTF-8" action="manage.php?action=indextag"  method="get">
+<input name="action" type="hidden" value="indextag">
+<input id="search" name="search" placeholder="搜索标签" type="text" style="margin:0;padding:2px;border: 1px solid #CDCDCD ;">
+</form>
+</div>
+</h1>
+
+<table class="managetable" cellpadding="2" cellspacing="2" border="1" width="100%">
+<tr>
+	<td width="5%">ID</td>
+	<td width="50%">标题</td>
+	<td width="10%">分类</td>
+	<td width="15%">管理</td>
+</tr>
+
+<!--{loop $article_taglist $value}-->
+<tr>
+	<td>{$value[id]}</td>
+	<td style="text-align:left;padding:0 10px"> {$value[name]} <!--{if $value[namedesc]}-->({$value[namedesc]})<!--{/if}--></td>
+	<td >
+	<!--{loop $ArticleType $cid $name}-->
+		{if  $cid == $value[typeid]}$name{/if}
+	<!--{/loop}-->
+
+	</td>
+	<td>
+	<a href="manage.php?action={$action}&do=edit&id={$value[id]}">编辑</a> | <a href="manage.php?action={$action}&do=del&id={$value[order]}">删除</a></td>
+</tr>
+
+<tr id="show_$value[id]" style="display:none">
+	<td class="bob" colspan="6"><!--{if $value[titlepic]}--><img height="100" src="{$value[titlepic]}" /><!--{else}--><img  src="develop/manage/template/images/no.gif" /><!--{/if}--> <br> $value['content']</td>
+</tr>
+
+<!--{/loop}-->
+
+</table>
+<br>
+<form method="post" autocomplete="off" id="postform" action="manage.php?action={$action}" enctype="multipart/form-data">
+	<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+	<!--{if $_G['gp_id']}-->
+	<input type="hidden" name="id" id="id" value="{$_G['gp_id']}" />
+	<!--{/if}-->
+	<h1 id="sti" class="mt"> 
+	<em class="wx " id="returnmessage"><a href="manage.php?action={$action}"> ② 发布新标签</a></em></h1>
+	<!--{if $_G['gp_id']}-->
+	<h1 id="sti" class="mt"> <em class="wx " id="returnmessage"> ③ 编辑标签 </em> : {$article_tag[title]} (信息ID:{$_G['gp_id']})</h1>
+	<!--{/if}-->
+	<div id="postbox">
+		<div class="pbt cl">
+			<p>1. 标签标题</p>
+			<input type="text" name="article_tag[name]"  id="article_tag_subject" value="{$article_tag[name]}" class="px wd27em" />
+		</div>
+		<div class="pbt cl">
+			<p>2. 标签描述</p>
+			<input type="text" name="article_tag[namedesc]" value="{$article_tag[namedesc]}" class="px wd27em" />
+		</div>
+		<div class="pbt cl">
+			<p>3. 关联标签</p>
+			<input type="text" name="article_tag[relatename]" id="article_tag_tagtxts"  value="{$article_tag[relatename]}" class="px wd27em" />  多个关键字请用英文逗号隔开
+		</div>
+		<div class="pbt cl">
+			<p>4. 标签归属分类</p>
+			<select name="article_tag[typeid]"  size="5">
+				<!--{loop $ArticleType $cid $name}-->
+				<option value ="$cid" {if  $cid == $article_tag[typeid]}selected="selected"{/if}  >$name</option>
+				<!--{/loop}-->
+			</select>
+		</div>
+		<div class="pbt cl">
+			<p>5.首页边栏推荐(此项仅对产品分类生效)</p>
+				<input type="radio" name="article_tag[index]" {if $article_tag[index]}checked="checked"{/if} value="1" >是; 
+				<input type="radio"name="article_tag[index]" {if !$article_tag[index]}checked="checked"{/if} value="0">否
+		</div>
+		<div class="mtm"> </div>
+		<div class="mtm mbm">
+			<button type="submit" id="postsubmit" class="pn pnc" value="true" name="topicsubmit"><span><!--{if $_G['gp_id']}-->编辑标签<!--{else}-->发布标签<!--{/if}--></span></button>
+			<input type="hidden" id="postsave" name="save" value="" />
+		</div>
+	</div>
+</form>
+
+
+
+
+		</div>
+	</div>
+</div></div>
+
+<!--{subtemplate common/footer}-->

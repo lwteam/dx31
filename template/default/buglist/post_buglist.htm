@@ -1,0 +1,61 @@
+<!--{template common/header}-->
+<style>
+._dis {display:none}
+.selected {font-weight:700}
+</style>
+<span{if !$classid} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl(false,$handling,$hardware,$version)}">全部</a></span> 
+<!--{loop $_Data['buglist'] $key $value}-->
+	<!--{if strlen($key) == 1}-->
+		<span class="_topclass {if substr($classid,0,1) == $key} selected{/if}" cid="$key"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($key,$handling,$hardware,$version)}">$value</a></span>
+	<!--{/if}-->
+<!--{/loop}-->
+
+<!--{eval $topid = 0;}-->
+<!--{loop $_Data['buglist'] $key $value}-->
+
+<!--{if strlen($key) == 1}-->
+	<!--{if $topid != $key}-->
+		<!--{if $topid >0}--></p><!--{/if}-->
+		<p class="_subclass _subclass{$key}{if (!$classid&&$key==1)}{elseif ($key != substr($classid,0,1))} _dis{/if}">
+	<!--{/if}-->
+	<span{if $classid == $key} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($key,$handling,$hardware,$version)}">全部</a></span>
+<!--{else}-->
+	<span {if $classid == $key} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($key,$handling,$hardware,$version)}">$value</a></span>
+<!--{/if}-->
+<!--{eval $topid = substr($key,0,1);}-->
+<!--{/loop}-->
+</p>
+<p>
+<span{if !isset($handling)} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,false,$hardware,$version)}">全部</a></span>   
+<!--{loop $_Data['buglist_handling'] $key $value}-->
+<!--{eval if ($key>3)continue;}-->
+<span {if isset($handling) && $handling == $key} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,$key,$hardware,$version)}">$value[title]</a></span>
+<!--{/loop}-->
+
+</p>
+
+<p>
+<span{if !isset($hardware)} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,$handling,false,$version)}">全部</a></span>   
+<!--{loop $hardwarelist $value}-->
+<span {if $hardware == $value[id]} class="selected"{/if}>
+<a href="forum.php?mod=forumdisplay&fid=$_G[fid]&classid={echo $value[self]?$classid:substr($classid,0,1)}{echo $this->GetSelectUrl($classid,$handling,$value[id],$version)}">$value[title]</a></span>
+<!--{/loop}-->
+</p>
+
+
+<p>
+<span{if !isset($version)} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,$handling,$hardware,false)}">全部</a></span>   
+<!--{loop $versionlist $value}-->
+<span {if $version == $value[id]} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&classid={echo $value[self]?$classid:substr($classid,0,1)}&version={echo $this->GetSelectUrl($classid,$handling,$hardware,$value[id])}">$value[title]</a></span>
+<!--{/loop}-->
+</p>
+
+
+
+<!--{loop $threadlist $thread}-->
+<p>
+<a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a>
+</p>
+<!--{/loop}-->
+
+<!--{template common/footer}-->

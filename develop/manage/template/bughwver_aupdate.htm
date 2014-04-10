@@ -1,0 +1,92 @@
+<!--{subtemplate common/header}-->
+		<!--{eval include template('header',0, './develop/manage/template');}-->
+		<div class="mgcont">
+			<div class="mgtit">
+				$manageitem_array[$action]
+				<p>
+				<!--{if $myPermission['hardware']}-->
+				<a href="manage.php?action=$action&operation=update"{if $operation=='update'} class="select"{/if}>添加硬件</a>
+				<!--{/if}-->
+				<!--{if $myPermission['version']}-->
+				<a href="manage.php?action=$action&operation=vupdate"{if $operation=='vupdate'} class="select"{/if}>添加版本</a>
+				<!--{/if}-->
+				<!--{if $myPermission['bugattr']}-->
+				<a href="manage.php?action=$action&operation=aupdate"{if $operation=='aupdate'} class="select"{/if}>添加问题属性</a>
+				<!--{/if}-->
+				<a href="manage.php?action=$action&operation=list"{if $operation=='list'} class="select"{/if}>列表</a>
+				</p>
+			</div>
+			<form method="post" autocomplete="off" action="manage.php?action={$action}&operation=$operation" enctype="multipart/form-data">
+			<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+			<!--{if $id}-->
+			<input type="hidden" name="id" value="{$id}" />
+			<!--{/if}-->
+			
+			<table class="distpermission" cellpadding="2" cellspacing="2" border="0" width="100%">
+				<tr>
+					<td  class="tit">属性标题</td>
+					<td  ><input type="text" name="bughwver[title]" value="{$bughwver_One['title']}" /></td>
+				</tr>
+				<tr>
+					<td  class="tit">属性归属类别</td>
+					<td>
+					<select name="bughwver[type]"  size="5">
+						<!--{loop $_Data['bugattr'] $key $name}-->
+						<!--{eval if(!isMyATT($key)) continue;}-->
+						<option value ="$key" {if  $key == $bughwver_One['type']}selected="selected"{/if}  >$name</option>
+						<!--{/loop}-->
+					</select>
+					
+					</td>
+				</tr>
+
+				<tr>
+					<td  class="tit">类型</td>
+					<td>
+						<input type="radio" name="bughwver[inputtype]" value="0" {if  !$bughwver_One['inputtype']}checked="ture"{/if} onchange="ShowInputBody(this)"> 输入框
+						<input type="radio" name="bughwver[inputtype]" value="1" {if  $bughwver_One['inputtype']}checked="ture"{/if} onchange="ShowInputBody(this)"> 选择框
+					</td>
+				</tr>
+				<tr id="inputtext_layer" style="display:{echo $bughwver_One[inputtype]==1?'':'none'}">
+					<td  class="tit _qtip">选择框内容<span title="填写这项用于设置选择框的选择项目,每行一条">(提示)</span></td>
+					<td>
+						<textarea name="bughwver[text]" style="height:100px" id="inputtext">$bughwver_One[text]</textarea> 
+					</td>
+				</tr>
+			
+				<tr>
+					<td  class="tit">是否为必填</td>
+					<td>
+						<input type="radio" name="bughwver[must]" value="0" {if  !$bughwver_One['must']}checked="ture"{/if}> 否
+						<input type="radio" name="bughwver[must]" value="1" {if  $bughwver_One['must']}checked="ture"{/if}> 是
+					</td>
+				</tr>
+
+				<tr>
+					<td ></td>
+					<td ><button type="submit" value="true" name="topicsubmit"><span> 提 交 </span></button>
+					</td>
+				</tr>
+			</table>
+			</form>
+		</div><!-- mgcont -->
+	</div><!-- manage -->
+</div>
+<script>
+jQuery('._qtip [title!=""]').qtip({
+	position: {my: 'bottom left', at: 'top left',adjust:{method: 'flip'}}
+});
+
+
+function ShowInputBody(_this){
+	if(_this.value != 1){
+		$('inputtext').value = '';
+	}
+	$('inputtext_layer').style.display = _this.value == 1?'':'none';
+}
+
+
+</script>
+
+</script>
+<!--{subtemplate common/footer}-->
