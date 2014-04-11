@@ -68,10 +68,7 @@ elseif(isset($_GET['P'])) {
 		#__debug_c_1 ol { margin-left: 20px; padding: 0px; }
 		#__debug_c_4_nav { background:#FFF; border:1px solid black; border-top:none; padding:5px; position: fixed; top:0px; right:0px }
 		</style></head><body><div id="__debugbarwrap__"><div id="__debugbar_s">
-			<table class="w" width=99%><tr><td valign=top width=50%><b style="float:left;width:1em;height:4em">文件</b><em>版本:</em> Discuz! X3.1 20131122<br /><em>ModID:</em> <s>forum::forumdisplay</s><br /><em>包含:</em> <a id="__debug_3" href="#debugbar" onclick="switchTab('__debug', 3, 10)">[文件列表]</a> <s>47 in 1.090879s</s><br /><td valign=top><b style="float:left;width:1em;height:5em">服务器</b><em>环境:</em> WINNT, Apache/2.2.22 (Win32) mod_fcgid/2.3.6 MySQL/5.5.24-log<br /><em>内存:</em> <s>5.90</s> MB, 峰值 <s>6.20</s> MB<br /><em>SQL:</em> <a id="__debug_1" href="#debugbar" onclick="switchTab('__debug', 1, 10)">[SQL列表]</a><a id="__debug_4" href="#debugbar" onclick="switchTab('__debug', 4, 10);sqldebug_ajax.location.href = sqldebug_ajax.location.href;">[AjaxSQL列表]</a> <s>18(discuz_table: 19, <s>Using filesort: 3</s>) in 0.057391s</s><br /><em>内存缓存:</em> <tr><td valign=top colspan="2"><b>客户端</b> <a id="__debug_2" href="#debugbar" onclick="switchTab('__debug', 2, 10)">[详情]</a> <span id="__debug_b"></span><tr><td colspan=2><a name="debugbar">&nbsp;</a><a href="javascript:;" onclick="parent.scrollTo(0,0)" style="float:right">[TOP]&nbsp;&nbsp;&nbsp;</a><img src="../static/image/common/arw_r.gif" /><a id="__debug_5" href="#debugbar" onclick="switchTab('__debug', 5, 10)">$_COOKIE</a><img src="../static/image/common/arw_r.gif" /><a id="__debug_6" href="#debugbar" onclick="switchTab('__debug', 6, 6)">$_G</a><img src="../static/image/common/arw_r.gif" /><a href="_debugadmin.php?k=346ff32eaa3c09983fb2ec057816d352&I" target="_blank">phpinfo()</a><img src="../static/image/common/arw_r.gif" /><a href="_debugadmin.php?k=346ff32eaa3c09983fb2ec057816d352&P" target="_blank">MySQL 进程列表</a><img src="../static/image/common/arw_r.gif" /><a href="_debugadmin.php?k=346ff32eaa3c09983fb2ec057816d352&C" target="_blank">查看缓存</a><img src="../static/image/common/arw_r.gif" /><a href="../misc.php?mod=initsys&formhash=23ff1b43" target="_debug_initframe" onclick="parent.$('_debug_initframe').onload = function () {parent.location.href=parent.location.href;}">更新缓存</a><img src="../static/image/common/arw_r.gif" /><a href="../install/update.php" target="_blank">执行 update.php</a></table></div><div id="__debugbar__" style="clear:both"><div id="__debug_c_1" style="display:none"><b>Queries: </b> 18<ol><li><span style="cursor:pointer" onclick="document.getElementById('sql_1').style.display = document.getElementById('sql_1').style.display == '' ? 'none' : ''">0.013382s &bull; DBLink 1 &bull; source/class/table/table_common_syscache.php<br />SELECT * FROM <font color=blue>pre_common_syscache</font> WHERE `cname` IN('smilies','announcements_forum','globalstick','forums','onlinelist','forumstick','threadtable_info','threadtableids','stamps','diytemplatenameforum','plugin','pluginlanguage_system','setting','style_default','cronnextrun')</span><br /></li><div id="sql_1" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_syscache&nbsp;</td><td>&nbsp;range&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;98&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;15&nbsp;</td><td>&nbsp;Using where&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_common_syscache.php</td><td>63</td><td>discuz_database::query()</td></tr><tr><td>source/function/function_core.php</td><td>729</td><td>table_common_syscache->fetch_all()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>676</td><td>loadcache()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>66</td><td>discuz_application->_init_setting()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_2').style.display = document.getElementById('sql_2').style.display == '' ? 'none' : ''">0.005010s &bull; DBLink 1 &bull; source/class/discuz/discuz_table_archive.php<br />SELECT * FROM <font color=blue>pre_common_member</font> WHERE `uid`='1'</span><br /></li><div id="sql_2" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_member&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>94</td><td>discuz_database::fetch_first()</td></tr><tr><td>source/class/discuz/discuz_table_archive.php</td><td>29</td><td>discuz_table->fetch()</td></tr><tr><td>source/function/function_core.php</td><td>73</td><td>discuz_table_archive->fetch()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>443</td><td>getuserbyuid()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>67</td><td>discuz_application->_init_user()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_3').style.display = document.getElementById('sql_3').style.display == '' ? 'none' : ''">0.002101s &bull; DBLink 1 &bull; source/class/table/table_common_syscache.php<br />SELECT * FROM <font color=blue>pre_common_syscache</font> WHERE `cname` IN('usergroup_1')</span><br /></li><div id="sql_3" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_syscache&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;98&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_common_syscache.php</td><td>63</td><td>discuz_database::query()</td></tr><tr><td>source/function/function_core.php</td><td>729</td><td>table_common_syscache->fetch_all()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>484</td><td>loadcache()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>67</td><td>discuz_application->_init_user()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_4').style.display = document.getElementById('sql_4').style.display == '' ? 'none' : ''">0.001387s &bull; DBLink 1 &bull; source/class/table/table_common_session.php<br />SELECT * FROM <font color=blue>pre_common_session</font> WHERE `sid`='OFordu'</span><br /></li><div id="sql_4" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_session&nbsp;</td><td>&nbsp;system&nbsp;</td><td>&nbsp;sid&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>94</td><td>discuz_database::fetch_first()</td></tr><tr><td>source/class/table/table_common_session.php</td><td>29</td><td>discuz_table->fetch()</td></tr><tr><td>source/class/discuz/discuz_session.php</td><td>62</td><td>table_common_session->fetch()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>399</td><td>discuz_session->init()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>68</td><td>discuz_application->_init_session()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_5').style.display = document.getElementById('sql_5').style.display == '' ? 'none' : ''">0.003213s &bull; DBLink 1 &bull; source/class/table/table_common_cron.php<br />SELECT * FROM <font color=blue>pre_common_cron</font> WHERE available&gt;'0' AND nextrun&lt;='1397119270' ORDER BY nextrun LIMIT 1</span><br /></li><div id="sql_5" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_cron&nbsp;</td><td>&nbsp;range&nbsp;</td><td>&nbsp;nextrun&nbsp;</td><td>&nbsp;nextrun&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;19&nbsp;</td><td>&nbsp;Using where; <font color=red>Using filesort</font>&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_common_cron.php</td><td>26</td><td>discuz_database::fetch_first()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>19</td><td>table_common_cron->fetch_nextrun()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div>Using where; <font color=red>Using filesort</font><br /><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_6').style.display = document.getElementById('sql_6').style.display == '' ? 'none' : ''">0.001147s &bull; DBLink 1 &bull; source/class/discuz/discuz_table.php<br />SELECT * FROM <font color=blue>pre_common_process</font> WHERE `processid`='DZ_CRON_12'</span><br /></li><div id="sql_6" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Impossible WHERE noticed after reading const tables&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>94</td><td>discuz_database::fetch_first()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>84</td><td>discuz_table->fetch()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>58</td><td>discuz_process::_process_cmd_db()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>39</td><td>discuz_process::_cmd()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>18</td><td>discuz_process::_find()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>27</td><td>discuz_process::islocked()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_7').style.display = document.getElementById('sql_7').style.display == '' ? 'none' : ''">0.000833s &bull; DBLink 1 &bull; source/class/discuz/discuz_table.php<br />REPLACE INTO <font color=blue>pre_common_process</font> SET `processid`='DZ_CRON_12' , `expiry`='1397119872'</span><br /></li><div id="sql_7" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>60</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>81</td><td>discuz_database::insert()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>81</td><td>discuz_table->insert()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>58</td><td>discuz_process::_process_cmd_db()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>40</td><td>discuz_process::_cmd()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>18</td><td>discuz_process::_find()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>27</td><td>discuz_process::islocked()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_8').style.display = document.getElementById('sql_8').style.display == '' ? 'none' : ''">0.001189s &bull; DBLink 1 &bull; source/class/discuz/discuz_table.php<br />UPDATE  <font color=blue>pre_common_cron</font> SET `lastrun`='1397119270' , `nextrun`='1397145600' WHERE `cronid`='12'</span><br /></li><div id="sql_8" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>78</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>57</td><td>discuz_database::update()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>117</td><td>discuz_table->update()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>43</td><td>discuz_cron::setnextime()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_9').style.display = document.getElementById('sql_9').style.display == '' ? 'none' : ''">0.002610s &bull; DBLink 1 &bull; source/class/table/table_forum_medallog.php<br />SELECT * FROM <font color=blue>pre_forum_medallog</font> WHERE status=1 AND expiration&gt;0 AND expiration&lt;1397119270</span><br /></li><div id="sql_9" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Impossible WHERE noticed after reading const tables&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>100</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_medallog.php</td><td>41</td><td>discuz_database::fetch_all()</td></tr><tr><td>source/include/cron/cron_medal_daily.php</td><td>17</td><td>table_forum_medallog->fetch_all_by_expiration()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_10').style.display = document.getElementById('sql_10').style.display == '' ? 'none' : ''">0.001753s &bull; DBLink 1 &bull; source/class/table/table_common_cron.php<br />SELECT * FROM <font color=blue>pre_common_cron</font> WHERE available&gt;'0' ORDER BY nextrun LIMIT 1</span><br /></li><div id="sql_10" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_cron&nbsp;</td><td>&nbsp;range&nbsp;</td><td>&nbsp;nextrun&nbsp;</td><td>&nbsp;nextrun&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;19&nbsp;</td><td>&nbsp;Using where; <font color=red>Using filesort</font>&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_common_cron.php</td><td>30</td><td>discuz_database::fetch_first()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>61</td><td>table_common_cron->fetch_nextcron()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>55</td><td>discuz_cron::nextcron()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div>Using where; <font color=red>Using filesort</font><br /><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_11').style.display = document.getElementById('sql_11').style.display == '' ? 'none' : ''">0.001332s &bull; DBLink 1 &bull; source/class/table/table_common_syscache.php<br />REPLACE INTO <font color=blue>pre_common_syscache</font> SET `cname`='cronnextrun' , `ctype`='0' , `dateline`='1397119270' , `data`='1397059200'</span><br /></li><div id="sql_11" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>60</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>81</td><td>discuz_database::insert()</td></tr><tr><td>source/class/table/table_common_syscache.php</td><td>93</td><td>discuz_table->insert()</td></tr><tr><td>source/function/function_core.php</td><td>817</td><td>table_common_syscache->insert()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>63</td><td>savecache()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>55</td><td>discuz_cron::nextcron()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_12').style.display = document.getElementById('sql_12').style.display == '' ? 'none' : ''">0.000931s &bull; DBLink 1 &bull; source/class/table/table_common_process.php<br />DELETE FROM <font color=blue>pre_common_process</font> WHERE processid='DZ_CRON_12' OR expiry&lt;1397119272 </span><br /></li><div id="sql_12" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>48</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_common_process.php</td><td>26</td><td>discuz_database::delete()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>92</td><td>table_common_process->delete_process()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>58</td><td>discuz_process::_process_cmd_db()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>23</td><td>discuz_process::_cmd()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>56</td><td>discuz_process::unlock()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_13').style.display = document.getElementById('sql_13').style.display == '' ? 'none' : ''">0.004452s &bull; DBLink 1 &bull; source/class/table/table_forum_forum.php<br />SELECT ff.*, f.* FROM <font color=blue>pre_forum_forum</font> f LEFT JOIN <font color=blue>pre_forum_forumfield</font> ff ON ff.fid=f.fid WHERE f.fid=36</span><br /></li><div id="sql_13" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;f&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;ff&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_forum.php</td><td>40</td><td>discuz_database::fetch_first()</td></tr><tr><td>source/function/function_forum.php</td><td>465</td><td>table_forum_forum->fetch_info_by_fid()</td></tr><tr><td>forum.php</td><td>59</td><td>loadforum()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_14').style.display = document.getElementById('sql_14').style.display == '' ? 'none' : ''">0.002032s &bull; DBLink 1<br />SELECT count(*) FROM <font color=blue>pre_buglist</font> b WHERE 1  </span><br /></li><div id="sql_14" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Select tables optimized away&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>117</td><td>discuz_database::query()</td></tr><tr><td>develop/_Module/BugListScript.class.php</td><td>78</td><td>discuz_database::result_first()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>184</td><td>BugListScript->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>167</td><td>Module->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>150</td><td>Module->Pointexecute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>232</td><td>Module->ModulePoint()</td></tr><tr><td>forum.php</td><td>71</td><td>ModulePoint()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_15').style.display = document.getElementById('sql_15').style.display == '' ? 'none' : ''">0.003339s &bull; DBLink 1<br />SELECT * FROM <font color=blue>pre_buglist</font> b <br />
-			LEFT JOIN <font color=blue>pre_forum_thread</font> t USING(`tid`) <br />
-			WHERE 1   ORDER BY b.`dateline` DESC LIMIT 0,20</span><br /></li><div id="sql_15" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;b&nbsp;</td><td>&nbsp;ALL&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;<font color=red>Using filesort</font>&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;t&nbsp;</td><td>&nbsp;eq_ref&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;dx31.b.tid&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>develop/_Module/BugListScript.class.php</td><td>87</td><td>discuz_database::query()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>184</td><td>BugListScript->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>167</td><td>Module->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>150</td><td>Module->Pointexecute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>232</td><td>Module->ModulePoint()</td></tr><tr><td>forum.php</td><td>71</td><td>ModulePoint()</td></tr></table></div><font color=red>Using filesort</font><br /><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_16').style.display = document.getElementById('sql_16').style.display == '' ? 'none' : ''">0.002215s &bull; DBLink 1 &bull; source/class/table/table_common_onlinetime.php<br />UPDATE <font color=blue>pre_common_onlinetime</font><br />
-			SET total=total+'10', thismonth=thismonth+'10', lastupdate='1397119270' WHERE `uid`='1'</span><br /></li><div id="sql_16" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_common_onlinetime.php</td><td>27</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_session.php</td><td>198</td><td>table_common_onlinetime->update_onlinetime()</td></tr><tr><td>source/function/function_core.php</td><td>21</td><td>discuz_session::updatesession()</td></tr><tr><td>data/template/2_2_common_footer.tpl.php</td><td>62</td><td>updatesession()</td></tr><tr><td>data/template/2_2_buglist_forumdisplay.tpl.php</td><td>39</td><td>include()</td></tr><tr><td>develop/_Module/BugListScript.class.php</td><td>112</td><td>include()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>184</td><td>BugListScript->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>167</td><td>Module->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>150</td><td>Module->Pointexecute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>232</td><td>Module->ModulePoint()</td></tr><tr><td>forum.php</td><td>71</td><td>ModulePoint()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_17').style.display = document.getElementById('sql_17').style.display == '' ? 'none' : ''">0.001238s &bull; DBLink 1 &bull; source/class/discuz/discuz_table.php<br />UPDATE  <font color=blue>pre_common_session</font> SET `sid`='OFordu' , `ip1`='127' , `ip2`='0' , `ip3`='0' , `ip4`='1' , `uid`='1' , `username`='admin' , `groupid`='1' , `invisible`='0' , `action`='2' , `lastactivity`='1397119270' , `lastolupdate`='1397119270' , `fid`='0' , `tid`='0' WHERE `sid`='OFordu'</span><br /></li><div id="sql_17" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>78</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>57</td><td>discuz_database::update()</td></tr><tr><td>source/class/discuz/discuz_session.php</td><td>100</td><td>discuz_table->update()</td></tr><tr><td>source/class/discuz/discuz_session.php</td><td>220</td><td>discuz_session->update()</td></tr><tr><td>source/function/function_core.php</td><td>21</td><td>discuz_session::updatesession()</td></tr><tr><td>data/template/2_2_common_footer.tpl.php</td><td>62</td><td>updatesession()</td></tr><tr><td>data/template/2_2_buglist_forumdisplay.tpl.php</td><td>39</td><td>include()</td></tr><tr><td>develop/_Module/BugListScript.class.php</td><td>112</td><td>include()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>184</td><td>BugListScript->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>167</td><td>Module->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>150</td><td>Module->Pointexecute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>232</td><td>Module->ModulePoint()</td></tr><tr><td>forum.php</td><td>71</td><td>ModulePoint()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_18').style.display = document.getElementById('sql_18').style.display == '' ? 'none' : ''">0.009227s &bull; DBLink 1 &bull; source/class/table/table_common_syscache.php<br />SELECT * FROM <font color=blue>pre_common_syscache</font> WHERE `cname` IN('staticlink')</span><br /></li><div id="sql_18" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_syscache&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;98&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_common_syscache.php</td><td>63</td><td>discuz_database::query()</td></tr><tr><td>source/function/function_core.php</td><td>729</td><td>table_common_syscache->fetch_all()</td></tr><tr><td>develop/_Module/staticlink.class.php</td><td>54</td><td>loadcache()</td></tr><tr><td>develop/_Module/staticlink.class.php(47) : regexp code</td><td>1</td><td>staticlink->staticrewrite()</td></tr><tr><td>develop/_Module/staticlink.class.php</td><td>47</td><td>preg_replace()</td></tr><tr><td>develop/_Module/staticlink.class.php</td><td>31</td><td>staticlink->staticparse()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>184</td><td>staticlink->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>167</td><td>Module->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>150</td><td>Module->Pointexecute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>232</td><td>Module->ModulePoint()</td></tr><tr><td>source/function/function_core.php</td><td>1049</td><td>ModulePoint()</td></tr><tr><td>data/template/2_2_common_footer.tpl.php</td><td>131</td><td>output()</td></tr><tr><td>data/template/2_2_buglist_forumdisplay.tpl.php</td><td>39</td><td>include()</td></tr><tr><td>develop/_Module/BugListScript.class.php</td><td>112</td><td>include()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>184</td><td>BugListScript->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>167</td><td>Module->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>150</td><td>Module->Pointexecute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>232</td><td>Module->ModulePoint()</td></tr><tr><td>forum.php</td><td>71</td><td>ModulePoint()</td></tr></table></div><br /></ol></div><div id="__debug_c_4" style="display:none"><iframe id="sqldebug_ajax" name="sqldebug_ajax" src="../data/_debugadmin.php_ajax.php?k=346ff32eaa3c09983fb2ec057816d352" frameborder="0" width="100%" height="800"></iframe></div><div id="__debug_c_2" style="display:none"><b>IP: </b>127.0.0.1<br /><b>User Agent: </b>Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.27 Safari/537.36<br /><b>BROWSER.x: </b><script>for(BROWSERi in BROWSER) {var __s=BROWSERi+':'+BROWSER[BROWSERi]+' ';$('__debug_b').innerHTML+=BROWSER[BROWSERi]!==0?__s:'';document.write(__s);}</script></div><div id="__debug_c_3" style="display:none"><ol><li>forum.php</li><li>[脚本]source/class/class_core.php</li><li>develop/_ModuleSystem.php</li><li>develop/Library/Library.class.php</li><li>develop/Library/debug.class.php</li><li>develop/_ModuleList.php</li><li>develop/_Module/staticlink.class.php</li><li>develop/_Module/BugListScript.class.php</li><li>develop/_Module/ArticleScript.class.php</li><li>develop/_Module/Checkin.class.php</li><li>[脚本]source/class/discuz/discuz_application.php</li><li>[脚本]source/class/discuz/discuz_base.php</li><li>[脚本]source/function/function_core.php</li><li>[配置]config/config_global.php</li><li>[脚本]source/class/discuz/discuz_database.php</li><li>[脚本]source/function/function_forum.php</li><li>[脚本]source/class/db/db_driver_mysql.php</li><li>[脚本]source/class/table/table_common_syscache.php</li><li>[脚本]source/class/discuz/discuz_table.php</li><li>[脚本]source/class/discuz/discuz_memory.php</li><li>[脚本]source/class/table/table_common_member.php</li><li>[脚本]source/class/discuz/discuz_table_archive.php</li><li>[脚本]source/class/discuz/discuz_session.php</li><li>[脚本]source/class/table/table_common_session.php</li><li>[脚本]source/class/discuz/discuz_cron.php</li><li>[脚本]source/class/table/table_common_cron.php</li><li>[脚本]source/class/discuz/discuz_process.php</li><li>[脚本]source/class/table/table_common_process.php</li><li>[脚本]source/include/cron/cron_medal_daily.php</li><li>[脚本]source/class/table/table_forum_medallog.php</li><li>[脚本]source/class/table/table_common_member_field_forum.php</li><li>[脚本]source/language/lang_core.php</li><li>[脚本]source/class/table/table_forum_forum.php</li><li>[插件]source/plugin/mobile/mobile.class.php</li><li>develop/_Data/buglist.data.php</li><li>develop/_Data/buglistfid.data.php</li><li>develop/_Data/buglist_handling.data.php</li><li>[模板]data/template/2_2_buglist_forumdisplay.tpl.php</li><li>[模板]data/template/2_2_common_header_forum_forumdisplay.tpl.php</li><li>[脚本]source/class/helper/helper_access.php</li><li>[模板]data/template/2_2_common_header_userstatus.tpl.php</li><li>[模板]data/template/2_2_common_footer.tpl.php</li><li>[脚本]source/class/table/table_common_onlinetime.php</li><li>[脚本]source/class/class_cloud.php</li><li>[插件]source/plugin/manyou/Service/DiscuzTips.php</li><li>[插件]source/plugin/manyou/Service/Util.php</li><li>[脚本]source/discuz_version.php</li><li>[脚本]source/function/function_debug.php</li><ol></div><div id="__debug_c_5" style="display:none"><ol><li><br />['<font color=blue>YKw3_2132_saltkey</font>'] => gwd99H83</li><li><br />['<font color=blue>YKw3_2132_lastvisit</font>'] => 1397037199</li><li><br />['<font color=blue>YKw3_2132_auth</font>'] => d991hcF5ULtJfT35d4whDTeu6N5nwnqKeK1bUpNXKuxVkr2bW5PXaR+c93ltVo3kdWDLbQB0X6t3Cu7u6wqd</li><li><br />['<font color=blue>YKw3_2132_lastcheckfeed</font>'] => 1|1397040804</li><li><br />['<font color=blue>YKw3_2132_lip</font>'] => 127.0.0.1,1397025762</li><li><br />['<font color=blue>YKw3_2132_nofavfid</font>'] => 1</li><li><br />['JwXs_2132_saltkey'] => gLT8mMCM</li><li><br />['JwXs_2132_lastvisit'] => 1397041212</li><li><br />['JwXs_2132_ulastactivity'] => 1ce4JGlZx9kvKAljOMrYy8WygN/fxvj4VPXQHN1tjclN8YWwuO2z</li><li><br />['JwXs_2132_auth'] => d8246TVKEBXdjkExihpTr/w3j1qjolrdC1o9UwUN64Vr3aQRPzINs/USRgcN5oOcSUFPlDVpq7K32Eo26fje</li><li><br />['JwXs_2132_lastcheckfeed'] => 5|1397046767</li><li><br />['JwXs_2132_nofavfid'] => 1</li><li><br />['JwXs_2132_home_diymode'] => 1</li><li><br />['JwXs_2132_visitedfid'] => 2</li><li><br />['JwXs_2132_st_t'] => 5|1397050343|58849c63b4799643df57433fa0f27b5c</li><li><br />['JwXs_2132_forum_lastvisit'] => D_2_1397050343</li><li><br />['JwXs_2132_smile'] => 1D1</li><li><br />['JwXs_2132__refer'] => %2Fdiscuzx31%2Fhome.php%3Fmod%3Dspacecp%26ac%3Dpm%26op%3Dchecknewpm%26rand%3D1397050343</li><li><br />['JwXs_2132_sid'] => emRIij</li><li><br />['<font color=blue>YKw3_2132_st_p</font>'] => 1|1397114571|90543aa0c0edc8608ca14d2519316bfa</li><li><br />['<font color=blue>YKw3_2132_visitedfid</font>'] => 36</li><li><br />['<font color=blue>YKw3_2132_viewid</font>'] => tid_76</li><li><br />['<font color=blue>YKw3_2132_ulastactivity</font>'] => e7baPRUqy/hI7kNY8uGBgBVXSJcsnpM7+b5aWEB9D+z1WxH59t5r</li><li><br />['<font color=blue>YKw3_2132_smile</font>'] => 1D1</li><li><br />['<font color=blue>YKw3_2132_sid</font>'] => OFordu</li><li><br />['<font color=blue>YKw3_2132_lastact</font>'] => 1397119270	forum.php	forumdisplay</li><li><br />['JwXs_2132_lastact'] => 1397119232	convert.php	</li></ol></div><div id="__debug_c_6" style="display:none"><div id="__debug_c_4_nav"><a href="#S_config">Nav:<br />
+			<table class="w" width=99%><tr><td valign=top width=50%><b style="float:left;width:1em;height:4em">文件</b><em>版本:</em> Discuz! X3.1 20131122<br /><em>ModID:</em> <s>forum::forumdisplay</s><br /><em>包含:</em> <a id="__debug_3" href="#debugbar" onclick="switchTab('__debug', 3, 10)">[文件列表]</a> <s>86 in 1.338574s</s><br /><td valign=top><b style="float:left;width:1em;height:5em">服务器</b><em>环境:</em> WINNT, Apache/2.2.22 (Win32) mod_fcgid/2.3.6 MySQL/5.5.24-log<br /><em>内存:</em> <s>10.85</s> MB, 峰值 <s>11.69</s> MB<br /><em>SQL:</em> <a id="__debug_1" href="#debugbar" onclick="switchTab('__debug', 1, 10)">[SQL列表]</a><a id="__debug_4" href="#debugbar" onclick="switchTab('__debug', 4, 10);sqldebug_ajax.location.href = sqldebug_ajax.location.href;">[AjaxSQL列表]</a> <s>55(discuz_table: 60, <s>Using filesort: 2</s>) in 0.060505s</s><br /><em>内存缓存:</em> <tr><td valign=top colspan="2"><b>客户端</b> <a id="__debug_2" href="#debugbar" onclick="switchTab('__debug', 2, 10)">[详情]</a> <span id="__debug_b"></span><tr><td colspan=2><a name="debugbar">&nbsp;</a><a href="javascript:;" onclick="parent.scrollTo(0,0)" style="float:right">[TOP]&nbsp;&nbsp;&nbsp;</a><img src="../static/image/common/arw_r.gif" /><a id="__debug_5" href="#debugbar" onclick="switchTab('__debug', 5, 10)">$_COOKIE</a><img src="../static/image/common/arw_r.gif" /><a id="__debug_6" href="#debugbar" onclick="switchTab('__debug', 6, 6)">$_G</a><img src="../static/image/common/arw_r.gif" /><a href="_debugadmin.php?k=346ff32eaa3c09983fb2ec057816d352&I" target="_blank">phpinfo()</a><img src="../static/image/common/arw_r.gif" /><a href="_debugadmin.php?k=346ff32eaa3c09983fb2ec057816d352&P" target="_blank">MySQL 进程列表</a><img src="../static/image/common/arw_r.gif" /><a href="_debugadmin.php?k=346ff32eaa3c09983fb2ec057816d352&C" target="_blank">查看缓存</a><img src="../static/image/common/arw_r.gif" /><a href="../misc.php?mod=initsys&formhash=23ff1b43" target="_debug_initframe" onclick="parent.$('_debug_initframe').onload = function () {parent.location.href=parent.location.href;}">更新缓存</a><img src="../static/image/common/arw_r.gif" /><a href="../install/update.php" target="_blank">执行 update.php</a></table></div><div id="__debugbar__" style="clear:both"><div id="__debug_c_1" style="display:none"><b>Queries: </b> 55<ol><li><span style="cursor:pointer" onclick="document.getElementById('sql_1').style.display = document.getElementById('sql_1').style.display == '' ? 'none' : ''">0.003330s &bull; DBLink 1 &bull; source/class/table/table_common_syscache.php<br />SELECT * FROM <font color=blue>pre_common_syscache</font> WHERE `cname` IN('smilies','announcements_forum','globalstick','forums','onlinelist','forumstick','threadtable_info','threadtableids','stamps','diytemplatenameforum','plugin','pluginlanguage_system','setting','style_default','cronnextrun')</span><br /></li><div id="sql_1" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_syscache&nbsp;</td><td>&nbsp;range&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;98&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;15&nbsp;</td><td>&nbsp;Using where&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_common_syscache.php</td><td>63</td><td>discuz_database::query()</td></tr><tr><td>source/function/function_core.php</td><td>729</td><td>table_common_syscache->fetch_all()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>676</td><td>loadcache()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>66</td><td>discuz_application->_init_setting()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_2').style.display = document.getElementById('sql_2').style.display == '' ? 'none' : ''">0.000538s &bull; DBLink 1 &bull; source/class/discuz/discuz_table_archive.php<br />SELECT * FROM <font color=blue>pre_common_member</font> WHERE `uid`='1'</span><br /></li><div id="sql_2" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_member&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>94</td><td>discuz_database::fetch_first()</td></tr><tr><td>source/class/discuz/discuz_table_archive.php</td><td>29</td><td>discuz_table->fetch()</td></tr><tr><td>source/function/function_core.php</td><td>73</td><td>discuz_table_archive->fetch()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>443</td><td>getuserbyuid()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>67</td><td>discuz_application->_init_user()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_3').style.display = document.getElementById('sql_3').style.display == '' ? 'none' : ''">0.000673s &bull; DBLink 1 &bull; source/class/table/table_common_syscache.php<br />SELECT * FROM <font color=blue>pre_common_syscache</font> WHERE `cname` IN('usergroup_1')</span><br /></li><div id="sql_3" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_syscache&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;98&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_common_syscache.php</td><td>63</td><td>discuz_database::query()</td></tr><tr><td>source/function/function_core.php</td><td>729</td><td>table_common_syscache->fetch_all()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>484</td><td>loadcache()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>67</td><td>discuz_application->_init_user()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_4').style.display = document.getElementById('sql_4').style.display == '' ? 'none' : ''">0.000426s &bull; DBLink 1 &bull; source/class/table/table_common_session.php<br />SELECT * FROM <font color=blue>pre_common_session</font> WHERE `sid`='mYdDzQ'</span><br /></li><div id="sql_4" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_session&nbsp;</td><td>&nbsp;system&nbsp;</td><td>&nbsp;sid&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>94</td><td>discuz_database::fetch_first()</td></tr><tr><td>source/class/table/table_common_session.php</td><td>29</td><td>discuz_table->fetch()</td></tr><tr><td>source/class/discuz/discuz_session.php</td><td>62</td><td>table_common_session->fetch()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>399</td><td>discuz_session->init()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>68</td><td>discuz_application->_init_session()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_5').style.display = document.getElementById('sql_5').style.display == '' ? 'none' : ''">0.000478s &bull; DBLink 1 &bull; source/class/table/table_common_cron.php<br />SELECT * FROM <font color=blue>pre_common_cron</font> WHERE available&gt;'0' AND nextrun&lt;='1397199518' ORDER BY nextrun LIMIT 1</span><br /></li><div id="sql_5" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_cron&nbsp;</td><td>&nbsp;range&nbsp;</td><td>&nbsp;nextrun&nbsp;</td><td>&nbsp;nextrun&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;19&nbsp;</td><td>&nbsp;Using where; <font color=red>Using filesort</font>&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_common_cron.php</td><td>26</td><td>discuz_database::fetch_first()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>19</td><td>table_common_cron->fetch_nextrun()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div>Using where; <font color=red>Using filesort</font><br /><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_6').style.display = document.getElementById('sql_6').style.display == '' ? 'none' : ''">0.000343s &bull; DBLink 1 &bull; source/class/discuz/discuz_table.php<br />SELECT * FROM <font color=blue>pre_common_process</font> WHERE `processid`='DZ_CRON_3'</span><br /></li><div id="sql_6" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Impossible WHERE noticed after reading const tables&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>94</td><td>discuz_database::fetch_first()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>84</td><td>discuz_table->fetch()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>58</td><td>discuz_process::_process_cmd_db()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>39</td><td>discuz_process::_cmd()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>18</td><td>discuz_process::_find()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>27</td><td>discuz_process::islocked()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_7').style.display = document.getElementById('sql_7').style.display == '' ? 'none' : ''">0.000265s &bull; DBLink 1 &bull; source/class/discuz/discuz_table.php<br />REPLACE INTO <font color=blue>pre_common_process</font> SET `processid`='DZ_CRON_3' , `expiry`='1397200119'</span><br /></li><div id="sql_7" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>60</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>81</td><td>discuz_database::insert()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>81</td><td>discuz_table->insert()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>58</td><td>discuz_process::_process_cmd_db()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>40</td><td>discuz_process::_cmd()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>18</td><td>discuz_process::_find()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>27</td><td>discuz_process::islocked()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_8').style.display = document.getElementById('sql_8').style.display == '' ? 'none' : ''">0.000332s &bull; DBLink 1 &bull; source/class/discuz/discuz_table.php<br />UPDATE  <font color=blue>pre_common_cron</font> SET `lastrun`='1397199518' , `nextrun`='1397251800' WHERE `cronid`='3'</span><br /></li><div id="sql_8" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>78</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>57</td><td>discuz_database::update()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>117</td><td>discuz_table->update()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>43</td><td>discuz_cron::setnextime()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_9').style.display = document.getElementById('sql_9').style.display == '' ? 'none' : ''">0.000627s &bull; DBLink 1 &bull; source/class/table/table_forum_forum.php<br />SELECT * FROM <font color=blue>pre_forum_forum</font> WHERE type&lt;&gt;'group'  AND status&lt;&gt;3  </span><br /></li><div id="sql_9" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_forum_forum&nbsp;</td><td>&nbsp;range&nbsp;</td><td>&nbsp;forum&nbsp;</td><td>&nbsp;forum&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;5&nbsp;</td><td>&nbsp;Using where&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>100</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_forum.php</td><td>37</td><td>discuz_database::fetch_all()</td></tr><tr><td>source/function/cache/cache_forumrecommend.php</td><td>16</td><td>table_forum_forum->fetch_all_fids()</td></tr><tr><td></td><td></td><td>build_cache_forumrecommend()</td></tr><tr><td>source/function/function_cache.php</td><td>47</td><td>call_user_func()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>14</td><td>updatecache()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_10').style.display = document.getElementById('sql_10').style.display == '' ? 'none' : ''">0.000788s &bull; DBLink 1 &bull; source/class/table/table_forum_forum.php<br />SELECT ff.*, f.* FROM <font color=blue>pre_forum_forum</font> f LEFT JOIN <font color=blue>pre_forum_forumfield</font> ff ON ff.fid=f.fid WHERE f.recommend=2</span><br /></li><div id="sql_10" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;f&nbsp;</td><td>&nbsp;ALL&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;35&nbsp;</td><td>&nbsp;Using where&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;ff&nbsp;</td><td>&nbsp;eq_ref&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;dx31.f.fid&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>100</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_forum.php</td><td>74</td><td>discuz_database::fetch_all()</td></tr><tr><td>source/function/cache/cache_forumrecommend.php</td><td>19</td><td>table_forum_forum->fetch_all_recommend_by_fid()</td></tr><tr><td></td><td></td><td>build_cache_forumrecommend()</td></tr><tr><td>source/function/function_cache.php</td><td>47</td><td>call_user_func()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>14</td><td>updatecache()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_11').style.display = document.getElementById('sql_11').style.display == '' ? 'none' : ''">0.000741s &bull; DBLink 1 &bull; source/class/table/table_forum_forum.php<br />SELECT ff.*, f.* FROM <font color=blue>pre_forum_forum</font> f LEFT JOIN <font color=blue>pre_forum_forumfield</font> ff ON ff.fid=f.fid WHERE f.recommend=36</span><br /></li><div id="sql_11" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;f&nbsp;</td><td>&nbsp;ALL&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;35&nbsp;</td><td>&nbsp;Using where&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;ff&nbsp;</td><td>&nbsp;eq_ref&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;dx31.f.fid&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>100</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_forum.php</td><td>74</td><td>discuz_database::fetch_all()</td></tr><tr><td>source/function/cache/cache_forumrecommend.php</td><td>19</td><td>table_forum_forum->fetch_all_recommend_by_fid()</td></tr><tr><td></td><td></td><td>build_cache_forumrecommend()</td></tr><tr><td>source/function/function_cache.php</td><td>47</td><td>call_user_func()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>14</td><td>updatecache()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_12').style.display = document.getElementById('sql_12').style.display == '' ? 'none' : ''">0.000352s &bull; DBLink 1 &bull; source/class/table/table_common_syscache.php<br />REPLACE INTO <font color=blue>pre_common_syscache</font> SET `cname`='forumrecommend' , `ctype`='1' , `dateline`='1397199518' , `data`='a:0:{}'</span><br /></li><div id="sql_12" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>60</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>81</td><td>discuz_database::insert()</td></tr><tr><td>source/class/table/table_common_syscache.php</td><td>93</td><td>discuz_table->insert()</td></tr><tr><td>source/function/function_core.php</td><td>817</td><td>table_common_syscache->insert()</td></tr><tr><td>source/function/cache/cache_forumrecommend.php</td><td>40</td><td>savecache()</td></tr><tr><td></td><td></td><td>build_cache_forumrecommend()</td></tr><tr><td>source/function/function_cache.php</td><td>47</td><td>call_user_func()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>14</td><td>updatecache()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_13').style.display = document.getElementById('sql_13').style.display == '' ? 'none' : ''">0.003256s &bull; DBLink 1 &bull; source/class/table/table_common_task.php<br />UPDATE <font color=blue>pre_common_task</font> SET available='2' WHERE available='1' AND starttime&gt;'0' AND starttime&lt;=1397199518 AND (endtime IS NULL OR endtime&gt;1397199518)</span><br /></li><div id="sql_13" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_common_task.php</td><td>56</td><td>discuz_database::query()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>16</td><td>table_common_task->update_available()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_14').style.display = document.getElementById('sql_14').style.display == '' ? 'none' : ''">0.002300s &bull; DBLink 1 &bull; source/class/table/table_common_advertisement.php<br />SELECT COUNT(*) FROM <font color=blue>pre_common_advertisement</font> WHERE endtime&gt;0 AND endtime&lt;='1397199518'</span><br /></li><div id="sql_14" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Impossible WHERE noticed after reading const tables&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>117</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_common_advertisement.php</td><td>37</td><td>discuz_database::result_first()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>18</td><td>table_common_advertisement->close_endtime()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_15').style.display = document.getElementById('sql_15').style.display == '' ? 'none' : ''">0.000261s &bull; DBLink 1 &bull; source/class/table/table_common_advertisement.php<br />UPDATE  <font color=blue>pre_common_advertisement</font> SET `available`='0' WHERE endtime&gt;0 AND endtime&lt;='1397199518'</span><br /></li><div id="sql_15" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>78</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_common_advertisement.php</td><td>38</td><td>discuz_database::update()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>18</td><td>table_common_advertisement->close_endtime()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_16').style.display = document.getElementById('sql_16').style.display == '' ? 'none' : ''">0.001031s &bull; DBLink 1 &bull; source/class/table/table_forum_threaddisablepos.php<br />TRUNCATE <font color=blue>pre_forum_threaddisablepos</font></span><br /></li><div id="sql_16" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_forum_threaddisablepos.php</td><td>20</td><td>discuz_database::query()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>21</td><td>table_forum_threaddisablepos->truncate()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_17').style.display = document.getElementById('sql_17').style.display == '' ? 'none' : ''">0.001931s &bull; DBLink 1 &bull; source/class/discuz/discuz_table.php<br />TRUNCATE <font color=blue>pre_common_searchindex</font></span><br /></li><div id="sql_17" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>77</td><td>discuz_database::query()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>22</td><td>discuz_table->truncate()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_18').style.display = document.getElementById('sql_18').style.display == '' ? 'none' : ''">0.001488s &bull; DBLink 1 &bull; source/class/table/table_forum_threadmod.php<br />DELETE FROM <font color=blue>pre_forum_threadmod</font> WHERE `tid`&gt;'0' AND `dateline`&lt;'1365663518' </span><br /></li><div id="sql_18" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>48</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_threadmod.php</td><td>58</td><td>discuz_database::delete()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>23</td><td>table_forum_threadmod->delete_by_dateline()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_19').style.display = document.getElementById('sql_19').style.display == '' ? 'none' : ''">0.001585s &bull; DBLink 1 &bull; source/class/table/table_forum_forumrecommend.php<br />DELETE FROM <font color=blue>pre_forum_forumrecommend</font> WHERE expiration&gt;0 AND expiration&lt;1397199518</span><br /></li><div id="sql_19" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_forum_forumrecommend.php</td><td>40</td><td>discuz_database::query()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>24</td><td>table_forum_forumrecommend->delete_old()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_20').style.display = document.getElementById('sql_20').style.display == '' ? 'none' : ''">0.001898s &bull; DBLink 1 &bull; source/class/table/table_home_visitor.php<br />DELETE FROM <font color=blue>pre_home_visitor</font> WHERE `dateline`&lt;'1389423518' </span><br /></li><div id="sql_20" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>48</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_home_visitor.php</td><td>54</td><td>discuz_database::delete()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>25</td><td>table_home_visitor->delete_by_dateline()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_21').style.display = document.getElementById('sql_21').style.display == '' ? 'none' : ''">0.001957s &bull; DBLink 1 &bull; source/class/table/table_forum_postcache.php<br />DELETE FROM <font color=blue>pre_forum_postcache</font> WHERE `dateline`&lt;'1397113118' </span><br /></li><div id="sql_21" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>48</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_postcache.php</td><td>26</td><td>discuz_database::delete()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>26</td><td>table_forum_postcache->delete_by_dateline()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_22').style.display = document.getElementById('sql_22').style.display == '' ? 'none' : ''">0.001884s &bull; DBLink 1 &bull; source/class/table/table_forum_newthread.php<br />DELETE FROM <font color=blue>pre_forum_newthread</font> WHERE `dateline`&lt;'1395903518' </span><br /></li><div id="sql_22" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>48</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_newthread.php</td><td>38</td><td>discuz_database::delete()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>27</td><td>table_forum_newthread->delete_by_dateline()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_23').style.display = document.getElementById('sql_23').style.display == '' ? 'none' : ''">0.000897s &bull; DBLink 1 &bull; source/class/table/table_common_seccheck.php<br />TRUNCATE <font color=blue>pre_common_seccheck</font></span><br /></li><div id="sql_23" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_common_seccheck.php</td><td>44</td><td>discuz_database::query()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>28</td><td>table_common_seccheck->truncate()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_24').style.display = document.getElementById('sql_24').style.display == '' ? 'none' : ''">0.000318s &bull; DBLink 1 &bull; source/class/table/table_common_member_count.php<br />UPDATE <font color=blue>pre_common_member_count</font> SET todayattachs='0',todayattachsize='0'</span><br /></li><div id="sql_24" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_common_member_count.php</td><td>87</td><td>discuz_database::query()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>35</td><td>table_common_member_count->clear_today_data()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_25').style.display = document.getElementById('sql_25').style.display == '' ? 'none' : ''">0.001892s &bull; DBLink 1 &bull; source/class/table/table_forum_trade.php<br />UPDATE <font color=blue>pre_forum_trade</font> SET closed='1' WHERE expiration&gt;0 AND expiration&lt;1397199518</span><br /></li><div id="sql_25" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_forum_trade.php</td><td>60</td><td>discuz_database::query()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>37</td><td>table_forum_trade->update_closed()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_26').style.display = document.getElementById('sql_26').style.display == '' ? 'none' : ''">0.002595s &bull; DBLink 1 &bull; source/class/table/table_forum_tradelog.php<br />DELETE FROM <font color=blue>pre_forum_tradelog</font> WHERE buyerid&gt;0 AND status=0 AND lastupdate&lt;1396594718</span><br /></li><div id="sql_26" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_forum_tradelog.php</td><td>35</td><td>discuz_database::query()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>38</td><td>table_forum_tradelog->clear_failure()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_27').style.display = document.getElementById('sql_27').style.display == '' ? 'none' : ''">0.000690s &bull; DBLink 1 &bull; source/class/table/table_forum_tradelog.php<br />SELECT * FROM <font color=blue>pre_forum_tradelog</font> WHERE buyerid&gt;0 AND status=4 AND lastupdate&lt;1396594718</span><br /></li><div id="sql_27" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Impossible WHERE noticed after reading const tables&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>100</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_tradelog.php</td><td>40</td><td>discuz_database::fetch_all()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>39</td><td>table_forum_tradelog->expiration_payed()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_28').style.display = document.getElementById('sql_28').style.display == '' ? 'none' : ''">0.000348s &bull; DBLink 1 &bull; source/class/table/table_forum_tradelog.php<br />DELETE FROM <font color=blue>pre_forum_tradelog</font> WHERE buyerid&gt;0 AND status=4 AND lastupdate&lt;1396594718</span><br /></li><div id="sql_28" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_forum_tradelog.php</td><td>48</td><td>discuz_database::query()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>39</td><td>table_forum_tradelog->expiration_payed()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_29').style.display = document.getElementById('sql_29').style.display == '' ? 'none' : ''">0.000570s &bull; DBLink 1 &bull; source/class/table/table_forum_tradelog.php<br />SELECT * FROM <font color=blue>pre_forum_tradelog</font> WHERE sellerid&gt;0 AND status=5 AND lastupdate&lt;1396594718</span><br /></li><div id="sql_29" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Impossible WHERE noticed after reading const tables&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>100</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_tradelog.php</td><td>53</td><td>discuz_database::fetch_all()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>40</td><td>table_forum_tradelog->expiration_finished()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_30').style.display = document.getElementById('sql_30').style.display == '' ? 'none' : ''">0.000345s &bull; DBLink 1 &bull; source/class/table/table_forum_tradelog.php<br />DELETE FROM <font color=blue>pre_forum_tradelog</font> WHERE sellerid&gt;0 AND status=5 AND lastupdate&lt;1396594718</span><br /></li><div id="sql_30" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_forum_tradelog.php</td><td>61</td><td>discuz_database::query()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>40</td><td>table_forum_tradelog->expiration_finished()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_31').style.display = document.getElementById('sql_31').style.display == '' ? 'none' : ''">0.002544s &bull; DBLink 1 &bull; source/class/table/table_forum_attachment_unused.php<br />SELECT aid, attachment, thumb FROM <font color=blue>pre_forum_attachment_unused</font> WHERE `dateline`='1397113118'</span><br /></li><div id="sql_31" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Impossible WHERE noticed after reading const tables&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_forum_attachment_unused.php</td><td>27</td><td>discuz_database::query()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>48</td><td>table_forum_attachment_unused->clear()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_32').style.display = document.getElementById('sql_32').style.display == '' ? 'none' : ''">0.003112s &bull; DBLink 1 &bull; source/class/table/table_forum_polloption_image.php<br />SELECT tid, attachment, thumb FROM <font color=blue>pre_forum_polloption_image</font> WHERE tid=0 AND dateline&lt;=1397113118</span><br /></li><div id="sql_32" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Impossible WHERE noticed after reading const tables&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_forum_polloption_image.php</td><td>34</td><td>discuz_database::query()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>50</td><td>table_forum_polloption_image->clear()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_33').style.display = document.getElementById('sql_33').style.display == '' ? 'none' : ''">0.000485s &bull; DBLink 1 &bull; source/class/table/table_common_member.php<br />SELECT uid, groupid, credits FROM <font color=blue>pre_common_member</font> WHERE groupid IN ('4', '5') AND groupexpiry&gt;'0' AND groupexpiry&lt;'1397199518'</span><br /></li><div id="sql_33" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_member&nbsp;</td><td>&nbsp;range&nbsp;</td><td>&nbsp;groupid&nbsp;</td><td>&nbsp;groupid&nbsp;</td><td>&nbsp;2&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;2&nbsp;</td><td>&nbsp;Using where&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>100</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_common_member.php</td><td>166</td><td>discuz_database::fetch_all()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>53</td><td>table_common_member->fetch_all_ban_by_groupexpiry()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_34').style.display = document.getElementById('sql_34').style.display == '' ? 'none' : ''">0.002536s &bull; DBLink 1 &bull; source/class/table/table_common_card.php<br />SELECT COUNT(*) FROM <font color=blue>pre_common_card</font> WHERE status = '1' AND cleardateline &lt;= '1397199518'</span><br /></li><div id="sql_34" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Impossible WHERE noticed after reading const tables&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>117</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_common_card.php</td><td>32</td><td>discuz_database::result_first()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>105</td><td>table_common_card->count_by_where()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_35').style.display = document.getElementById('sql_35').style.display == '' ? 'none' : ''">0.002157s &bull; DBLink 1 &bull; source/class/table/table_common_member_action_log.php<br />DELETE FROM <font color=blue>pre_common_member_action_log</font> WHERE dateline &lt; 1397113118 </span><br /></li><div id="sql_35" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>48</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_common_member_action_log.php</td><td>25</td><td>discuz_database::delete()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>117</td><td>table_common_member_action_log->delete_by_dateline()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_36').style.display = document.getElementById('sql_36').style.display == '' ? 'none' : ''">0.002263s &bull; DBLink 1 &bull; source/class/table/table_forum_collectioninvite.php<br />DELETE FROM <font color=blue>pre_forum_collectioninvite</font> WHERE `dateline`&lt;='1396594718' </span><br /></li><div id="sql_36" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>48</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_collectioninvite.php</td><td>55</td><td>discuz_database::delete()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>119</td><td>table_forum_collectioninvite->delete_by_dateline()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_37').style.display = document.getElementById('sql_37').style.display == '' ? 'none' : ''">0.000548s &bull; DBLink 1 &bull; source/class/table/table_common_syscache.php<br />SELECT * FROM <font color=blue>pre_common_syscache</font> WHERE `cname` IN('seccodedata')</span><br /></li><div id="sql_37" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_syscache&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;98&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_common_syscache.php</td><td>63</td><td>discuz_database::query()</td></tr><tr><td>source/function/function_core.php</td><td>729</td><td>table_common_syscache->fetch_all()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>121</td><td>loadcache()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_38').style.display = document.getElementById('sql_38').style.display == '' ? 'none' : ''">0.000408s &bull; DBLink 1 &bull; source/class/table/table_common_syscache.php<br />REPLACE INTO <font color=blue>pre_common_syscache</font> SET `cname`='seccodedata' , `ctype`='1' , `dateline`='1397199518' , `data`='a:1:{s:8:\&quot;register\&quot;;a:1:{s:4:\&quot;show\&quot;;i:0;}}'</span><br /></li><div id="sql_38" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>60</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>81</td><td>discuz_database::insert()</td></tr><tr><td>source/class/table/table_common_syscache.php</td><td>93</td><td>discuz_table->insert()</td></tr><tr><td>source/function/function_core.php</td><td>817</td><td>table_common_syscache->insert()</td></tr><tr><td>source/include/cron/cron_cleanup_daily.php</td><td>123</td><td>savecache()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>48</td><td>include()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_39').style.display = document.getElementById('sql_39').style.display == '' ? 'none' : ''">0.000473s &bull; DBLink 1 &bull; source/class/table/table_common_cron.php<br />SELECT * FROM <font color=blue>pre_common_cron</font> WHERE available&gt;'0' ORDER BY nextrun LIMIT 1</span><br /></li><div id="sql_39" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_cron&nbsp;</td><td>&nbsp;range&nbsp;</td><td>&nbsp;nextrun&nbsp;</td><td>&nbsp;nextrun&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;19&nbsp;</td><td>&nbsp;Using where; <font color=red>Using filesort</font>&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_common_cron.php</td><td>30</td><td>discuz_database::fetch_first()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>61</td><td>table_common_cron->fetch_nextcron()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>55</td><td>discuz_cron::nextcron()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div>Using where; <font color=red>Using filesort</font><br /><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_40').style.display = document.getElementById('sql_40').style.display == '' ? 'none' : ''">0.000345s &bull; DBLink 1 &bull; source/class/table/table_common_syscache.php<br />REPLACE INTO <font color=blue>pre_common_syscache</font> SET `cname`='cronnextrun' , `ctype`='0' , `dateline`='1397199518' , `data`='1397080800'</span><br /></li><div id="sql_40" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>60</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>81</td><td>discuz_database::insert()</td></tr><tr><td>source/class/table/table_common_syscache.php</td><td>93</td><td>discuz_table->insert()</td></tr><tr><td>source/function/function_core.php</td><td>817</td><td>table_common_syscache->insert()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>63</td><td>savecache()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>55</td><td>discuz_cron::nextcron()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_41').style.display = document.getElementById('sql_41').style.display == '' ? 'none' : ''">0.000305s &bull; DBLink 1 &bull; source/class/table/table_common_process.php<br />DELETE FROM <font color=blue>pre_common_process</font> WHERE processid='DZ_CRON_3' OR expiry&lt;1397199519 </span><br /></li><div id="sql_41" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>48</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_common_process.php</td><td>26</td><td>discuz_database::delete()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>92</td><td>table_common_process->delete_process()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>58</td><td>discuz_process::_process_cmd_db()</td></tr><tr><td>source/class/discuz/discuz_process.php</td><td>23</td><td>discuz_process::_cmd()</td></tr><tr><td>source/class/discuz/discuz_cron.php</td><td>56</td><td>discuz_process::unlock()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>534</td><td>discuz_cron::run()</td></tr><tr><td>source/class/discuz/discuz_application.php</td><td>70</td><td>discuz_application->_init_cron()</td></tr><tr><td>forum.php</td><td>56</td><td>discuz_application->init()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_42').style.display = document.getElementById('sql_42').style.display == '' ? 'none' : ''">0.000698s &bull; DBLink 1 &bull; source/class/table/table_forum_forum.php<br />SELECT ff.*, f.* FROM <font color=blue>pre_forum_forum</font> f LEFT JOIN <font color=blue>pre_forum_forumfield</font> ff ON ff.fid=f.fid WHERE f.fid=2</span><br /></li><div id="sql_42" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;f&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;ff&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_forum.php</td><td>40</td><td>discuz_database::fetch_first()</td></tr><tr><td>source/function/function_forum.php</td><td>465</td><td>table_forum_forum->fetch_info_by_fid()</td></tr><tr><td>forum.php</td><td>59</td><td>loadforum()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_43').style.display = document.getElementById('sql_43').style.display == '' ? 'none' : ''">0.000392s &bull; DBLink 1<br />SELECT * FROM <font color=blue>pre_checkin</font> WHERE uid='1'</span><br /></li><div id="sql_43" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_checkin&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;uid&nbsp;</td><td>&nbsp;uid&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>develop/_Module/Checkin.class.php</td><td>252</td><td>discuz_database::fetch_first()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>184</td><td>Checkin->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>167</td><td>Module->execute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>150</td><td>Module->Pointexecute()</td></tr><tr><td>develop/_ModuleSystem.php</td><td>232</td><td>Module->ModulePoint()</td></tr><tr><td>forum.php</td><td>71</td><td>ModulePoint()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_44').style.display = document.getElementById('sql_44').style.display == '' ? 'none' : ''">0.000413s &bull; DBLink 1 &bull; source/class/table/table_forum_thread.php<br />SELECT COUNT(*) FROM <font color=blue>pre_forum_thread</font> WHERE fid=2 AND displayorder=-2 AND authorid=1</span><br /></li><div id="sql_44" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_forum_thread&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;displayorder,typeid,authorid&nbsp;</td><td>&nbsp;displayorder&nbsp;</td><td>&nbsp;4&nbsp;</td><td>&nbsp;const,const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;Using where&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>117</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_thread.php</td><td>1011</td><td>discuz_database::result_first()</td></tr><tr><td>source/module/forum/forum_forumdisplay.php</td><td>218</td><td>table_forum_thread->count_by_fid_displayorder_authorid()</td></tr><tr><td>forum.php</td><td>83</td><td>require()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_45').style.display = document.getElementById('sql_45').style.display == '' ? 'none' : ''">0.000626s &bull; DBLink 1 &bull; source/class/table/table_forum_thread.php<br />SELECT * FROM <font color=blue>pre_forum_thread</font>  WHERE `tid` IN('') AND `displayorder` IN('2','3','4')  ORDER BY displayorder DESC, lastpost DESC    LIMIT 20</span><br /></li><div id="sql_45" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Impossible WHERE noticed after reading const tables&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>100</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_thread.php</td><td>523</td><td>discuz_database::fetch_all()</td></tr><tr><td>source/module/forum/forum_forumdisplay.php</td><td>634</td><td>table_forum_thread->fetch_all_search()</td></tr><tr><td>forum.php</td><td>83</td><td>require()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_46').style.display = document.getElementById('sql_46').style.display == '' ? 'none' : ''">0.000718s &bull; DBLink 1 &bull; source/class/table/table_forum_thread.php<br />SELECT * FROM <font color=blue>pre_forum_thread</font>  WHERE `fid`='2' AND `displayorder` IN('0','1','2','3','4')  ORDER BY displayorder DESC, lastpost DESC    LIMIT 20</span><br /></li><div id="sql_46" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_forum_thread&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;displayorder,typeid&nbsp;</td><td>&nbsp;displayorder&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;Using where&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>100</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_forum_thread.php</td><td>523</td><td>discuz_database::fetch_all()</td></tr><tr><td>source/module/forum/forum_forumdisplay.php</td><td>637</td><td>table_forum_thread->fetch_all_search()</td></tr><tr><td>forum.php</td><td>83</td><td>require()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_47').style.display = document.getElementById('sql_47').style.display == '' ? 'none' : ''">0.000379s &bull; DBLink 1 &bull; source/class/discuz/discuz_table.php<br />SELECT * FROM <font color=blue>pre_forum_threadaddviews</font> WHERE `tid` IN('37','31','27','26','29','28','30','2')</span><br /></li><div id="sql_47" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Impossible WHERE noticed after reading const tables&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>110</td><td>discuz_database::query()</td></tr><tr><td>source/module/forum/forum_forumdisplay.php</td><td>846</td><td>discuz_table->fetch_all()</td></tr><tr><td>forum.php</td><td>83</td><td>require()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_48').style.display = document.getElementById('sql_48').style.display == '' ? 'none' : ''">0.000446s &bull; DBLink 1 &bull; source/class/table/table_common_syscache.php<br />SELECT * FROM <font color=blue>pre_common_syscache</font> WHERE `cname` IN('usergroups')</span><br /></li><div id="sql_48" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_syscache&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;98&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_common_syscache.php</td><td>63</td><td>discuz_database::query()</td></tr><tr><td>source/function/function_core.php</td><td>729</td><td>table_common_syscache->fetch_all()</td></tr><tr><td>source/module/forum/forum_forumdisplay.php</td><td>867</td><td>loadcache()</td></tr><tr><td>forum.php</td><td>83</td><td>require()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_49').style.display = document.getElementById('sql_49').style.display == '' ? 'none' : ''">0.000488s &bull; DBLink 1 &bull; source/class/discuz/discuz_table_archive.php<br />SELECT * FROM <font color=blue>pre_common_member</font> WHERE `uid` IN('3','1')</span><br /></li><div id="sql_49" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_member&nbsp;</td><td>&nbsp;range&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;3&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;2&nbsp;</td><td>&nbsp;Using where&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>110</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table_archive.php</td><td>41</td><td>discuz_table->fetch_all()</td></tr><tr><td>source/module/forum/forum_forumdisplay.php</td><td>869</td><td>discuz_table_archive->fetch_all()</td></tr><tr><td>forum.php</td><td>83</td><td>require()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_50').style.display = document.getElementById('sql_50').style.display == '' ? 'none' : ''">0.000331s &bull; DBLink 1 &bull; source/class/discuz/discuz_table.php<br />SELECT * FROM <font color=blue>pre_common_member_connect</font> WHERE `uid`='1'</span><br /></li><div id="sql_50" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Impossible WHERE noticed after reading const tables&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>91</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>94</td><td>discuz_database::fetch_first()</td></tr><tr><td>source/class/class_captcha.php</td><td>29</td><td>discuz_table->fetch()</td></tr><tr><td>source/class/class_captcha.php</td><td>93</td><td>captcha::generateSiteSignUrl()</td></tr><tr><td>source/class/helper/helper_seccheck.php</td><td>300</td><td>captcha::isneed()</td></tr><tr><td>source/function/function_core.php</td><td>1398</td><td>helper_seccheck::seccheck()</td></tr><tr><td>source/module/forum/forum_forumdisplay.php</td><td>923</td><td>seccheck()</td></tr><tr><td>forum.php</td><td>83</td><td>require()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_51').style.display = document.getElementById('sql_51').style.display == '' ? 'none' : ''">0.002767s &bull; DBLink 1 &bull; source/class/table/table_home_favorite.php<br />SELECT * FROM <font color=blue>pre_home_favorite</font>  WHERE uid=1 AND idtype='fid' ORDER BY dateline DESC </span><br /></li><div id="sql_51" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;Impossible WHERE noticed after reading const tables&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>100</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_home_favorite.php</td><td>39</td><td>discuz_database::fetch_all()</td></tr><tr><td>source/function/function_forumlist.php</td><td>377</td><td>table_home_favorite->fetch_all_by_uid_idtype()</td></tr><tr><td>source/module/forum/forum_forumdisplay.php</td><td>957</td><td>forumleftside()</td></tr><tr><td>forum.php</td><td>83</td><td>require()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_52').style.display = document.getElementById('sql_52').style.display == '' ? 'none' : ''">0.000427s &bull; DBLink 1 &bull; source/class/table/table_common_syscache.php<br />SELECT * FROM <font color=blue>pre_common_syscache</font> WHERE `cname` IN('attachtype')</span><br /></li><div id="sql_52" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_syscache&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;98&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_common_syscache.php</td><td>63</td><td>discuz_database::query()</td></tr><tr><td>source/function/function_core.php</td><td>729</td><td>table_common_syscache->fetch_all()</td></tr><tr><td>source/function/function_upload.php</td><td>37</td><td>loadcache()</td></tr><tr><td>source/module/forum/forum_forumdisplay.php</td><td>961</td><td>getuploadconfig()</td></tr><tr><td>forum.php</td><td>83</td><td>require()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_53').style.display = document.getElementById('sql_53').style.display == '' ? 'none' : ''">0.000332s &bull; DBLink 1 &bull; source/class/table/table_common_syscache.php<br />SELECT * FROM <font color=blue>pre_common_syscache</font> WHERE `cname` IN('diytemplatename')</span><br /></li><div id="sql_53" style="display:none;padding:0"><table style="border-bottom:none"><tr style="border-bottom:1px dotted gray"><td>&nbsp;id&nbsp;</td><td>&nbsp;select_type&nbsp;</td><td>&nbsp;table&nbsp;</td><td>&nbsp;type&nbsp;</td><td>&nbsp;possible_keys&nbsp;</td><td>&nbsp;key&nbsp;</td><td>&nbsp;key_len&nbsp;</td><td>&nbsp;ref&nbsp;</td><td>&nbsp;rows&nbsp;</td><td>&nbsp;Extra&nbsp;</td></tr><tr><td>&nbsp;1&nbsp;</td><td>&nbsp;SIMPLE&nbsp;</td><td>&nbsp;pre_common_syscache&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;PRIMARY&nbsp;</td><td>&nbsp;98&nbsp;</td><td>&nbsp;const&nbsp;</td><td>&nbsp;1&nbsp;</td><td>&nbsp;&nbsp;</td></tr></table><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/table/table_common_syscache.php</td><td>63</td><td>discuz_database::query()</td></tr><tr><td>source/function/function_core.php</td><td>729</td><td>table_common_syscache->fetch_all()</td></tr><tr><td>source/function/function_core.php</td><td>574</td><td>loadcache()</td></tr><tr><td>source/module/forum/forum_forumdisplay.php</td><td>974</td><td>template()</td></tr><tr><td>forum.php</td><td>83</td><td>require()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_54').style.display = document.getElementById('sql_54').style.display == '' ? 'none' : ''">0.002689s &bull; DBLink 1 &bull; source/class/table/table_common_template_block.php<br />DELETE FROM <font color=blue>pre_common_template_block</font> WHERE `targettplname`='forum/forumdisplay_2' AND `tpldirectory`='./template/new' </span><br /></li><div id="sql_54" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>48</td><td>discuz_database::query()</td></tr><tr><td>source/class/table/table_common_template_block.php</td><td>26</td><td>discuz_database::delete()</td></tr><tr><td>source/function/function_block.php</td><td>1102</td><td>table_common_template_block->delete_by_targettplname()</td></tr><tr><td>source/function/function_core.php</td><td>526</td><td>update_template_block()</td></tr><tr><td>source/function/function_core.php</td><td>667</td><td>checktplrefresh()</td></tr><tr><td>source/module/forum/forum_forumdisplay.php</td><td>974</td><td>template()</td></tr><tr><td>forum.php</td><td>83</td><td>require()</td></tr></table></div><br /><li><span style="cursor:pointer" onclick="document.getElementById('sql_55').style.display = document.getElementById('sql_55').style.display == '' ? 'none' : ''">0.000484s &bull; DBLink 1 &bull; source/class/discuz/discuz_table.php<br />UPDATE  <font color=blue>pre_common_session</font> SET `sid`='mYdDzQ' , `ip1`='127' , `ip2`='0' , `ip3`='0' , `ip4`='1' , `uid`='1' , `username`='admin' , `groupid`='1' , `invisible`='0' , `action`='2' , `lastactivity`='1397199512' , `lastolupdate`='1397199512' , `fid`='2' , `tid`='0' WHERE `sid`='mYdDzQ'</span><br /></li><div id="sql_55" style="display:none;padding:0"><table><tr style="border-bottom:1px dotted gray"><td width="400">File</td><td width="80">Line</td><td>Function</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>136</td><td>db_driver_mysql->query()</td></tr><tr><td>source/class/discuz/discuz_database.php</td><td>78</td><td>discuz_database::query()</td></tr><tr><td>source/class/discuz/discuz_table.php</td><td>57</td><td>discuz_database::update()</td></tr><tr><td>source/class/discuz/discuz_session.php</td><td>100</td><td>discuz_table->update()</td></tr><tr><td>source/class/discuz/discuz_session.php</td><td>220</td><td>discuz_session->update()</td></tr><tr><td>source/function/function_core.php</td><td>21</td><td>discuz_session::updatesession()</td></tr><tr><td>data/template/2_2_common_footer.tpl.php</td><td>62</td><td>updatesession()</td></tr><tr><td>data/template/2_diy_forum_forumdisplay.tpl.php</td><td>1545</td><td>include()</td></tr><tr><td>source/module/forum/forum_forumdisplay.php</td><td>974</td><td>include()</td></tr><tr><td>forum.php</td><td>83</td><td>require()</td></tr></table></div><br /></ol></div><div id="__debug_c_4" style="display:none"><iframe id="sqldebug_ajax" name="sqldebug_ajax" src="../data/_debugadmin.php_ajax.php?k=346ff32eaa3c09983fb2ec057816d352" frameborder="0" width="100%" height="800"></iframe></div><div id="__debug_c_2" style="display:none"><b>IP: </b>127.0.0.1<br /><b>User Agent: </b>Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.27 Safari/537.36<br /><b>BROWSER.x: </b><script>for(BROWSERi in BROWSER) {var __s=BROWSERi+':'+BROWSER[BROWSERi]+' ';$('__debug_b').innerHTML+=BROWSER[BROWSERi]!==0?__s:'';document.write(__s);}</script></div><div id="__debug_c_3" style="display:none"><ol><li>forum.php</li><li>[脚本]source/class/class_core.php</li><li>develop/_ModuleSystem.php</li><li>develop/Library/Library.class.php</li><li>develop/Library/debug.class.php</li><li>develop/_ModuleList.php</li><li>develop/_Module/staticlink.class.php</li><li>develop/_Module/BugListScript.class.php</li><li>develop/_Module/ArticleScript.class.php</li><li>develop/_Module/Checkin.class.php</li><li>[脚本]source/class/discuz/discuz_application.php</li><li>[脚本]source/class/discuz/discuz_base.php</li><li>[脚本]source/function/function_core.php</li><li>[配置]config/config_global.php</li><li>[脚本]source/class/discuz/discuz_database.php</li><li>[脚本]source/function/function_forum.php</li><li>[脚本]source/class/db/db_driver_mysql.php</li><li>[脚本]source/class/table/table_common_syscache.php</li><li>[脚本]source/class/discuz/discuz_table.php</li><li>[脚本]source/class/discuz/discuz_memory.php</li><li>[脚本]source/class/table/table_common_member.php</li><li>[脚本]source/class/discuz/discuz_table_archive.php</li><li>[脚本]source/class/discuz/discuz_session.php</li><li>[脚本]source/class/table/table_common_session.php</li><li>[脚本]source/class/discuz/discuz_cron.php</li><li>[脚本]source/class/table/table_common_cron.php</li><li>[脚本]source/class/discuz/discuz_process.php</li><li>[脚本]source/class/table/table_common_process.php</li><li>[脚本]source/include/cron/cron_cleanup_daily.php</li><li>[脚本]source/function/function_cache.php</li><li>[脚本]source/function/cache/cache_forumrecommend.php</li><li>[脚本]source/class/table/table_forum_forum.php</li><li>[脚本]source/function/function_group.php</li><li>[脚本]source/class/table/table_common_task.php</li><li>[脚本]source/class/table/table_common_advertisement.php</li><li>[脚本]source/class/table/table_forum_threaddisablepos.php</li><li>[脚本]source/class/table/table_common_searchindex.php</li><li>[脚本]source/class/table/table_forum_threadmod.php</li><li>[脚本]source/class/table/table_forum_forumrecommend.php</li><li>[脚本]source/class/table/table_home_visitor.php</li><li>[脚本]source/class/table/table_forum_postcache.php</li><li>[脚本]source/class/table/table_forum_newthread.php</li><li>[脚本]source/class/table/table_common_seccheck.php</li><li>[脚本]source/class/table/table_common_member_count.php</li><li>[脚本]source/class/table/table_forum_trade.php</li><li>[脚本]source/class/table/table_forum_tradelog.php</li><li>[脚本]source/class/table/table_forum_attachment_unused.php</li><li>[脚本]source/class/table/table_forum_polloption_image.php</li><li>[脚本]source/class/table/table_common_card.php</li><li>[脚本]source/class/table/table_common_member_action_log.php</li><li>[脚本]source/class/table/table_forum_collectioninvite.php</li><li>[脚本]source/language/lang_core.php</li><li>[插件]source/plugin/mobile/mobile.class.php</li><li>develop/_Data/buglist.data.php</li><li>develop/_Data/buglistfid.data.php</li><li>develop/_Data/buglist_handling.data.php</li><li>[模板]data/template/2_2_checkin_main.tpl.php</li><li>[脚本]source/module/forum/forum_forumdisplay.php</li><li>[脚本]source/function/function_forumlist.php</li><li>[脚本]source/class/helper/helper_seo.php</li><li>[脚本]source/class/table/table_forum_thread.php</li><li>[脚本]source/class/helper/helper_access.php</li><li>[脚本]source/class/table/table_forum_threadaddviews.php</li><li>[脚本]source/class/helper/helper_seccheck.php</li><li>[脚本]source/class/class_captcha.php</li><li>[脚本]source/class/class_cloud.php</li><li>[插件]source/plugin/manyou/Service/Util.php</li><li>[脚本]source/discuz_version.php</li><li>[插件]source/plugin/qqconnect/table/table_common_member_connect.php</li><li>[脚本]source/function/function_filesock.php</li><li>[脚本]source/class/table/table_home_favorite.php</li><li>[脚本]source/function/function_upload.php</li><li>[脚本]source/class/table/table_forum_grouplevel.php</li><li>[脚本]source/class/class_template.php</li><li>[脚本]source/language/lang_template.php</li><li>[脚本]source/language/forum/lang_template.php</li><li>[脚本]source/function/function_block.php</li><li>[脚本]source/class/table/table_common_template_block.php</li><li>[模板]data/template/2_diy_forum_forumdisplay.tpl.php</li><li>[模板]data/template/2_2_common_header_forum_forumdisplay.tpl.php</li><li>[模板]data/template/2_2_common_header_diynav.tpl.php</li><li>[模板]data/template/2_2_common_header_userstatus.tpl.php</li><li>[模板]data/template/2_2_forum_topicadmin_modlayer.tpl.php</li><li>[模板]data/template/2_2_forum_forumdisplay_fastpost.tpl.php</li><li>[模板]data/template/2_2_common_footer.tpl.php</li><li>[插件]source/plugin/manyou/Service/DiscuzTips.php</li><li>[脚本]source/function/function_debug.php</li><ol></div><div id="__debug_c_5" style="display:none"><ol><li><br />['<font color=blue>YKw3_2132_saltkey</font>'] => gwd99H83</li><li><br />['<font color=blue>YKw3_2132_lastvisit</font>'] => 1397037199</li><li><br />['<font color=blue>YKw3_2132_auth</font>'] => d991hcF5ULtJfT35d4whDTeu6N5nwnqKeK1bUpNXKuxVkr2bW5PXaR+c93ltVo3kdWDLbQB0X6t3Cu7u6wqd</li><li><br />['<font color=blue>YKw3_2132_lastcheckfeed</font>'] => 1|1397040804</li><li><br />['<font color=blue>YKw3_2132_nofavfid</font>'] => 1</li><li><br />['JwXs_2132_saltkey'] => gLT8mMCM</li><li><br />['JwXs_2132_lastvisit'] => 1397041212</li><li><br />['JwXs_2132_nofavfid'] => 1</li><li><br />['<font color=blue>YKw3_2132_st_p</font>'] => 1|1397114571|90543aa0c0edc8608ca14d2519316bfa</li><li><br />['<font color=blue>YKw3_2132_visitedfid</font>'] => 2D36</li><li><br />['<font color=blue>YKw3_2132_viewid</font>'] => tid_76</li><li><br />['<font color=blue>YKw3_2132_smile</font>'] => 1D1</li><li><br />['JwXs_2132_ulastactivity'] => 6bc9bhnChPgoTWHWfIRautq4KJotBrWoFy34qHQQNuutj06jWjwh</li><li><br />['JwXs_2132_lip'] => 127.0.0.1,1397188991</li><li><br />['JwXs_2132__refer'] => %2Fdiscuzx31%2Fhome.php%3Fmod%3Dspacecp%26ac%3Dprofile%26op%3Dpassword</li><li><br />['JwXs_2132_lastcheckfeed'] => 1|1397191106</li><li><br />['sid'] => d67cOpTCCgglLj6VWz4wKn%2FY8SHmiss%2BAk3o7Pv6cDJrzDzpyrkT%2B2D9diyeno5Zhknp8G8r8GJe%2BA</li><li><br />['JwXs_2132_seccode'] => 2.d8d44ac49d94a2f822</li><li><br />['JwXs_2132_auth'] => b032Buk4CI2ZGukBYzBJwHFzXsz8k/8TOjZIQFiLBEp44CKsqOVQqqznrVn7zCFLhjgXcgirC2ymszAUptp3</li><li><br />['JwXs_2132_home_diymode'] => 1</li><li><br />['JwXs_2132_st_t'] => 1|1397193743|4a84783fb10b52b90bf241efb99fa5e7</li><li><br />['JwXs_2132_forum_lastvisit'] => D_2_1397119280D_739_1397193560D_342_1397193691D_730_1397193740D_678_1397193743</li><li><br />['JwXs_2132_visitedfid'] => 678D730D342D739</li><li><br />['JwXs_2132_smile'] => 1D1</li><li><br />['JwXs_2132_onlineusernum'] => 1</li><li><br />['JwXs_2132_sid'] => vMu3hH</li><li><br />['JwXs_2132_sendmail'] => 1</li><li><br />['JwXs_2132_checkpatch'] => 1</li><li><br />['JwXs_2132_checkpm'] => 1</li><li><br />['JwXs_2132_lastact'] => 1397199505	misc.php	patch</li><li><br />['<font color=blue>YKw3_2132_creditnotice</font>'] => 0D0D2D0D0D0D0D0D0D1</li><li><br />['<font color=blue>YKw3_2132_creditbase</font>'] => 0D0D381D0D0D0D0D0D0</li><li><br />['<font color=blue>YKw3_2132_creditrule</font>'] => 每天登录</li><li><br />['<font color=blue>YKw3_2132_lip</font>'] => 127.0.0.1,1397199507</li><li><br />['<font color=blue>YKw3_2132_sid</font>'] => mYdDzQ</li><li><br />['<font color=blue>YKw3_2132_ulastactivity</font>'] => 7d602pLgAowPdPxYJWR2kI4iCg8JI8dAIyqCWqEOBpUea8QcvtpA</li><li><br />['<font color=blue>YKw3_2132_onlineusernum</font>'] => 1</li><li><br />['<font color=blue>YKw3_2132_sendmail</font>'] => 1</li><li><br />['<font color=blue>YKw3_2132_checkpatch</font>'] => 1</li><li><br />['<font color=blue>YKw3_2132_lastact</font>'] => 1397199518	forum.php	forumdisplay</li><li><br />['<font color=blue>YKw3_2132_checkpm</font>'] => 1</li><li><br />['<font color=blue>YKw3_2132_st_t</font>'] => 1|1397199518|1e9f4a6c78274d6eaf5abce69aded7c8</li><li><br />['<font color=blue>YKw3_2132_forum_lastvisit</font>'] => D_2_1397199518</li><li><br />['<font color=blue>YKw3_2132_extra</font>'] => fid=2&amp;page=1</li></ol></div><div id="__debug_c_6" style="display:none"><div id="__debug_c_4_nav"><a href="#S_config">Nav:<br />
 			<a href="#top">#top</a><br />
 			<a href="#S_config">$_G['config']</a><br />
 			<a href="#S_setting">$_G['setting']</a><br />
@@ -80,9 +77,9 @@ elseif(isset($_GET['P'])) {
 			<a href="#S_cookie">$_G['cookie']</a><br />
 			<a href="#S_style">$_G['style']</a><br />
 			<a href="#S_cache">$_G['cache']</a><br />
-			</div><ol><a name="top"></a><li><br />['uid'] => 1</li><li><br />['username'] => admin</li><li><br />['adminid'] => 1</li><li><br />['groupid'] => 1</li><li><br />['sid'] => OFordu</li><li><br />['formhash'] => 23ff1b43</li><li><br />['connectguest'] => 0</li><li><br />['timestamp'] => 1397119270</li><li><br />['starttime'] => 1397119270.9734</li><li><br />['clientip'] => 127.0.0.1</li><li><br />['remoteport'] => 54398</li><li><br />['referer'] => </li><li><br />['charset'] => utf-8</li><li><br />['gzipcompress'] => </li><li><br />['authkey'] => 3cf35c9a3d876a679d2e895e9b4c76d9</li><li><br />['widthauto'] => 0</li><li><br />['disabledwidthauto'] => 0</li><li><br />['PHP_SELF'] => /forum.php</li><li><br />['siteurl'] => http://127.0.0.1:31/</li><li><br />['siteroot'] => /</li><li><br />['siteport'] => :31</li><li><br />['fid'] => 36</li><li><br />['tid'] => 0</li><li><br />['rssauth'] => 678fVso0Mc%2FjZ%2BVW%2FOYNZdoRFVcgpquYv9NI%2BCva4iAbDxiQOBpNIzdi</li><li><br />['mobile'] => </li><li><br />['basescript'] => forum</li><li><br />['basefilename'] => forum.php</li><li><br />['isHTTPS'] => </li><li><br />['staticurl'] => static/</li><li><br />['gp_mod'] => forumdisplay</li><li><br />['gp_fid'] => 36</li><li><br />['mod'] => forumdisplay</li><li><br />['inajax'] => 0</li><li><br />['page'] => 1</li><li><br />['tpp'] => 20</li><li><br />['ppp'] => 10</li><li><br />['currenturl_encode'] => aHR0cDovLzEyNy4wLjAuMTozMS9mb3J1bS5waHA/bW9kPWZvcnVtZGlzcGxheSZmaWQ9MzY=</li><li><br />['seokeywords'] => </li><li><br />['seodescription'] => </li><li><br />['forum_auditstatuson'] => </li><li><br />['current_grouplevel'] => </li><li><br />['inhookscript'] => </li><li><br />['hookscriptoutput'] => 1</li><li><a name="S_timenow"></a><br />['timenow'] => Array<br />
+			</div><ol><a name="top"></a><li><br />['uid'] => 1</li><li><br />['username'] => admin</li><li><br />['adminid'] => 1</li><li><br />['groupid'] => 1</li><li><br />['sid'] => mYdDzQ</li><li><br />['formhash'] => 23ff1b43</li><li><br />['connectguest'] => 0</li><li><br />['timestamp'] => 1397199518</li><li><br />['starttime'] => 1397199518.4476</li><li><br />['clientip'] => 127.0.0.1</li><li><br />['remoteport'] => 63668</li><li><br />['referer'] => </li><li><br />['charset'] => utf-8</li><li><br />['gzipcompress'] => </li><li><br />['authkey'] => 3cf35c9a3d876a679d2e895e9b4c76d9</li><li><br />['widthauto'] => 0</li><li><br />['disabledwidthauto'] => 0</li><li><br />['PHP_SELF'] => /forum.php</li><li><br />['siteurl'] => http://127.0.0.1:31/</li><li><br />['siteroot'] => /</li><li><br />['siteport'] => :31</li><li><br />['fid'] => 2</li><li><br />['tid'] => 0</li><li><br />['rssauth'] => 0728%2Bn36IzVZSE4%2B099WY%2B8N%2F8SWbPkIU4PBDHz6wPVkx%2BMFoFv5DOo</li><li><br />['mobile'] => </li><li><br />['basescript'] => forum</li><li><br />['basefilename'] => forum.php</li><li><br />['isHTTPS'] => </li><li><br />['staticurl'] => static/</li><li><br />['gp_mod'] => forumdisplay</li><li><br />['gp_fid'] => 2</li><li><br />['mod'] => forumdisplay</li><li><br />['inajax'] => 0</li><li><br />['page'] => 1</li><li><br />['tpp'] => 20</li><li><br />['ppp'] => 10</li><li><br />['currenturl_encode'] => aHR0cDovLzEyNy4wLjAuMTozMS9mb3J1bS5waHA/bW9kPWZvcnVtZGlzcGxheSZmaWQ9Mg==</li><li><br />['seokeywords'] => </li><li><br />['seodescription'] => </li><li><br />['forum_auditstatuson'] => </li><li><br />['current_grouplevel'] => </li><li><br />['inhookscript'] => </li><li><br />['forum_threadcount'] => 8</li><li><br />['hiddenexists'] => </li><li><br />['showrows'] => 8</li><li><br />['forum_threadnum'] => 8</li><li><br />['leftsidewidth_mwidth'] => 145</li><li><br />['hookscriptoutput'] => 1</li><li><br />['uploadjs'] => 1</li><li><a name="S_timenow"></a><br />['timenow'] => Array<br />
 (<br />
-&nbsp;&nbsp;[time] =&gt; 2014-4-10 16:41<br />
+&nbsp;&nbsp;[time] =&gt; 2014-4-11 14:58<br />
 &nbsp;&nbsp;[offset] =&gt; +8<br />
 )<br />
 </li><li><a name="S_pluginrunlist"></a><br />['pluginrunlist'] => Array<br />
@@ -1067,7 +1064,7 @@ j/n/Y<br />
 &nbsp;&nbsp;[video_allowwall] =&gt; 1<br />
 &nbsp;&nbsp;[viewthreadtags] =&gt; 100<br />
 &nbsp;&nbsp;[visitbanperiods] =&gt; <br />
-&nbsp;&nbsp;[visitedforums] =&gt; 10<br />
+&nbsp;&nbsp;[visitedforums] =&gt; &lt;li&gt;&lt;a href=&quot;forum.php?mod=forumdisplay&amp;fid=36&quot;&gt;用户反馈&lt;/a&gt;&lt;/li&gt;<br />
 &nbsp;&nbsp;[vtonlinestatus] =&gt; 1<br />
 &nbsp;&nbsp;[wapcharset] =&gt; 0<br />
 &nbsp;&nbsp;[wapdateformat] =&gt; n/j<br />
@@ -2826,15 +2823,258 @@ j/n/Y<br />
 &nbsp;&nbsp;[pluginhooks] =&gt; Array<br />
 &nbsp;&nbsp;&nbsp;&nbsp;(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[common] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[global_header] =&gt; <br />
+&lt;div class=&quot;checkin&quot;&gt;<br />
+&lt;div class=&quot;loading&quot;&gt;&lt;img src=&quot;static/image/common/checkin_loading.gif&quot; /&gt;&lt;/div&gt;<br />
+&lt;div class=&quot;checkin_ajax&quot;&gt;<br />
+&lt;div class=&quot;font&quot;&gt;签到&lt;/div&gt;<br />
+&lt;div class=&quot;continuous&quot;&gt;连续 &lt;span class=&quot;num&quot;&gt;2&lt;/span&gt; 天&lt;/div&gt;<br />
+&lt;div class=&quot;credit&quot;&gt;+10&lt;/div&gt;<br />
+<br />
+&lt;/div&gt;<br />
+&lt;div class=&quot;checkin_body&quot;&gt;<br />
+<br />
+&lt;/div&gt;<br />
+&lt;/div&gt;<br />
+&lt;script&gt;<br />
+<br />
+jQuery(function($) {<br />
+<br />
+$(&quot;.checkin_ajax&quot;).click( function () {<br />
+checkin_loadinng();<br />
+$.getJSON('home.php?mod=checkin', function(data){<br />
+if (data.scode == '1') {<br />
+checkin_loadinng(true);<br />
+$('.checkin_body').html(data.content);<br />
+}<br />
+});<br />
+});<br />
+});<br />
+<br />
+function checkin_loadinng(end){<br />
+if(end){<br />
+jQuery(&quot;.checkin .loading&quot;).height(0);<br />
+jQuery(&quot;.checkin .loading img&quot;).offset({ top: 0, left: 70 });<br />
+jQuery(&quot;.checkin .loading&quot;).hide();<br />
+<br />
+}else{<br />
+if(jQuery(&quot;.checkin .loading&quot;).css(&quot;display&quot;) == 'none'){<br />
+jQuery(&quot;.checkin .loading&quot;).show();<br />
+jQuery(&quot;.checkin .loading&quot;).height(jQuery(&quot;.checkin&quot;).height());<br />
+<br />
+var position = jQuery(&quot;.checkin&quot;).position();<br />
+jQuery(&quot;.checkin .loading img&quot;).offset({ top: ((jQuery(&quot;.checkin&quot;).height()-30)/2+position.top), left:70 });<br />
+}<br />
+}<br />
+<br />
+}<br />
+<br />
+<br />
+function checkin_input(){<br />
+jQuery(&quot;.checkin_click .text a&quot;).hide();<br />
+jQuery(&quot;.checkin_click .text input&quot;).show();<br />
+}<br />
+function checkin_btn(){<br />
+var getdata = '&amp;checkinmood='+encodeURIComponent(jQuery(&quot;#checkinmood&quot;).val())<br />
+if(jQuery(&quot;#checkintext&quot;).val()){<br />
+getdata += '&amp;'+'checkintext='+encodeURIComponent(jQuery(&quot;#checkintext&quot;).val());<br />
+}<br />
+<br />
+jQuery.getJSON('home.php?mod=checkin&amp;inajax=1'+getdata, function(data){<br />
+checkin_loadinng();<br />
+if (data.scode == '1') {<br />
+<br />
+jQuery(&quot;.checkin_ajax .num&quot;).text(data.num);<br />
+jQuery(&quot;.checkin_ajax&quot;).addClass('visted');<br />
+jQuery(&quot;.checkin_ajax&quot;).click();<br />
+}<br />
+});<br />
+}<br />
+<br />
+<br />
+&lt;/script&gt;<br />
+<br />
+<br />
+<br />
+&lt;style&gt;<br />
+.ccdar{}<br />
+.ccdar td {background-color: #FFDFBF;width:30px;height: 30px;text-align: center;}<br />
+.ccdar_tit{}<br />
+.ccdar_last{color:#999}<br />
+.ccdar_today{font-weight:700}<br />
+td.ccdar_visted{background-color: #A2FFD0;}<br />
+td.ccdar_visted img{width: 40px;}<br />
+<br />
+.checkin {<br />
+&nbsp;<br />
+}<br />
+.checkin .loading {<br />
+z-index:999;<br />
+ position: absolute;<br />
+&nbsp;&nbsp;background-color: #ff6f3d;<br />
+width: 260px;<br />
+<br />
+display:none;<br />
+filter:alpha(opacity=50);&nbsp;/*支持 IE 浏览器*/<br />
+-moz-opacity:0.50; /*支持 FireFox 浏览器*/<br />
+opacity:0.50;&nbsp;/*支持 Chrome, Opera, Safari 等浏览器*/<br />
+<br />
+}<br />
+.checkin .loading img{<br />
+position: absolute;<br />
+&nbsp;&nbsp;top: 15px;<br />
+&nbsp;&nbsp;left: 65px;<br />
+<br />
+}<br />
+.checkin_body {<br />
+}<br />
+.checkin_click{<br />
+<br />
+}<br />
+.checkin_click .mood{<br />
+border : 1px solid #C2D5E3;<br />
+width: 100px;<br />
+display: inline-block;<br />
+}<br />
+.checkin_click .mood img{<br />
+width: 50px;<br />
+}<br />
+.checkin_click .text{<br />
+line-height: 20px;<br />
+font-size: 14px;<br />
+<br />
+width: 200px; color: #333;<br />
+background: #fff;<br />
+border: 1px solid #e8e8e8;<br />
+display: inline-block; <br />
+<br />
+}<br />
+<br />
+.checkin_click .text a{<br />
+line-height: 40px;<br />
+height:40px;<br />
+background: none;<br />
+<br />
+}<br />
+<br />
+.checkin_click .text input{<br />
+padding:0px;margin:0px;<br />
+font-size: 14px;<br />
+width: 100%;<br />
+border: 0px;<br />
+padding: 0px;<br />
+line-height: 40px;<br />
+padding-left:20px;<br />
+background: none;<br />
+display:none<br />
+}<br />
+<br />
+.checkin_click .click{<br />
+border: 1px solid #4899d7;<br />
+border-radius: 2px;<br />
+text-align: center;<br />
+width: 100px;<br />
+background: #60b0ee;<br />
+color: #fff;<br />
+display: inline-block;<br />
+padding: 2px 2px;<br />
+}<br />
+<br />
+.checkin_click&nbsp;.click .btn{<br />
+width: 100px;<br />
+display: inline-block;<br />
+font-size: 12px;<br />
+padding: 0 12px;<br />
+line-height: 30px;<br />
+border-radius: 2px;<br />
+text-align: center;<br />
+color: #fff;<br />
+display: inline-block;<br />
+padding: 2px 2px;<br />
+font-weight:700<br />
+<br />
+}<br />
+<br />
+<br />
+<br />
+.checkin_ajax {<br />
+&nbsp; width: 260px;<br />
+&nbsp;&nbsp;height: 60px;<br />
+&nbsp;&nbsp;background-color: #ff6f3d;<br />
+&nbsp;&nbsp;height: 60px;<br />
+&nbsp;&nbsp;display: block;<br />
+&nbsp;&nbsp;position: relative;<br />
+&nbsp;&nbsp;/*border-radius: 5px;*/<br />
+&nbsp;&nbsp;background-image: url(http://img03.mifile.cn/webfile/images/hd/2013120901/tou.png?234);<br />
+&nbsp;&nbsp;background-repeat: no-repeat;<br />
+&nbsp;&nbsp;background-position: 23px 12px;<br />
+&nbsp;&nbsp;cursor: pointer;<br />
+}<br />
+<br />
+.checkin_ajax .font {<br />
+&nbsp;&nbsp;position: absolute;<br />
+&nbsp;&nbsp;color: #fff;<br />
+&nbsp;&nbsp;width: 55px;<br />
+&nbsp;&nbsp;height: 30px;<br />
+&nbsp;&nbsp;font-size: 24px;<br />
+&nbsp;&nbsp;line-height: 30px;<br />
+&nbsp;&nbsp;top: 15px;<br />
+&nbsp;&nbsp;left: 65px;<br />
+}<br />
+<br />
+<br />
+.checkin_ajax .continuous {<br />
+&nbsp;&nbsp;display: none;<br />
+}<br />
+<br />
+.visted .font {<br />
+&nbsp;&nbsp;font-size: 20px;<br />
+&nbsp;&nbsp;line-height: 25px;<br />
+&nbsp;&nbsp;width: 60px;<br />
+&nbsp;&nbsp;left: 62px;<br />
+&nbsp;&nbsp;top: 10px;<br />
+}<br />
+.visted .continuous {<br />
+&nbsp;&nbsp;display: block;<br />
+&nbsp;&nbsp;font-size: 12px;<br />
+&nbsp;&nbsp;line-height: 20px;<br />
+&nbsp;&nbsp;position: absolute;<br />
+&nbsp;&nbsp;color: #fff;<br />
+&nbsp;&nbsp;text-align: center;<br />
+top: 31px;<br />
+&nbsp;&nbsp;left: 65px;<br />
+}<br />
+<br />
+<br />
+.checkin_ajax .credit {<br />
+&nbsp;&nbsp;height: 56px;<br />
+&nbsp;&nbsp;width: 80px;<br />
+&nbsp;&nbsp;background-color: #fff;<br />
+&nbsp;&nbsp;padding-left: 0px;<br />
+&nbsp;&nbsp;padding-right: 0px;<br />
+&nbsp;&nbsp;position: absolute;<br />
+&nbsp;&nbsp;top: 2px;<br />
+&nbsp;&nbsp;right: 2px;<br />
+&nbsp;&nbsp;font-size: 20px;<br />
+&nbsp;&nbsp;color: #606060;<br />
+ text-align : center; <br />
+line-height:56px;<br />
+}<br />
+<br />
+<br />
+&lt;/style&gt;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[global_mobile] =&gt; <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ad_headerbanner] =&gt; <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ad_subnavbanner] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ad_text] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ad_threadlist] =&gt; <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ad_footerbanner] =&gt; <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ad_float] =&gt; <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ad_couplebanner] =&gt; <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ad_cornerbanner] =&gt; <br />
 &nbsp;&nbsp;&nbsp;&nbsp;)<br />
 <br />
+&nbsp;&nbsp;[threadhidethreshold] =&gt; 1<br />
 )<br />
 </li><li><a name="S_member"></a><br />['member'] => Array<br />
 (<br />
@@ -2851,7 +3091,7 @@ j/n/Y<br />
 &nbsp;&nbsp;[groupexpiry] =&gt; 0<br />
 &nbsp;&nbsp;[extgroupids] =&gt; <br />
 &nbsp;&nbsp;[regdate] =&gt; 1385442518<br />
-&nbsp;&nbsp;[credits] =&gt; 396<br />
+&nbsp;&nbsp;[credits] =&gt; 398<br />
 &nbsp;&nbsp;[notifysound] =&gt; 0<br />
 &nbsp;&nbsp;[timeoffset] =&gt; 8<br />
 &nbsp;&nbsp;[newpm] =&gt; 0<br />
@@ -2882,9 +3122,9 @@ j/n/Y<br />
 &nbsp;&nbsp;[allowpost] =&gt; 1<br />
 &nbsp;&nbsp;[allowreply] =&gt; 1<br />
 &nbsp;&nbsp;[allowpostpoll] =&gt; 1<br />
-&nbsp;&nbsp;[allowpostreward] =&gt; 1<br />
-&nbsp;&nbsp;[allowposttrade] =&gt; 1<br />
-&nbsp;&nbsp;[allowpostactivity] =&gt; 1<br />
+&nbsp;&nbsp;[allowpostreward] =&gt; <br />
+&nbsp;&nbsp;[allowposttrade] =&gt; <br />
+&nbsp;&nbsp;[allowpostactivity] =&gt; <br />
 &nbsp;&nbsp;[allowdirectpost] =&gt; 3<br />
 &nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
 &nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
@@ -2924,7 +3164,7 @@ j/n/Y<br />
 &nbsp;&nbsp;[maxrewardprice] =&gt; 0<br />
 &nbsp;&nbsp;[magicsdiscount] =&gt; 0<br />
 &nbsp;&nbsp;[maxmagicsweight] =&gt; 200<br />
-&nbsp;&nbsp;[allowpostdebate] =&gt; 1<br />
+&nbsp;&nbsp;[allowpostdebate] =&gt; <br />
 &nbsp;&nbsp;[tradestick] =&gt; 5<br />
 &nbsp;&nbsp;[exempt] =&gt; 255<br />
 &nbsp;&nbsp;[maxattachnum] =&gt; 0<br />
@@ -3067,15 +3307,25 @@ j/n/Y<br />
 &nbsp;&nbsp;[lastvisit] =&gt; 1397037199<br />
 &nbsp;&nbsp;[auth] =&gt; d991hcF5ULtJfT35d4whDTeu6N5nwnqKeK1bUpNXKuxVkr2bW5PXaR+c93ltVo3kdWDLbQB0X6t3Cu7u6wqd<br />
 &nbsp;&nbsp;[lastcheckfeed] =&gt; 1|1397040804<br />
-&nbsp;&nbsp;[lip] =&gt; 127.0.0.1,1397025762<br />
 &nbsp;&nbsp;[nofavfid] =&gt; 1<br />
 &nbsp;&nbsp;[st_p] =&gt; 1|1397114571|90543aa0c0edc8608ca14d2519316bfa<br />
-&nbsp;&nbsp;[visitedfid] =&gt; 36<br />
+&nbsp;&nbsp;[visitedfid] =&gt; 2D36<br />
 &nbsp;&nbsp;[viewid] =&gt; tid_76<br />
-&nbsp;&nbsp;[ulastactivity] =&gt; e7baPRUqy/hI7kNY8uGBgBVXSJcsnpM7+b5aWEB9D+z1WxH59t5r<br />
 &nbsp;&nbsp;[smile] =&gt; 1D1<br />
-&nbsp;&nbsp;[sid] =&gt; OFordu<br />
-&nbsp;&nbsp;[lastact] =&gt; 1397119270	forum.php	forumdisplay<br />
+&nbsp;&nbsp;[creditnotice] =&gt; 0D0D2D0D0D0D0D0D0D1<br />
+&nbsp;&nbsp;[creditbase] =&gt; 0D0D381D0D0D0D0D0D0<br />
+&nbsp;&nbsp;[creditrule] =&gt; 每天登录<br />
+&nbsp;&nbsp;[lip] =&gt; 127.0.0.1,1397199507<br />
+&nbsp;&nbsp;[sid] =&gt; mYdDzQ<br />
+&nbsp;&nbsp;[ulastactivity] =&gt; 7d602pLgAowPdPxYJWR2kI4iCg8JI8dAIyqCWqEOBpUea8QcvtpA<br />
+&nbsp;&nbsp;[onlineusernum] =&gt; 1<br />
+&nbsp;&nbsp;[sendmail] =&gt; 1<br />
+&nbsp;&nbsp;[checkpatch] =&gt; 1<br />
+&nbsp;&nbsp;[lastact] =&gt; 1397199518	forum.php	forumdisplay<br />
+&nbsp;&nbsp;[checkpm] =&gt; 1<br />
+&nbsp;&nbsp;[st_t] =&gt; 1|1397199518|1e9f4a6c78274d6eaf5abce69aded7c8<br />
+&nbsp;&nbsp;[forum_lastvisit] =&gt; D_2_1397199518<br />
+&nbsp;&nbsp;[extra] =&gt; fid=2&amp;page=1<br />
 )<br />
 </li><li><a name="S_style"></a><br />['style'] => Array<br />
 (<br />
@@ -3148,6 +3398,9 @@ j/n/Y<br />
 &nbsp;&nbsp;[bold] =&gt; bold<br />
 &nbsp;&nbsp;[defaultextstyle] =&gt; <br />
 &nbsp;&nbsp;[verhash] =&gt; j3G<br />
+&nbsp;&nbsp;[tpldirectory] =&gt; ./template/new<br />
+&nbsp;&nbsp;[prefile] =&gt; <br />
+&nbsp;&nbsp;[tplfile] =&gt; forum/forumdisplay:2<br />
 )<br />
 </li><li><a name="S_cache"></a><br />['cache'] => Array<br />
 (<br />
@@ -3155,7 +3408,7 @@ j/n/Y<br />
 &nbsp;&nbsp;&nbsp;&nbsp;(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;)<br />
 <br />
-&nbsp;&nbsp;[cronnextrun] =&gt; 1397059200<br />
+&nbsp;&nbsp;[cronnextrun] =&gt; 1397079000<br />
 &nbsp;&nbsp;[forums] =&gt; Array<br />
 &nbsp;&nbsp;&nbsp;&nbsp;(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1] =&gt; Array<br />
@@ -3912,11 +4165,366 @@ j/n/Y<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[plugin] =&gt; <br />
 &nbsp;&nbsp;&nbsp;&nbsp;)<br />
 <br />
-&nbsp;&nbsp;[staticlink] =&gt; <br />
+&nbsp;&nbsp;[seccodedata] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[register] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[show] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;[usergroups] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[9] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; member<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 限制会员<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditshigher] =&gt; -9999999<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditslower] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; system<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 管理员<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 9<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 200<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 500<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; system<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 超级版主<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 8<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 150<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 300<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; system<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 版主<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 7<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 100<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 200<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; system<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 禁止发言<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[5] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; system<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 禁止访问<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[6] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; system<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 禁止 IP<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[7] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; system<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 游客<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[8] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; system<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 等待验证会员<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 50<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[10] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; member<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 新手上路<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditshigher] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditslower] =&gt; 50<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 10<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 80<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[16] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; special<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 实习版主<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 7<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 100<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 200<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[17] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; special<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 网站编辑<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 8<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 150<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 300<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[18] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; special<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 信息监察员<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 9<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 200<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 500<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[19] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; special<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 审核员<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 7<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 100<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 200<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[20] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; special<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; QQ游客<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[11] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; member<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 注册会员<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditshigher] =&gt; 50<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditslower] =&gt; 200<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 20<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 100<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[12] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; member<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 中级会员<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditshigher] =&gt; 200<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditslower] =&gt; 500<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 3<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 30<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 150<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[13] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; member<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 高级会员<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditshigher] =&gt; 500<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditslower] =&gt; 1000<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 4<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 50<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 200<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[14] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; member<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 金牌会员<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditshigher] =&gt; 1000<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditslower] =&gt; 3000<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 6<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 70<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 300<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[15] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[type] =&gt; member<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grouptitle] =&gt; 论坛元老<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditshigher] =&gt; 3000<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[creditslower] =&gt; 9999999<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stars] =&gt; 8<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[color] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readaccess] =&gt; 90<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetattach] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowgetimage] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxsigsize] =&gt; 500<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allowbegincode] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[userstatusby] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;[attachtype] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;[diytemplatename] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[group/index] =&gt; 首页<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
 )<br />
 </li><li><a name="S_session"></a><br />['session'] => Array<br />
 (<br />
-&nbsp;&nbsp;[sid] =&gt; OFordu<br />
+&nbsp;&nbsp;[sid] =&gt; mYdDzQ<br />
 &nbsp;&nbsp;[ip1] =&gt; 127<br />
 &nbsp;&nbsp;[ip2] =&gt; 0<br />
 &nbsp;&nbsp;[ip3] =&gt; 0<br />
@@ -3926,8 +4534,8 @@ j/n/Y<br />
 &nbsp;&nbsp;[groupid] =&gt; 1<br />
 &nbsp;&nbsp;[invisible] =&gt; 0<br />
 &nbsp;&nbsp;[action] =&gt; 2<br />
-&nbsp;&nbsp;[lastactivity] =&gt; 1397114571<br />
-&nbsp;&nbsp;[lastolupdate] =&gt; 1397114571<br />
+&nbsp;&nbsp;[lastactivity] =&gt; 1397199512<br />
+&nbsp;&nbsp;[lastolupdate] =&gt; 1397199512<br />
 &nbsp;&nbsp;[fid] =&gt; 0<br />
 &nbsp;&nbsp;[tid] =&gt; 0<br />
 )<br />
@@ -3939,7 +4547,7 @@ j/n/Y<br />
 )<br />
 </li><li><a name="S_forum"></a><br />['forum'] => Array<br />
 (<br />
-&nbsp;&nbsp;[fid] =&gt; 36<br />
+&nbsp;&nbsp;[fid] =&gt; 2<br />
 &nbsp;&nbsp;[description] =&gt; <br />
 &nbsp;&nbsp;[password] =&gt; <br />
 &nbsp;&nbsp;[icon] =&gt; <br />
@@ -3975,9 +4583,15 @@ j/n/Y<br />
 &nbsp;&nbsp;&nbsp;&nbsp;(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;)<br />
 <br />
-&nbsp;&nbsp;[threadplugin] =&gt; <br />
+&nbsp;&nbsp;[threadplugin] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
 &nbsp;&nbsp;[replybg] =&gt; <br />
-&nbsp;&nbsp;[extra] =&gt; <br />
+&nbsp;&nbsp;[extra] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
 &nbsp;&nbsp;[jointype] =&gt; 0<br />
 &nbsp;&nbsp;[gviewperm] =&gt; 0<br />
 &nbsp;&nbsp;[membernum] =&gt; 0<br />
@@ -3999,29 +4613,29 @@ j/n/Y<br />
 &nbsp;&nbsp;[price] =&gt; 0<br />
 &nbsp;&nbsp;[fup] =&gt; 1<br />
 &nbsp;&nbsp;[type] =&gt; forum<br />
-&nbsp;&nbsp;[name] =&gt; 用户反馈<br />
+&nbsp;&nbsp;[name] =&gt; 默认版块<br />
 &nbsp;&nbsp;[status] =&gt; 1<br />
 &nbsp;&nbsp;[displayorder] =&gt; 0<br />
 &nbsp;&nbsp;[styleid] =&gt; 0<br />
-&nbsp;&nbsp;[threads] =&gt; 5<br />
-&nbsp;&nbsp;[posts] =&gt; 5<br />
+&nbsp;&nbsp;[threads] =&gt; 8<br />
+&nbsp;&nbsp;[posts] =&gt; 8<br />
 &nbsp;&nbsp;[todayposts] =&gt; 0<br />
 &nbsp;&nbsp;[yesterdayposts] =&gt; 0<br />
-&nbsp;&nbsp;[rank] =&gt; 2<br />
-&nbsp;&nbsp;[oldrank] =&gt; 1<br />
-&nbsp;&nbsp;[lastpost] =&gt; 78	4444444444444444444444444	1396962405	admin<br />
+&nbsp;&nbsp;[rank] =&gt; 1<br />
+&nbsp;&nbsp;[oldrank] =&gt; 2<br />
+&nbsp;&nbsp;[lastpost] =&gt; 37	2014年03月31日签到帖	1396265526	haierspi<br />
 &nbsp;&nbsp;[domain] =&gt; <br />
 &nbsp;&nbsp;[allowsmilies] =&gt; 1<br />
 &nbsp;&nbsp;[allowhtml] =&gt; 0<br />
 &nbsp;&nbsp;[allowbbcode] =&gt; 1<br />
 &nbsp;&nbsp;[allowimgcode] =&gt; 1<br />
-&nbsp;&nbsp;[allowmediacode] =&gt; 0<br />
+&nbsp;&nbsp;[allowmediacode] =&gt; 1<br />
 &nbsp;&nbsp;[allowanonymous] =&gt; 0<br />
 &nbsp;&nbsp;[allowpostspecial] =&gt; 1<br />
 &nbsp;&nbsp;[allowspecialonly] =&gt; 0<br />
 &nbsp;&nbsp;[allowappend] =&gt; 0<br />
 &nbsp;&nbsp;[alloweditrules] =&gt; 0<br />
-&nbsp;&nbsp;[allowfeed] =&gt; 0<br />
+&nbsp;&nbsp;[allowfeed] =&gt; 1<br />
 &nbsp;&nbsp;[allowside] =&gt; 0<br />
 &nbsp;&nbsp;[recyclebin] =&gt; 1<br />
 &nbsp;&nbsp;[modnewposts] =&gt; 0<br />
@@ -4045,6 +4659,7 @@ j/n/Y<br />
 &nbsp;&nbsp;[disablethumb] =&gt; 0<br />
 &nbsp;&nbsp;[disablecollect] =&gt; 0<br />
 &nbsp;&nbsp;[ismoderator] =&gt; 1<br />
+&nbsp;&nbsp;[allowpostattach] =&gt; <br />
 )<br />
 </li><li><a name="S_thread"></a><br />['thread'] => Array<br />
 (<br />
@@ -4064,7 +4679,7 @@ j/n/Y<br />
 </li><li><a name="S_action"></a><br />['action'] => Array<br />
 (<br />
 &nbsp;&nbsp;[action] =&gt; 2<br />
-&nbsp;&nbsp;[fid] =&gt; 0<br />
+&nbsp;&nbsp;[fid] =&gt; 2<br />
 &nbsp;&nbsp;[tid] =&gt; 0<br />
 )<br />
 </li><li><a name="S_notice_structure"></a><br />['notice_structure'] => Array<br />
@@ -4128,16 +4743,577 @@ j/n/Y<br />
 </li><li><a name="S_hooklang"></a><br />['hooklang'] => Array<br />
 (<br />
 &nbsp;&nbsp;[core] =&gt; 1<br />
+&nbsp;&nbsp;[template] =&gt; 1<br />
+&nbsp;&nbsp;[forum/template] =&gt; 1<br />
+)<br />
+</li><li><a name="S_forum_threadlist"></a><br />['forum_threadlist'] => Array<br />
+(<br />
+&nbsp;&nbsp;[0] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[tid] =&gt; 37<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[fid] =&gt; 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[posttableid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typeid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sortid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readperm] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[price] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[author] =&gt; haierspi<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[authorid] =&gt; 3<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[subject] =&gt; 2014年03月31日签到帖<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dateline] =&gt; 2014-3-31<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastpost] =&gt; 2014-3-31 19:32<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposter] =&gt; haierspi<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[views] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[displayorder] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[highlight] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[digest] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rate] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[special] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[attachment] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moderated] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[closed] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stickreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommends] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_add] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_sub] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heats] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[status] =&gt; 192<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[isgroup] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[favtimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sharetimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stamp] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pushedaid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[cover] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replycredit] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[relatebytag] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxposition] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[bgcolor] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[comments] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[hidden] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allreplies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ordertype] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[forumstick] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[related_group] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposterenc] =&gt; haierspi<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typehtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typename] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sorthtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[multipage] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommendicon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[new] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heatlevel] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moved] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[folder] =&gt; new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icontid] =&gt; 37<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[istoday] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dbdateline] =&gt; 1396265526<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dblastpost] =&gt; 1396265526<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[id] =&gt; normalthread_37<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[weeknew] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[mobile] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rushreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;[1] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[tid] =&gt; 31<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[fid] =&gt; 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[posttableid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typeid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sortid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readperm] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[price] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[author] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[authorid] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[subject] =&gt; 2014年03月17日签到帖<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dateline] =&gt; 2014-3-17<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastpost] =&gt; 2014-3-17 10:00<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposter] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[views] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[displayorder] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[highlight] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[digest] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rate] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[special] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[attachment] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moderated] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[closed] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stickreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommends] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_add] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_sub] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heats] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[status] =&gt; 192<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[isgroup] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[favtimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sharetimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stamp] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pushedaid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[cover] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replycredit] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[relatebytag] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxposition] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[bgcolor] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[comments] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[hidden] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allreplies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ordertype] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[forumstick] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[related_group] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposterenc] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typehtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typename] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sorthtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[multipage] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommendicon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[new] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heatlevel] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moved] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[folder] =&gt; new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icontid] =&gt; 31<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[istoday] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dbdateline] =&gt; 1395021624<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dblastpost] =&gt; 1395021624<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[id] =&gt; normalthread_31<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[weeknew] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[mobile] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rushreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;[2] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[tid] =&gt; 27<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[fid] =&gt; 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[posttableid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typeid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sortid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readperm] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[price] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[author] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[authorid] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[subject] =&gt; 2014年03月17日签到帖<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dateline] =&gt; 2014-3-17<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastpost] =&gt; 2014-3-17 01:14<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposter] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[views] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replies] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[displayorder] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[highlight] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[digest] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rate] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[special] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[attachment] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moderated] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[closed] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stickreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommends] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_add] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_sub] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heats] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[status] =&gt; 192<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[isgroup] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[favtimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sharetimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stamp] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pushedaid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[cover] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replycredit] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[relatebytag] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxposition] =&gt; 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[bgcolor] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[comments] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[hidden] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allreplies] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ordertype] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[forumstick] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[related_group] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposterenc] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typehtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typename] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sorthtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[multipage] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommendicon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[new] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heatlevel] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moved] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[folder] =&gt; new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icontid] =&gt; 27<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[istoday] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dbdateline] =&gt; 1394990039<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dblastpost] =&gt; 1394990067<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[id] =&gt; normalthread_27<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[weeknew] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[mobile] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rushreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;[3] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[tid] =&gt; 26<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[fid] =&gt; 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[posttableid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typeid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sortid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readperm] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[price] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[author] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[authorid] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[subject] =&gt; 2014年03月17日签到帖<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dateline] =&gt; 2014-3-17<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastpost] =&gt; 2014-3-17 01:07<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposter] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[views] =&gt; 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[displayorder] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[highlight] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[digest] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rate] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[special] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[attachment] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moderated] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[closed] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stickreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommends] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_add] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_sub] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heats] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[status] =&gt; 192<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[isgroup] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[favtimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sharetimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stamp] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pushedaid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[cover] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replycredit] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[relatebytag] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxposition] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[bgcolor] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[comments] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[hidden] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allreplies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ordertype] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[forumstick] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[related_group] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposterenc] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typehtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typename] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sorthtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[multipage] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommendicon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[new] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heatlevel] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moved] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[folder] =&gt; new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[weeknew] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icontid] =&gt; 26<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[istoday] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dbdateline] =&gt; 1394989622<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dblastpost] =&gt; 1394989622<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[id] =&gt; normalthread_26<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[mobile] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rushreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;[4] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[tid] =&gt; 29<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[fid] =&gt; 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[posttableid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typeid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sortid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readperm] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[price] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[author] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[authorid] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[subject] =&gt; 2014年03月9日签到帖<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dateline] =&gt; 2014-3-9<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastpost] =&gt; 2014-3-9 01:26<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposter] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[views] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[displayorder] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[highlight] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[digest] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rate] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[special] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[attachment] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moderated] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[closed] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stickreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommends] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_add] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_sub] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heats] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[status] =&gt; 192<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[isgroup] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[favtimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sharetimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stamp] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pushedaid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[cover] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replycredit] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[relatebytag] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxposition] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[bgcolor] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[comments] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[hidden] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allreplies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ordertype] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[forumstick] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[related_group] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposterenc] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typehtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typename] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sorthtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[multipage] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommendicon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[new] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heatlevel] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moved] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[folder] =&gt; new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icontid] =&gt; 29<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[istoday] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dbdateline] =&gt; 1394299592<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dblastpost] =&gt; 1394299592<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[id] =&gt; normalthread_29<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[weeknew] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[mobile] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rushreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;[5] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[tid] =&gt; 28<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[fid] =&gt; 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[posttableid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typeid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sortid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readperm] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[price] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[author] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[authorid] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[subject] =&gt; 2014年03月8日签到帖<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dateline] =&gt; 2014-3-8<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastpost] =&gt; 2014-3-8 01:26<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposter] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[views] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[displayorder] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[highlight] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[digest] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rate] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[special] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[attachment] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moderated] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[closed] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stickreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommends] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_add] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_sub] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heats] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[status] =&gt; 192<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[isgroup] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[favtimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sharetimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stamp] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pushedaid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[cover] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replycredit] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[relatebytag] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxposition] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[bgcolor] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[comments] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[hidden] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allreplies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ordertype] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[forumstick] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[related_group] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposterenc] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typehtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typename] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sorthtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[multipage] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommendicon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[new] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heatlevel] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moved] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[folder] =&gt; new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icontid] =&gt; 28<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[istoday] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dbdateline] =&gt; 1394213176<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dblastpost] =&gt; 1394213176<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[id] =&gt; normalthread_28<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[weeknew] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[mobile] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rushreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;[6] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[tid] =&gt; 30<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[fid] =&gt; 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[posttableid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typeid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sortid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readperm] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[price] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[author] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[authorid] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[subject] =&gt; 2014年03月2日签到帖<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dateline] =&gt; 2014-3-2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastpost] =&gt; 2014-3-2 01:27<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposter] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[views] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[displayorder] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[highlight] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[digest] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rate] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[special] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[attachment] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moderated] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[closed] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stickreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommends] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_add] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_sub] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heats] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[status] =&gt; 192<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[isgroup] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[favtimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sharetimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stamp] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pushedaid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[cover] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replycredit] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[relatebytag] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxposition] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[bgcolor] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[comments] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[hidden] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allreplies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ordertype] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[forumstick] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[related_group] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposterenc] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typehtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typename] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sorthtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[multipage] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommendicon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[new] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heatlevel] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moved] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[folder] =&gt; new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icontid] =&gt; 30<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[istoday] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dbdateline] =&gt; 1393694846<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dblastpost] =&gt; 1393694846<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[id] =&gt; normalthread_30<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[weeknew] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[mobile] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rushreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+&nbsp;&nbsp;[7] =&gt; Array<br />
+&nbsp;&nbsp;&nbsp;&nbsp;(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[tid] =&gt; 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[fid] =&gt; 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[posttableid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typeid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sortid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[readperm] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[price] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[author] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[authorid] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[subject] =&gt; 微信淘宝条码扫描体验：扫码如做贼<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dateline] =&gt; 2014-1-23<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastpost] =&gt; 2014-1-23 11:36<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposter] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[views] =&gt; 4<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[displayorder] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[highlight] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[digest] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rate] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[special] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[attachment] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moderated] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[closed] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stickreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommends] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_add] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommend_sub] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heats] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[status] =&gt; 32<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[isgroup] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[favtimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sharetimes] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[stamp] =&gt; -1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icon] =&gt; 20<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[pushedaid] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[cover] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[replycredit] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[relatebytag] =&gt; 1393382427	<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[maxposition] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[bgcolor] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[comments] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[hidden] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[allreplies] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ordertype] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[forumstick] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[related_group] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[lastposterenc] =&gt; admin<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typehtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[typename] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[sorthtml] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[multipage] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[recommendicon] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[new] =&gt; 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[heatlevel] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[moved] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[folder] =&gt; new<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[weeknew] =&gt; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[icontid] =&gt; 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[istoday] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dbdateline] =&gt; 1390448218<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[dblastpost] =&gt; 1390448218<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[id] =&gt; normalthread_2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[mobile] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[rushreply] =&gt; 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;)<br />
+<br />
+)<br />
+</li><li><a name="S_forum_colorarray"></a><br />['forum_colorarray'] => Array<br />
+(<br />
+&nbsp;&nbsp;[0] =&gt; <br />
+&nbsp;&nbsp;[1] =&gt; #EE1B2E<br />
+&nbsp;&nbsp;[2] =&gt; #EE5023<br />
+&nbsp;&nbsp;[3] =&gt; #996600<br />
+&nbsp;&nbsp;[4] =&gt; #3C9D40<br />
+&nbsp;&nbsp;[5] =&gt; #2897C5<br />
+&nbsp;&nbsp;[6] =&gt; #2B65B7<br />
+&nbsp;&nbsp;[7] =&gt; #8F2A90<br />
+&nbsp;&nbsp;[8] =&gt; #EC1282<br />
 )<br />
 </li><li><a name="S_debuginfo"></a><br />['debuginfo'] => Array<br />
 (<br />
-&nbsp;&nbsp;[time] =&gt; 1.148270<br />
-&nbsp;&nbsp;[queries] =&gt; 15<br />
+&nbsp;&nbsp;[time] =&gt; 1.399079<br />
+&nbsp;&nbsp;[queries] =&gt; 54<br />
 &nbsp;&nbsp;[memory] =&gt; <br />
 )<br />
 </li><li><a name="S_sessoin"></a><br />['sessoin'] => Array<br />
 (<br />
-&nbsp;&nbsp;[sid] =&gt; OFordu<br />
+&nbsp;&nbsp;[sid] =&gt; mYdDzQ<br />
 &nbsp;&nbsp;[ip1] =&gt; 127<br />
 &nbsp;&nbsp;[ip2] =&gt; 0<br />
 &nbsp;&nbsp;[ip3] =&gt; 0<br />
@@ -4147,9 +5323,9 @@ j/n/Y<br />
 &nbsp;&nbsp;[groupid] =&gt; 1<br />
 &nbsp;&nbsp;[invisible] =&gt; 0<br />
 &nbsp;&nbsp;[action] =&gt; 2<br />
-&nbsp;&nbsp;[lastactivity] =&gt; 1397119270<br />
-&nbsp;&nbsp;[lastolupdate] =&gt; 1397119270<br />
-&nbsp;&nbsp;[fid] =&gt; 0<br />
+&nbsp;&nbsp;[lastactivity] =&gt; 1397199512<br />
+&nbsp;&nbsp;[lastolupdate] =&gt; 1397199512<br />
+&nbsp;&nbsp;[fid] =&gt; 2<br />
 &nbsp;&nbsp;[tid] =&gt; 0<br />
 )<br />
 </li></ol></div></body></html>
