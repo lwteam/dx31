@@ -400,24 +400,3 @@ CREATE TABLE `pre_buglist_urecords` (
 
 
 
-
-DROP TABLE IF EXISTS `pre_common_member_lenovoid`;
-CREATE TABLE `pre_common_member_lenovoid` (
-  `uid` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `lenovoid` char(15) NOT NULL DEFAULT '',
-  `renamed` tinyint(1) unsigned NOT NULL DEFAULT '0', -- 已经更改过用户名
-  PRIMARY KEY (`uid`),
-  UNIQUE KEY `lenovoid` (`lenovoid`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
-
-
-DROP TABLE IF EXISTS `pre_common_member_lephoneid`;
-CREATE TABLE `pre_common_member_lephoneid` (
-  `uid` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `lephoneid` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `renamed` tinyint(1) unsigned NOT NULL DEFAULT '0', -- 已经更改过用户名
-  PRIMARY KEY (`uid`),
-  UNIQUE KEY `lephoneid` (`lephoneid`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
