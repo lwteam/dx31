@@ -1,0 +1,45 @@
+<!--{template article/header}-->
+
+
+<div id="main">
+	<div id="mleft">
+		<div id="list">
+			<!--{if $articles}-->
+			<div class="theadr"><div class="right">搜索 <font class="redc">$srchtxt</font> 找到 $articlecount 条结果</div><h3>搜索结果</h3></div>
+			<div class="tlist">
+				<ul>
+					<!--{loop $articles $value}-->
+					<li>
+						<div class="right tagbtn">
+						<!--{loop $value[tagary] $k $v}-->
+							<a href="index.php?act=tag&id=$k" title="$v"><em></em>$v</a>
+						<!--{/loop}-->
+						</div>
+						<a href="index.php?act=list&key={$CategorysKey[$value[category]]}">$Categorys[$value[category]]</a><span class="pipe tcolor3">|</span><a href="$value[url]" title="$value[title]" class="tlink">$value[title]</a> <small>$value['dateline_f']</small>
+					</li>
+					<!--{/loop}-->
+				</ul>
+			</div>
+			<!--{else}-->
+			<div class="theadr"><h3>搜索结果</h3></div>
+			<div class="prompt">
+				<h3>抱歉，没有找到与 <font class="redc">$srchtxt</font> 相关的结果</h3>
+				<div>
+					检查输入是否正确<br />
+					简化输入词<br />
+					尝试其他相关词，如同义、近义词等
+				</div>
+			</div>
+			<!--{/if}-->
+		</div>
+		<!--{if $multipage}-->$multipage<!--{/if}-->
+
+	</div>
+
+	<!--{template article/sidebar}-->
+
+</div>
+
+<div id="bg"></div>
+
+<!--{template article/footer}-->

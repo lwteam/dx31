@@ -1,0 +1,52 @@
+<div>
+
+	<!--{if $hardwarelist}-->
+	<div class="bip">
+		<p class="bip-t">机型选择 (必填)</p>
+		<select class="bip-s" size="1" id="hardware" name="hardware">
+			<!--{loop $hardwarelist $value}-->
+				<option value="$value[id]" {if $value[selected]} selected{/if}>$value[title]</option>
+			<!--{/loop}-->
+		</select>
+	</div>
+	<!--{/if}-->
+
+	<!--{if $versionlist}-->
+	<div class="bip">
+		<p class="bip-t">版本选择 (必填)</p>
+		<select class="bip-s" id="version" size="1" name="version">
+			<!--{loop $versionlist $value}-->
+				<option value="$value[id]" {if $value[selected]} selected{/if}>$value[title]</option>
+			<!--{/loop}-->
+		</select>
+	</div>
+	<!--{/if}-->
+	<!--{loop $bugattrlist $i $value}-->
+	<div class="bip">
+		<p class="bip-t">$value[title] (<!--{if $value[must]}-->必填<!--{/if}-->)</p>
+		<!--{if $value['inputtype']}-->
+			<select class="bip-s" id="$value[elementid]" size="1" name="bugattr[{$value[id]}]">
+			<!--{loop $value['selectlist'] $opkey $opval}-->
+				<option value="$opkey" {if $value[key] == $opkey} selected{/if}>$opval</option>
+			<!--{/loop}-->
+			</select>
+		<!--{else}-->
+			<input type="text" id="$value[elementid]" name="bugattr[{$value[id]}]" value="$value[value]" class="bip-i" autocomplete="off">
+		<!--{/if}-->
+		
+	</div>
+	<!--{/loop}-->
+</div>
+<style>
+.bip{}
+.bip .bip-t{}
+.bip .bip-s {width:200px;}
+.bip .bip-i{ 
+width:290px;
+padding: 2px 4px;
+line-height: 17px;
+border: 1px solid;
+border-color: #848484 #E0E0E0 #E0E0E0 #848484;
+background: #FFF url(../../static/image/common/px.png) repeat-x 0 0;
+}
+</style>

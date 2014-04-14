@@ -40,23 +40,23 @@ function seditor_menu(seditorkey, tag) {
 				curatli = 0;
 				atsubmitid = ctrlid + '_submit';
 				setTimeout(function() {atFilter('', 'at_list','atListSet');$('atkeyword').focus();}, 100);
-				str = '请输用户名:<br /><input type="text" id="atkeyword" style="width:240px" value="" class="px" onkeydown="atFilter(this.value, \'at_list\',\'atListSet\',event);" /><div class="p_pop" id="at_list" style="width:250px;"><ul><li>@朋友账号，就能提醒他来看帖子</li></ul></div>';
+				str = '请输用户名:<br /><input type="text" id="atkeyword" style="width:230px" value="" class="px" onkeydown="atFilter(this.value, \'at_list\',\'atListSet\',event);" /><div class="p_pop" id="at_list" style="width:250px;"><ul><li>@朋友账号，就能提醒他来看帖子</li></ul></div>';
 				submitstr = 'seditor_insertunit(\'' + seditorkey + '\', \'@\' + $(\'atkeyword\').value.replace(/<\\/?b>/g, \'\')+\' \'); hideMenu();';
 				break;
 			case 'url':
-				str = '请输入链接地址:<br /><input type="text" id="' + ctrlid + '_param_1" sautocomplete="off" style="width: 98%" value="" class="px" />' +
-					'<br />请输入链接文字:<br /><input type="text" id="' + ctrlid + '_param_2" style="width: 98%" value="" class="px" />';
+				str = '请输入链接地址:<br /><input type="text" id="' + ctrlid + '_param_1" sautocomplete="off" style="width: 92%" value="" class="px" />' +
+					'<br />请输入链接文字:<br /><input type="text" id="' + ctrlid + '_param_2" style="width: 92%" value="" class="px" />';
 				submitstr = "$('" + ctrlid + "_param_2').value !== '' ? seditor_insertunit('" + seditorkey + "', '[url='+seditor_squarestrip($('" + ctrlid + "_param_1').value)+']'+$('" + ctrlid + "_param_2').value, '[/url]', null, 1) : seditor_insertunit('" + seditorkey + "', '[url]'+$('" + ctrlid + "_param_1').value, '[/url]', null, 1);hideMenu();";
 				break;
 			case 'code':
 			case 'quote':
 				var tagl = {'quote' : '请输入要插入的引用', 'code' : '请输入要插入的代码'};
-					str = tagl[tag] + ':<br /><textarea id="' + ctrlid + '_param_1" style="width: 98%" cols="50" rows="5" class="txtarea"></textarea>';
+					str = tagl[tag] + ':<br /><textarea id="' + ctrlid + '_param_1" style="width: 92%" cols="50" rows="5" class="txtarea"></textarea>';
 				submitstr = "seditor_insertunit('" + seditorkey + "', '[" + tag + "]'+$('" + ctrlid + "_param_1').value, '[/" + tag + "]', null, 1);hideMenu();";
 				break;
 			case 'img':
-				str = '请输入图片地址:<br /><input type="text" id="' + ctrlid + '_param_1" style="width: 98%" value="" class="px" onchange="loadimgsize(this.value, \'' + seditorkey + '\',\'' + tag + '\')" />' +
-					'<p class="mtm">宽(可选): <input type="text" id="' + ctrlid + '_param_2" style="width: 15%" value="" class="px" /> &nbsp;' +
+				str = '请输入图片地址:<br /><input type="text" id="' + ctrlid + '_param_1" style="width: 92%" value="" class="px" onchange="loadimgsize(this.value, \'' + seditorkey + '\',\'' + tag + '\')" />' +
+					'<p>宽(可选): <input type="text" id="' + ctrlid + '_param_2" style="width: 15%" value="" class="px" /> &nbsp;' +
 					'高(可选): <input type="text" id="' + ctrlid + '_param_3" style="width: 15%" value="" class="px" /></p>';
 				submitstr = "seditor_insertunit('" + seditorkey + "', '[img' + ($('" + ctrlid + "_param_2').value !== '' && $('" + ctrlid + "_param_3').value !== '' ? '='+$('" + ctrlid + "_param_2').value+','+$('" + ctrlid + "_param_3').value : '')+']'+seditor_squarestrip($('" + ctrlid + "_param_1').value), '[/img]', null, 1);hideMenu();";
 				break;

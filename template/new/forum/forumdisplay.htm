@@ -1,0 +1,104 @@
+<!--{template common/header}-->
+
+<!--{if $_G['forum']['ismoderator']}-->
+	<script type="text/javascript" src="{$_G[setting][jspath]}forum_moderate.js?{VERHASH}"></script>
+<!--{/if}-->
+
+<div class="breadcrumbs">
+		<a href="./">$_G[setting][bbname]</a>$navigation
+</div>
+
+<div id="main">
+<!--{if !$subforumonly}-->
+		<div class="bbsinfo">
+				<div class="bbsinfoabout">
+					<div class="bbsinfoname">
+						<h1><a href="forum.php?mod=forumdisplay&fid=$_G[fid]">$_G['forum'][name]</a><small>官方论坛</small></h1>
+					</div>
+					<!--{template forum/forumdisplay_subforum}-->
+				</div>
+				<div class="bbsinfostat">
+					<!--{if $moderatedby}--><div class="right">{lang forum_modedby}：$moderatedby</div><!--{/if}-->
+					{lang index_today}：<strong>$_G[forum][todayposts]</strong><span class="pipe">/</span>{lang index_threads}：$_G[forum][threads]
+				</div>
+		</div>
+
+		<div class="listbg">
+
+			<div class="forumorder">
+				<div class="right"><a href="forum.php?mod=post&action=newthread&fid=$_G[fid]" class="greenbutton">我要发帖</a></div>
+				<div class="forumorderlist">
+					<ul>
+						<li {if $_GET['orderby'] == 'dateline'}class="on"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=author&orderby=dateline$forumdisplayadd[author]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}"><i class="newthead"></i>最新</a></li>
+						<li {if $_GET['filter'] == 'lastpost'}class="on"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=lastpost&orderby=lastpost$forumdisplayadd[lastpost]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}"><i class="lastthead"></i>最后回复</a></li>
+						<li><a href=""><i class="hotthead"></i>周热门</a></li>
+						<li {if $_GET['filter'] == 'digest'}class="on"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=digest&digest=1$forumdisplayadd[digest]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}"><i class="verythead"></i>精华</a></li>
+					</ul>
+				</div>
+			</div>
+			<!--{if ($_G['forum']['threadtypes'] && $_G['forum']['threadtypes']['listable']) || count($_G['forum']['threadsorts']['types']) > 0}-->
+			<div class="forumclass">
+				<div class="forumclasslist">
+					<ul>
+						<li class="forumclasslistli">
+							<div class="forumclasslists">
+								<ul>
+									<li{if !$_GET['typeid'] && !$_GET['sortid']} class="on"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{if $_G['forum']['threadsorts']['defaultshow']}&filter=sortall&sortall=1{/if}{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">{lang forum_viewall}</a><i></i></li>
+									<!--{if $_G['forum']['threadtypes']}-->
+										<!--{loop $_G['forum']['threadtypes']['types'] $id $name}-->
+											<!--{if $_GET['typeid'] == $id}-->
+											<li class="on"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{if $_GET['sortid']}&filter=sortid&sortid=$_GET['sortid']{/if}{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">$name<!--{if $showthreadclasscount[typeid][$id]}--><span>$showthreadclasscount[typeid][$id]</span><!--{/if}--></a><i></i></li>
+											<!--{else}-->
+											<li><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=typeid&typeid=$id$forumdisplayadd[typeid]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">$name<!--{if $showthreadclasscount[typeid][$id]}--><span>$showthreadclasscount[typeid][$id]</span><!--{/if}--></a><i></i></li>
+											<!--{/if}-->
+										<!--{/loop}-->
+									<!--{/if}-->
+
+									<!--{if $_G['forum']['threadsorts']}-->
+									<!--{loop $_G['forum']['threadsorts']['types'] $id $name}-->
+										<!--{if $_GET['sortid'] == $id}-->
+											<li class="on"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{if $_GET['typeid']}&filter=typeid&typeid=$_GET['typeid']{/if}{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">$name<!--{if $showthreadclasscount[sortid][$id]}--><span>$showthreadclasscount[sortid][$id]</span><!--{/if}--></a><i></i></li>
+										<!--{else}-->
+											<li><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=sortid&sortid=$id$forumdisplayadd[sortid]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}">$name<!--{if $showthreadclasscount[sortid][$id]}--><span>$showthreadclasscount[sortid][$id]</span><!--{/if}--></a><i></i></li>
+										<!--{/if}-->
+									<!--{/loop}-->
+									<!--{/if}-->
+									<script type="text/javascript">showTypes('thread_types');</script>
+
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--{/if}-->
+
+			<!--{if empty($_G['forum']['sortmode'])}-->
+					<!--{subtemplate forum/forumdisplay_list}-->
+				<!--{else}-->
+					<!--{subtemplate forum/forumdisplay_sort}-->
+			<!--{/if}-->
+			
+
+		</div>
+		<span id="fd_page_bottom">$multipage</span>
+		<!--{if $fastpost}-->
+				<!--{template forum/forumdisplay_fastpost}-->
+		<!--{/if}-->
+<!--{/if}-->
+</div>
+<div id="sidebar">
+	<!--{template extend/sidebar}-->
+</div>
+
+<!--{if $_G['setting']['threadmaxpages'] > 1 && $page && !$subforumonly}-->
+	<script type="text/javascript">document.onkeyup = function(e){keyPageScroll(e, <!--{if $page > 1}-->1<!--{else}-->0<!--{/if}-->, <!--{if $page < $_G['setting']['threadmaxpages'] && $page < $_G['page_next']}-->1<!--{else}-->0<!--{/if}-->, 'forum.php?mod=forumdisplay&fid={$_G[fid]}&filter={$filter}&orderby={$_GET[orderby]}{$forumdisplayadd[page]}&{$multipage_archive}', $page);}</script>
+<!--{/if}-->
+
+<!--{if empty($_G['forum']['picstyle']) && $_GET['orderby'] == 'lastpost' && empty($_GET['filter']) }-->
+	<script type="text/javascript">checkForumnew_handle = setTimeout(function () {checkForumnew($_G[fid], lasttime);}, checkForumtimeout);</script>
+<!--{/if}-->
+
+<!--{if empty($_G['setting']['disfixednv_forumdisplay']) }--><script>fixed_top_nv();</script><!--{/if}-->
+
+<!--{template common/footer}-->

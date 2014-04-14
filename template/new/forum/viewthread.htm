@@ -1,0 +1,181 @@
+<!--{template common/header}-->
+
+<script type="text/javascript">var fid = parseInt('$_G[fid]'), tid = parseInt('$_G[tid]');</script>
+<!--{if $modmenu['thread'] || $modmenu['post']}-->
+	<script type="text/javascript" src="{$_G['setting']['jspath']}forum_moderate.js?{VERHASH}"></script>
+<!--{/if}-->
+
+<script type="text/javascript" src="{$_G['setting']['jspath']}forum_viewthread.js?{VERHASH}"></script>
+<script type="text/javascript">zoomstatus = parseInt($_G['setting']['zoomstatus']);var imagemaxwidth = '{$_G['setting']['imagemaxwidth']}';var aimgcount = new Array();</script>
+
+<!--{if $modmenu['post']}-->
+	<div id="mdly" class="fwinmask" style="display:none;z-index:200;">
+		<table cellspacing="0" cellpadding="0" class="fwin">
+			<tr>
+				<td class="t_l"></td>
+				<td class="t_c"></td>
+				<td class="t_r"></td>
+			</tr>
+			<tr>
+				<td class="m_l">&nbsp;&nbsp;</td>
+				<td class="m_c">
+					<div class="f_c">
+						<div class="c">
+							<h3>{lang admin_select}&nbsp;<strong id="mdct" class="xi1"></strong>&nbsp;{lang piece}: </h3>
+							<!--{if $_G['forum']['ismoderator']}-->
+								<!--{if $_G['group']['allowwarnpost']}--><a href="javascript:;" onclick="modaction('warn')">{lang modmenu_warn}</a><span class="pipe">|</span><!--{/if}-->
+								<!--{if $_G['group']['allowbanpost']}--><a href="javascript:;" onclick="modaction('banpost')">{lang modmenu_banpost}</a><span class="pipe">|</span><!--{/if}-->
+								<!--{if $_G['group']['allowdelpost'] && !$rushreply}--><a href="javascript:;" onclick="modaction('delpost')">{lang modmenu_deletepost}</a><!--{/if}-->
+							<!--{/if}-->
+
+						</div>
+					</div>
+				</td>
+				<td class="m_r"></td>
+			</tr>
+			<tr>
+				<td class="b_l"></td>
+				<td class="b_c"></td>
+				<td class="b_r"></td>
+			</tr>
+		</table>
+	</div>
+<!--{/if}-->
+
+<div id="container">
+
+	<div class="breadcrumbs">
+		<a href="./" title="{lang homepage}">$_G[setting][bbname]</a><span class="pipe">&raquo;</span>$navigation<span class="pipe">&raquo;</span><a href="forum.php?mod=viewthread&tid=$_G[tid]">$_G[forum_thread][short_subject]</a>
+	</div>
+
+	<div id="main">
+
+	<!--{eval $postcount = 0;}-->
+	<!--{loop $postlist $post}-->
+		<!--{if $rushreply && $_GET['checkrush'] && $post['rewardfloor'] != 1}-->
+			<!--{eval continue;}-->
+		<!--{/if}-->
+			<!--{subtemplate forum/viewthread_node}-->
+		
+		<!--{eval $postcount++;}-->
+	<!--{/loop}-->
+	<div id="postlistreply" class="pl"><div id="post_new" class="viewthread_table" style="display: none"></div></div>
+		<form method="post" autocomplete="off" name="modactions" id="modactions">
+			<input type="hidden" name="formhash" value="{FORMHASH}" />
+			<input type="hidden" name="optgroup" />
+			<input type="hidden" name="operation" />
+			<input type="hidden" name="listextra" value="$_GET[extra]" />
+			<input type="hidden" name="page" value="$page" />
+		</form>
+		$_G['forum_tagscript']
+		<div class="viewpost">
+			<!--{if !$_G['forum_thread']['is_archived']}-->
+				<a id="newspecialtmp" class="greenbutton" href="forum.php?mod=post&action=newthread&fid=$_G[fid]" title="{lang send_posts}">{lang send_posts}</a>
+			<!--{/if}-->
+			<!--{if $allowpostreply && !$_G['forum_thread']['archiveid']}-->
+				<a id="post_replytmp" href="forum.php?mod=post&action=reply&fid=$_G[fid]&tid=$_G[tid]" class="bluebutton" title="{lang reply}">{lang reply}</a>
+			<!--{/if}-->
+			<div id="pg">
+				$multipage
+			</div>
+		</div>
+		<!--{if $fastpost}-->
+			<!--{subtemplate forum/viewthread_fastpost}-->
+		<!--{/if}-->
+	</div>
+	<div id="sidebar">
+	<!--{template extend/sidebar}-->
+	</div>
+
+</div>
+
+
+
+
+<!--{if !IS_ROBOT && !empty($_G[setting][lazyload])}-->
+	<script type="text/javascript">
+	new lazyload();
+	</script>
+<!--{/if}-->
+
+<!--{if !IS_ROBOT && $_G['setting']['threadmaxpages'] > 1}-->
+	<script type="text/javascript">document.onkeyup = function(e){keyPageScroll(e, <!--{if $page > 1}-->1<!--{else}-->0<!--{/if}-->, 'forum.php?mod=viewthread&tid=$_G[tid]<!--{if $_GET[authorid]}-->&authorid=$_GET[authorid]<!--{/if}-->', $page);}</script>
+<!--{/if}-->
+
+
+<!--{if $_G['relatedlinks'] || $_GET['highlight']}-->
+	<script type="text/javascript">
+		var relatedlink = [];
+		<!--{loop $_G['relatedlinks'] $key $link}-->
+		relatedlink[$key] = {'sname':'$link[name]', 'surl':'$link[url]'};
+		<!--{/loop}-->
+		{eval $highlights = explode(' ', str_replace(array('\'', chr(125)), array('&#039;', '&#125;'), dhtmlspecialchars($_GET['highlight'])));}
+		<!--{loop $highlights $word}-->
+		{eval $key++;}
+		relatedlink[$key] = {'sname':'$word', 'surl':''};
+		<!--{/loop}-->
+		relatedlinks('postmessage_$_G[forum_firstpid]');
+	</script>
+<!--{/if}-->
+
+<!--{if !empty($_G['cookie']['clearUserdata']) && $_G['cookie']['clearUserdata'] == 'forum'}-->
+	<script type="text/javascript">saveUserdata('forum_'+discuz_uid, '')</script>
+<!--{/if}-->
+
+<script type="text/javascript">
+<!--{if $_G['forum']['picstyle'] && ($_G['forum']['ismoderator'] || $_G['uid'] == $_G['thread']['authorid'])}-->
+function showsetcover(obj) {
+	if(obj.parentNode.id == 'postmessage_$_G[forum_firstpid]') {
+		var defheight = $_G['setting']['forumpicstyle']['thumbheight'];
+		var defwidth = $_G['setting']['forumpicstyle']['thumbwidth'];
+		var newimgid = 'showcoverimg';
+		var imgsrc = obj.src ? obj.src : obj.file;
+		if(!imgsrc) return;
+
+		var tempimg=new Image();
+		tempimg.src=imgsrc;
+		if(tempimg.complete) {
+			if(tempimg.width < defwidth || tempimg.height < defheight) return;
+		} else {
+			return;
+		}
+		if($(newimgid) && obj.id != newimgid) {
+			$(newimgid).id = 'img'+Math.random();
+		}
+		if($(newimgid+'_menu')) {
+			var menudiv = $(newimgid+'_menu');
+		} else {
+			var menudiv = document.createElement('div');
+			menudiv.className = 'tip tip_4 aimg_tip';
+			menudiv.id = newimgid+'_menu';
+			menudiv.style.position = 'absolute';
+			menudiv.style.display = 'none';
+			obj.parentNode.appendChild(menudiv);
+		}
+		menudiv.innerHTML = '<div class="tip_c xs0"><a onclick="showWindow(\'setcover_'+newimgid+'\', this.href)" href="forum.php?mod=ajax&amp;action=setthreadcover&amp;tid=$_G[tid]&amp;pid=$_G[forum_firstpid]&amp;fid=$_G[fid]&imgurl='+imgsrc+'">{lang set_cover}</a></div>';
+		obj.id = newimgid;
+		showMenu({'ctrlid':newimgid,'pos':'12'});
+	}
+	return;
+}
+<!--{/if}-->
+function succeedhandle_followmod(url, msg, values) {
+	var fObj = $('followmod_'+values['fuid']);
+	if(values['type'] == 'add') {
+		fObj.innerHTML = '{lang nofollow}';
+		fObj.href = 'home.php?mod=spacecp&ac=follow&op=del&fuid='+values['fuid'];
+	} else if(values['type'] == 'del') {
+		fObj.innerHTML = '{lang follow}';
+		fObj.href = 'home.php?mod=spacecp&ac=follow&op=add&hash={FORMHASH}&fuid='+values['fuid'];
+	}
+}
+<!--{if $_G['blockedpids']}-->
+var blockedPIDs = [<!--{echo implode(',', $_G['blockedpids'])}-->];
+<!--{/if}-->
+<!--{if $postlist && empty($_G['setting']['disfixedavatar'])}-->
+fixed_avatar([<!--{echo implode(',', array_keys($postlist))}-->], {if empty($_G['setting']['disfixednv_viewthread']) }1{else}0{/if});
+<!--{elseif empty($_G['setting']['disfixednv_viewthread'])}-->
+fixed_top_nv();
+<!--{/if}-->
+</script>
+<!--{template common/footer}-->

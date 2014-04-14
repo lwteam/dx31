@@ -1,0 +1,92 @@
+
+<style>
+.checkinloading                        {  z-index:999;  position: absolute; background-color: #ff6f3d;  display:none; filter:alpha(opacity=50); -moz-opacity:0.50; opacity:0.50; }
+.checkinloading img                    { position: absolute; top: 15px; left: 65px; }
+
+.checkin_body {@extend .pr; top:-10px; @extend .bg; @extend .bordergray1; }
+
+
+.ccdar{ background: #fff; @extend .inlineblock; z-index:100; }
+.ccdar td {background-color: #FFDFBF;width:30px;height: 30px;text-align: center;}
+.ccdar_last{color:#999}
+.ccdar_today{font-weight:700}
+td.ccdar_visted{background-color: #A2FFD0;}
+td.ccdar_visted img{width: 40px;}
+.checkin_click .mood{border : 1px solid #C2D5E3;width: 100px;display: inline-block;}
+.checkin_click .mood img{width: 50px;}
+.checkin_click .text{line-height: 20px;font-size: 14px;width: 200px; color: #333;background: #fff;border: 1px solid #e8e8e8;display: inline-block; }
+.checkin_click .text a{line-height: 40px;height:40px;background: none;}
+.checkin_click .text input{padding:0px;margin:0px;font-size: 14px;width: 100%;border: 0px;padding: 0px;line-height: 40px;padding-left:20px;background: none;display:none}
+.checkin_click .click{border: 1px solid #4899d7;border-radius: 2px;text-align: center;width: 100px;background: #60b0ee;color: #fff;display: inline-block;padding: 2px 2px;}
+.checkin_click  .click .btn{width: 100px;display: inline-block;font-size: 12px;padding: 0 12px;line-height: 30px;border-radius: 2px;text-align: center;color: #fff;padding: 2px 2px;font-weight:700}
+.checkin_ajax .continuous { display: none;}
+.visted .continuous { display: block; font-size: 12px; line-height: 20px; position: absolute;color: #fff; text-align: center;top: 31px;left: 65px;}
+</style>
+
+<div class="checkin">
+	<div class="checkinloading"><img src="static/image/common/checkin_loading.gif" /></div>
+	<div class="checkin_ajax{if $checkin[visted]} visted{/if}">
+		<div class="checkincredit">+$credit[day]</div>
+		<div class="checkinbutton">{if $checkin[visted]}已{/if}签到</div>
+		<div class="continuous">连续 <span class="num">{echo (int)$checkin[num]}</span> 天</div>
+	</div>
+</div>
+<div class="checkin_body"></div>
+
+<script>
+
+jQuery(function($) {
+
+	$(".checkin_ajax").click( function () {
+		checkin_loadinng();
+		$.getJSON('home.php?mod=checkin', function(data){
+			if (data.scode == '1') {
+				checkin_loadinng(true);
+				$('.checkin_body').html(data.content);
+			}
+		});
+	});
+});
+
+function checkin_loadinng(end){
+	if(end){
+		jQuery(".checkinloading").height(0);
+		jQuery(".checkinloading img").offset({ top: 0, left: 70 });
+		jQuery(".checkinloading").hide();
+		
+	}else{
+		if(jQuery(".checkinloading").css("display") == 'none'){
+			jQuery(".checkinloading").show();
+			jQuery(".checkinloading").height(jQuery(".checkin").height());
+			
+			var position = jQuery(".checkin").position();
+			jQuery(".checkinloading img").offset({ top: ((jQuery(".checkin").height()-30)/2+position.top), left:70 });
+		}
+	}
+	
+}
+	
+
+function checkin_input(){
+	jQuery(".checkin_click .text a").hide();
+	jQuery(".checkin_click .text input").show();
+}
+function checkin_btn(){
+		var getdata = '&checkinmood='+encodeURIComponent(jQuery("#checkinmood").val())
+		if(jQuery("#checkintext").val()){
+			getdata += '&'+'checkintext='+encodeURIComponent(jQuery("#checkintext").val());
+		}
+		
+		jQuery.getJSON('home.php?mod=checkin&inajax=1'+getdata, function(data){
+			checkin_loadinng();
+			if (data.scode == '1') {
+
+				jQuery(".checkin_ajax .num").text(data.num);
+				jQuery(".checkin_ajax").addClass('visted');
+				jQuery(".checkin_ajax").click();
+			}
+		});
+}
+
+
+</script>

@@ -44,12 +44,12 @@ function build_cache_custominfo() {
 	}
 	$data['profile'] = $profile;
 
-	$postnocustomnew[0] = $data['postno'] != '' ? (preg_match("/^[\x01-\x7f]+$/", $data['postno']) ? '<sup>'.$data['postno'].'</sup>' : $data['postno']) : '<sup>#</sup>';
+	$postnocustomnew[0] = $data['postno'] != '' ? (preg_match("/^[\x01-\x7f]+$/", $data['postno']) ? ''.$data['postno'].'' : $data['postno']) : '#';
 	$data['postnocustom'] = unserialize($data['postnocustom']);
 	if(is_array($data['postnocustom'])) {
 		foreach($data['postnocustom'] as $key => $value) {
 			$value = trim($value);
-			$postnocustomnew[$key + 1] = preg_match("/^[\x01-\x7f]+$/", $value) ? '<sup>'.$value.'</sup>' : $value;
+			$postnocustomnew[$key + 1] = preg_match("/^[\x01-\x7f]+$/", $value) ? ''.$value.'' : $value;
 		}
 	}
 	unset($data['customauthorinfo'], $data['postno'], $data['postnocustom'], $data['extcredits']);

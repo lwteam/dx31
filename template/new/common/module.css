@@ -304,7 +304,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 
 
 /** forum::post,group::post,portal::portalcp,home::spacecp **/
-/* 发帖、日志、文章时上传的图片列表样式 by Pony 11090615 */
+/* 发帖、日志、文章时上传的图片列表样式 by Pony 11090615 
 .upfl { margin-top: -1px; height: auto !important; height: 165px; max-height: 300px; overflow: auto; overflow-x: hidden; }
 	.upfl a, #imgattachlist a { color: {HIGHLIGHTLINK}; }
 	.upfl table td { border-bottom: 1px solid {COMMONBORDER}; height: 30px; line-height: 24px; }
@@ -315,7 +315,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 		.ie6 .imgl img { width: expression(this.width > 110 ? 110 : true); }
 
 	.imgf .px { width: 106px; padding: 2px; height: 14px; line-height: 14px; }
-	.imgdeleted { opacity: 0.3; filter: alpha(opacity=30); }
+	.imgdeleted { opacity: 0.3; filter: alpha(opacity=30); }*/
 
 /*
 	Name:			mod_opattach
@@ -404,7 +404,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 		.hasfsl { margin-right: 170px; zoom: 1; }
 
 	#f_pst .upfl { height: auto; max-height: 100%; }
-		#f_pst .upfl td { padding: 4px 0; }
+		
 		#f_pst .atds { width: 100px; }
 		#f_pst .px { padding: 2px; }
 	/*
@@ -493,9 +493,9 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 			.bdl dd.bdl_a a { background-color: #F5F9FB; font-weight: 700; color: {HIGHLIGHTLINK}; }
 
 	.previewPost { width: 100%; font-size: 14px; }
-	/* 点击加载下一页按钮样式 */
+	/* 点击加载下一页按钮样式 
 	#autopbn { display: block; margin-bottom: 10px; border: 1px solid rgb(194, 213, 227); border-radius: 3px; text-align: center; }
-	#autopbn:hover { background: #fff; text-decoration: none; }
+	#autopbn:hover { background: #fff; text-decoration: none; }*/
 	/* 上涨和下降图标样式 */
 	.ico_increase, .ico_fall { display: inline-block; width: 16px; height: 16px; margin: 0 5px; background: url({IMGDIR}/increase.png) no-repeat left center; vertical-align: middle; text-indent: -999em; }
 	.ico_fall { background: url({IMGDIR}/fall.png) no-repeat left center; }
@@ -515,10 +515,11 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	.tl #forumnewshow a { display: block; border-top: 1px solid #F4E4B4; border-bottom: 1px solid #F4E4B4; text-indent: 25px; height: 29px; line-height: 29px; color: #EFAA00; }
 	.tl #forumnewshow a:hover { text-decoration: none; }
 	#checknewline tr td, #checknewline tr th { background: #FFFFEB; text-align: center; color: #666; }
-
+/*
 	.newthread tr th, .newthread tr td { background: #FFFAF3; }
 	.newthread .new em { margin-right: 4px; }
 	.newthread .new em, .newthread .new em a { color: #007CD5; font: {FONTSIZE} {FONT}; }
+	*/
 	/*
 	.tl .newthread tr:hover th, .tl .newthread tr:hover td{ background-color: transparent; }
 	*/
@@ -766,10 +767,10 @@ a.thread_mod { background: url({IMGDIR}/bigimg.png) no-repeat 0 -38px; padding-l
 /** end **/
 
 /** forum::forumdisplay,group::forumdisplay **/
-/* 帖子列表“新窗”、“图片模式”等按钮样式 modified by Pony */
-	#atarget, .unchk, .chked { padding-left: 15px; line-height: 16px; background: url({IMGDIR}/atarget.png) no-repeat 0 3px; color: {HIGHLIGHTLINK}; cursor: pointer; }
-		.ie_all #atarget, .ie_all .unchk, .ie_all .chked { display: inline-block; height: 20px; line-height: 20px; }
-		#atarget.atarget_1, .chked { background-position: 0 -37px; }
+/* 帖子列表“图片模式”等按钮样式 modified by Pony */
+	.unchk, .chked { padding-left: 15px; line-height: 16px; background: url({IMGDIR}/atarget.png) no-repeat 0 3px; color: {HIGHLIGHTLINK}; cursor: pointer; }
+		.ie_all .unchk, .ie_all .chked { display: inline-block; height: 20px; line-height: 20px; }
+		.chked { background-position: 0 -37px; }
 		.unchk:hover, .chked:hover { text-decoration: none; }
 
 #a_magic_doodle { padding-left: 20px; background: url({STATICURL}image/magic/doodle.small.gif) 0 50% no-repeat; }
@@ -816,9 +817,9 @@ a.thread_mod { background: url({IMGDIR}/bigimg.png) no-repeat 0 -38px; padding-l
 	Level:			Function
 	Explain:		帖子列表页隐藏置顶帖的按钮样式
 	Last Modify:	Jane
-*/
+
 .showhide { width: 12px; height: 12px; background: url({IMGDIR}/close.gif) no-repeat 0 0; text-indent: -999em; cursor: pointer; overflow: hidden; margin: 5px 5px 0px 5px; }
-.showhide:hover { background-position: 0 -12px; }
+.showhide:hover { background-position: 0 -12px; }*/
 .ie6 .showhide { display: none; }
 .pcb .jammer { font-size: 10px; color: {WRAPBG}; }
 /* 屏蔽提示 */
@@ -1037,11 +1038,12 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		Level:			Function
 		Explain:		帖子中类似“游客，如果您要查看本帖隐藏内容请”等地方的样式
 		Last Modify:	Pony 11060209
-	*/
+	
 	.locked { overflow: hidden; margin: 10px 0; padding: 8px 8px 8px 24px; border: 1px dashed #FF9A9A; background: {WRAPBG} url({IMGDIR}/locked.gif) no-repeat 6px 50%; font-size: 12px; zoom: 1; }
 		.locked:hover background-color: #F7F7F7; }
 		.locked strong { color: {NOTICETEXT}; }
 		.locked a, .attach_nopermission a { color: {HIGHLIGHTLINK}; }
+		*/
 	.attach_nopermission { margin: 10px 0; width: 600px; border: 1px dashed #AAAA92; background: #FFFFEE url({IMGDIR}/attach_nopermission_bg.png) no-repeat 100% 0; font-size: 12px; }
 		.attach_nopermission div { padding: 20px 0 20px 70px; border: 3px solid #FFF; background: url({IMGDIR}/attach_nopermission.png) no-repeat 15px 15px; }
 		.attach_nopermission:hover div { border-color: #DADAB1; }
@@ -1051,8 +1053,6 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 				.attach_tips:hover .atips_close { color: #333; }
 				.attach_tips .atips_close:hover { font-weight: bold; }
 	.viewpay { overflow: hidden; margin: 0 6px; padding: 1px 0 1px 24px; background: url({IMGDIR}/viewpay.gif) no-repeat 6px 60%; color: {HIGHLIGHTLINK}; font-weight: 700; zoom: 1; }
-	.showhide { overflow: hidden; border: 1px dashed #FF9A9A; margin: 8px 0; padding: 10px; zoom: 1; }
-		.showhide h4 { margin-bottom: 10px; color: #F66; font-size: 12px; text-align: center; }
 
 	/*
 		Name:			mod_thread_code_quote

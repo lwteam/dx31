@@ -118,7 +118,7 @@ if($_G['forum']['status'] == 3) {
 } else {
 	loadcache('forums');
 	$returnurl = 'forum.php?mod=forumdisplay&fid='.$_G['fid'].(!empty($_GET['extra']) ? '&'.preg_replace("/^(&)*/", '', $_GET['extra']) : '');
-	$navigation = ' <em>&rsaquo;</em> <a href="forum.php">'.$_G['setting']['navs'][2]['navname'].'</a>';
+	$navigation = '';
 
 	if($_G['forum']['type'] == 'sub') {
 		$fup = $_G['cache']['forums'][$_G['forum']['fup']]['fup'];
@@ -129,11 +129,11 @@ if($_G['forum']['status'] == 3) {
 	if($_G['forum']['fup']) {
 		$fup = $_G['forum']['fup'];
 		$t_link = $_G['cache']['forums'][$fup]['type'] == 'group' ? 'forum.php?gid='.$fup : 'forum.php?mod=forumdisplay&fid='.$fup;
-		$navigation .= ' <em>&rsaquo;</em> <a href="'.$t_link.'">'.($_G['cache']['forums'][$fup]['name']).'</a>';
+		$navigation .= '<span class="pipe">&raquo;</span><a href="'.$t_link.'">'.($_G['cache']['forums'][$fup]['name']).'</a>';
 	}
 
 	$t_link = 'forum.php?mod=forumdisplay&fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&'.$_GET['extra'] : '');
-	$navigation .= ' <em>&rsaquo;</em> <a href="'.$t_link.'">'.($_G['forum']['name']).'</a>';
+	$navigation .= '<span class="pipe">&raquo;</span><a href="'.$t_link.'">'.($_G['forum']['name']).'</a>';
 
 	unset($t_link, $t_name);
 }

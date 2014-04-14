@@ -126,17 +126,17 @@ if($_GET['from'] == 'portal') {
 	if($_G['forum']['type'] == 'sub') {
 		$fup = $_G['cache']['forums'][$_G['forum']['fup']]['fup'];
 		$t_link = $_G['cache']['forums'][$fup]['type'] == 'group' ? 'forum.php?gid='.$fup : 'forum.php?mod=forumdisplay&fid='.$fup;
-		$navigation .= ' <em>&rsaquo;</em> <a href="'.$t_link.'">'.($_G['cache']['forums'][$fup]['name']).'</a>';
+		$navigation .= '<a href="'.$t_link.'">'.($_G['cache']['forums'][$fup]['name']).'</a>';
 	}
 
 	if($_G['forum']['fup']) {
 		$fup = $_G['forum']['fup'];
 		$t_link = $_G['cache']['forums'][$fup]['type'] == 'group' ? 'forum.php?gid='.$fup : 'forum.php?mod=forumdisplay&fid='.$fup;
-		$navigation .= ' <em>&rsaquo;</em> <a href="'.$t_link.'">'.($_G['cache']['forums'][$fup]['name']).'</a>';
+		$navigation .= '<a href="'.$t_link.'">'.($_G['cache']['forums'][$fup]['name']).'</a>';
 	}
 
 	$t_link = 'forum.php?mod=forumdisplay&amp;fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '');
-	$navigation .= ' <em>&rsaquo;</em> <a href="'.$t_link.'">'.($_G['forum']['name']).'</a>';
+	$navigation .= '<span class="pipe">&raquo;</span><a href="'.$t_link.'">'.($_G['forum']['name']).'</a>';
 
 	if($archiveid) {
 		if($threadtable_info[$archiveid]['displayname']) {
@@ -714,7 +714,7 @@ if(!$metadescription) {
 
 $_G['allblocked'] = true;
 $postno = & $_G['cache']['custominfo']['postno'];
-$postnostick = str_replace(array('<sup>', '</sup>'), '', $postno[0]);
+$postnostick = str_replace(array('', ''), '', $postno[0]);
 if($postusers) {
 	$member_verify = $member_field_forum = $member_status = $member_count = $member_profile = $member_field_home = array();
 	$uids = array_keys($postusers);

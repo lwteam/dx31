@@ -1,0 +1,25 @@
+<!--{loop $articles $value}-->
+<div class="b2con">
+	<div class="b2img">
+		<a href="$value[url]">
+			<div class="patxt"><!--{if $value['datetag']}--><span class="today">$value['datetag']</span><!--{/if}-->$value[title]</div>
+			<div class="pabg"></div>
+			<img src="$value[titlepic]" title="$value[title]" alt="$value[title]">
+		</a>
+	</div>
+	<div class="boxcontent">
+		<ul>
+			<li class="tagbtn">
+				<!--{loop $value[tagary] $k $v}-->
+				<a href="index.php?act=tag&id=$k" title="$v"><em></em>$v</a>
+				<!--{/loop}-->
+			</li>
+			<li class="boxtxt">$value[content]</li>
+			<li class="boxmore">
+				<span class="right"><a href="$value[url]" title="$value[title]" class="tlink">阅读全文&raquo;</a></span>
+				<a href="home.php?mod=space&uid=$value[authorid]" target="_blank">$value[author]</a> $value['dateline_f']
+			</li>
+		</ul>
+	</div>
+</div>
+<!--{/loop}-->

@@ -261,7 +261,7 @@ function atarget(obj) {
 }
 
 function setatarget(v) {
-	$('atarget').className = 'y atarget_' + v;
+	$('atarget').className = 'atarget_' + v;
 	$('atarget').onclick = function() {setatarget(v == 1 ? -1 : 1);};
 	setcookie('atarget', v, 2592000);
 }

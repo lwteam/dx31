@@ -87,20 +87,6 @@ CSS 写作注意事项：
 	Explain:		重定义浏览器默认样式
 	Last Modify:	Pony
 */
-	* { word-wrap: break-word; }
-	body { {BGCODE}; }
-	body, input, button, select, textarea { font: {FONTSIZE} {FONT}; color: {TABLETEXT}; }
-		textarea { resize: none; }
-	body, ul, ol, li, dl, dd, p, h1, h2, h3, h4, h5, h6, form, fieldset, .pr, .pc { margin: 0; padding: 0; }
-	table { empty-cells: show; border-collapse: collapse; }
-		caption, th { text-align: left; font-weight: 400; }
-	ul li, .xl li { list-style: none; }
-	h1, h2, h3, h4, h5, h6 { font-size: 1em; }
-	em, cite, i { font-style: normal; }
-	a { color: {LINK}; text-decoration: none; }
-		a:hover { text-decoration: underline; }
-		a img { border: none; }
-	label { cursor: pointer; }
 /*
 	Name:			mod_float
 	Level:			Global
@@ -172,7 +158,6 @@ CSS 写作注意事项：
 	/* Page header */ .ph { font-size: 20px; }
 	/* Main title */ .mt { padding: 10px 0; font-size: 16px; }
 
-/* 行内分割竖线 */ .pipe { margin: 0 5px; color: #CCC; }
 
 /* 文本属性：字号、颜色、粗细 */
 /*
@@ -225,7 +210,6 @@ CSS 写作注意事项：
 */
 	.bbda { border-bottom: 1px dashed {COMMONBORDER}; }
 	.btda { border-top: 1px dashed {COMMONBORDER}; }
-	.bbs { border-bottom: 1px solid {COMMONBORDER} !important; }
 	.bts { border-top: 1px dashed {COMMONBORDER} !important; }
 /*
 	Name:			mod_border_reset
@@ -348,15 +332,6 @@ CSS 写作注意事项：
 	Last Modify:	lushnis
 */
 	#ajaxwaitid { display: none; position: absolute; right: 0; top: 0; z-index: 1; padding: 0 5px; background: #D00; color: {LIGHTLINK}; }
-/*
-	Name:			mod_showmenu
-	Level:			Global
-	Sample:			class="showmenu"
-	Explain:		下拉菜单
-	Last Modify:	lushnis
-*/
-	.showmenu { padding-right: 16px; background: url({IMGDIR}/arrwd.gif) no-repeat 100% 50%; cursor: pointer; white-space: nowrap; }
-		#um .showmenu { margin-right: -5px; }
 
 /*
 	Name:			mod_cursor
@@ -395,7 +370,7 @@ CSS 写作注意事项：
 	Sample:			class="px/pt/ps"
 	Explain:		单行输入框（px）、多行文本框（pt）和选择框(ps/select)
 	Last Modify:	Pony
-*/
+
 	.px, .pt, .ps, select { border: 1px solid; border-color: {INPUTBORDERDARKCOLOR} {INPUTBORDER} {INPUTBORDER} {INPUTBORDERDARKCOLOR}; background: {INPUTBG} url({IMGDIR}/px.png) repeat-x 0 0; color: {TEXT}; }
 		.px, .pt { padding: 2px 4px; line-height: 17px; }
 		.px { height: 17px; }
@@ -406,6 +381,7 @@ CSS 写作注意事项：
 		.pt { overflow-y: auto; }
 			div.pt { height: 100px; line-height: 100px; }
 		.ps, select { padding: 2px 2px 2px 1px; }
+		*/
 		/* 自动调整高度的 textarea by Pony */
 		.pts { vertical-align: top; overflow: hidden; }
 		.cmt .pts { width: 60%; }
@@ -416,7 +392,7 @@ CSS 写作注意事项：
 	Sample:			<button class="pn">Submit</button>
 	Explain:		按钮样式
 	Last Modify:	Pony
-*/
+
 	button::-moz-focus-inner { border: 0; padding: 0; }
 	.pn { vertical-align: middle; overflow: hidden; margin-right: 3px; padding: 0; height: 23px; border: 1px solid #999; background: #E5E5E5 url({IMGDIR}/pn.png) repeat-x 0 0; cursor: pointer; -moz-box-shadow: 0 1px 0 #E5E5E5; -webkit-box-shadow: 0 1px 0 #E5E5E5; box-shadow: 0 1px 0 #E5E5E5; }
 		.pn:active { background-position: 0 -23px; }
@@ -436,6 +412,7 @@ CSS 写作注意事项：
 		.pnc:active { background-position: 0 -71px; }
 
 	.pnpost .pn { height: 26px; }
+	*/
 
 /*
 	Name:			mod_input[radio]_input[checkbox]_label
@@ -469,12 +446,11 @@ CSS 写作注意事项：
 					</div>
 	Explain:		模拟下拉菜单样式
 	Last Modify:	Pony
-*/
+
 .ftid { float: left; margin-right: 6px; }
 	.ftid select { float: left; height: 23px; }
 	.ftid a { display: block; overflow: hidden; padding: 0 17px 0 4px; height: 21px; line-height: 21px; text-decoration: none !important; font-size: 12px; font-weight: 400; color: {TABLETEXT} !important; border: 1px solid; border-color: {INPUTBORDERDARKCOLOR} {INPUTBORDER} {INPUTBORDER} {INPUTBORDERDARKCOLOR}; background: {WRAPBG} url({IMGDIR}/newarow.gif) no-repeat 100% 0; }
 		.ftid a:hover, .ftid a:focus { background-position: 100% -23px; }
-	/* ctrl 'select' width */
 	.ftid select { width: 94px; }
 	.sslt a { width: 54px; }
 	.sslt select { width: 60px; }
@@ -483,7 +459,7 @@ CSS 写作注意事项：
 	.sltm li { padding: 2px 0; color: {MIDTEXT}; cursor: pointer; }
 		.sltm li:hover { color: {HIGHLIGHTLINK}; }
 		.sltm li.current { color: {NOTICETEXT}; }
-
+*/
 /* 分享按钮 */ .oshr { float: right; margin-left: 5px; padding: 0 5px 0 22px; border: 1px solid; border-color: #CCC #A9A9A9 #A9A9A9 #CCC; background: {WRAPBG} url({IMGDIR}/oshr.png) no-repeat 5px 50%; }
 				.oshr:hover { text-decoration: none; }
 /* 收藏按钮 with oshr */ .ofav { background-image: url({IMGDIR}/fav.gif); }
@@ -574,7 +550,7 @@ CSS 写作注意事项：
 		.pmfl			PM friend list (Window)
 		*/
 
-/* 通用容器，定义页面宽度 */ .wp { margin: 0 auto; width: 960px; } #wp .wp { width: auto; }
+/* 通用容器，定义页面宽度 */ .wp { margin: 0 auto; width: 1180px; } #wp .wp { width: auto; }
 
 /* 页头 */
 	#toptb { min-width: 960px; border-bottom: 1px solid {COMMONBORDER}; background: {COMMONBG}; line-height: 28px; }
@@ -631,9 +607,6 @@ CSS 写作注意事项：
 				.vwmy { padding-left: 16px; background: url({IMGDIR}/user_online.gif) no-repeat 0 2px; }
 					.vwmy.qq { background: url({IMGDIR}/connect_qq.gif) no-repeat scroll 0 0; padding-left: 20px; }
 				/* .topnav .new, .sch .new 分别为为个人中心和搜索页面头部新消息样式 */
-				#um .new, .topnav .new, .sch .new, #toptb .new { padding-left: 20px; background-repeat: no-repeat; background-position: 0 50%; color: {HIGHLIGHTLINK}; font-weight: 700; }
-					#myprompt.new { background-image: url({IMGDIR}/notice.gif); background-position: 3px 50%; }
-					#pm_ntc.new { background-image: url({IMGDIR}/new_pm.gif); }
 					#task_ntc { background-image: url({STATICURL}image/feed/task.gif); }
 				#um .pipe { margin: 0 5px 0 0; }
 
@@ -834,7 +807,7 @@ CSS 写作注意事项：
 					</ul>
 	Explain:		标签样式
 	Last Modify:	lushnis
-*/
+
 .tb { margin-top: 10px; padding-left: 5px; line-height: 30px; border-bottom: 1px solid {COMMONBORDER}; }
 	.tb li { float: left; margin: 0 3px -1px 0; }
 		.ie6 .tb .a, .ie6 .tb .current { position: relative; }
@@ -852,7 +825,7 @@ CSS 写作注意事项：
 		.tb_h a { border-top: none; border-left: none; }
 		.tb_h .o { margin-top: 2px; }
 	.tb_s { margin-top: 0; line-height: 26px; }
-
+*/
 	/* 类似menu的Tab */
 .tbmu { padding: 8px 10px 8px 0; border-bottom: 1px dashed {COMMONBORDER}; }
 	.tbmu a { color: {HIGHLIGHTLINK}; }
@@ -1016,7 +989,7 @@ CSS 写作注意事项：
 	.lk_logo .lk_content { float: left; }
 
 /* ------------------------------------------------------------------------ 其他特定功能块 */
-/* 简易编辑器 Tiny Editor */
+/* 简易编辑器 Tiny Editor
 	.tedt { width: 98%; border: 1px solid; border-color: #999 #CCC #CCC #999; }
 		.tedt .bar { padding: 0 10px 0 0; height: 25px; line-height: 25px; border-bottom: 1px solid {COMMONBORDER}; background: {COMMONBG}; }
 			.fpd a { float: left; margin: 2px 5px 0 0; width: 20px; height: 20px; background: url({STATICURL}image/editor/editor.gif) no-repeat; text-indent: -9999px; line-height: 20px; overflow: hidden; }
@@ -1031,7 +1004,7 @@ CSS 写作注意事项：
 		.tedt .area { padding: 4px; background: {WRAPBG}; zoom: 1; }
 		.tedt .pt { width: 100%; margin-right: 0; padding: 0 !important; border: none; background: {WRAPBG} none; }
 			.tedt .pt:focus { outline: none; -moz-box-shadow: none; }
-	.m_c .tedt { width: 600px; }
+	.m_c .tedt { width: 600px; } */
 
 /* 表情 */
 .sllt { padding: 10px 5px 5px !important; }
@@ -1066,7 +1039,7 @@ CSS 写作注意事项：
 		 .sslct_btn { float: left; margin: 4px 4px 0 0; width: 12px; height: 12px; border: 1px solid {COMMONBORDER}; cursor: pointer; }
 			.sslct_btn i { float: left; display: inline; margin: 1px; width: 10px; height: 10px; background: #2E80D1; overflow: hidden; font-style: normal; }
 	#toptb a.switchblind{ width: 10px; background-image: none ; }
-/* 弹出菜单、弹出层及弹出窗口 */
+/* 弹出菜单、弹出层及弹出窗口
 	.p_pop, .p_pof, .sllt { padding: 4px; border: 1px solid; min-width: 60px; border-color: {DROPMENUBORDER}; {DROPMENUBGCODE}; box-shadow: 1px 2px 2px rgba(0,0,0,0.3); }
 		.ie6 .p_pop { width: 100px; }
 		.p_pof .p_pop { padding: 0; border: none; box-shadow: none; }
@@ -1086,7 +1059,7 @@ CSS 写作注意事项：
 			.ignore_notice { background: url({IMGDIR}/close.gif) no-repeat 0 0; position:absolute; right:0; top:0; width:12px; height:12px; overflow:hidden; }
 			.p_pop .ignore_noticeli a,.p_pop .ignore_noticeli a:hover,.p_pop .ignore_noticeli a.a { background:none; border-bottom:0; }
 			.p_pop .notice_interactive, .p_pop .notice_system, .p_pop .notice_manage, .p_pop .notice_app, .p_pop .notice_mypost { margin: 3px 2px 5px 0;}
-			.ie6 .ignore_notice { display: none; }
+			.ie6 .ignore_notice { display: none; }*/
 
 		/* .blk -> block 内容较为复杂的弹出层使用 .blk 的 class，内部的 a 标签重新定义 */
 		.blk a, .inlinelist a { display: inline; padding: 0; border: none; }
@@ -1117,7 +1090,6 @@ CSS 写作注意事项：
 /* 弹出层内容区 by Pony */
 	.m_c .tb { margin: 0 0 10px; padding: 0 10px; }
 	.m_c .c { padding: 0 10px 10px; }
-	.m_c .o { padding: 8px 10px; height: 26px; text-align: right; border-top: 1px solid #CCC; background: {COMMONBG}; }
 		/* 分享时会用到 */
 	.m_c .el { width: 420px; }
 		.m_c .el li { padding: 0; border: none; }
@@ -1134,9 +1106,7 @@ CSS 写作注意事项：
 		.flb span { float: right; color: {LIGHTTEXT}; }
 			.flb span a, .flb strong { float: left; text-decoration: none; margin-left: 8px; font-weight: 400; color: {LINK}; }
 				.flb span a:hover { color: {LIGHTTEXT}; }
-			.flbc { float: left; width: 20px; height: 20px; overflow: hidden; text-indent: -9999px; background: url({IMGDIR}/cls.gif) no-repeat 0 0; cursor: pointer; }
-				.flbc:hover { background-position: 0 -20px; }
-
+				
 			.floatwrap { overflow: auto; overflow-x: hidden; margin-bottom: 10px; height: 280px; }
 
 		.f_c { }
@@ -1370,7 +1340,7 @@ CSS 写作注意事项：
 	.lum ul { padding: 1em 0 1em 2em; margin-bottom: 1em; border-bottom: 1px dashed {COMMONBORDER}; }
 		.lum ul li { padding: 0.2em 0; }
 
-/* pgs --> pages & postbutton 分页、发帖按钮, pgb -->返回首页, nxt -->下一页 */
+/* pgs --> pages & postbutton 分页、发帖按钮, pgb -->返回首页, nxt -->下一页
 .pgs {}
 	.pgs #newspecial, .pgs #newspecialtmp, .pgs #post_reply, .pgs #post_replytmp { float: left; margin-right: 5px; }
 	.pg { float: right; }
@@ -1385,7 +1355,7 @@ CSS 写作注意事项：
 		.pg label { cursor: text; }
 			.ie6 .pg label { padding-top: 3px; height: 23px; }
 			.pg label .px { padding: 0; width: 25px; height: 16px; line-height: 16px; }
-	#pgt .pg, #pgt .pgb { margin-top: 5px; }
+	#pgt .pg, #pgt .pgb { margin-top: 5px; } */
 /* 用于行动的按钮 button action */
 .bac {margin: 0; padding: 0; width: 70px; height: 30px;line-height: 30px; color: {LINK}; overflow: hidden; text-decoration: none; background: url({IMGDIR}/pg_arw.png) no-repeat 0 0; text-align: center; text-indent: -7px; display: block;}
 
@@ -1683,7 +1653,7 @@ a.progressCancel { display: block; float: right; width: 14px; height: 14px; back
 	Explain:		弹出的气泡信息，1、2、3、4 分别指气泡尖角从左上到左小顺时针方向的位置
 	Last Modify:	lushnis
 */
-.tip { position: absolute; padding: 10px; width: 260px; border: 1px solid #B1B1B1; background: #FEFEE9; }
+.tip { position: absolute; padding: 10px; width: 260px; border: 1px solid #B1B1B1; background: #FEFEE9; border-radius: 3px;}
 	.tip_1, .tip_2 { margin-top: 8px; }
 	.tip_3, .tip_4 { margin-top: -8px; }
 	.tip_horn { position: absolute; width: 11px; height: 6px; overflow: hidden; }
@@ -1731,7 +1701,7 @@ em.hot { position: absolute; left: -2px; top: -2px; text-indent: -9999px; overfl
 */
 .ss em { display: block; float: left; margin-right: 2px; padding-left: 7px; width: 16px; line-height: 23px; background: #EEE; cursor: pointer; }
 	.ss em.a { background: #09F; color: #FFF; }
-.dopt a { float: left; margin-right: 3px; width: 21px !important; height: 21px; line-height: 21px; text-align: center; }
+
 	.dopt_b, .dopt_i, .dopt_l { border: 1px solid #F1F5FA; outline: none; }
 	.dopt .cnt { border: 1px solid #999; background-color: {WRAPBG}; }
 .colorwd { margin-left: 3px; width: 23px !important; background-color: {MIDTEXT}; background-image: url({IMGDIR}/pn_color.png) !important; background-repeat: no-repeat; background-position: 0 0; }
