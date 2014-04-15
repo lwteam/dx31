@@ -5,15 +5,6 @@
 			<input type="hidden" name="formhash" value="{FORMHASH}" />
 			<input type="hidden" name="listextra" value="$extra" />
 			<table summary="forum_$_G[fid]" id="threadlisttableid" cellspacing="0" cellpadding="0" class="forumtbale">
-				
-
-				<!--{if !$separatepos || !$_G['setting']['forumseparator']}-->
-					<tbody id="separatorline" style="display:none"><tr><td class="fleft"></td><td class="ftime"></td><td class="favatar"></td><th class="fpostname"></th><td class="freply"></td><td class="flast"></td><td class="fright"></td></tr></tbody>
-				<!--{/if}-->
-					<!--{if empty($_G['forum']['picstyle']) || $_G['cookie']['forumdefstyle']}-->
-					<script type="text/javascript">var lasttime = $_G['timestamp'];var listcolspan= '{if !$_GET['archiveid'] && $_G['forum']['ismoderator']}7{else}6{/if}';</script>
-					<!--{/if}-->
-
 					<!--{if $_G['forum_threadcount']}-->
 					<tbody>
 						<tr class="tablehead">
@@ -22,10 +13,11 @@
 							<td class="favatar"></td>
 							<th class="fpostname">标题 （ <span id="atarget" {if $_G['cookie']['atarget'] > 0}onclick="setatarget(-1)" class="atarget_1"{else}onclick="setatarget(1)"{/if} title="{lang new_window_thread}"><i></i>{lang new_window}</span> ）</th>
 							<td class="freply">回复</td>
-							<td class="flast">最周回复</td>
+							<td class="flast">最后回复</td>
 							<td class="fright"></td>
 						</tr>
 					</tbody>
+
 					<!--{if empty($_G['forum']['picstyle']) || $_G['cookie']['forumdefstyle']}-->
 						<!--{loop $_G['forum_threadlist'] $key $thread}-->							
 							<!--{if $_G[setting][forumseparator] == 1 && $separatepos == $key + 1}-->
@@ -35,11 +27,18 @@
 								<!--{ad/threadlist}-->
 							<!--{/if}-->
 
+					<!--{if empty($_G['forum']['picstyle']) || $_G['cookie']['forumdefstyle']}-->
+					<script type="text/javascript">var lasttime = $_G['timestamp'];var listcolspan= '{if !$_GET['archiveid'] && $_G['forum']['ismoderator']}7{else}6{/if}';</script>
+					<!--{/if}-->
+
+					<!--{if !$separatepos || !$_G['setting']['forumseparator']}-->
+						<tbody id="separatorline" style="display:none"><tr><td class="fleft"></td><td class="ftime"></td><td class="favatar"></td><th class="fpostname"></th><td class="freply"></td><td class="flast"></td><td class="fright"></td></tr></tbody>
+					<!--{/if}-->
 
 		    		<tbody id="$thread[id]"{if $_G['hiddenexists'] && $thread['hidden']} style='display:none'{/if}>
 		    	 		<tr>
 		    	 			<td class="fleft"></td>
-		    	 			<td class="ftime"><span{if $thread['istoday']} class="redcolor"{/if}>$thread[dateline]</span></td>
+		    	 			<td class="ftime {if $thread['istoday']} redcolor{/if}">$thread[dateline]</td>
 		    	 			<td class="favatar">
 		    	 				<!--{if $thread['authorid'] && $thread['author']}-->
 										<a href="home.php?mod=space&uid=$thread[authorid]" c="1"><!--{avatar($_G[uid],small)}--></a>
