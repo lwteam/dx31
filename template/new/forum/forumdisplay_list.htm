@@ -47,6 +47,7 @@
 		    	 			</td>
 		    	 			<th class="fpostname">
 									<!--{if !$_GET['archiveid'] && $_G['forum']['ismoderator']}-->
+									<div class="right">
 										<!--{if $thread['fid'] == $_G[fid]}-->
 											<!--{if $thread['displayorder'] <= 3 || $_G['adminid'] == 1}-->
 												<input onclick="tmodclick(this)" type="checkbox" name="moderate[]" value="$thread[tid]" />
@@ -56,6 +57,7 @@
 										<!--{else}-->
 											<input type="checkbox" disabled="disabled" />
 										<!--{/if}-->
+									</div>
 									<!--{/if}-->
 									<a href="forum.php?mod=viewthread&tid=$thread[tid]&{if $_GET['archiveid']}archiveid={$_GET['archiveid']}&{/if}extra=$extra"$thread[highlight]{if $thread['isgroup'] == 1 || $thread['forumstick']} target="_blank"{else} onclick="atarget(this)"{/if}>$thread[subject]</a>
 										<!--{if $thread[icon] >= 0}-->
