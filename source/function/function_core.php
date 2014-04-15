@@ -772,30 +772,9 @@ function dgmdate($timestamp, $format = 'dt', $timeoffset = '9999', $uformat = ''
 		$yeartimestamp = $todaytimestamp-86400*365;
 
 		if($timestamp >= $todaytimestamp) {
-			if($time > 3600) {
-				$return = intval($time / 3600).'&nbsp;'.$lang['hour'].$lang['before'];
-			} elseif($time > 1800) {
-				$return = $lang['half'].$lang['hour'].$lang['before'];
-			} elseif($time > 60) {
-				$return = intval($time / 60).'&nbsp;'.$lang['min'].$lang['before'];
-			} elseif($time > 0) {
-				$return = $time.'&nbsp;'.$lang['sec'].$lang['before'];
-			} elseif($time == 0) {
-				$return = $lang['now'];
-			} else {
-				$return = $s;
-			}
-			if($time >=0 && !defined('IN_MOBILE')) {
-				$return = '<span title="'.$s.'">'.$return.'</span>';
-			}
+			$return = '<span title="'.$s.'">'.date('H:i',$timestamp ).'</span>';
 		} elseif(($days = intval(($todaytimestamp - $timestamp) / 86400)) >= 0 && $days < 7) {
-			if($days == 0) {
-				$return = $lang['yday'].'&nbsp;'.gmdate($tformat, $timestamp);
-			} elseif($days == 1) {
-				$return = $lang['byday'].'&nbsp;'.gmdate($tformat, $timestamp);
-			} else {
-				$return = ($days + 1).'&nbsp;'.$lang['day'].$lang['before'];
-			}
+			$return = ($days + 1).' '.$lang['day'].$lang['before'];
 			if(!defined('IN_MOBILE')) {
 				$return = '<span title="'.$s.'">'.$return.'</span>';
 			}
