@@ -800,7 +800,7 @@ function dgmdate($timestamp, $format = 'dt', $timeoffset = '9999', $uformat = ''
 				$return = '<span title="'.$s.'">'.$return.'</span>';
 			}
 		} elseif ($timestamp > $yeartimestamp) {
-			$return = '<span title="'.$s.'">'.date('m.d',$timestamp ).'</span>';
+			$return = '<span title="'.$s.'">'.date('m-d',$timestamp ).'</span>';
 		} else {
 			$return = '<span title="'.$s.'">'.date('Y',$timestamp ).lang('space', 'year').'</span>';
 		}
