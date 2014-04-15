@@ -762,8 +762,15 @@ function dgmdate($timestamp, $format = 'dt', $timeoffset = '9999', $uformat = ''
 	$format = empty($format) || $format == 'dt' ? $dtformat : ($format == 'd' ? $dformat : ($format == 't' ? $tformat : $format));
 	if($format == 'u') {
 		$todaytimestamp = TIMESTAMP - (TIMESTAMP + $timeoffset * 3600) % 86400 + $timeoffset * 3600;
-		$s = gmdate(!$uformat ? $dtformat : $uformat, $timestamp);
+		//$s = gmdate(!$uformat ? $dtformat : $uformat, $timestamp);
+		$s = date('Y-m-d H:i:s', $timestamp);
 		$time = TIMESTAMP + $timeoffset * 3600 - $timestamp;
+
+
+
+		//一年前
+		$yeartimestamp = $todaytimestamp-86400*365;
+
 		if($timestamp >= $todaytimestamp) {
 			if($time > 3600) {
 				$return = intval($time / 3600).'&nbsp;'.$lang['hour'].$lang['before'];
@@ -792,8 +799,10 @@ function dgmdate($timestamp, $format = 'dt', $timeoffset = '9999', $uformat = ''
 			if(!defined('IN_MOBILE')) {
 				$return = '<span title="'.$s.'">'.$return.'</span>';
 			}
+		} elseif ($timestamp > $yeartimestamp) {
+			$return = '<span title="'.$s.'">'.date('m.d',$timestamp ).'</span>';
 		} else {
-			$return = $s;
+			$return = '<span title="'.$s.'">'.date('Y',$timestamp ).lang('space', 'year').'</span>';
 		}
 		return $return;
 	} else {
