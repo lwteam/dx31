@@ -1,0 +1,57 @@
+<!--{subtemplate common/header}-->
+		<!--{eval include template('header',0, './develop/manage/template');}-->
+		<div class="mgcont">
+			<div class="mgtit">
+				$manageitem_array[$action]
+				<p><a href="manage.php?action=$action&operation=update"{if $operation=='update'} class="select"{/if}>添加</a><a href="manage.php?action=$action&operation=list"{if $operation=='list'} class="select"{/if}>列表</a></p>
+			</div>
+			
+<form method="post" autocomplete="off" id="postform" action="manage.php?action={$action}&operation=update" enctype="multipart/form-data">
+	<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+	<!--{if isset($_GET['id'])}-->
+	<input type="hidden" name="id" id="id" value="{$id}" />
+	<!--{/if}-->
+	<h1 id="sti" class="mt"> 
+	<em class="wx " id="returnmessage"><a href="manage.php?action={$action}"> ② 发布新文章</a></em></h1>
+	<!--{if isset($_GET['id'])}-->
+	<h1 id="sti" class="mt"> <em class="wx " id="returnmessage"> ③ 编辑文章 </em> : {$article[title]} (信息ID:{$_GET['id']})</h1>
+	<!--{/if}-->
+
+	<div id="postbox">
+		<div class="pbt cl">
+			<p>1.焦点标题：</p>
+			<input type="text" name="topicfocus[title]" value="{$topicfocus_One[title]}" id="subject" onkeyup="strLenCalc(this, 'checklen', 80);" class="px wd27em" />
+		</div>
+		<div class="pbt cl">
+			<p>2.内容描述：</p>
+			<textarea name="topicfocus[info]" id="e_textarea" class="px wd27em" style="height:200px" tabindex="2" rows="5" cols="60">{$topicfocus_One[info]}</textarea>
+		</div>
+		<div class="pbt cl">
+			<p>3.链接地址：</p>
+			<input type="text" name="topicfocus[url]" value="{$topicfocus_One[url]}"  onkeyup="strLenCalc(this, 'checklen', 80);" class="px wd27em" />
+		</div>
+		<div class="pbt cl">
+			<p>4.排列顺序：</p>
+			<input type="text" name="topicfocus[order]" value="{$topicfocus_One[order]}"  onkeyup="strLenCalc(this, 'checklen', 80);" class="px wd27em" style="width:95px;"/>
+		</div>
+		<div class="pbt cl">
+			<!--{if $topicfocus_One[pic]}-->
+			<div style="height:100px;"><img src="{$topicfocus_One[pic]}" height="100" width="376"></div>
+			<!--{/if}-->
+			<p>5.焦点图片：</p>
+			<input type="file"  name="topicfocuspic"  class="px wd27em" style="width:95px;height:22px" tabindex="1" /><span id="subjectchk" class="left maname">640 * 170</span>
+
+		</div>
+
+		<div class="mtm"> </div>
+		<div class="mtm mbm">
+			<button type="submit" id="postsubmit" class="pn pnc" value="true" name="topicsubmit"><span><!--{if $_GET['id']}-->编辑<!--{else}-->发布<!--{/if}--></span></button>
+			<input type="hidden" id="postsave" name="save" value="" />
+		</div>
+	</div>
+</form>
+
+		</div><!-- mgcont -->
+	</div><!-- manage -->
+</div>
+<!--{subtemplate common/footer}-->

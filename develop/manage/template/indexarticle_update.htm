@@ -1,0 +1,96 @@
+<!--{subtemplate common/header}-->
+		<!--{eval include template('header',0, './develop/manage/template');}-->
+		<div class="mgcont">
+			<div class="mgtit">
+				$manageitem_array[$action]
+				<p><a href="manage.php?action=$action&operation=update"{if $operation=='update'} class="select"{/if}>添加</a><a href="manage.php?action=$action&operation=list"{if $operation=='list'} class="select"{/if}>列表</a></p>
+			</div>
+<form method="post" autocomplete="off" id="postform" action="manage.php?action={$action}&operation=update" enctype="multipart/form-data">
+	<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+	<!--{if $_G['gp_id']}-->
+	<input type="hidden" name="id" id="id" value="{$id}" />
+	<!--{/if}-->
+	<h1 id="sti" class="mt"> 
+	<em class="wx " id="returnmessage"><a href="manage.php?action={$action}"> ② 发布新文章</a></em></h1>
+	<!--{if $_G['gp_id']}-->
+	<h1 id="sti" class="mt"> <em class="wx " id="returnmessage"> ③ 编辑文章 </em> : {$article_One[title]} (信息ID:{$_G['gp_id']})</h1>
+	<!--{/if}-->
+	<div id="postbox">
+		<div class="pbt cl">
+			<p>1.关联主题tid</p>
+			<input type="text" name="article[tid]" id="article_tid" value="{$article_One[tid]}" class="px wd27em" /> <button type="button" id="postsubmit" value="true" name="keysubmit" onclick="readtidajax();">分析关键字/填充内容</button>
+		</div>
+		<script>
+		function readtidajax(){
+			var x = new Ajax();
+			x.getJSON('manage.php?action=indexarticle&tid='+$('article_tid').value+'&inajax=1'+'&r='+(+ new Date()), function(ret){
+				if(ret.scode== 1){
+					$('article_tagtxts').value = ret.tagtxts;
+					$('article_subject').value = ret.subject;
+					$('article_content').value = ret.content;
+				}
+			});
+		}
+		</script>
+		<div class="pbt cl">
+			<p>2. 标题</p>
+			<input type="text" name="article[title]"  id="article_subject" value="{$article_One[title]}" class="px wd27em" />
+		</div>
+
+		<div class="pbt cl">
+			<p>3.标题链接  (默认不需要填写)</p>
+			<input type="text" name="article[titleurl]" value="{$article_One[titleurl]}" class="px wd27em" />
+		</div>
+		<div class="pbt cl">
+			<p>4.关键字</p>
+			<input type="text" name="article[tagtxts]" id="article_tagtxts"  value="{$article_One[tagtxts]}" class="px wd27em" /> 
+		</div>
+		<div class="pbt cl">
+			<p>5.文章归属分类 / 可以选择三个分类 也可以一个都不选</p>
+			<select name="article[category]"  size="5">
+				<!--{loop $Categorys $cid $name}-->
+				<option value ="$cid" {if  $cid == $article_One[category]}selected="selected"{/if}  >$name</option>
+				<!--{/loop}-->
+			</select>
+		</div>
+		<div class="pbt cl">
+			<p>6.专题</p>
+			<select name="article[topic]"  class="pt wd20em">
+				<option value ="$value[topic]"  >无专题</option>
+			</select>
+		</div>
+
+		<div class="pbt cl">
+			<p>7.内容简介</p>
+			<textarea name="article[content]"  class="pt wd27em" style="height:300px"  id="article_content" >{$article_One[content]}</textarea>
+		</div>
+
+		<!--{if $article_One[titlepic]}-->
+		<div class="pbt cl">
+			<div class="z"> <span>
+			<img src="{$article_One[titlepic]}" height="100">
+				</span> </div>
+		</div>
+		<!--{/if}-->
+		<div class="pbt cl">
+			<p>8.标题图（大小：宽310、高145）</p>
+			<input type="file"  name="titlepic"  class="px wd27em" />	
+		</div>
+
+		<div class="pbt cl">
+			<p>9.是否显示在首页</p>
+				<input type="radio" name="article[index]" {if $article_One[index]}checked="checked"{/if} value="1" >是; 
+				<input type="radio"name="article[index]" {if !$article_One[index]}checked="checked"{/if} value="0">否
+		</div>
+		<div class="mtm"> </div>
+		<div class="mtm mbm">
+			<button type="submit" id="postsubmit" class="pn pnc" value="true" name="topicsubmit"><span><!--{if $_G['gp_id']}-->编辑文章<!--{else}-->发布文章<!--{/if}--></span></button>
+			<input type="hidden" id="postsave" name="save" value="" />
+		</div>
+	</div>
+</form>
+
+		</div><!-- mgcont -->
+	</div><!-- manage -->
+</div>
+<!--{subtemplate common/footer}-->

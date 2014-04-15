@@ -25,7 +25,7 @@ if($_G['setting']['forumadmin']){
 $manageitem_array = array(
 	"indexarticle"=>"首页推荐",
 	"topicfocus"=>"头图管理",
-	"indextag"=>"文章标签",
+	"articletag"=>"文章标签",
 	
 	"userinfo"=>"个人信息维护",
 	"diyforum"=>"版块自定义",
@@ -36,7 +36,7 @@ $manageitem_array = array(
 	"team"=>"Team权限管理",
 	
 	"teamdata"=>"团队数据统计",
-	"teamlog"=>"tuandui 操作记录",
+	"teamlog"=>"团队操作记录",
 
 	"staticlink"=>"平台URL管理",
 	"manage"=>"平台权限分配",

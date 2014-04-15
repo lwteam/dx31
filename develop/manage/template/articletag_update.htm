@@ -1,0 +1,55 @@
+<!--{subtemplate common/header}-->
+		<!--{eval include template('header',0, './develop/manage/template');}-->
+		<div class="mgcont">
+			<div class="mgtit">
+				$manageitem_array[$action]
+				<p><a href="manage.php?action=$action&operation=update"{if $operation=='update'} class="select"{/if}>添加</a><a href="manage.php?action=$action&operation=list"{if $operation=='list'} class="select"{/if}>列表</a></p>
+			</div>
+<form method="post" autocomplete="off" id="postform" action="manage.php?action={$action}&operation=update" enctype="multipart/form-data">
+	<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+	<!--{if $_G['gp_id']}-->
+	<input type="hidden" name="id" id="id" value="{$_G['gp_id']}" />
+	<!--{/if}-->
+	<h1 id="sti" class="mt"> 
+	<em class="wx " id="returnmessage"><a href="manage.php?action={$action}"> ② 发布新标签</a></em></h1>
+	<!--{if $_G['gp_id']}-->
+	<h1 id="sti" class="mt"> <em class="wx " id="returnmessage"> ③ 编辑标签 </em> : {$articletag_One[title]} (信息ID:{$_G['gp_id']})</h1>
+	<!--{/if}-->
+	<div id="postbox">
+		<div class="pbt cl">
+			<p>1. 标签标题</p>
+			<input type="text" name="articletag[name]"  id="articletag_subject" value="{$articletag_One[name]}" class="px wd27em" />
+		</div>
+		<div class="pbt cl">
+			<p>2. 标签描述</p>
+			<input type="text" name="articletag[namedesc]" value="{$articletag_One[namedesc]}" class="px wd27em" />
+		</div>
+		<div class="pbt cl">
+			<p>3. 关联标签</p>
+			<input type="text" name="articletag[relatename]" id="articletag_tagtxts"  value="{$articletag_One[relatename]}" class="px wd27em" />  多个关键字请用英文逗号隔开
+		</div>
+		<div class="pbt cl">
+			<p>4. 标签归属分类</p>
+			<select name="articletag[typeid]"  size="5">
+				<!--{loop $ArticleType $cid $name}-->
+				<option value ="$cid" {if  $cid == $articletag_One[typeid]}selected="selected"{/if}  >$name</option>
+				<!--{/loop}-->
+			</select>
+		</div>
+		<div class="pbt cl">
+			<p>5.首页边栏推荐(此项仅对产品分类生效)</p>
+				<input type="radio" name="articletag[index]" {if $articletag_One[index]}checked="checked"{/if} value="1" >是; 
+				<input type="radio"name="articletag[index]" {if !$articletag_One[index]}checked="checked"{/if} value="0">否
+		</div>
+		<div class="mtm"> </div>
+		<div class="mtm mbm">
+			<button type="submit" id="postsubmit" class="pn pnc" value="true" name="topicsubmit"><span><!--{if $_G['gp_id']}-->编辑标签<!--{else}-->发布标签<!--{/if}--></span></button>
+			<input type="hidden" id="postsave" name="save" value="" />
+		</div>
+	</div>
+</form>
+
+		</div><!-- mgcont -->
+	</div><!-- manage -->
+</div>
+<!--{subtemplate common/footer}-->

@@ -14,13 +14,16 @@ if(!defined('IN_DISCUZ')) {
 
 
 $id = (int)$_GET['id'];
-$operation = $_GET['operation']?$_GET['operation']:'list'; 
+$operation = $_REQUEST['operation']?$_REQUEST['operation']:'list'; 
+$page = $_G['page'];
+$pagenum = $_G['tpp'];
+
 
 if($operation == 'delete'){
 	//删除
-	$DeleteOne = DB::fetch_first("SELECT * FROM ".DB::table('buglist_hardware')." WHERE `uid`='$id' LIMIT 1");
+	$DeleteOne = DB::fetch_first("SELECT * FROM ".DB::table('bughwver')." WHERE `id`='$id' LIMIT 1");
 	if($DeleteOne){
-		DB::query("DELETE FROM ".DB::table('buglist_hardware')." WHERE id='$id' LIMIT 1");
+		DB::query("DELETE FROM ".DB::table('bughwver')." WHERE id='$id' LIMIT 1");
 		showmessage('该条信息已经删除', 'manage.php?action='.$action);
 	}else{
 		showmessage('信息不存在,无法删除!', 'manage.php?action='.$action);
@@ -31,7 +34,7 @@ if($operation == 'delete'){
 	$loadtemplate = 'bughwver_update';
 	if($id){
 		//编辑
-		$bughwver_One = DB::fetch_first("SELECT * FROM ".DB::table('buglist_hardware')." WHERE `uid`='$id' LIMIT 1");
+		$bughwver_One = DB::fetch_first("SELECT * FROM ".DB::table('bughwver')." WHERE `id`='$id' LIMIT 1");
 		if(!$bughwver_One){
 			showmessage('信息不存在,无法完成操作!', 'manage.php?action='.$action);
 		}
@@ -40,7 +43,7 @@ if($operation == 'delete'){
 		$bughwver = $_POST['bughwver'];
 		if(!$id){
 			if($bughwver['name']){
-				DB::insert('buglist_hardware', $bughwver);
+				DB::insert('bughwver', $bughwver);
 			}
 			showmessage('信息已经添加', 'manage.php?action='.$action);
 		}else{
@@ -50,7 +53,7 @@ if($operation == 'delete'){
 				}
 				unset($bughwver_One['id']);
 		
-				DB::update('buglist_hardware', $bughwver_One, "`id`='$id'");
+				DB::update('bughwver', $bughwver_One, "`id`='$id'");
 			}
 			showmessage('信息已经成功编辑', 'manage.php?action='.$action);
 		}	
@@ -59,11 +62,25 @@ if($operation == 'delete'){
 	//添加
 }else{
 	$loadtemplate = 'bughwver_list';
-	$query = DB::query("SELECT * FROM ".DB::table('buglist_hardware')." ORDER BY `id` DESC");
+
+
+	if ($_GET['search']) {
+		$sqlwhere = " WHERE `title`  LIKE '%$_GET[search]%'";
+	}
+	$TotalNum = DB::result_first("SELECT count(*) FROM ".DB::table('bughwver').$sqlwhere);
+	if(@ceil($TotalNum/$pagenum) < $page){
+		$page = 1;
+	}
+	$offset = ($page - 1) * $pagenum;
+
+	$query = DB::query("SELECT * FROM ".DB::table('bughwver').$sqlwhere." ORDER BY `id` DESC LIMIT $offset,$pagenum");
 	while($value = DB::fetch($query)) {
-		$value['relatename'] = join(',',array_filter(explode(',',$value['relatename'])));
+		$value['tagtxts'] = join(',',array_filter(explode(',',$value['tagtxts'])));
 		$bughwverlist[] = $value;
 	}
+	$multipage = multi($TotalNum, $pagenum, $page, "manage.php?action=$action&operation=".$operation, $_G['setting']['threadmaxpages']);	
+
+
 
 }
 

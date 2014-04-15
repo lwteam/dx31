@@ -36,10 +36,11 @@
 
 
 		<!--{/loop}-->
-		<tr>
-			<td colspan="7">$multipage</th>
-		</tr>
-
+			<!--{if $multipage}-->
+			<tr>
+				<td colspan="7">$multipage</th>
+			</tr>
+			<!--{/if}-->
 		<!--{else}-->
 		<tr>
 			<td colspan="7">查询不到任何数据</th>

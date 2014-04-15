@@ -12,86 +12,45 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-if($_POST){
-	$_G['gp_id'] = intval($_G['gp_id']);
-	$article = $_G['gp_article'];
-	ManagePostdataSafe($article);
+
+$id = (int)$_GET['id'];
+$operation = $_GET['operation']?$_GET['operation']:'list';
+$page = $_G['page'];
+$pagenum = $_G['tpp'];
 
 
+//删除
+if($operation == 'delete'){
 
-	if(!$_G['gp_id']){
-		if($article['title']){
-			if($article['tagtxts']){
-				UpdateTags($article['tagtxts'],$article['tags']);
-			}
-			if( $_FILES['titlepic']) {
-				$upload = new discuz_upload();
-				if($upload->init($_FILES['titlepic'], 'forum') && $upload->save()) {
-					$article['titlepic'] = $_G['setting']['attachurl'].'forum/'.$upload->attach['attachment'];
-				}
-			}
-			if($article['tid']){
-				$thread = C::t('forum_post')->fetch_threadpost_by_tid_invisible($article['tid']);
-				$article['fid'] = $thread['fid'];
-			}
-			$article['adateline'] = $_G['timestamp'];
-			DB::insert('article', $article);
+	$DeleteOne = DB::fetch_first("SELECT * FROM ".DB::table('article')." WHERE `id`='$id' LIMIT 1");
+	if($DeleteOne){
+		if($DeleteOne['titlepic']){
+			@unlink($DeleteOne['titlepic']);
 		}
-		showmessage('文章已经成功添加', 'manage.php?action=indexarticle');
+		DB::query("DELETE FROM ".DB::table('article')." WHERE id='$id' LIMIT 1");
+		showmessage('文章已经删除', 'manage.php?action='.$action);
 	}else{
-		if($article['title']){
-			$article_edit = DB::fetch_first("SELECT * FROM ".DB::table('article')." WHERE id='{$_G['gp_id']}' LIMIT 1");
-			if(!$article_edit){
-				showmessage('文章不存在不能进行修改', 'manage.php?action=indexarticle');
-			}else{
-				foreach($article as $key => $value){
-					$article_edit[$key] = $value;
-				}
-				unset($article_edit['id']);
-			}
-			if($article_edit['tagtxts']){
-				UpdateTags($article_edit['tagtxts'],$article_edit['tags']);
-			}
-
-			if( $_FILES['titlepic']) {
-
-				$upload = new discuz_upload();
-				if($upload->init($_FILES['titlepic'], 'forum') && $upload->save()) {
-					if($article_edit['titlepic']){
-						@unlink($article_edit['titlepic']);
-					}
-					$article_edit['titlepic'] = $_G['setting']['attachurl'].'forum/'.$upload->attach['attachment'];
-				}
-			}
-			if($article_edit['tid']){
-				$thread = C::t('forum_post')->fetch_threadpost_by_tid_invisible($article_edit['tid']);
-				$article_edit['fid'] = $thread['fid'];
-			}
-			DB::update('article', $article_edit, "`id`='{$_G['gp_id']}'");
-		}
-		showmessage('文章已经成功编辑', 'manage.php?action=indexarticle');
+		showmessage('文章不存在,无法删除!', 'manage.php?action='.$action);
 	}
-}elseif($_GET['inajax']){
+
+// AJAX 获取分词	
+}elseif($operation == 'ajaxtag'){
+
 	$response = array();
 	$response['scode'] = 0;
-
 	$thread = C::t('forum_post')->fetch_threadpost_by_tid_invisible($_GET['tid']);
 	if($thread){
 		$response['scode'] = 1;
 		$subjectenc = rawurlencode(strip_tags($thread['subject']));
-
 		$message = DiscuzUBBclear($thread['message']);
 		$messageenc = cutstr($message, 500, '');
 		$messageenc = rawurlencode(strip_tags(preg_replace("/\[.+?\]/U", '', $messageenc)));
 		$data = @implode('', file("http://keyword.discuz.com/related_kw.html?ics=".CHARSET."&ocs=".CHARSET."&title=$subjectenc&content=$messageenc"));
-
 		if($data) {
-
 			if(PHP_VERSION > '5' && CHARSET != 'utf-8') {
 				require_once libfile('class/chinese');
 				$chs = new Chinese('utf-8', CHARSET);
 			}
-
 			$parser = xml_parser_create();
 			xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, 0);
 			xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);
@@ -105,7 +64,6 @@ if($_POST){
 					$kws[] = !empty($chs) ? $chs->convert(trim($valuearray['value'])) : trim($valuearray['value']);
 				}
 			}
-
 			 $tagtxts  = $return = '';
 			if($kws) {
 				foreach($kws as $kw) {
@@ -115,7 +73,6 @@ if($_POST){
 				$return = dhtmlspecialchars($return);
 				$tagtxts = substr($return, 0, strlen($return)-1);
 			}
-			
 		}
 
 		$response['subject'] = $thread['subject'];
@@ -125,42 +82,102 @@ if($_POST){
 		$response['subject'] = '';
 		$response['content'] = '';
 		$response['tagtxts'] = '';
-	}
-
-
-
-
-				
+	}		
 	echo json_encode($response);
 	exit();
 
+}elseif($operation == 'update'){
+	$loadtemplate = 'indexarticle_update';
 
-
-}else{
-	$_G['gp_id'] = (int)$_G['gp_id'];
-	if($_G['gp_id']){
-		$article = DB::fetch_first("SELECT * FROM ".DB::table('article')." WHERE id='{$_G['gp_id']}' LIMIT 1");
-		if(!$article){
-			showmessage('文章不存在', 'manage.php?action=indexarticle');
+	$article = $_G['gp_article'];
+	ManagePostdataSafe($article);
+	
+	if($id){
+		//编辑
+		$article_One = DB::fetch_first("SELECT * FROM ".DB::table('article')." WHERE `id`='$id' LIMIT 1");
+		if(!$article_One){
+			showmessage('信息不存在,无法完成操作!', 'manage.php?action='.$action);
+		}
+	}
+	if($_POST){
+		$indexarticle = $_POST['indexarticle'];
+		if(!$id){
+			if($article['title']){
+				if($article['tagtxts']){
+					UpdateTags($article['tagtxts'],$article['tags']);
+				}
+				if( $_FILES['titlepic']) {
+					$upload = new discuz_upload();
+					if($upload->init($_FILES['titlepic'], 'forum') && $upload->save()) {
+						$article['titlepic'] = $_G['setting']['attachurl'].'forum/'.$upload->attach['attachment'];
+					}
+				}
+				if($article['tid']){
+					$thread = C::t('forum_post')->fetch_threadpost_by_tid_invisible($article['tid']);
+					$article['fid'] = $thread['fid'];
+				}
+				$article['adateline'] = $_G['timestamp'];
+				DB::insert('article', $article);
+			}
+			showmessage('文章已经成功添加', 'manage.php?action='.$action);
 		}else{
-			$article['tagtxts'] = join(',',array_filter(explode(',',$article['tagtxts'])));
+			if($article['title']){
+				if(!$article_One){
+					showmessage('文章不存在不能进行修改', 'manage.php?action='.$action);
+				}else{
+					foreach($article as $key => $value){
+						$article_One[$key] = $value;
+					}
+					unset($article_One['id']);
+				}
+				if($article_One['tagtxts']){
+					UpdateTags($article_One['tagtxts'],$article_One['tags']);
+				}
+
+				if( $_FILES['titlepic']) {
+					$upload = new discuz_upload();
+					if($upload->init($_FILES['titlepic'], 'forum') && $upload->save()) {
+						if($article_One['titlepic']){
+							@unlink($article_One['titlepic']);
+						}
+						$article_One['titlepic'] = $_G['setting']['attachurl'].'forum/'.$upload->attach['attachment'];
+					}
+				}
+				if($article_One['tid']){
+					$thread = C::t('forum_post')->fetch_threadpost_by_tid_invisible($article_One['tid']);
+					$article_One['fid'] = $thread['fid'];
+				}
+				DB::update('article', $article_One, "`id`='{$_G['gp_id']}'");
+			}
+			showmessage('文章已经成功编辑', 'manage.php?action='.$action);
 		}
 	}
-
-	if($_G['gp_do'] == 'del' && $article){
-		if($article['titlepic']){
-			@unlink($article['titlepic']);
-		}
-		DB::query("DELETE FROM ".DB::table('article')." WHERE id='{$_G['gp_id']}' LIMIT 1");
-		showmessage('文章已经删除', 'manage.php?action=indexarticle');
+	//添加
+}else{
+	$loadtemplate = 'indexarticle_list';
+	if ($_GET['search']) {
+		$sqlwhere = " WHERE `title`  LIKE '%$_GET[search]%'";
 	}
+	$TotalNum = DB::result_first("SELECT count(*) FROM ".DB::table('article').$sqlwhere);
+	if(@ceil($TotalNum/$pagenum) < $page){
+		$page = 1;
+	}
+	$offset = ($page - 1) * $pagenum;
 
-	$query = DB::query("SELECT * FROM ".DB::table('article')." ORDER BY `id` DESC");
+	$query = DB::query("SELECT * FROM ".DB::table('article').$sqlwhere." ORDER BY `id` DESC LIMIT $offset,$pagenum");
 	while($value = DB::fetch($query)) {
 		$value['tagtxts'] = join(',',array_filter(explode(',',$value['tagtxts'])));
 		$articlelist[] = $value;
 	}
+	$multipage = multi($TotalNum, $pagenum, $page, "manage.php?action=$action&operation=".$operation, $_G['setting']['threadmaxpages']);
 }
+
+
+
+
+
+
+
 function DiscuzUBBclear($content) {
 	global $_G;
 	//将[attachimg]和[attach]的UBB标签连同内容给全部删除

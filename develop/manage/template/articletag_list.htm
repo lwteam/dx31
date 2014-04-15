@@ -1,0 +1,52 @@
+<!--{subtemplate common/header}-->
+	<!--{eval include template('header',0, './develop/manage/template');}-->
+	<div class="mgcont">
+		<div class="mgtit">
+			$manageitem_array[$action]
+			<input name="action" type="hidden" value="systemlog">
+			<p><input id="search" name="search" placeholder="搜索内容"  value="$_GET[search]" type="text">
+			<a href="manage.php?action=$action&operation=update" class="select">添加文章</a></p>
+		</div>
+		<table class="managetable" cellpadding="0" cellspacing="0" border="0">
+<tr>
+	<td width="5%">ID</td>
+	<td width="50%">标题</td>
+	<td width="10%">分类</td>
+	<td width="15%">管理</td>
+</tr>
+<!--{if $articletaglist}-->
+<!--{loop $articletaglist $value}-->
+<tr>
+	<td>{$value[id]}</td>
+	<td style="text-align:left;padding:0 10px"> {$value[name]} <!--{if $value[namedesc]}-->({$value[namedesc]})<!--{/if}--></td>
+	<td >
+	<!--{loop $ArticleType $cid $name}-->
+		{if  $cid == $value[typeid]}$name{/if}
+	<!--{/loop}-->
+
+	</td>
+	<td>
+		<a href="manage.php?action={$action}&operation=update&id={$value[id]}">编辑</a> | <a href="manage.php?action={$action}&operation=delete&id={$value[id]}">删除</a>
+	</td>
+</tr>
+
+
+<!--{/loop}-->
+			<!--{if $multipage}-->
+			<tr>
+				<td colspan="4">$multipage</th>
+			</tr>
+			<!--{/if}-->
+		<!--{else}-->
+		<tr>
+			<td colspan="4">查询不到任何数据</th>
+		</tr>
+		<!--{/if}-->
+		</table>
+
+	</div><!-- mgcont -->
+</div><!-- manage -->
+
+</div>
+
+<!--{subtemplate common/footer}-->
