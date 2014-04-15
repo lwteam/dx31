@@ -32,12 +32,12 @@ var disablepostctrl = parseInt('{$_G['group']['disablepostctrl']}');
 									<div class="pt hm">
 										<!--{if !$_G['uid']}-->
 											<!--{if !$_G['connectguest']}-->
-												{lang login_to_reply} <a href="member.php?mod=logging&action=login" onclick="showWindow('login', this.href)" class="xi2">{lang login}</a> | <a href="member.php?mod={$_G[setting][regname]}" class="xi2">$_G['setting']['reglinkname']</a>
+												{lang login_to_reply} <a href="member.php?mod=logging&action=login" onclick="showWindow('login', this.href)">{lang login}</a><span class="pipe">|</span><a href="member.php?mod={$_G[setting][regname]}">$_G['setting']['reglinkname']</a>
 											<!--{else}-->
 												{lang connect_fill_profile_to_post}
 											<!--{/if}-->
 										<!--{else}-->
-											{lang no_permission_to_post}<a href="javascript:;" onclick="$('fastpostform').submit()" class="xi2">{lang click_to_show_reason}</a>
+											{lang no_permission_to_post}<a href="javascript:;" onclick="$('fastpostform').submit()">{lang click_to_show_reason}</a>
 										<!--{/if}-->
 										<!--{hook/global_login_text}-->
 									</div>
