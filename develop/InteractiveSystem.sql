@@ -246,7 +246,7 @@ CREATE TABLE `pre_buglist` (
   KEY `classhandling` (`classid`,`handling`),
   KEY `hardware` (`hardware`),
   KEY `version` (`version`),
-  KEY `dateline` (`bdateline`),
+  KEY `dateline` (`dateline`),
   KEY `lasttime` (`lasttime`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
@@ -303,7 +303,7 @@ CREATE TABLE `pre_buglist_hardware` (
   `dateline` int(10) unsigned NOT NULL DEFAULT '0', -- 提交时间
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `classid` (`classid`,`dateline`)
+  KEY `dateline` (`dateline`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8; 
 
 -- 分类版本关联表
@@ -315,7 +315,7 @@ CREATE TABLE `pre_buglist_version` (
   `dateline` int(10) unsigned NOT NULL DEFAULT '0', -- 提交时间
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `classid` (`classid`,`dateline`)
+  KEY `dateline` (`dateline`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8; 
 
 
@@ -331,7 +331,7 @@ CREATE TABLE `pre_buglist_bugattr` (
   `must` tinyint(1)  NOT NULL DEFAULT '0', -- 是否必填选项
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `classid` (`classid`,`dateline`)
+  KEY `dateline` (`dateline`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8; 
 
 
