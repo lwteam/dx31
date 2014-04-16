@@ -171,8 +171,8 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	/* 进度条 */
 		.pbg { height: 10px; background: url({IMGDIR}/pllb.png) 0 0 repeat-x; -webkit-border-radius: 0 6px 6px 0; -moz-border-radius: 0 6px 6px 0; border-radius: 0 6px 6px 0; }
 		.pbr { height: 16px; width: 470px; background-image: url({IMGDIR}/pllb.png); background-color: #5AAF4A; background-position: 0 -16px; background-repeat: repeat-x; -webkit-border-radius: 0 6px 6px 0; -moz-border-radius: 0 6px 6px 0; border-radius: 0 6px 6px 0; }
-		.pbg2 { display: block; height: 10px; width: 130px; margin: 0 auto; background: url({IMGDIR}/ico_jdt.png) 0 -10px repeat-x; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
-		.pbr2 { display: block; height: 10px; background: url({IMGDIR}/ico_jdt.png) 0 0 repeat-x; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+		.pbg2 { display: block; height: 10px; width: 110px; margin: 0 auto; background: #dfe4eb; border-radius: 5px; }
+		.pbr2 { display: block; height: 10px; background: #5fb336; border-radius: 5px; }
 
 	/* 勋章链接hover时不显示下划线 by Pony 20110519 */
 	.md_ctrl a:hover { text-decoration: none; }
@@ -304,9 +304,8 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 
 
 /** forum::post,group::post,portal::portalcp,home::spacecp **/
-/* 发帖、日志、文章时上传的图片列表样式 by Pony 11090615 
-.upfl { margin-top: -1px; height: auto !important; height: 165px; max-height: 300px; overflow: auto; overflow-x: hidden; }
-	.upfl a, #imgattachlist a { color: {HIGHLIGHTLINK}; }
+/* 发帖、日志、文章时上传的图片列表样式 by Pony 11090615 */
+.fwinmask  .upfl { margin:0; padding:0; }
 	.upfl table td { border-bottom: 1px solid {COMMONBORDER}; height: 30px; line-height: 24px; }
 .imgl { margin-bottom: 5px; width: 100%; *width: 99.6%; }
 	.imgl td { padding: 8px 0; text-align: center; vertical-align: bottom; }
@@ -315,7 +314,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 		.ie6 .imgl img { width: expression(this.width > 110 ? 110 : true); }
 
 	.imgf .px { width: 106px; padding: 2px; height: 14px; line-height: 14px; }
-	.imgdeleted { opacity: 0.3; filter: alpha(opacity=30); }*/
+	.imgdeleted { opacity: 0.3; filter: alpha(opacity=30); }
 
 /*
 	Name:			mod_opattach
@@ -508,7 +507,6 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	Explain:		板块新帖提醒
 	Last Modify:	Max.Cong
 */
-	#forumnew{ position: absolute; right: 0; top: 0; z-index: -1; }
 	.tl #forumnewshow { background: #FFFAF3; font-size: 12px; text-align: center; }
 	.tl #forumnewshow th, .tl #forumnewshow td { padding: 0; border: 0; }
 	.tl #forumnewshow th:hover, .tl #forumnewshow td:hover{ background: #FFFFE9; }
@@ -584,9 +582,10 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 		.cttp .unfold, .cttp .fold { float: right; display: inline; margin: 5px -35px 9px 0; padding: 0 0 0 10px; width: 25px; height: 18px; background-color: transparent; color: {HIGHLIGHTLINK}; font-weight: 400; }
 
 	/* tl --> Thread list modify by lushnis */
+	.tl { padding:10px; }
 	.tl .bm_c { padding-top: 0; }
 	.tl table { width: 100%; table-layout: fixed; border-collapse: separate; }
-		.tl th, .tl td { padding: 5px 0; border-bottom: 1px solid {CONTENTSEPARATE}; }
+		.tl th, .tl td { padding: 12px 0; border-bottom: 1px solid {CONTENTSEPARATE}; }
 			.emptb th, .emptb td { padding: 0; border-bottom: none; }
 			.tl tr:hover th, .tl tr:hover td { background-color: {COMMONBG}; }
 			.tl .threadpre td, .tl .threadpre:hover td { background-color: #FCFCFC; }
@@ -609,7 +608,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 			.tl .comm {}
 			.tl .frm { width: 150px; }
 			.tl .o { width: 20px; }
-			.tl .num { width: 60px; line-height: 14px; }
+			.tl .num { width: 80px; line-height: 14px; }
 			.tl .by { width: 105px; line-height: 14px; }
 				.tl cite, .tl .num em { display: block; }
 				.tl th em { margin-right: 4px; zoom: 1; }
@@ -816,10 +815,7 @@ a.thread_mod { background: url({IMGDIR}/bigimg.png) no-repeat 0 -38px; padding-l
 	Name:			showhide
 	Level:			Function
 	Explain:		帖子列表页隐藏置顶帖的按钮样式
-	Last Modify:	Jane
-
-.showhide { width: 12px; height: 12px; background: url({IMGDIR}/close.gif) no-repeat 0 0; text-indent: -999em; cursor: pointer; overflow: hidden; margin: 5px 5px 0px 5px; }
-.showhide:hover { background-position: 0 -12px; }*/
+	Last Modify:	Jane*/
 .ie6 .showhide { display: none; }
 .pcb .jammer { font-size: 10px; color: {WRAPBG}; }
 /* 屏蔽提示 */
@@ -1037,13 +1033,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		Name:			mod_thread_attr
 		Level:			Function
 		Explain:		帖子中类似“游客，如果您要查看本帖隐藏内容请”等地方的样式
-		Last Modify:	Pony 11060209
-	
-	.locked { overflow: hidden; margin: 10px 0; padding: 8px 8px 8px 24px; border: 1px dashed #FF9A9A; background: {WRAPBG} url({IMGDIR}/locked.gif) no-repeat 6px 50%; font-size: 12px; zoom: 1; }
-		.locked:hover background-color: #F7F7F7; }
-		.locked strong { color: {NOTICETEXT}; }
-		.locked a, .attach_nopermission a { color: {HIGHLIGHTLINK}; }
-		*/
+		Last Modify:	Pony 11060209*/
 	.attach_nopermission { margin: 10px 0; width: 600px; border: 1px dashed #AAAA92; background: #FFFFEE url({IMGDIR}/attach_nopermission_bg.png) no-repeat 100% 0; font-size: 12px; }
 		.attach_nopermission div { padding: 20px 0 20px 70px; border: 3px solid #FFF; background: url({IMGDIR}/attach_nopermission.png) no-repeat 15px 15px; }
 		.attach_nopermission:hover div { border-color: #DADAB1; }
@@ -1687,8 +1677,10 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 */
 	.pml {}
 		.pml dl { padding-left: 75px; padding-right: 10px; }
+		.pml .tedt { margin:0;}
+		.pml .tedt  textarea { height:100px; }
 		.pml .hover { background-color: {SPECIALBG}; }
-		.pm_o { display: inline; width: 100px; }
+		.pm_o { display: inline; width: 110px; }
 			.pm_o .o { overflow: hidden; float: right; margin-left: 10px; width: 16px; height: 16px; text-indent: 20px; background: url({IMGDIR}/op.png) no-repeat 0 -120px; }
 				.pm_o .o:hover { background-position: 0 -140px; }
 			.pm_o .p_pop { text-align: left; }
@@ -1772,9 +1764,9 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		.tdats th, .tdats td { overflow: hidden; padding: 0 5px; height: 26px; border-width: 0 1px 0 0; border-color: {WRAPBG}; white-space: nowrap; }
 		.tdats th { height: 40px; font-weight: 700; }
 			.tdats .h th { height: 24px; border-top: 1px solid {COMMONBORDER}; border-bottom: 1px solid #E5E5E5; background: url({IMGDIR}/tb.png) repeat-x 0 -4px; color: {MIDTEXT}; zoom: 1; }
-		.tdats .tdat { float: left; width: 150px; border: none; table-layout: fixed; }
+		.tdats .tdat { float: left; width: 355px; border: none; table-layout: fixed; }
 		.tdats .tfx { width: 300px; }
-			.tdats .tfxf { width: 650px; }
+			.tdats .tfxf { width: 355px; }
 			.tfx th, .tfx td { border-width: 0 3px !important; background: #FFF2DF; }
 			.tfx .alt, .tfx .alt th, .tfx .alt td { background: #FAEDDA; }
 			.tfx .h th { padding: 1px 5px; }
@@ -1846,7 +1838,8 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 /* .pmform -> 短消息表单非弹窗 by Pony */
 	.pmform {}
 		.pmform .px { width: 408px; }
-		.pmform .tedt { width: 416px; }
+		.pmform .tedt { width: 416px; margin:0; }
+		.pmform .tedt textarea { width: 95%; }
 
 /*
 	Name:			mod_user_selector

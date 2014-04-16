@@ -66,7 +66,7 @@ $postshowavatars = !($_G['setting']['bannedmessages'] & 2 && ($post['memberstatu
 					</span>
 					<p>
 						<span class="right">浏览 <em>$_G[forum_thread][views]</em> 次，评论 <em>$_G[forum_thread][allreplies]</em> 条</span>
-						<a href="home.php?mod=space&uid=$post['authorid']" target="_blank" {if $post[groupcolor]} style="color: $post[groupcolor]"{/if}>$post[author]</a>, $post[dateline]<span class="pipe">|</span><a href="forum.php?mod=viewthread&tid=$_G[tid]$fromuid" onclick="return copyThreadUrl(this, '$_G[setting][bbname]')" {if $fromuid}title="{lang share_url_copy_comment}"{/if} class="copyurl"></a>
+						<a href="home.php?mod=space&uid=$post['authorid']" target="_blank" {if $post[groupcolor]} style="color: $post[groupcolor]"{/if}><strong>$post[author]</strong></a>, $post[dateline]<span class="pipe">|</span><a href="forum.php?mod=viewthread&tid=$_G[tid]$fromuid" onclick="return copyThreadUrl(this, '$_G[setting][bbname]')" {if $fromuid}title="{lang share_url_copy_comment}"{/if} class="copyurl"></a>
 						<!--{if $post['authorid'] && !$post['anonymous']}-->
 							<!--{if $post['invisible'] == 0}-->
 								<span class="pipe">|</span>
@@ -78,15 +78,6 @@ $postshowavatars = !($_G['setting']['bannedmessages'] & 2 && ($post['memberstatu
 							<!--{/if}-->
 							<!--{if $post['status'] & 8}-->
 								<!--{if $_G['setting']['mobile']['mobilecomefrom']}-->{$_G['setting']['mobile']['mobilecomefrom']}<!--{else}-->{lang from_mobile}<!--{/if}-->
-							<!--{/if}-->
-						<!--{/if}-->
-						<!--{if !IS_ROBOT && !$_G['forum_thread']['archiveid'] && $post['first'] }-->
-							<!--{if !$rushreply}-->
-								<!--{if $ordertype != 1}-->
-									<span class="pipe">|</span><a href="forum.php?mod=viewthread&tid=$_G[tid]&extra=$_GET[extra]&ordertype=1">{lang post_descview}</a>
-								<!--{else}-->
-									<span class="pipe">|</span><a href="forum.php?mod=viewthread&tid=$_G[tid]&extra=$_GET[extra]&ordertype=2">{lang post_ascview}</a>
-								<!--{/if}-->
 							<!--{/if}-->
 						<!--{/if}-->
 					</p>
@@ -179,20 +170,12 @@ $postshowavatars = !($_G['setting']['bannedmessages'] & 2 && ($post['memberstatu
 					</div>
 					<div class="viewtheadfoot">
 						<div class="right">
-							<!--{if !$post['first'] && $modmenu['post']}-->
-										<label for="manage$post[pid]" class="opacity graysmallbutton">
-										<input type="checkbox" id="manage$post[pid]" class="pc" {if !empty($modclick)}checked="checked" {/if}onclick="pidchecked(this);modclick(this, $post[pid])" value="$post[pid]" autocomplete="off" />
-										{lang manage}
-										</label>
-							<!--{/if}-->
 							<!--{if $post['first'] }--><a href="" class="bluesmallbutton">我来处理</a><span class="pipe">|</span><a href="" class="bluesmallbutton">其他信息</a><span class="pipe">|</span><a href="" class="greensmallbutton">我要补充</a><span class="pipe">|</span><!--{/if}-->
 							<!--{if $post['invisible'] == 0}-->
-									<!--{if (!$_G['uid'] || $allowpostreply) && !$needhiddenreply}-->
-										<!--{if $post['first']}-->
-											<a class="bluesmallbutton" href="forum.php?mod=post&action=reply&fid=$_G[fid]&tid=$_G[tid]&reppost=$post[pid]&extra=$_GET[extra]&page=$page" onclick="showWindow('reply', this.href)">{lang reply}</a>
-										<!--{else}-->
-											<a class="bluesmallbutton" href="forum.php?mod=post&action=reply&fid=$_G[fid]&tid=$_G[tid]&repquote=$post[pid]&extra=$_GET[extra]&page=$page" onclick="showWindow('reply', this.href)">{lang reply}</a>
-										<!--{/if}-->
+									<!--{if !$post['first'] && $modmenu['post']}--><label for="manage$post[pid]" class="opacity graysmallbutton"><input type="checkbox" id="manage$post[pid]" class="pc" {if !empty($modclick)}checked="checked" {/if}onclick="pidchecked(this);modclick(this, $post[pid])" value="$post[pid]" autocomplete="off" />{lang manage}</label><span class="pipe">|</span>
+									<!--{/if}-->
+							<!--{if (!$_G['uid'] || $allowpostreply) && !$needhiddenreply}-->
+									<!--{if $post['first']}--><a class="bluesmallbutton" href="forum.php?mod=post&action=reply&fid=$_G[fid]&tid=$_G[tid]&reppost=$post[pid]&extra=$_GET[extra]&page=$page" onclick="showWindow('reply', this.href)">{lang reply}</a><!--{else}--><a class="bluesmallbutton" href="forum.php?mod=post&action=reply&fid=$_G[fid]&tid=$_G[tid]&repquote=$post[pid]&extra=$_GET[extra]&page=$page" onclick="showWindow('reply', this.href)">{lang reply}</a><!--{/if}-->
 								<!--{/if}-->
 							<!--{/if}-->
 						</div>

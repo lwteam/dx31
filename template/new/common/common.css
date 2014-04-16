@@ -208,9 +208,10 @@ CSS 写作注意事项：
 	Explain:		边框样式，该模块仅作用于元素的下边框，分为虚线和实线两种，宽度均为 1px
 	Last Modify:	lushnis
 */
-	.bbda { border-bottom: 1px dashed {COMMONBORDER}; }
+    .bbs{  border-bottom:1px dashed #e6e6e6; }
 	.btda { border-top: 1px dashed {COMMONBORDER}; }
 	.bts { border-top: 1px dashed {COMMONBORDER} !important; }
+	.bbda { border-bottom: 1px dashed {COMMONBORDER}; }
 /*
 	Name:			mod_border_reset
 	Level:			Global
@@ -373,7 +374,7 @@ CSS 写作注意事项：
 
 	.px, .pt, .ps, select { border: 1px solid; border-color: {INPUTBORDERDARKCOLOR} {INPUTBORDER} {INPUTBORDER} {INPUTBORDERDARKCOLOR}; background: {INPUTBG} url({IMGDIR}/px.png) repeat-x 0 0; color: {TEXT}; }
 		.px, .pt { padding: 2px 4px; line-height: 17px; }
-		.px { height: 17px; }
+		.px { height: 17px; }*/
 			.pxs { width: 30px !important; }
 			.fdiy .tfm .px, .fdiy .tfm .pt { width: auto; }
 			.p_fre { width: auto !important; }
@@ -381,7 +382,7 @@ CSS 写作注意事项：
 		.pt { overflow-y: auto; }
 			div.pt { height: 100px; line-height: 100px; }
 		.ps, select { padding: 2px 2px 2px 1px; }
-		*/
+		
 		/* 自动调整高度的 textarea by Pony */
 		.pts { vertical-align: top; overflow: hidden; }
 		.cmt .pts { width: 60%; }
@@ -480,11 +481,11 @@ CSS 写作注意事项：
 	Explain:		表单样式
 	Last Modify:	Pony
 */
-	.tfm { width: 100%; }
-		.tfm caption, .tfm th, .tfm td { vertical-align: top; padding: 7px 0; }
+	.tfm { width: 100%;margin-top:20px; }
+		.tfm caption, .tfm th, .tfm td { vertical-align: top; padding: 0 0 7px; }
 			.tfm caption h2 { font-size: 16px; }
 			.vt th, .vt td { vertical-align: top; }
-		.tfm th { padding-top: 9px; padding-right: 5px; width: 130px; }
+		.tfm th { padding-top: 4px; padding-right: 5px; width: 130px; }
 			.tfm th .rq { float: right; font-size: 14px; }
 			.tfm .pt, .tfm .px { margin-right: 3px; width: 330px; }
 		.tfm .c, .tfm .tedt, .m_c .tfm .tedt { width: 338px; }
@@ -666,18 +667,20 @@ CSS 写作注意事项：
 	#ct { min-height: 300px; }
 		.ie6 #ct { height: 300px; }
 		.mn { overflow: hidden; }
-		.ct1 { border: 1px solid {WRAPBORDERCOLOR}; border-top: none; }
+		.mn .pgs { padding:0 10px; }
+		.ct1 .mn { border: 1px solid {WRAPBORDERCOLOR}; border-top: none;  background: {WRAPBG}; border-radius: 0 0 3px 3px;}
 		.ct2 .mn { float: left; width: 730px; margin-bottom: 1em; }
 		.ct2 .sd { float: right; width: 220px; overflow: hidden; _overflow-y: visible; }
 
-		.appl { float: left; overflow: hidden; margin-bottom: 10px; padding: 6px 10px; width: 117px; }
+		.appl { float: left; padding: 6px 10px; width: 109px; border-radius: 3px 0 0 3px; border: 1px solid {WRAPBORDERCOLOR}; background:#f5f7f9; border-right:0; }
+		.appl .bbda { border:0;}
 
-		.ct2_a, .ct3_a { border: 1px solid {WRAPBORDERCOLOR}; {SIDEBGCODE} }
+		.ct2_a, .ct3_a {  }
 			.ct2_a_r { border: none; background-image: none; }
 			 .ct2_a h1.mt { display: none; }
 			 .ct2_a .tb { margin-top: 3px; }
-		.ct2_a .mn { float: right; width: 810px; }
-			.ct2_a .mn { display: inline; margin-right: 10px; padding-top: 10px; width: 800px; }
+		.ct2_a .mn { float: right;  min-height:500px; _height:500px; _overflow: visible;}
+			.ct2_a .mn { padding:20px; border: 1px solid {WRAPBORDERCOLOR}; width: 1008px; background: {WRAPBG}; border-radius: 0 3px 3px 3px; }
 				#nv_userapp .ct2_a .mn, .ct2_a_r .mn { margin-right: 0; width: 810px; }
 
 		.ct3_a .mn { float: left; margin-left: 20px; width: 565px; }
@@ -764,9 +767,10 @@ CSS 写作注意事项：
 	Explain:		论坛皮肤下用户页面头部
 	Last Modify:	lushnis
 */
-#uhd { padding-top: 10px;border: 1px solid #CCC; border-bottom: none; background: {SPECIALBG}; }
-	#uhd .tb a { border-width: 1px 0; border-top-color: {SPECIALBG}; border-bottom-color: {WRAPBORDERCOLOR}; }
-	#uhd .tb .a a { border: 1px solid #CCC; border-bottom-color: #FFF; }
+#uhd { padding-top: 10px;border-bottom: none; background: #d1dced; border-radius: 3px 3px 0 0; }
+#uhd .tb { border:0; } 
+#uhd .tb li { margin:0 5px 0 0;}
+	#uhd .tb a { border:0; padding:0 20px;}
 	.ie6 #uhd .tb .a { position: relative; }
 	#uhd .mn { float: right; margin-right: 15px; margin-bottom: -30px; line-height: 28px; }
 		#uhd .mn a { padding: 2px 0 2px 20px; background: no-repeat 0 50%; color: {MIDTEXT}; }
@@ -809,10 +813,13 @@ CSS 写作注意事项：
 	Last Modify:	lushnis
 
 .tb { margin-top: 10px; padding-left: 5px; line-height: 30px; border-bottom: 1px solid {COMMONBORDER}; }
-	.tb li { float: left; margin: 0 3px -1px 0; }
+.tb a { display: block; padding: 0 10px; border: 1px solid {COMMONBORDER}; background: {SPECIALBG}; }
+.tb .a a, .tb .current a { border-bottom-color: {WRAPBG}; background: {WRAPBG}; font-weight: 700;}
+.tb_s { margin-top: 0; line-height: 26px; }
+	.tb li { float: left; margin: 0 3px -1px 0; }*/
 		.ie6 .tb .a, .ie6 .tb .current { position: relative; }
-	.tb a { display: block; padding: 0 10px; border: 1px solid {COMMONBORDER}; background: {SPECIALBG}; }
-		.tb .a a, .tb .current a { border-bottom-color: {WRAPBG}; background: {WRAPBG}; font-weight: 700;}
+	
+		
 		.tb a:hover { text-decoration: none; }
 	.tb .y { float: right; margin-right: 0; }
 		.tb .y a { border: none; background: transparent; }
@@ -824,8 +831,8 @@ CSS 写作注意事项：
 		.tb_h li { margin-right: 0; }
 		.tb_h a { border-top: none; border-left: none; }
 		.tb_h .o { margin-top: 2px; }
-	.tb_s { margin-top: 0; line-height: 26px; }
-*/
+	
+
 	/* 类似menu的Tab */
 .tbmu { padding: 8px 10px 8px 0; border-bottom: 1px dashed {COMMONBORDER}; }
 	.tbmu a { color: {HIGHLIGHTLINK}; }
@@ -952,11 +959,11 @@ CSS 写作注意事项：
 	.myo img { margin-bottom: -1px; }
 	.myo a { color: {HIGHLIGHTLINK}; }
 	/* 侧边管理列表 */
-	.tbn { margin: -6px -10px 0; }
-		.tbn ul { margin: 0; }
-			.tbn li { margin: 0 10px; height: 33px; border-bottom: 1px dashed #CCC; }
-			.tbn li.a { margin: -1px 0 0; padding: 0 10px 0 9px; border-top: 1px solid {COMMONBORDER}; border-bottom-style: solid; background: {WRAPBG}; }
-		.tbn ul a { display: block; height: 33px; line-height: 33px; }
+	.tbn h2 { color:#000;}
+			.tbn li { margin: 0 10px; height: 39px; border-top: 1px dashed #e6e6e6; }
+			.tbn li.a { margin: 0 -11px -1px -10px; padding: 0 10px 0 19px;  border:1px solid #e6e6e6; border-width:1px 0;   background: {WRAPBG};  }
+			.tbn li.a a  { color:{HIGHLIGHTLINK} }
+		.tbn ul a { display: block; height: 33px; line-height: 39px; }
 		.tbn .mt { padding: 10px; }
 
 		.notice_pm, .notice_mypost, .notice_interactive, .notice_system, .notice_manage, .notice_app { float: left; width: 18px; height: 14px; background-image: url({IMGDIR}/ico_notice.png); margin: 11px 5px 5px 0;}
@@ -1003,8 +1010,8 @@ CSS 写作注意事项：
 			.fpd a.fat { background-position: -140px 0; }
 		.tedt .area { padding: 4px; background: {WRAPBG}; zoom: 1; }
 		.tedt .pt { width: 100%; margin-right: 0; padding: 0 !important; border: none; background: {WRAPBG} none; }
-			.tedt .pt:focus { outline: none; -moz-box-shadow: none; }
-	.m_c .tedt { width: 600px; } */
+			.tedt .pt:focus { outline: none; -moz-box-shadow: none; }*/
+	.m_c .tedt { width: 600px; } 
 
 /* 表情 */
 .sllt { padding: 10px 5px 5px !important; }
@@ -1039,7 +1046,7 @@ CSS 写作注意事项：
 		 .sslct_btn { float: left; margin: 4px 4px 0 0; width: 12px; height: 12px; border: 1px solid {COMMONBORDER}; cursor: pointer; }
 			.sslct_btn i { float: left; display: inline; margin: 1px; width: 10px; height: 10px; background: #2E80D1; overflow: hidden; font-style: normal; }
 	#toptb a.switchblind{ width: 10px; background-image: none ; }
-/* 弹出菜单、弹出层及弹出窗口
+/* 弹出菜单、弹出层及弹出窗口*/
 	.p_pop, .p_pof, .sllt { padding: 4px; border: 1px solid; min-width: 60px; border-color: {DROPMENUBORDER}; {DROPMENUBGCODE}; box-shadow: 1px 2px 2px rgba(0,0,0,0.3); }
 		.ie6 .p_pop { width: 100px; }
 		.p_pof .p_pop { padding: 0; border: none; box-shadow: none; }
@@ -1050,7 +1057,7 @@ CSS 写作注意事项：
 			.p_pop li:last-child a { border: none; }
 			.ie6 .p_pop li { zoom: 1; clear: both; width: 100%; }
 			.ie6 .p_pop a { position: relative; }
-			.p_pop a:hover, .p_pop a.a, #sctype_menu .sca { background-color: {SPECIALBG}; color: {HIGHLIGHTLINK}; text-decoration: none; }
+			.p_pop a.a, #sctype_menu .sca { background-color: {SPECIALBG}; color: {HIGHLIGHTLINK}; text-decoration: none; }
 			.prompt_news, .prompt_follower,.prompt_news_0, .prompt_follower_0, .ignore_notice, .prompt_concern { float: left; width: 18px; height: 14px; margin: 3px 3px 5px 0; display: inline; background: url({IMGDIR}/ico_notice.png) no-repeat 0 0; }
 			.prompt_follower_0 { background-position: 0 -225px; }
 			.prompt_news { background-image: url({IMGDIR}/new_pm.gif); }
@@ -1059,7 +1066,7 @@ CSS 写作注意事项：
 			.ignore_notice { background: url({IMGDIR}/close.gif) no-repeat 0 0; position:absolute; right:0; top:0; width:12px; height:12px; overflow:hidden; }
 			.p_pop .ignore_noticeli a,.p_pop .ignore_noticeli a:hover,.p_pop .ignore_noticeli a.a { background:none; border-bottom:0; }
 			.p_pop .notice_interactive, .p_pop .notice_system, .p_pop .notice_manage, .p_pop .notice_app, .p_pop .notice_mypost { margin: 3px 2px 5px 0;}
-			.ie6 .ignore_notice { display: none; }*/
+			.ie6 .ignore_notice { display: none; }
 
 		/* .blk -> block 内容较为复杂的弹出层使用 .blk 的 class，内部的 a 标签重新定义 */
 		.blk a, .inlinelist a { display: inline; padding: 0; border: none; }
@@ -1158,7 +1165,7 @@ CSS 写作注意事项：
 		.pm .flb { margin-bottom: 0; padding: 1px 5px 4px; background: #CCC url({IMGDIR}/pm.png) repeat-x 0 -101px; }
 			* html .pm .flb { padding: 4px 5px 1px; }
 			.pm .flb em { padding-left: 15px; background: url({IMGDIR}/pm.png) no-repeat 0 -65px; text-shadow: 1px 1px 1px {WRAPBG}; color: {LINK}; font-size: 12px; }
-			.pm .flbc { background-image: url({IMGDIR}/pm.png); }
+			.pm .flbc { background-image: url(/images/icon.png); }
 		.pm_tac { padding: 5px 10px; background: {COMMONBG}; }
 		.pm .c { padding: 0; background: {COMMONBG}; }
 		.pmb { position: relative; padding: 20px 20px 0; width: 360px; height: 280px; overflow: auto; overflow-x: hidden; }
@@ -1178,7 +1185,9 @@ CSS 写作注意事项：
 				.pmm .pmd { float: right; background: #FEF5E7 url({IMGDIR}/pm-bg2.png) repeat-x; border-color: #FFC68C #F9D4A7 #F3BB65 #DDC4A9; -moz-box-shadow: -2px 2px 4px #DDD; -webkit-box-shadow: -2px 2px 4px #DDD; box-shadow: -2px 2px 4px #DDD; -moz-border-radius: 10px 10px 0 10px; -webkit-border-radius: 10px 10px 0 10px; border-radius: 10px 10px 0 10px; }
 			.pmb h4 { text-align: center; }
 		.pmfm { padding: 0 15px 15px; }
-			.pmfm .tedt { width: 365px; }
+			.pmfm .tedt { width: 365px; margin:0;}
+			.pmfm .tedt .pt { width:94.5%; }
+			.pmfm .tedt textarea { background: #fff; box-shadow:none;}
 			.pmfm .pt { height: 65px; }
 			.pmfm .pn { float: right; }
 			.pma a { margin-right: 5px; }
@@ -1653,7 +1662,7 @@ a.progressCancel { display: block; float: right; width: 14px; height: 14px; back
 	Explain:		弹出的气泡信息，1、2、3、4 分别指气泡尖角从左上到左小顺时针方向的位置
 	Last Modify:	lushnis
 */
-.tip { position: absolute; padding: 10px; width: 260px; border: 1px solid #B1B1B1; background: #FEFEE9; border-radius: 3px;}
+.tip { position: absolute; padding: 10px; width: 260px; border: 1px solid #B1B1B1; font-size:12px; background: #FEFEE9; border-radius: 3px;}
 	.tip_1, .tip_2 { margin-top: 8px; }
 	.tip_3, .tip_4 { margin-top: -8px; }
 	.tip_horn { position: absolute; width: 11px; height: 6px; overflow: hidden; }
