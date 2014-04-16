@@ -380,7 +380,7 @@ CSS 写作注意事项：
 			.p_fre { width: auto !important; }
 			.er { border-color: #F66 #FFBDB9 #FFBDB9 #F66; background-color: #FDF4F4; background-image: url({IMGDIR}/px_e.png); }
 		.pt { overflow-y: auto; }
-			div.pt { height: 100px; line-height: 100px; }
+			div.pt { height: 100px; line-height: 95px; }
 		.ps, select { padding: 2px 2px 2px 1px; }
 		
 		/* 自动调整高度的 textarea by Pony */

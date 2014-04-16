@@ -1034,11 +1034,11 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		Level:			Function
 		Explain:		帖子中类似“游客，如果您要查看本帖隐藏内容请”等地方的样式
 		Last Modify:	Pony 11060209*/
-	.attach_nopermission { margin: 10px 0; width: 600px; border: 1px dashed #AAAA92; background: #FFFFEE url({IMGDIR}/attach_nopermission_bg.png) no-repeat 100% 0; font-size: 12px; }
-		.attach_nopermission div { padding: 20px 0 20px 70px; border: 3px solid #FFF; background: url({IMGDIR}/attach_nopermission.png) no-repeat 15px 15px; }
-		.attach_nopermission:hover div { border-color: #DADAB1; }
-		.attach_tips { margin-bottom:15px; position: relative; }
-		.attach_tips h3 strong { color: #8CA226; font-size:15px; display:block; margin-bottom: 10px; margin-top: -10px; }
+	.attach_nopermission { margin: 10px 0; width: 440px; border: 1px dashed #dadada; background: #FFFFEE; font-size:12px; }
+		.attach_nopermission div { padding: 20px 0 20px 30px; }
+		.attach_nopermission div  a { color:{HIGHLIGHTLINK};}
+		.attach_tips { margin-bottom:15px; position: relative; border-radius: 3px;}
+		.attach_tips h3 strong { color: #d42; font-size:15px; display:block; margin-bottom: 5px; }
 			.attach_tips .atips_close { position: absolute; top: 5px; right: 10px; width: 10px; height: 10px; cursor: pointer; color: #ccc; }
 				.attach_tips:hover .atips_close { color: #333; }
 				.attach_tips .atips_close:hover { font-weight: bold; }

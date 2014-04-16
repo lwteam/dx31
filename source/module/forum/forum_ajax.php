@@ -289,7 +289,7 @@ if($_GET['action'] == 'checkusername') {
 				$thread['icontid'] = $thread['closed'] > 1 ? $thread['closed'] : $thread['tid'];
 			}
 			list($thread['subject'], $thread['author'], $thread['lastposter']) = daddslashes(array($thread['subject'], $thread['author'], $thread['lastposter']));
-			$thread['dateline'] = $thread['dateline'] > $todaytime ? "<span class=\"xi1\">".dgmdate($thread['dateline'], 'd')."</span>" : "<span>".dgmdate($thread['dateline'], 'd')."</span>";
+			$thread['dateline'] = $thread['dateline'] > $todaytime ? "".dgmdate($thread['dateline'], 'd')."" : "".dgmdate($thread['dateline'], 'd')."";
 			$thread['lastpost'] = dgmdate($thread['lastpost']);
 			if($forum_field['threadtypes']['prefix']) {
 				if($forum_field['threadtypes']['prefix'] == 1) {
@@ -319,9 +319,9 @@ if($_GET['action'] == 'checkusername') {
 			}
 			$target = $thread['isgroup'] == 1 || $thread['forumstick'] ? ' target="_blank"' : ' onclick="atarget(this)"';
 			if(in_array('forum_viewthread', $_G['setting']['rewritestatus'])) {
-				$thread['threadurl'] = '<a href="'.rewriteoutput('forum_viewthread', 1, '', $thread['tid'], 1, '', '').'"'.$thread['highlight'].$target.'class="s xst">'.$thread['subject'].'</a>';
+				$thread['threadurl'] = '<a href="'.rewriteoutput('forum_viewthread', 1, '', $thread['tid'], 1, '', '').'"'.$thread['highlight'].$target.'>'.$thread['subject'].'</a>';
 			} else {
-				$thread['threadurl'] = '<a href="forum.php?mod=viewthread&amp;tid='.$thread['tid'].'"'.$thread['highlight'].$target.'class="s xst">'.$thread['subject'].'</a>';
+				$thread['threadurl'] = '<a href="forum.php?mod=viewthread&amp;tid='.$thread['tid'].'"'.$thread['highlight'].$target.'>'.$thread['subject'].'</a>';
 			}
 			if(in_array($thread['displayorder'], array(1, 2, 3, 4))) {
 				$thread['id'] = 'stickthread_'.$thread['tid'];
