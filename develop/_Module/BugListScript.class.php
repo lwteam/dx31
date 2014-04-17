@@ -120,7 +120,7 @@ class BugListScript {
 	
 			
 			$multipage = multi($TotalNum, $pagenum, $page, "forum.php?mod=forumdisplay&fid=$_G[fid]", $_G['setting']['threadmaxpages']);
-
+			$navigation = '<span class="pipe">&raquo;</span>'.'<a href="forum.php?mod=forumdisplay&fid='.$_G['fid'].'">'.$_G['forum']['name'].'</a>';
 			include template('buglist/forumdisplay');
 			exit;
 
