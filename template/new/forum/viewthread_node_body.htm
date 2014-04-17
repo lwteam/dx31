@@ -1,13 +1,3 @@
-<!--{if BUGLIST && $post['first'] }-->
-	<style>
-	.buglistop{padding:10px;border-left: 1px solid #CDCDCD;background: #F2F2F2;margin-bottom:10px}
-	.select{font-weight:700}
-	</style>
-
-
-<!--{/if}-->
-
-
 <!--{if !$_G['forum']['ismoderator'] && $_G['setting']['bannedmessages'] & 1 && (($post['authorid'] && !$post['username']) || ($_G['thread']['digest'] == 0 && ($post['groupid'] == 4 || $post['groupid'] == 5 || $post['memberstatus'] == '-1')))}-->
 	<div class="locked">{lang message_banned}</div>
 <!--{elseif !$_G['forum']['ismoderator'] && $post['status'] & 1}-->
@@ -109,18 +99,14 @@
 				<!--{/if}-->
 			</div>
 		<!--{/if}-->
-		
-
 	</div>
-
-
 <!--{/if}-->
-	<!--{hook/viewthread_postbottom $postcount}-->
+<!--{hook/viewthread_postbottom $postcount}-->
 
 
 
 
-<!--{if $post['first']}-->
+<!--{if  TopPoint == 'buglist' && $post['first']}-->
 	<!--{if $bthread['hlog']}-->
 	<div class="solve">
 		<h3>联想工程师互动</h3>
