@@ -117,6 +117,30 @@ class BugListScript {
 				}
 			}
 
+
+			//使用缓存
+			if(($HotEngineers = discuz_table::fetch_cache(0, 'buglist_mstatus')) === false){
+				$thisyear=date( 'Y', TIMESTAMP );
+				$thismonth=date( 'm', TIMESTAMP );
+				$selectmonth = $thisyear.$thismonth;
+				$HotEngineers = DB::fetch_all("SELECT bm.*,bu.* FROM ".DB::table('buglist_mstatus')." bm
+					LEFT JOIN ".DB::table('buglist_user')." bu USING(`uid`)
+				 WHERE bm.`type`='0' AND bm.`month`='$selectmonth' ORDER BY bm.`hnum` DESC LIMIT 100");
+				discuz_table::store_cache(0, $HotEngineers, 86400 , 'buglist_mstatus');
+			}
+			//使用缓存
+			// 一周热门遇到的问题
+			if(($HotBugs = discuz_table::fetch_cache(0, 'buglist_hotbugs')) === false){
+				$thisyear=date( 'Y', TIMESTAMP );
+				$thismonth=date( 'm', TIMESTAMP );
+				$thisday=date( 'd', TIMESTAMP );
+				$thiszerotime =	mktime( 0,0,0,$thismonth, $thisday, $thisyear );
+				$offsettime = $thiszerotime - 604800;
+				$HotBugs = DB::fetch_all("SELECT b.*,t.fid,t.subject FROM ".DB::table('buglist')." b 
+					LEFT JOIN ".DB::table('forum_thread')." t USING(`tid`) 
+				 WHERE b.dateline>'$offsettime' ORDER BY b.`samenum` DESC LIMIT 10");
+				discuz_table::store_cache(0, $HotBugs, 86400 , 'buglist_hotbugs');
+			}
 	
 			
 			$multipage = multi($TotalNum, $pagenum, $page, "forum.php?mod=forumdisplay&fid=$_G[fid]", $_G['setting']['threadmaxpages']);
@@ -130,6 +154,10 @@ class BugListScript {
 			global $bthread;
 			$bthread = DB::fetch_first("SELECT *  FROM ".DB::table('buglist')."  WHERE tid='{$_G['thread']['tid']}'" );
 			if ($bthread) {
+
+
+				$bthread['classnavtxt'] = ((strlen($bthread['classid']) != 1)?$_Data['buglist'][substr($bthread['classid'],0,1)].' > ':'').$_Data['buglist'][$bthread['classid']];
+
 				$bthread['handlings'] = unserialize($bthread['handlings']);
 
 				if ($bthread['handlings'] ) {
@@ -159,6 +187,19 @@ class BugListScript {
 						$BugOption[$value][$rvalue['id']] = $rvalue;
 					}
 				}
+				// 一周热门遇到的问题
+				if(($HotBugs = discuz_table::fetch_cache(0, 'buglist_hotbugs')) === false){
+					$thisyear=date( 'Y', TIMESTAMP );
+					$thismonth=date( 'm', TIMESTAMP );
+					$thisday=date( 'd', TIMESTAMP );
+					$thiszerotime =	mktime( 0,0,0,$thismonth, $thisday, $thisyear );
+					$offsettime = $thiszerotime - 604800;
+					$HotBugs = DB::fetch_all("SELECT b.*,t.fid,t.subject FROM ".DB::table('buglist')." b 
+						LEFT JOIN ".DB::table('forum_thread')." t USING(`tid`) 
+					 WHERE b.dateline>'$offsettime' ORDER BY b.`samenum` DESC LIMIT 10");
+					discuz_table::store_cache(0, $HotBugs, 86400 , 'buglist_hotbugs');
+				}
+
 
 			}
 

@@ -152,7 +152,17 @@ $postshowavatars = !($_G['setting']['bannedmessages'] & 2 && ($post['memberstatu
 					</div>
 					<div class="viewtheadfoot">
 						<div class="right">
-							<!--{if $post['first'] }--><a href="" class="bluesmallbutton">我来处理</a><span class="pipe">|</span><a href="" class="bluesmallbutton">其他信息</a><span class="pipe">|</span><a href="" class="greensmallbutton">我要补充</a><span class="pipe">|</span><!--{/if}-->
+							<!--{if $post['first'] }-->
+								<!--{if BUGLIST}-->
+									<a class="greensmallbutton" onclick="BMDialog.get(this,$bthread[tid]);" href="javascript:void(0);" title="处理该问题的流程">我来处理</a> <a class="greensmallbutton"  onclick="BMDialog.get(this,$value[tid],'supply');" href="javascript:void(0);" title="操作让用户补充信息">需要补充</a><span class="pipe">|</span>
+									
+									<a class="bluesmallbutton" onclick="BMDialog.property($bthread[tid],'#show_$bthread[tid]');" href="javascript:void(0);" >其他信息</a><span class="pipe">|</span>
+									<!--{if $bthread[supply] && !$bthread[supplytime]}-->
+										<a  class="greensmallbutton" onclick="BMDialog.get(this,$bthread[tid],null,true);" href="javascript:void(0);" >我要补充</a><span class="pipe">|</span>
+									<!--{/if}-->
+								<!--{/if}-->
+
+							<!--{/if}-->
 							<!--{if $post['invisible'] == 0}-->
 									<!--{if !$post['first'] && $modmenu['post']}--><label for="manage$post[pid]" class="opacity graysmallbutton"><input type="checkbox" id="manage$post[pid]" class="pc" {if !empty($modclick)}checked="checked" {/if}onclick="pidchecked(this);modclick(this, $post[pid])" value="$post[pid]" autocomplete="off" />{lang manage}</label><span class="pipe opacity">|</span>
 									<!--{/if}-->
