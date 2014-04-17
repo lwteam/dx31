@@ -5,8 +5,7 @@
 <div id="container" class="buglist">
 
 	<div class="breadcrumbs">
-		<a href="">乐玩社区</a><span class="pipe">&raquo;</span>
-		<a href="forum.html">用户反馈</a>
+			<a href="./">$_G[setting][bbname]</a>$navigation
 	</div>
 
 	<div id="main">
@@ -14,19 +13,19 @@
 		<div class="bbsinfo">
 			<div class="bbsinfoabout">
 				<div class="bbsinfoname">
-					<h1><a href="">用户反馈平台</a></h1>
+					<h1><a href="forum.php?mod=forumdisplay&fid=$_G[fid]">$_G['forum'][name]</a></h1>
 				</div>
 			</div>
 			<div class="bbsinfostat">
-				<div class="right">版主：<a href="">haierspi</a>, <a href="">小小猪</a></div>
-				今日：<strong>34213</strong><span class="pipe">/</span>主题：40万
+				<!--{if $moderatedby}--><div class="right">版主：$moderatedby</div><!--{/if}-->
+				今日：<strong>$_G[forum][todayposts]</strong><span class="pipe">/</span>主题：$_G[forum][threads]
 			</div>
 		</div>
 
 		<div class="listbg">
 
 			<div class="forumorder">
-				<div class="right"><a href="" class="greenbutton">提交反馈</a></div>
+				<div class="right"><a href="forum.php?mod=post&action=newthread&fid=$_G[fid]" class="greenbutton">提交反馈</a></div>
 				<div class="forumorderlist">
 					<ul>
 					<!--{loop $_Data['buglist_handling'] $key $value}-->
@@ -49,7 +48,6 @@
 							<div class="forumclasslisttype">分类</div>
 							<div class="forumclasslists">
 								<ul>
-								<!-- 一级分类 -->
 								<!--{loop $_Data['buglist'] $key $value}-->
 									<!--{eval if (strlen($key) != 1) continue;}-->
 									{if substr($classid,0,1) == $key}
@@ -80,7 +78,19 @@
 						<li class="forumclasslistli">
 							<div class="forumclasslisttype">筛选</div>
 							<div class="forumclasslistdrop">
-								<a href="">手机机型</a><a href="">版本号</a>
+								<select class="_modelver" onchange="location.href=this.value"> 
+									<option {if !$hardware} selected{/if} value="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,$handling,NULL,$version)}" >全部机型</option>
+									<!--{loop $hardwarelist $value}-->
+									<option {if $hardware == $value[id]} selected{/if} value="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,$handling,$value[id],$version)}">$value[title]</option>
+									<!--{/loop}-->
+								</select>
+
+								<select class="_modelver" onchange="location.href=this.value"> 
+									<option {if !$hardware} selected{/if} value="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,$handling,$hardware,NULL)}" >全部版本号</option>
+									<!--{loop $versionlist $value}-->
+									<option {if $version == $value[id]} selected{/if} value="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,$handling,$hardware,$value[id])}">$value[title]</option>
+									<!--{/loop}-->
+								</select>
 							</div>
 						</li>
 					</ul>
@@ -143,87 +153,7 @@
 
 	<!-- 边框 -->
 	<div id="sidebar">
-
-		<div class="sbox">
-			<div class="sboxtitle"><h3 class="ht">热门工程师</h3></div>
-			<div class="sboxsub">
-				<ul class="sboxsubrecommend sboxsubhot">
-					<li>
-						<div><img src="test/list1.png" width="48" height="48"></div>
-						<p><strong>小乐GOGOGO</strong></p>
-						<p>Vibe UI</p>
-						<i title="已解决 56 个问题">56</i>
-					</li>
-					<li>
-						<div><img src="test/ar.jpg" width="48" height="48"></div>
-						<p><strong>御道凰神</strong></p>
-						<p>乐商店</p>
-						<i title="已解决 56 个问题">56</i>
-					</li>
-					<li>
-						<div><img src="test/ar1.jpg" width="48" height="48"></div>
-						<p><strong>老韦13</strong></p>
-						<p>茄子快传</p>
-						<i title="已解决 56 个问题">56</i>
-					</li>
-					<li>
-						<div><img src="test/ar2.jpg" width="48" height="48"></div>
-						<p><strong>q8197264</strong></p>
-						<p>茄子快传</p>
-						<i title="已解决 56 个问题">56</i>
-					</li>
-					<li>
-						<div><img src="test/ar3.jpg" width="48" height="48"></div>
-						<p><strong>Maggie_bei</strong></p>
-						<p>乐云笔记</p>
-						<i title="已解决 56 个问题">56</i>
-					</li>
-					<li>
-						<div><img src="test/ar4.jpg" width="48" height="48"></div>
-						<p><strong>纠结了</strong></p>
-						<p>Vibe UI</p>
-						<i title="已解决 56 个问题">56</i>
-					</li>
-					<li>
-						<div><img src="test/ar5.jpg" width="48" height="48"></div>
-						<p><strong>自由的天使V</strong></p>
-						<p>绿茶浏览器</p>
-						<i title="已解决 56 个问题">56</i>
-					</li>
-					<li>
-						<div><img src="test/ar6.jpg" width="48" height="48"></div>
-						<p><strong>oO呼噜zZo</strong></p>
-						<p>乐同步</p>
-						<i title="已解决 56 个问题">56</i>
-					</li>
-					<li>
-						<div><img src="test/ar7.jpg" width="48" height="48"></div>
-						<p><strong>sinnertwin</strong></p>
-						<p>乐安全</p>
-						<i title="已解决 56 个问题">56</i>
-					</li>
-					<li>
-						<div><img src="test/ar8.jpg" width="48" height="48"></div>
-						<p><strong>小乐GOGOGO</strong></p>
-						<p>乐商店</p>
-						<i title="已解决 56 个问题">56</i>
-					</li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="sbox">
-			<div class="sboxtitle"><h3 class="ht">热门问题</h3></div>
-			<div class="sboxsub">
-				<ul class="sboxsubtext">
-					<li><a href="">百度可穿戴设备网站上线</a></li>
-					<li><a href="">百度可穿戴设备网站上线:智能手表亮相</a></li>
-					<li><a href="">谷歌眼镜明年12月上市</a></li>
-					<li><a href="">真实体验吐槽 大家评智能腕表有多弱</a></li>
-					<li><a href="">让你时刻保持清醒的逆天神器</a></li>
-				</ul>
-			</div>
-		</div>
+		<!--{template extend/sidebar}-->
 	</div>
 </div>
 
