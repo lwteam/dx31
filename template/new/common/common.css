@@ -677,7 +677,7 @@ CSS 写作注意事项：
 
 		.ct2_a, .ct3_a {  }
 			.ct2_a_r { border: none; background-image: none; }
-			 .ct2_a h1.mt { display: none; }
+			 .ct2_a h1.mt { padding: 0 0 15px; font-size: 24px; font-weight: 400; }
 			 .ct2_a .tb { margin-top: 3px; }
 		.ct2_a .mn { float: right;  min-height:500px; _height:500px; _overflow: visible;}
 			.ct2_a .mn { padding:20px; border: 1px solid {WRAPBORDERCOLOR}; width: 1008px; background: {WRAPBG}; border-radius: 0 3px 3px 3px; }
@@ -952,6 +952,8 @@ CSS 写作注意事项：
 	.appl li a { text-decoration: none !important; }
 	.appl img { margin: 5px 5px -3px 0; }
 	.appl span { float: right; font-size: 12px; }
+	.appl li span { color: #d42; font-weight: 700; }
+	.appl li strong { float:right; height: 17px; line-height: 17px; padding: 0 5px; margin: 10px 0 0 5px; border-radius: 50px; color: #fff; background: #d42; font-weight: 100; font-size: 12px; }
 		.appl span a { color: {LIGHTTEXT}; }
 			.appl span a:hover { color: {HIGHLIGHTLINK}; }
 	/* 应用侧边 by Pony */

@@ -355,7 +355,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 
 /** forum::modcp,forum::post,group::post,home::spacecp,portal::portalcp **/
 /* 提交表单 */
-	.exfm { margin: 10px 0; padding: 10px 14px; border: 1px dashed {SPECIALBORDER}; background: {SPECIALBG}; }
+	.exfm { margin: 10px 0 ; padding: 10px 14px; border: 1px dashed {SPECIALBORDER}; background: {SPECIALBG}; border-radius:3px; }
 		.exfm .pn { height: 22px; line-height: 22px; font-size: 12px; }
 		.ie6 .exfm .pn, .ie7 .exfm .pn { line-height: 16px; }
 		.exfm .rq { float: right; padding-right: 2px; }
@@ -585,7 +585,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	.tl { padding:10px; }
 	.tl .bm_c { padding-top: 0; }
 	.tl table { width: 100%; table-layout: fixed; border-collapse: separate; }
-		.tl th, .tl td { padding: 12px 0; border-bottom: 1px solid {CONTENTSEPARATE}; }
+		.tl th, .tl td { padding: 10px 0 9px; border-bottom: 1px solid {CONTENTSEPARATE}; }
 			.emptb th, .emptb td { padding: 0; border-bottom: none; }
 			.tl tr:hover th, .tl tr:hover td { background-color: {COMMONBG}; }
 			.tl .threadpre td, .tl .threadpre:hover td { background-color: #FCFCFC; }

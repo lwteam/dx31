@@ -177,11 +177,10 @@ class discuz_application extends discuz_base{
 
 			'mobile' => '',
 			'notice_structure' => array(
-				'mypost' => array('post','pcomment','activity','reward','goods','at'),
-				'interactive' => array('poke','friend','wall','comment','click','sharenotice'),
+				'mypost' => array('post','at'),
 				'system' => array('system','myapp','credit','group','verify','magic','task','show','group','pusearticle','mod_member','blog','article'),
+				'interactive' => array('friend'),
 				'manage' => array('mod_member','report','pmreport'),
-				'app' => array(),
 			),
 			'mobiletpl' => array('1' => 'mobile', '2' => 'touch', '3' => 'wml','yes' => 'mobile'),
 		);
