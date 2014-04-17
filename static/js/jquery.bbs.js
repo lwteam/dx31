@@ -13,11 +13,11 @@ browser.isfirefox=!!window.mozIndexedDB;
 
 
 jQuery(function($) {
-	if ($("._topclass").length > 0) {
-		$("._topclass").mouseenter(function () {
+	if ($("._bugc").length > 0) {
+		$("._bugc").mouseenter(function () {
 			var cid = $(this).attr('cid');
-			$("._subclass").hide();
-			$("._subclass"+cid).show();
+			$("._bugsc li").hide();
+			$("._bugsc_"+cid).show();
 		});
 	};
 	//BUGLIST选项

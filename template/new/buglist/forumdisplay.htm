@@ -1,65 +1,230 @@
 <!--{template common/header}-->
 <style>
 ._dis {display:none}
-.selected {font-weight:700}
 </style>
-<!-- 一级分类 -->
-<span{if !$classid} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl(false,$handling,$hardware,$version)}">全部</a></span> 
-<!--{loop $_Data['buglist'] $key $value}-->
-	<!--{if strlen($key) == 1}-->
-		<span class="_topclass {if substr($classid,0,1) == $key} selected{/if}" cid="$key"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($key,$handling,$hardware,$version)}">$value</a></span>
-	<!--{/if}-->
-<!--{/loop}-->
+<div id="container" class="buglist">
 
-<!-- 二级分类 -->
-<!--{eval $topid = 0;}-->
-<!--{loop $_Data['buglist'] $key $value}-->
+	<div class="breadcrumbs">
+		<a href="">乐玩社区</a><span class="pipe">&raquo;</span>
+		<a href="forum.html">用户反馈</a>
+	</div>
 
-<!--{if strlen($key) == 1}-->
-	<!--{if $topid != $key}-->
-		<!--{if $topid >0}--></p><!--{/if}-->
-		<p class="_subclass _subclass{$key}{if (!$classid&&$key==1)}{elseif ($key != substr($classid,0,1))} _dis{/if}">
-	<!--{/if}-->
-	<span{if $classid == $key} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($key,$handling,$hardware,$version)}">全部</a></span>
-<!--{else}-->
-	<span {if $classid == $key} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($key,$handling,$hardware,$version)}">$value</a></span>
-<!--{/if}-->
-<!--{eval $topid = substr($key,0,1);}-->
-<!--{/loop}-->
-</p>
-<!-- 问题状态栏 -->
-<p>
-<span{if !isset($handling)} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,false,$hardware,$version)}">全部</a></span>   
-<!--{loop $_Data['buglist_handling'] $key $value}-->
-<!--{eval if ($key>3)continue;}-->
-<span {if isset($handling) && $handling == $key} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,$key,$hardware,$version)}">$value[title]</a></span>
-<!--{/loop}-->
+	<div id="main">
 
-</p>
+		<div class="bbsinfo">
+			<div class="bbsinfoabout">
+				<div class="bbsinfoname">
+					<h1><a href="">用户反馈平台</a></h1>
+				</div>
+			</div>
+			<div class="bbsinfostat">
+				<div class="right">版主：<a href="">haierspi</a>, <a href="">小小猪</a></div>
+				今日：<strong>34213</strong><span class="pipe">/</span>主题：40万
+			</div>
+		</div>
 
-<!-- 硬件选择 -->
-<p>
-<span{if !isset($hardware)} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,$handling,false,$version)}">全部</a></span>   
-<!--{loop $hardwarelist $value}-->
-<span {if $hardware == $value[id]} class="selected"{/if}>
-<a href="forum.php?mod=forumdisplay&fid=$_G[fid]&classid={echo $value[self]?$classid:substr($classid,0,1)}{echo $this->GetSelectUrl($classid,$handling,$value[id],$version)}">$value[title]</a></span>
-<!--{/loop}-->
-</p>
+		<div class="listbg">
 
-<!-- 版本选择 -->
-<p>
-<span{if !isset($version)} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,$handling,$hardware,false)}">全部</a></span>   
-<!--{loop $versionlist $value}-->
-<span {if $version == $value[id]} class="selected"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&classid={echo $value[self]?$classid:substr($classid,0,1)}&version={echo $this->GetSelectUrl($classid,$handling,$hardware,$value[id])}">$value[title]</a></span>
-<!--{/loop}-->
-</p>
+			<div class="forumorder">
+				<div class="right"><a href="" class="greenbutton">提交反馈</a></div>
+				<div class="forumorderlist">
+					<ul>
+					<!--{loop $_Data['buglist_handling'] $key $value}-->
+						<!--{eval if ($key>3)continue;}-->
+						{if isset($handling) && $handling == $key}
+							<li class="on"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,NULL,$hardware,$version)}"><i class="$value[icon]"></i>$value[title] <img src="static/image/common/cancel.png"></a></li>
+						{else}
+							<li><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,$key,$hardware,$version)}"><i class="$value[icon]"></i>$value[title]</a></li>
+						{/if}
+					<!--{/loop}-->
+					</ul>
+				</div>
+			</div>
 
 
+			<div class="forumclass">
+				<div class="forumclasslist">
+					<ul>
+						<li class="forumclasslistli">
+							<div class="forumclasslisttype">分类</div>
+							<div class="forumclasslists">
+								<ul>
+								<!-- 一级分类 -->
+								<!--{loop $_Data['buglist'] $key $value}-->
+									<!--{eval if (strlen($key) != 1) continue;}-->
+									{if substr($classid,0,1) == $key}
+										<li class="_bugc on" cid="$key"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl(NULL,$handling,$hardware,$version)}">$value<img src="static/image/common/cancel.png"></a><i></i></li>
+									{else}
+										<li class="_bugc" cid="$key"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($key,$handling,$hardware,$version)}">$value</a><i></i></li>
+									{/if}
+								<!--{/loop}-->
+								</ul>
+							</div>
+						</li>
+						<li class="forumclasslistli">
+							<div class="forumclasslisttype">模块</div>
+							<div class="forumclasslists">
+								<ul class="_bugsc">
+								<!--{loop $_Data['buglist'] $key $value}-->
+									<!--{eval if (strlen($key) == 1) continue;}-->
+									<!--{eval $topid = substr($key,0,1);}-->
+									{if $classid == $key}
+										<li class="_bugsc_$topid {if substr($classid,0,1) != $topid}_dis{/if} on"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($topid,$handling,$hardware,$version)}">$value <span>$TotalNum</span> <img src="static/image/common/cancel.png"></a><i></i></li>
+									{else}
+										<li class="_bugsc_$topid {if $classid && (substr($classid,0,1) != $topid) || (!$classid&&($topid!=1))}_dis{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($key,$handling,$hardware,$version)}">$value</a><i></i></li>
+									{/if}
+								<!--{/loop}-->
+								</ul>
+							</div>
+						</li>
+						<li class="forumclasslistli">
+							<div class="forumclasslisttype">筛选</div>
+							<div class="forumclasslistdrop">
+								<a href="">手机机型</a><a href="">版本号</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
 
-<!--{loop $threadlist $thread}-->
-<p>
-<a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a>
-</p>
-<!--{/loop}-->
+			<div class="viewlist">
+				<div class="listhead viewlistli">
+		    	 	<ul>
+		    	 		<li class="ttime">提交时间</li>
+		    	 		<li class="tstatus">状态</li>
+		    	 		<li class="tpostname">反馈说明</li>
+		    	 		<li class="tcounter">遇到人数</li>
+		    	 		<li class="tauthor">提交人</li>
+		    	 	</ul>
+				</div>
+				<!--{loop $threadlist $thread}-->
+		    	<div class="viewlistli">
+		    	 	<ul>
+		    	 		<li class="ttime">$thread[dateline]</li>
+		    	 		<li class="tstatus"><em class="$thread[handlingstylec]">$thread['handlingtxt']</em></li>
+		    	 		<li class="tpostname">
+		    	 			<a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]{if $extra}extra=$extra{/if}"$thread[highlight]{if $thread['isgroup'] == 1 || $thread['forumstick']} target="_blank"{else} onclick="atarget(this)"{/if}>$thread[subject]</a>
+							<!--{if $thread[icon] >= 0}-->
+								<img src="{STATICURL}image/stamp/{$_G[cache][stamps][$thread[icon]][url]}" alt="{$_G[cache][stamps][$thread[icon]][text]}" align="absmiddle" />
+							<!--{/if}-->
+							<!--{if $stemplate && $sortid}-->$stemplate[$sortid][$thread[tid]]<!--{/if}-->
+							<!--{if $thread['attachment'] == 2}-->
+								<img src="{STATICURL}image/filetype/image_s.gif" alt="attach_img" title="{lang attach_img}" align="absmiddle" />
+							<!--{elseif $thread['attachment'] == 1}-->
+								<img src="{STATICURL}image/filetype/common.gif" alt="attachment" title="{lang attachment}" align="absmiddle" />
+							<!--{/if}-->
+							<!--{if $thread['mobile']}-->
+								<img src="{IMGDIR}/mobile-attach-$thread['mobile'].png" alt="{lang post_mobile}" align="absmiddle" />
+							<!--{/if}-->
+							<!--{if $thread['digest'] > 0 && $filter != 'digest'}-->
+								<img src="{IMGDIR}/digest_$thread[digest].gif" align="absmiddle" alt="digest" title="{lang thread_digest} $thread[digest]" />
+							<!--{/if}-->
+							<!--{if $thread['displayorder'] == 0}-->
+								<!--{if $thread['rate'] > 0}-->
+									<img src="{IMGDIR}/agree.gif" align="absmiddle" alt="agree" title="{lang rate_credit_add}" />
+								<!--{elseif $thread['rate'] < 0}-->
+									<img src="{IMGDIR}/disagree.gif" align="absmiddle" alt="disagree" title="{lang posts_deducted}" />
+								<!--{/if}-->
+							<!--{/if}-->
+							<!--{if $thread['replycredit'] > 0}-->
+								- <span>[{lang replycredit} <strong> $thread['replycredit']</strong> ]</span>
+							<!--{/if}-->
+		    	 		</li>
+		    	 		<li class="tcounter">$thread[sanmenum]</li>
+		    	 		<li class="tauthor"><a href="home.php?mod=space&uid=$thread[authorid]">$thread[author]</a></li>
+		    	 	</ul>
+		    	</div>
+				<!--{/loop}-->
+			</div>
+		</div>
+		<div id="pg">$multipage</div>
+
+	</div>
+
+	<!-- 边框 -->
+	<div id="sidebar">
+
+		<div class="sbox">
+			<div class="sboxtitle"><h3 class="ht">热门工程师</h3></div>
+			<div class="sboxsub">
+				<ul class="sboxsubrecommend sboxsubhot">
+					<li>
+						<div><img src="test/list1.png" width="48" height="48"></div>
+						<p><strong>小乐GOGOGO</strong></p>
+						<p>Vibe UI</p>
+						<i title="已解决 56 个问题">56</i>
+					</li>
+					<li>
+						<div><img src="test/ar.jpg" width="48" height="48"></div>
+						<p><strong>御道凰神</strong></p>
+						<p>乐商店</p>
+						<i title="已解决 56 个问题">56</i>
+					</li>
+					<li>
+						<div><img src="test/ar1.jpg" width="48" height="48"></div>
+						<p><strong>老韦13</strong></p>
+						<p>茄子快传</p>
+						<i title="已解决 56 个问题">56</i>
+					</li>
+					<li>
+						<div><img src="test/ar2.jpg" width="48" height="48"></div>
+						<p><strong>q8197264</strong></p>
+						<p>茄子快传</p>
+						<i title="已解决 56 个问题">56</i>
+					</li>
+					<li>
+						<div><img src="test/ar3.jpg" width="48" height="48"></div>
+						<p><strong>Maggie_bei</strong></p>
+						<p>乐云笔记</p>
+						<i title="已解决 56 个问题">56</i>
+					</li>
+					<li>
+						<div><img src="test/ar4.jpg" width="48" height="48"></div>
+						<p><strong>纠结了</strong></p>
+						<p>Vibe UI</p>
+						<i title="已解决 56 个问题">56</i>
+					</li>
+					<li>
+						<div><img src="test/ar5.jpg" width="48" height="48"></div>
+						<p><strong>自由的天使V</strong></p>
+						<p>绿茶浏览器</p>
+						<i title="已解决 56 个问题">56</i>
+					</li>
+					<li>
+						<div><img src="test/ar6.jpg" width="48" height="48"></div>
+						<p><strong>oO呼噜zZo</strong></p>
+						<p>乐同步</p>
+						<i title="已解决 56 个问题">56</i>
+					</li>
+					<li>
+						<div><img src="test/ar7.jpg" width="48" height="48"></div>
+						<p><strong>sinnertwin</strong></p>
+						<p>乐安全</p>
+						<i title="已解决 56 个问题">56</i>
+					</li>
+					<li>
+						<div><img src="test/ar8.jpg" width="48" height="48"></div>
+						<p><strong>小乐GOGOGO</strong></p>
+						<p>乐商店</p>
+						<i title="已解决 56 个问题">56</i>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="sbox">
+			<div class="sboxtitle"><h3 class="ht">热门问题</h3></div>
+			<div class="sboxsub">
+				<ul class="sboxsubtext">
+					<li><a href="">百度可穿戴设备网站上线</a></li>
+					<li><a href="">百度可穿戴设备网站上线:智能手表亮相</a></li>
+					<li><a href="">谷歌眼镜明年12月上市</a></li>
+					<li><a href="">真实体验吐槽 大家评智能腕表有多弱</a></li>
+					<li><a href="">让你时刻保持清醒的逆天神器</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!--{template common/footer}-->

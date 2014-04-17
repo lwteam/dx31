@@ -44,6 +44,10 @@ class BugListScript {
 	public function execute() {
 		global $_G,$_Data;
 
+		define('TopPoint','buglist');
+
+		$_Data['buglist_handling'][4] = $_Data['buglist_handling'][3];
+
 		if ($this->action == 'forumdisplay') {
 
 			define('BUGLIST','forumdisplay');
@@ -85,8 +89,16 @@ class BugListScript {
 			$query = DB::query("SELECT * FROM ".DB::table('buglist')." b 
 			LEFT JOIN ".DB::table('forum_thread')." t USING(`tid`) 
 			$sqlwhere  ORDER BY b.`dateline` DESC LIMIT $offset,$pagenum");
-			while($value = DB::fetch($query)) {
-				$threadlist[] = $value;
+			
+			while($thread = DB::fetch($query)) {
+
+				$thread['handlingtxt'] = $_Data['buglist_handling'][$thread['handling']]['title'];
+				$thread['handlingstylec'] = $_Data['buglist_handling'][$thread['handling']]['stylec'];
+				$thread['sanmenum'] = (int)$thread['sanmenum'];
+
+				$thread['dbdateline'] = $thread['dateline'];
+				$thread['dateline'] = dgmdate($thread['dateline'], 'u', '9999', getglobal('setting/dateformat'));
+				$threadlist[] = $thread;
 			}
 
 
