@@ -3,76 +3,7 @@
 	.buglistop{padding:10px;border-left: 1px solid #CDCDCD;background: #F2F2F2;margin-bottom:10px}
 	.select{font-weight:700}
 	</style>
-	<div class="buglistop">
-	<!--{loop $_Data['buglist_handling'] $key $value}-->
-		<!--{if $bthread['handlingnum']==1 && $bthread['handling']==4 && !in_array($key,array('0','4'))}-->
-			<!--{eval continue;}-->
-		<!--{else}-->
-		<!--{/if}-->
-		<!--{if $key<4 || $bthread['handlingnum']==1 && $bthread['handling']==4 }-->
-		<span{if $bthread['handling'] == $key} class="select"{/if}>$value[title] -></span>
-		<!--{/if}-->
-	<!--{/loop}-->
-	</div>
-	<!--{if $bthread[hardware] ||$bthread[version] }-->
-	<div class="buglistop">
-	{if $bthread[hardware]}机型: $BugOption[hardware][$bthread[hardware]][title]{/if}
-	  {if $bthread[version]}版本:$BugOption[version][$bthread[version]][title]{/if}
-	</div>
-	<!--{/if}-->
 
-	<!--{if $bthread[supply]}-->
-		<div class="buglistop">
-		<!--{if $bthread[supplytime]}-->
-		<span title="用户已经于{echo date('Y-m-d H:i',$bthread[supplytime]);}补充信息" style="color:#EE00EE">[已经补充信息]</span>
-		<!--{else}-->
-		<span title="工程师已设置该问题需要用户补充信息" style="color:#EE82EE">[需要补充信息]</span>
-		<a  onclick="BMDialog.get(this,$bthread[tid],null,true);" href="javascript:void(0);" title="处理该问题的流程">补充</a>
-		<!--{/if}-->
-	</div>
-	<!--{/if}-->
-
-
-	<!--{if 1}-->
-	<div class="buglistop">
-		<span>管理:</span>
-		<a onclick="BMDialog.get(this,$bthread[tid]);" href="javascript:void(0);" title="处理该问题的流程">处理这个问题</a>
-		<a onclick="BMDialog.property($bthread[tid],'#show_$bthread[tid]');" href="javascript:void(0);" >查看属性</a>
-		<div id="show_$bthread[tid]" style="display:none"></div>
-	</div>
-	
-	<!--{/if}-->
-
-	<!--{if $bthread['hlog']}-->
-	<div class="buglistop">
-		<span>流程日志:</span>
-		<!--{loop $bthread['hlog']  $value}-->
-				<p>{echo date('m-d H:i',$value[dateline]);}  
-				
-				<!--{if $value[dist]}-->
-					<!--{if $value[hide]}-->$value[another]<!--{else}-->$value[name]<!--{/if}-->
-				<!--{else}-->$value[username]
-				<!--{/if}-->
-				
-				$value[message]
-				
-				
-				<!--{if Library::getstatus($value[status],1)}-->
-					[工程师设置需要用户补充]
-					<!--{if Library::getstatus($value[status],2)}-->[用户补充]<!--{/if}-->
-				<!--{else}-->
-				状态更改为 <span style="color:$_Data['buglist_handling'][$value[handling]][color]">$_Data['buglist_handling'][$value[handling]][title] </span>
-				<!--{/if}-->
-				
-				</p>
-		<!--{/loop}-->
-	</div>
-	<!--{/if}-->
-
-	<div class="buglistop">
-		<div><span id="samenum">$bthread[samenum]</span>个人也遇到过这个问题</div>
-		<a onclick="BMDialog.samenum('$bthread[tid]','#samenum');" href="javascript:void(0);" title="处理该问题的流程">我也遇到过</a>
-	</div>
 
 <!--{/if}-->
 
@@ -187,36 +118,33 @@
 	<!--{hook/viewthread_postbottom $postcount}-->
 
 
-<!--{if $post['first'] }-->
 
-					<div class="solve">
-						<h3>联想工程师互动</h3>
-						<div class="solvelist">
-							<div class="solvemain">
-								<div class="solvelisttop">
-									<small>2014-3-31 13:12:30</small><i></i>
-									<strong>haierspi</strong>（<em>Vibe UI工程师</em>）
-								</div>
-								<div class="solvecontent">
-									联想集团董事长兼CEO杨元庆先生宣布，以23亿美元的价格收购IBM的X86 PC服务器业务。这是继2005年联想收购IBM PCD之后，联想集团又一次和IBM合作，这是联想在践行PC+策略的又一大步。
-								</div>
-							</div>
-						</div>
-						<div class="solvelist">
-							<div class="solvemain">
-								<div class="solvelisttop">
-									<small>2014-3-31 13:12:30</small><i></i>
-									<strong>Arne.chen</strong>（<em>反馈者</em>）
-								</div>
-								<div class="solvecontent">
-									联想集团董事长兼CEO杨元庆先生宣布
-								</div>
-							</div>
-						</div>
-					</div>
 
-					<div class="imeet">
-						<div class="meetcount">213</div><div class="meetbutton"><a href="">我也遇到过</a></div>
-					</div>
-
+<!--{if $post['first']}-->
+	<!--{if $bthread['hlog']}-->
+	<div class="solve">
+		<h3>联想工程师互动</h3>
+		<!--{loop $bthread['hlog']  $value}-->
+		<div class="solvelist">
+			<div class="solvemain">
+				<div class="solvelisttop">
+					<small>{echo date('m-d H:i',$value[dateline]);}</small><i></i>
+					<strong>
+					<!--{if $value[dist]}-->
+						<!--{if $value[hide]}-->$value[another]<!--{else}-->$value[name]<!--{/if}-->
+					<!--{else}-->$value[username]<!--{/if}-->
+					</strong>（<em>$value[title]</em>）
+				</div>
+				<!--{if $value[message]}-->
+				<div class="solvecontent">$value[message]</div>
+				<!--{/if}-->
+			</div>
+		</div>
+		<!--{/loop}-->
+	</div>
+	<!--{/if}-->
+	<div class="imeet"  title="这个问题遇到的人数">
+		<div class="meetcount">$bthread[samenum]</div><div class="meetbutton"><a onclick="BMDialog.samenum('$bthread[tid]','#samenum');" href="javascript:void(0);">我也遇到过</a></div>
+	</div>
+	<div id="show_$bthread[tid]" style="display:none"></div>
 <!--{/if}-->

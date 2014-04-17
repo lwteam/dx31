@@ -338,18 +338,6 @@ CREATE TABLE `pre_buglist_bugattr` (
 
 -- 处理问题记录
 
-DROP TABLE IF EXISTS `pre_buglist_mstatus`;
-CREATE TABLE `pre_buglist_mstatus` (
-  `uid` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `username` char(50) NOT NULL DEFAULT '',
-  `month` int(5) unsigned NOT NULL DEFAULT '0',
-  `dateline` int(10) unsigned NOT NULL DEFAULT '0',
-  `num` int(10) unsigned NOT NULL DEFAULT '0', -- 一共处理问题
-  `hnum` int(10) unsigned NOT NULL DEFAULT '0', -- 一共问题
-  UNIQUE KEY `uid` (`uid`,`month`) USING BTREE,
-  KEY `num` (`num`),
-  KEY `hnum` (`hnum`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `pre_buglist_mstatus`;
 CREATE TABLE `pre_buglist_mstatus` (
@@ -389,6 +377,8 @@ CREATE TABLE `pre_buglist_cstatus` (
   PRIMARY KEY (`classid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+
+-- 用于去除重复提交  比如投票
 DROP TABLE IF EXISTS `pre_buglist_urecords`;
 CREATE TABLE `pre_buglist_urecords` (
   `uid` mediumint(8) unsigned NOT NULL DEFAULT '0',
