@@ -18,7 +18,8 @@ class ArticleScript {
 	public function execute() {
 		global $_G,$multipage,$discuz_table;
 
-		require DISCUZ_ROOT.'./develop/Categorys.php';
+		define('TopPoint','index');
+		loadcache('forums');
 
 		$act = $_GET['act'];
 
@@ -154,7 +155,7 @@ class ArticleScript {
 
 			$multipage = pagination($articlecount, $_G['tpp'], $page, "index.php?act=list&key=".$CategorysKey[$id],$maxpage);
 
-			$query = DB::query("SELECT a.*,t.authorid, t.author, t.dateline FROM ".DB::table('article')." a 
+			$query = DB::query("SELECT a.*,t.authorid, t.author,t.authorid, t.replies, t.dateline FROM ".DB::table('article')." a 
 				LEFT JOIN ".DB::table('forum_thread')." t USING(tid) 
 			WHERE a.`category`='$id' ORDER BY a.id DESC ".DB::limit($start_limit,$limit));
 			while($value = DB::fetch($query)) {
@@ -190,19 +191,21 @@ class ArticleScript {
 		}elseif($act  == 'ajax'){
 
 
-			$tpp = 6;
+			$tpp = 2;
 			$nextoffset = $_GET['offset']+$tpp;
 
-			$query = DB::query("SELECT a.*,t.authorid, t.author, t.dateline FROM ".DB::table('article')." a 
-				LEFT JOIN ".DB::table('forum_thread')." t USING(tid) 
-			WHERE a.`index`='1' ORDER BY a.id DESC LIMIT $nextoffset,$tpp");
+			$query = DB::query("SELECT a.*,t.authorid, t.author,t.authorid, t.replies, t.dateline FROM ".DB::table('article')." a 
+				LEFT JOIN ".DB::table('forum_thread')." t USING(tid) ORDER BY a.id DESC LIMIT $nextoffset,$tpp");
+			
 			while($value = DB::fetch($query)) {
 				$value['url'] = $value['titleurl']?$value['titleurl']:"forum.php?mod=viewthread&fid=$value[fid]&tid=$value[tid]";
 				$value['tagary'] = TagsRead($value['tagtxts'],$value['tags'],4);
 				$value['datetag'] = DateTag($value['adateline']);
 				$value['dateline_f'] = dgmdate($value['dateline'], 'u', '9999', getglobal('setting/dateformat'));
+				$value['forumname'] =  $_G['cache']['forums'][$value['fid']]['name'];
 				$articles[] = $value;
 			}
+
 
 			$response = array();
 			$response['scode'] = 1;
@@ -215,45 +218,31 @@ class ArticleScript {
 		}else{
 
 			$act = $select = 'index';
-			$tpp = 10;
 
-			$query = DB::query("SELECT a.*,t.authorid, t.author, t.dateline FROM ".DB::table('article')." a 
-				LEFT JOIN ".DB::table('forum_thread')." t USING(tid) 
-			WHERE a.`index`='1' ORDER BY a.id DESC LIMIT 0,$tpp ");
+			$pagenum = 6;
+			$page = $_G['page'];
+
+			$TotalNum = DB::result_first("SELECT count(*) FROM ".DB::table('buglist')." b $sqlwhere ");
+			if(@ceil($TotalNum/$pagenum) < $page){
+				$page = 1;
+			}
+			$offset = ($page - 1) * $pagenum;
+
+
+			$query = DB::query("SELECT a.*,t.authorid, t.author,t.authorid, t.replies, t.dateline FROM ".DB::table('article')." a 
+				LEFT JOIN ".DB::table('forum_thread')." t USING(tid) ORDER BY a.id DESC ".DB::limit($offset,$pagenum));
+			
 			while($value = DB::fetch($query)) {
 				$value['url'] = $value['titleurl']?$value['titleurl']:"forum.php?mod=viewthread&fid=$value[fid]&tid=$value[tid]";
 				$value['tagary'] = TagsRead($value['tagtxts'],$value['tags'],4);
 				$value['datetag'] = DateTag($value['adateline']);
 				$value['dateline_f'] = dgmdate($value['dateline'], 'u', '9999', getglobal('setting/dateformat'));
+				$value['forumname'] =  $_G['cache']['forums'][$value['fid']]['name'];
 				$articles[] = $value;
-			}
+			}	
+
+			$multipage = multi($TotalNum, $pagenum, $page, "forum.php?mod=forumdisplay&fid=$_G[fid]", $_G['setting']['threadmaxpages']);
 			
-			// 边栏 热点产品
-			$query = DB::query("SELECT * FROM ".DB::table('article_tag')." WHERE `typeid` = '3' AND `index` = '1' LIMIT 5");
-			while($value = DB::fetch($query)) {
-				$Products[] = $value;
-			}
-			$query = DB::query("SELECT a.*,t.authorid, t.author, t.dateline FROM ".DB::table('forum_thread') ." t
-				LEFT JOIN ".DB::table('article')." a USING(tid) ORDER BY heats DESC LIMIT 10 ");
-			while($value = DB::fetch($query)) {
-				$value['url'] = $value['titleurl']?$value['titleurl']:"forum.php?mod=viewthread&fid=$value[fid]&tid=$value[tid]";
-				$value['datetag'] = DateTag($value['adateline']);
-				$value['dateline_f'] = dgmdate($value['dateline'], 'u', '9999', getglobal('setting/dateformat'));
-				$hotarticles[] = $value;
-			}
-			//热门标签
-			$query = DB::query("SELECT * FROM ".DB::table('article_tag')." WHERE `typeid` = '0' ORDER BY  `relatenum` DESC LIMIT 20");
-			while($value = DB::fetch($query)) {
-				$HotTags[] = $value;
-			}
-
-			// 焦点图
-
-			loadcache('indexdatacache');
-			$indexdatacache = & $_G['cache']['indexdatacache'];
-			$topicfocuslist = & $_G['cache']['indexdatacache']['topicfocuslist'];
-
-
 			include template('article/index');
 			exit;
 		}

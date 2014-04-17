@@ -12,6 +12,7 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
+require_once _Data('Categorys');
 
 $id = (int)$_GET['id'];
 $operation = $_REQUEST['operation']?$_REQUEST['operation']:'list'; 

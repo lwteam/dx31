@@ -79,7 +79,6 @@ $loadtemplate = $action;
 
 
 
-require DISCUZ_ROOT.'./develop/Categorys.php';
 require DISCUZ_ROOT.'./develop/manage/function.php';
 systemlog();
 include DISCUZ_ROOT.'./develop/manage/'.$action.'.inc.php';

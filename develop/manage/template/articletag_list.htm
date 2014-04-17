@@ -20,7 +20,7 @@
 	<td>{$value[id]}</td>
 	<td style="text-align:left;padding:0 10px"> {$value[name]} <!--{if $value[namedesc]}-->({$value[namedesc]})<!--{/if}--></td>
 	<td >
-	<!--{loop $ArticleType $cid $name}-->
+	<!--{loop $_Data['ArticleType'] $cid $name}-->
 		{if  $cid == $value[typeid]}$name{/if}
 	<!--{/loop}-->
 

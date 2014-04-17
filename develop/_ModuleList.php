@@ -16,7 +16,7 @@ ModuleAdd('staticlink_showmessage/showmessage/output');
 
 
 if(defined('CURSCRIPT') && CURSCRIPT == 'forum'){
-		
+	ModuleAdd('ForumExtendScript/hooks');
 	ModuleAdd('BugListScript/hooks');   // BUGlist
 	ModuleAdd('BugListScript/showmessage/output');
 	ModuleAdd('ArticleScript/hooks');

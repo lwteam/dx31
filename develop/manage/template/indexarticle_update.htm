@@ -48,7 +48,7 @@
 		<div class="pbt cl">
 			<p>5.文章归属分类 / 可以选择三个分类 也可以一个都不选</p>
 			<select name="article[category]"  size="5">
-				<!--{loop $Categorys $cid $name}-->
+				<!--{loop $_Data['Categorys'] $cid $name}-->
 				<option value ="$cid" {if  $cid == $article_One[category]}selected="selected"{/if}  >$name</option>
 				<!--{/loop}-->
 			</select>
