@@ -153,7 +153,7 @@ $postshowavatars = !($_G['setting']['bannedmessages'] & 2 && ($post['memberstatu
 					<div class="viewtheadfoot">
 						<div class="right">
 							<!--{if $post['first'] }-->
-								<!--{if BUGLIST}-->
+								<!--{if  TopPoint == 'buglist'}-->
 									<a class="greensmallbutton" onclick="BMDialog.get(this,$bthread[tid]);" href="javascript:void(0);" title="处理该问题的流程">我来处理</a> <a class="greensmallbutton"  onclick="BMDialog.get(this,$value[tid],'supply');" href="javascript:void(0);" title="操作让用户补充信息">需要补充</a><span class="pipe">|</span>
 									
 									<a class="bluesmallbutton" onclick="BMDialog.property($bthread[tid],'#show_$bthread[tid]');" href="javascript:void(0);" >其他信息</a><span class="pipe">|</span>
