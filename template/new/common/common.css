@@ -569,7 +569,7 @@ CSS 写作注意事项：
 				#space #hd h2 { margin-top: 0; }
 			#hd .fastlg { padding-top: 10px; }
 
-			#scbar { overflow: hidden; height: 42px; line-height: 42px; border-top: 1px solid #FFF; border-bottom: 1px solid #E9EFF5; background: #E8EFF5; }
+			/*#scbar { overflow: hidden; height: 42px; line-height: 42px; border-top: 1px solid #FFF; border-bottom: 1px solid #E9EFF5; background: #E8EFF5; }
 				.scbar_icon_td { width: 21px; background: url({IMGDIR}/search.png) no-repeat 0 -50px; }
 				.scbar_txt_td, .scbar_type_td { background: url({IMGDIR}/search.png) repeat-x 0 -93px; }
 					#scbar_txt { width: 400px; border: 1px solid #FFF; outline: none; }
@@ -606,7 +606,7 @@ CSS 写作注意事项：
 				#um p { text-align: right; }
 				#um .avt { display: inline; margin-right: -60px; }
 				.vwmy { padding-left: 16px; background: url({IMGDIR}/user_online.gif) no-repeat 0 2px; }
-					.vwmy.qq { background: url({IMGDIR}/connect_qq.gif) no-repeat scroll 0 0; padding-left: 20px; }
+					.vwmy.qq { background: url({IMGDIR}/connect_qq.gif) no-repeat scroll 0 0; padding-left: 20px; }*/
 				/* .topnav .new, .sch .new 分别为为个人中心和搜索页面头部新消息样式 */
 					#task_ntc { background-image: url({STATICURL}image/feed/task.gif); }
 				#um .pipe { margin: 0 5px 0 0; }
@@ -637,7 +637,7 @@ CSS 写作注意事项：
 	Level:			Global
 	Explain:		用户应用导航
 	Last Modify:	alice 2013021313
-*/
+
 #mn_userapp .icon_down {background: url({IMGDIR}/arr_w.gif) no-repeat 50% 50%; display:inline-block; width:12px; height:12px; overflow:hidden; margin-left:3px; }
 .ie6 #mn_userapp .icon_down {height:24px;vertical-align: middle;}
 #nv li.a .icon_down {background: url({IMGDIR}/arr_w.gif) no-repeat  50% 50%; display:inline-block; width:12px; height:12px; overflow:hidden; margin-left:3px; }
@@ -661,7 +661,7 @@ CSS 写作注意事项：
 	.ie6 #mn_userapp_menu .icon_myapp,.ie6 #mn_userapp_menu .icon_appcenter { float:left; width:66px; }
 	#mn_userapp_menu .ad_img img { width:140px; height:100px; }
 	#mn_userapp_menu .ad_img a { padding:0; line-height:26px; border-bottom:0; }
-	#mn_userapp_menu .ad_img a:hover { background:none; }
+	#mn_userapp_menu .ad_img a:hover { background:none; }*/
 
 /* 页面主区域 */
 	#ct { min-height: 300px; }

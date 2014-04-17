@@ -1903,7 +1903,7 @@ function initSearchmenu(searchform, cloudSearchUrl) {
 		searchtxt = $(searchform);
 	}
 	var tclass = searchtxt.className;
-	searchtxt.className = tclass + ' xg1';
+	searchtxt.className = tclass;
 	if (!!("placeholder" in document.createElement("input"))) {
 		if(searchtxt.value == '请输入搜索内容') {
 			searchtxt.value = '';
@@ -1919,7 +1919,7 @@ function initSearchmenu(searchform, cloudSearchUrl) {
 		searchtxt.onblur = function () {
 			if(searchtxt.value == '' ) {
 				searchtxt.value = '请输入搜索内容';
-				searchtxt.className = tclass + ' xg1';
+				searchtxt.className = tclass;
 			}
 		};
 	}

@@ -65,21 +65,8 @@ $postshowavatars = !($_G['setting']['bannedmessages'] & 2 && ($post['memberstatu
 						<!--{/if}-->
 					</span>
 					<p>
-						<span class="right">浏览 <em>$_G[forum_thread][views]</em> 次，评论 <em>$_G[forum_thread][allreplies]</em> 条</span>
-						<a href="home.php?mod=space&uid=$post['authorid']" target="_blank" {if $post[groupcolor]} style="color: $post[groupcolor]"{/if}><strong>$post[author]</strong></a>, $post[dateline]<span class="pipe">|</span><a href="forum.php?mod=viewthread&tid=$_G[tid]$fromuid" onclick="return copyThreadUrl(this, '$_G[setting][bbname]')" {if $fromuid}title="{lang share_url_copy_comment}"{/if} class="copyurl"></a>
-						<!--{if $post['authorid'] && !$post['anonymous']}-->
-							<!--{if $post['invisible'] == 0}-->
-								<span class="pipe">|</span>
-								<!--{if !IS_ROBOT && !$_GET['authorid'] && !$_G['forum_thread']['archiveid']}-->
-									<a href="forum.php?mod=viewthread&tid=$post[tid]&page=$page&authorid=$post[authorid]" class="onlylook"></a>
-								<!--{elseif !$_G['forum_thread']['archiveid']}-->
-									<a href="forum.php?mod=viewthread&tid=$post[tid]&page=$page" class="copyurl" rel="nofollow"></a>
-								<!--{/if}-->
-							<!--{/if}-->
-							<!--{if $post['status'] & 8}-->
-								<!--{if $_G['setting']['mobile']['mobilecomefrom']}-->{$_G['setting']['mobile']['mobilecomefrom']}<!--{else}-->{lang from_mobile}<!--{/if}-->
-							<!--{/if}-->
-						<!--{/if}-->
+						<span class="right"><i class="scannum" title="浏览次数"></i><em title="浏览次数">$_G[forum_thread][views]</em><span class="pipe"></span><i class="replynum" title="回复次数"></i><em title="回复次数">$_G[forum_thread][allreplies]</em></span>
+						<a href="home.php?mod=space&uid=$post['authorid']" target="_blank" {if $post[groupcolor]} style="color: $post[groupcolor]"{/if}><strong>$post[author]</strong></a>, $post[dateline]<span class="pipe">|</span><a href="forum.php?mod=viewthread&tid=$_G[tid]$fromuid" onclick="return copyThreadUrl(this, '$_G[setting][bbname]')" {if $fromuid}title="{lang share_url_copy_comment}"{/if} class="copyurl"></a><!--{if $post['authorid'] && !$post['anonymous']}--><!--{if $post['invisible'] == 0}--><!--{if !IS_ROBOT && !$_GET['authorid'] && !$_G['forum_thread']['archiveid']}--><span class="pipe">|</span><a href="forum.php?mod=viewthread&tid=$post[tid]&page=$page&authorid=$post[authorid]" class="onlylook" rel="nofollow" title="只看Ta的帖子"></a><!--{elseif !$_G['forum_thread']['archiveid']}--><span class="pipe">|</span><a href="forum.php?mod=viewthread&tid=$post[tid]&page=$page"  rel="nofollow" class="onlylookon" title="查看全部帖子"></a><!--{/if}--><!--{/if}--><!--{if $post['status'] & 8}--><span class="pipe">|</span><!--{if $_G['setting']['mobile']['mobilecomefrom']}-->{$_G['setting']['mobile']['mobilecomefrom']}<!--{else}-->{lang from_mobile}<!--{/if}--><!--{/if}--><!--{/if}-->
 					</p>
 				</div>
 				<!--{/if}-->
@@ -139,12 +126,7 @@ $postshowavatars = !($_G['setting']['bannedmessages'] & 2 && ($post['memberstatu
 						$post[dateline]
 						<!--{if $post['authorid'] && !$post['anonymous']}-->
 							<!--{if $post['invisible'] == 0}-->
-								<span class="pipe">|</span>
-								<!--{if !IS_ROBOT && !$_GET['authorid'] && !$_G['forum_thread']['archiveid']}-->
-									<a href="forum.php?mod=viewthread&tid=$post[tid]&page=$page&authorid=$post[authorid]" class="onlylook"></a>
-								<!--{elseif !$_G['forum_thread']['archiveid']}-->
-									<a href="forum.php?mod=viewthread&tid=$post[tid]&page=$page" class="copyurl" rel="nofollow"></a>
-								<!--{/if}-->
+								<span class="pipe">|</span><!--{if !IS_ROBOT && !$_GET['authorid'] && !$_G['forum_thread']['archiveid']}--><a href="forum.php?mod=viewthread&tid=$post[tid]&page=$page&authorid=$post[authorid]" rel="nofollow" class="onlylook" title="只看Ta的帖子"></a><!--{elseif !$_G['forum_thread']['archiveid']}--><a href="forum.php?mod=viewthread&tid=$post[tid]&page=$page" class="onlylookon" rel="nofollow"  title="查看全部帖子"></a><!--{/if}-->
 							<!--{/if}-->
 							<!--{if $post['status'] & 8}-->
 								<!--{if $_G['setting']['mobile']['mobilecomefrom']}-->{$_G['setting']['mobile']['mobilecomefrom']}<!--{else}-->{lang from_mobile}<!--{/if}-->
@@ -172,7 +154,7 @@ $postshowavatars = !($_G['setting']['bannedmessages'] & 2 && ($post['memberstatu
 						<div class="right">
 							<!--{if $post['first'] }--><a href="" class="bluesmallbutton">我来处理</a><span class="pipe">|</span><a href="" class="bluesmallbutton">其他信息</a><span class="pipe">|</span><a href="" class="greensmallbutton">我要补充</a><span class="pipe">|</span><!--{/if}-->
 							<!--{if $post['invisible'] == 0}-->
-									<!--{if !$post['first'] && $modmenu['post']}--><label for="manage$post[pid]" class="opacity graysmallbutton"><input type="checkbox" id="manage$post[pid]" class="pc" {if !empty($modclick)}checked="checked" {/if}onclick="pidchecked(this);modclick(this, $post[pid])" value="$post[pid]" autocomplete="off" />{lang manage}</label><span class="pipe">|</span>
+									<!--{if !$post['first'] && $modmenu['post']}--><label for="manage$post[pid]" class="opacity graysmallbutton"><input type="checkbox" id="manage$post[pid]" class="pc" {if !empty($modclick)}checked="checked" {/if}onclick="pidchecked(this);modclick(this, $post[pid])" value="$post[pid]" autocomplete="off" />{lang manage}</label><span class="pipe opacity">|</span>
 									<!--{/if}-->
 							<!--{if (!$_G['uid'] || $allowpostreply) && !$needhiddenreply}-->
 									<!--{if $post['first']}--><a class="bluesmallbutton" href="forum.php?mod=post&action=reply&fid=$_G[fid]&tid=$_G[tid]&reppost=$post[pid]&extra=$_GET[extra]&page=$page" onclick="showWindow('reply', this.href)">{lang reply}</a><!--{else}--><a class="bluesmallbutton" href="forum.php?mod=post&action=reply&fid=$_G[fid]&tid=$_G[tid]&repquote=$post[pid]&extra=$_GET[extra]&page=$page" onclick="showWindow('reply', this.href)">{lang reply}</a><!--{/if}-->

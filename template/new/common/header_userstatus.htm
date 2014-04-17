@@ -1,6 +1,6 @@
 <!--{if $_G['uid']}-->
 	<div class="userinfo">
-		<div class="userinfoavatar"><a href="home.php?mod=space&uid=$_G[uid]"><!--{avatar($_G[uid],small)}--></a></div>
+		<div class="userinfoavatar"><a href="home.php?mod=spacecp&ac=avatar"><!--{avatar($_G[uid],small)}--></a></div>
 		<div class="userinfolist">
 			<p>
 				<a href="home.php?mod=space&uid=$_G[uid]" target="_blank" class="bluecolor" title="{lang visit_my_space}">{$_G[member][username]}</a><span class="pipe">-</span><a href="home.php?mod=spacecp&ac=usergroup">$_G[group][grouptitle]<!--{if $_G[member]['freeze']}-->（{lang freeze}）<!--{/if}--></a><!--{hook/global_usernav_extra1}--><!--{hook/global_usernav_extra2}--><!--{hook/global_usernav_extra3}--><!--{hook/global_usernav_extra4}-->
