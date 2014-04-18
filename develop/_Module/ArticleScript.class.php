@@ -7,7 +7,6 @@ class ArticleScript {
 		$this->actionStorage = $GLOBALS['_ModuleActionStorage'];
 		$this->point = $point;
 		$this->action = '';
-
 		if (defined('DEFAULT') && constant('DEFAULT') == 'INDEX' ) {
 			$this->action = 'index';
 			return true;

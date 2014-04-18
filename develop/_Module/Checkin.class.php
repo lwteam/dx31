@@ -14,7 +14,7 @@ class Checkin {
 		);
 	public function action($point) {
 		$this->point = $point;
-		
+
 		if (defined('CURSCRIPT') && CURSCRIPT == 'home' && $_GET['mod'] == 'checkin') {
 			if($_GET['inajax']){
 				$this->inajax = 1;
@@ -22,7 +22,7 @@ class Checkin {
 				$this->inajax = -1;
 			}
 			return true;
-		}elseif (defined('CURSCRIPT') && CURSCRIPT == 'forum' && defined('CURMODULE') &&  in_array(CURMODULE,array('index','forumdisplay')) ) {
+		}elseif (defined('CURSCRIPT') && CURSCRIPT == 'forum' && defined('CURMODULE') &&  in_array(CURMODULE,array('index')) && constant('DEFAULT') == 'INDEX' ) {
 			$this->inajax = 0;
 			return true;
 		}else{

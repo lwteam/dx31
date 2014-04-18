@@ -24,20 +24,8 @@ class ForumExtendScript {
 			}
 			discuz_table::store_cache(0, $_Data['forumextend_fup'], 86400 , 'forumextend_fup');
 		}
-	
-
-
-	
 		if (defined('CURSCRIPT') && CURSCRIPT == 'forum') {
-			if (in_array($_GET['operation'], array('model','vibeui','apps','portal'))) {
-				$this->action = 'group';
-				return true;
-			}elseif ($_G['fid'] != $_Data['buglistfid'] && $_G['forum'] && $_Data['forumextend_fup'][$_G['forum']['fup']]) {
-				$this->action = 'forum';
-				return true;
-			}else{
-				return false;
-			}
+			return true;
 			
 		}else{
 			return false;
@@ -49,9 +37,8 @@ class ForumExtendScript {
 		
 		require_once libfile('function/forumlist');
 
-		if ($this->action == 'group') {
-
-			$operation = $_GET['operation'];
+		if (in_array($_GET['operation'], array('model','vibeui','apps','portal'))) {
+$operation = $_GET['operation'];
 			define('TopPoint',$operation);
 
 			if (!isset($_Data['forumextend'][$operation]) || !$_Data['forumextend'][$operation]) {
@@ -115,38 +102,34 @@ class ForumExtendScript {
 				}
 				unset( $forum_fields);
 
-				foreach($catlist as $catid => $category) {
-					$catlist[$catid]['collapseimg'] = 'collapsed_no.gif';
-					if($catlist[$catid]['forumscount'] && $category['forumcolumns']) {
-						$catlist[$catid]['forumcolwidth'] = (floor(100 / $category['forumcolumns']) - 0.1).'%';
-						$catlist[$catid]['endrows'] = '';
-						if($colspan = $category['forumscount'] % $category['forumcolumns']) {
-							while(($category['forumcolumns'] - $colspan) > 0) {
-								$catlist[$catid]['endrows'] .= '<td width="'.$catlist[$catid]['forumcolwidth'].'">&nbsp;</td>';
-								$colspan ++;
-							}
-							$catlist[$catid]['endrows'] .= '</tr>';
-						}
-					} elseif(empty($category['forumscount'])) {
-						unset($catlist[$catid]);
-					}
-				}
-				unset($catid, $category);
 
-				if(isset($catlist[0]) && $catlist[0]['forumscount']) {
-					$catlist[0]['fid'] = 0;
-					$catlist[0]['type'] = 'group';
-					$catlist[0]['name'] = $_G['setting']['bbname'];
-					$catlist[0]['collapseimg'] = 'collapsed_no.gif';
-				} else {
-					unset($catlist[0]);
-				}
 				discuz_table::store_cache(0, $catlist, 86400 , 'catlist_'.$operation);
 			}
 
 				
 			include template('forum/discuz');
 			exit;
+		}elseif ($_G['fid']) {
+			if ($_G['fid'] != $_Data['buglistfid'] && $_G['forum'] && $_Data['forumextend_fup'][$_G['forum']['fup']]) {
+				define('TopPoint',$_Data['forumextend_fup'][$_G['forum']['fup']]);
+				if(TopPoint == 'vibeui'){
+					loadcache('product');
+				}
+				
+			}else{
+
+			}
+		}else{
+			dheader("Location: ./");
+		}
+
+
+
+
+
+		if ($this->action == 'group') {
+
+			
 		}else{
 			define('TopPoint',$_Data['forumextend_fup'][$_G['forum']['fup']]);
 		}
