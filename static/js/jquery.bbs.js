@@ -21,14 +21,22 @@ jQuery(function($) {
 		});
 	};
 	//BUGLIST选项
-
+	if ($("#pmore").length > 0) {
+		$(window).scroll(function() {
+			if(!loadding && loadnum<4){
+				var window_height = $(window).height();
+				var pmore_offset = $("#pmore").offset();
+				var pmore_height = pmore_offset.top;
+				var scrolls = $(this).scrollTop();
+				if(scrolls>=(pmore_height-window_height)){
+					loadcontent();
+				}
+			}
+		});
+	}
 	if ($("._bug").length > 0) {
-
-
 		var loadajax = 0;
 		var elementmust = [];
-
-
 
 		$("._bugclass,._bugsclass").change(function () {
 			loadajax = 0;
@@ -111,7 +119,30 @@ jQuery(function($) {
 	//bug end
 });
 
-
+function loadcontent(){
+	var $ = jQuery;
+	loadding = true;
+	loadnum++;
+	$("#pmore a").html('正在加载中.');
+	loaddingtext();
+	$.getJSON('index.php?act=ajax&offset='+loadoffset, function(response){
+		clearTimeout(loaddingtimer);
+		if(response.scode == '1'){
+			loadoffset = response.offset;
+			loadding = false;
+			$(".listcontent").last().after(response.content);
+			$("#pmore a").html('阅读更多文章...');
+		}
+	});
+}
+var loaddingtimer;
+function loaddingtext(){
+	var $ = jQuery;
+	loaddingtimer = setTimeout(function(){
+		$("#pmore a").html($("#pmore a").html()+'.');
+		loaddingtext();
+	},500);
+}
 var BMDialog = {
 	'obj':false,
 	'boxid':'#buglist_box',

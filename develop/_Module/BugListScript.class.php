@@ -91,10 +91,9 @@ class BugListScript {
 			$sqlwhere  ORDER BY b.`dateline` DESC LIMIT $offset,$pagenum");
 			
 			while($thread = DB::fetch($query)) {
-
 				$thread['handlingtxt'] = $_Data['buglist_handling'][$thread['handling']]['title'];
 				$thread['handlingstylec'] = $_Data['buglist_handling'][$thread['handling']]['stylec'];
-				$thread['sanmenum'] = (int)$thread['sanmenum'];
+				$thread['samenum'] = (int)$thread['samenum'];
 
 				$thread['dbdateline'] = $thread['dateline'];
 				$thread['dateline'] = dgmdate($thread['dateline'], 'u', '9999', getglobal('setting/dateformat'));
@@ -174,7 +173,7 @@ class BugListScript {
 					while($value = DB::fetch($query)) {
 						//转换全部状态信息
 						$value['handlings'] = unserialize($value['handlings']);
-
+						$value['handlingtxt'] = $_Data['buglist_handling'][$value['handling']]['title'];
 						
 						$value['note'] = unserialize($value['note']);
 						$bthread['hlog'][] = $value;

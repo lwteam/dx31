@@ -29,7 +29,7 @@
 			<td style="text-align:left;padding:0 10px"> <a href="{$value[titleurl]}">{$value[title]}</a> </td>
 			<td>{echo $value[index]?'是':''}</td>
 			<td >
-			<!--{loop $Categorys $cid $name}-->
+			<!--{loop $_Data['Categorys'] $cid $name}-->
 				{if  $cid == $value[category]}$name{/if}
 			<!--{/loop}-->
 

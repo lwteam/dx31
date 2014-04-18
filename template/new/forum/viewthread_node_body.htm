@@ -103,9 +103,6 @@
 <!--{/if}-->
 <!--{hook/viewthread_postbottom $postcount}-->
 
-
-
-
 <!--{if  TopPoint == 'buglist' && $post['first']}-->
 	<!--{if $bthread['hlog']}-->
 	<div class="solve">
@@ -114,12 +111,15 @@
 		<div class="solvelist">
 			<div class="solvemain">
 				<div class="solvelisttop">
-					<small>{echo date('m-d H:i',$value[dateline]);}</small><i></i>
+					<small title="{echo date('Y-m-d H:i',$value[dateline]);}">{echo date('m-d H:i',$value[dateline]);}</small><i></i>
 					<strong>
 					<!--{if $value[dist]}-->
 						<!--{if $value[hide]}-->$value[another]<!--{else}-->$value[name]<!--{/if}-->
 					<!--{else}-->$value[username]<!--{/if}-->
-					</strong>（<em>$value[title]</em>）
+					</strong>（<em><!--{if $value[dist]}-->$value[title]<!--{else}-->反馈者<!--{/if}--></em>）
+
+					$value['handlingtxt']
+
 				</div>
 				<!--{if $value[message]}-->
 				<div class="solvecontent">$value[message]</div>
@@ -129,8 +129,8 @@
 		<!--{/loop}-->
 	</div>
 	<!--{/if}-->
-	<div class="imeet"  title="这个问题遇到的人数">
-		<div class="meetcount">$bthread[samenum]</div><div class="meetbutton"><a onclick="BMDialog.samenum('$bthread[tid]','#samenum');" href="javascript:void(0);">我也遇到过</a></div>
-	</div>
 	<div id="show_$bthread[tid]" style="display:none"></div>
+	<div class="imeet"  title="这个问题遇到的人数">
+		<div class="meetcount">$bthread[samenum]</div><div class="meetbutton"><a onclick="BMDialog.samenum('$bthread[tid]','.meetcount');" href="javascript:void(0);">我也遇到过</a></div>
+	</div>
 <!--{/if}-->

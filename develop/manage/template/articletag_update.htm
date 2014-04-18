@@ -31,7 +31,7 @@
 		<div class="pbt cl">
 			<p>4. 标签归属分类</p>
 			<select name="articletag[typeid]"  size="5">
-				<!--{loop $ArticleType $cid $name}-->
+				<!--{loop $_Data['ArticleType'] $cid $name}-->
 				<option value ="$cid" {if  $cid == $articletag_One[typeid]}selected="selected"{/if}  >$name</option>
 				<!--{/loop}-->
 			</select>
