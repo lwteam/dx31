@@ -31,7 +31,7 @@
 					<!--{loop $_Data['buglist_handling'] $key $value}-->
 						<!--{eval if ($key>3)continue;}-->
 						{if isset($handling) && $handling == $key}
-							<li class="on"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,NULL,$hardware,$version)}"><i class="$value[icon]"></i>$value[title] <img src="static/image/common/cancel.png"></a></li>
+							<li class="on"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,NULL,$hardware,$version)}"><i class="$value[icon]"></i>$value[title]<img src="images/common/cancel.png"></a></li>
 						{else}
 							<li><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,$key,$hardware,$version)}"><i class="$value[icon]"></i>$value[title]</a></li>
 						{/if}
@@ -42,6 +42,7 @@
 
 
 			<div class="forumclass">
+				<div class="shadow"></div>
 				<div class="forumclasslist">
 					<ul>
 						<li class="forumclasslistli">
@@ -51,7 +52,7 @@
 								<!--{loop $_Data['buglist'] $key $value}-->
 									<!--{eval if (strlen($key) != 1) continue;}-->
 									{if substr($classid,0,1) == $key}
-										<li class="_bugc on" cid="$key"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl(NULL,$handling,$hardware,$version)}">$value<img src="static/image/common/cancel.png"></a><i></i></li>
+										<li class="_bugc on" cid="$key"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl(NULL,$handling,$hardware,$version)}">$value<img src="images/common/cancel.png"></a><i></i></li>
 									{else}
 										<li class="_bugc" cid="$key"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($key,$handling,$hardware,$version)}">$value</a><i></i></li>
 									{/if}
@@ -67,7 +68,7 @@
 									<!--{eval if (strlen($key) == 1) continue;}-->
 									<!--{eval $topid = substr($key,0,1);}-->
 									{if $classid == $key}
-										<li class="_bugsc_$topid {if substr($classid,0,1) != $topid}_dis{/if} on"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($topid,$handling,$hardware,$version)}">$value <span>$TotalNum</span> <img src="static/image/common/cancel.png"></a><i></i></li>
+										<li class="_bugsc_$topid {if substr($classid,0,1) != $topid}_dis{/if} on"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($topid,$handling,$hardware,$version)}">$value <span>$TotalNum</span><img src="images/common/cancel.png"></a><i></i></li>
 									{else}
 										<li class="_bugsc_$topid {if $classid && (substr($classid,0,1) != $topid) || (!$classid&&($topid!=1))}_dis{/if}"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($key,$handling,$hardware,$version)}">$value</a><i></i></li>
 									{/if}
