@@ -378,7 +378,7 @@ CSS 写作注意事项：
 			.pxs { width: 30px !important; }
 			.fdiy .tfm .px, .fdiy .tfm .pt { width: auto; }
 			.p_fre { width: auto !important; }
-			.er { border-color: #F66 #FFBDB9 #FFBDB9 #F66; background-color: #FDF4F4; background-image: url({IMGDIR}/px_e.png); }
+			/*.er { border-color: #F66 #FFBDB9 #FFBDB9 #F66; background-color: #FDF4F4; background-image: url({IMGDIR}/px_e.png); }*/
 		.pt { overflow-y: auto; }
 			div.pt { height: 100px; line-height: 95px; }
 		.ps, select { padding: 2px 2px 2px 1px; }
@@ -1219,7 +1219,7 @@ CSS 写作注意事项：
 				.pmfl p .ol { color: {LINK}; }
 				.pmfl strong { color: #000; }
 
-/* 登录和注册 */
+/* 登录和注册 
 
 .rfm { margin: 0 auto; width: 760px; border-bottom: 1px dotted {COMMONBORDER}; }
 		.rfm a { color: {HIGHLIGHTLINK}; }
@@ -1241,7 +1241,7 @@ CSS 写作注意事项：
 	.fwin .rfm, .nfl .f_c .rfm { width: 500px; }
 	.fwin .rfm th, .fwin .rfm td, .nfl .f_c .rfm th, .nfl .f_c .rfm td { padding: 6px 2px; }
 	.fwin .loginb button { margin-left: 11.3em; }
-	.nfl .f_c .loginb button { margin-left: 12em; }
+	.nfl .f_c .loginb button { margin-left: 12em; }*/
 
 /*
 	Name:			mod_passlevel
