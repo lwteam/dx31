@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Style]]></item>
+	<item id="Version"><![CDATA[X3.1]]></item>
+	<item id="Time"><![CDATA[2014-04-18 20:49]]></item>
+	<item id="From"><![CDATA[幻影网 (http://127.0.0.1:31/)]]></item>
+	<item id="Data">
+		<item id="styleid"><![CDATA[2]]></item>
+		<item id="name"><![CDATA[New]]></item>
+		<item id="available"><![CDATA[1]]></item>
+		<item id="templateid"><![CDATA[2]]></item>
+		<item id="extstyle"><![CDATA[|]]></item>
+		<item id="tplname"><![CDATA[new]]></item>
+		<item id="directory"><![CDATA[./template/new]]></item>
+		<item id="copyright"><![CDATA[lenovo.com]]></item>
+		<item id="style">
+			<item id="menuhoverbgcolor"><![CDATA[#005AB4 nv_a.png no-repeat 50% -33px]]></item>
+			<item id="lightlink"><![CDATA[#FFF]]></item>
+			<item id="floatbgcolor"><![CDATA[#FFF]]></item>
+			<item id="dropmenubgcolor"><![CDATA[#FEFEFE]]></item>
+			<item id="floatmaskbgcolor"><![CDATA[#777]]></item>
+			<item id="dropmenuborder"><![CDATA[#DDD]]></item>
+			<item id="specialbg"><![CDATA[#f5f5f5]]></item>
+			<item id="specialborder"><![CDATA[#eee]]></item>
+			<item id="commonbg"><![CDATA[#f5f7f9]]></item>
+			<item id="commonborder"><![CDATA[#CDCDCD]]></item>
+			<item id="inputbg"><![CDATA[#FFF]]></item>
+			<item id="stypeid"><![CDATA[1]]></item>
+			<item id="inputborderdarkcolor"><![CDATA[#848484]]></item>
+			<item id="headerbgcolor"><![CDATA[#fff]]></item>
+			<item id="headerborder"><![CDATA[0]]></item>
+			<item id="sidebgcolor"><![CDATA[#fff vlineb.png repeat-y 0 0]]></item>
+			<item id="msgfontsize"><![CDATA[14px]]></item>
+			<item id="bgcolor"><![CDATA[]]></item>
+			<item id="noticetext"><![CDATA[#F26C4F]]></item>
+			<item id="highlightlink"><![CDATA[#5990de]]></item>
+			<item id="link"><![CDATA[#777]]></item>
+			<item id="lighttext"><![CDATA[#999]]></item>
+			<item id="midtext"><![CDATA[#555]]></item>
+			<item id="tabletext"><![CDATA[#777]]></item>
+			<item id="smfontsize"><![CDATA[12px]]></item>
+			<item id="threadtitlefont"><![CDATA[]]></item>
+			<item id="threadtitlefontsize"><![CDATA[14px]]></item>
+			<item id="smfont"><![CDATA[]]></item>
+			<item id="titlebgcolor"><![CDATA[#fff]]></item>
+			<item id="fontsize"><![CDATA[14px/1.5]]></item>
+			<item id="font"><![CDATA[]]></item>
+			<item id="styleimgdir"><![CDATA[]]></item>
+			<item id="imgdir"><![CDATA[]]></item>
+			<item id="boardimg"><![CDATA[logo.png]]></item>
+			<item id="available"><![CDATA[]]></item>
+			<item id="headertext"><![CDATA[#777]]></item>
+			<item id="footertext"><![CDATA[#999]]></item>
+			<item id="menubgcolor"><![CDATA[#2B7ACD nv.png no-repeat 0 0]]></item>
+			<item id="menutext"><![CDATA[#FFF]]></item>
+			<item id="menuhovertext"><![CDATA[#FFF]]></item>
+			<item id="wrapbg"><![CDATA[#FFF]]></item>
+			<item id="wrapbordercolor"><![CDATA[#e3e5e8]]></item>
+			<item id="contentwidth"><![CDATA[880px]]></item>
+			<item id="contentseparate"><![CDATA[#eee]]></item>
+			<item id="inputborder"><![CDATA[#E0E0E0]]></item>
+		</item>
+		<item id="version"><![CDATA[X3.1]]></item>
+	</item>
+</root>

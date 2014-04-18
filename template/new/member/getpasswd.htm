@@ -1,31 +1,59 @@
 <!--{template common/header}-->
-<div id="ct" class="wp w cl">
-	<div class="mn mw">
-		<div class="blr">
-			<h3 class="flb" style="padding-left:0">
+<div id="sign">
+	<div class="mn" id="main_message">
+		<div class="signtop">
+		</div>
+	</div>
+
+	<div id="main_messaqge_$loginhash" class="signbox">
+		<div id="layer_login_$loginhash">
+			<h3 class="loginboxtitle">
 				<em>{lang getpassword}</em>
 			</h3>
 			<form method="post" autocomplete="off" action="member.php?mod=getpasswd&uid=$uid&id=$hashid">
 				<input type="hidden" name="formhash" value="{FORMHASH}" />
-				<div class="c cl">
-					<div class="lgfm">
-						<label><em>{lang username}:</em>$member[username]</label>
-						<label><em>{lang new_password}:</em><input type="password" id="newpasswd1" name="newpasswd1" size="25" class="px" /></label>
-						<p style="height:22px;">
-							
-							<i class="d" id="chk_newpasswd1">{lang register_password_tips}<!--{if $_G['setting']['pwlength']}-->, {lang register_password_length_tips1} $_G['setting']['pwlength'] {lang register_password_length_tips2}<!--{/if}--></i>
-						</p>
-						<label><em>{lang new_password_confirm}:</em><input type="password" id="newpasswd2" name="newpasswd2" size="25" class="px" /></label>
-						<p style="height:22px;"><i class="d" id="chk_newpasswd2"></i></p>
-					</div><em><i id="tip_newpasswd1" class="p_tip"></i><em><em><i id="tip_newpasswd2" class="p_tip"></i><em>
-					<div class="lgf minf">
-						<h4>{lang login_guest}</h4>
+				<div class="pad20">
+					<div class="loginbox loginboxcoo">
+						<ul>
+							<li class="loginboxname">{lang username}</li>
+							<li class="loginboxinput">
+								<a href="home.php?mod=space&uid=$invite[uid]" target="_blank">$member[username]</a>
+							</li>
+							<li class="loginboxtip">
+							</li>
+						</ul>
 					</div>
+					<div class="loginbox">
+						<ul>
+							<li class="loginboxname">{lang new_password}</li>
+							<li class="loginboxinput">
+								<input type="password" id="newpasswd1" name="newpasswd1" size="30" class="px p_fre" />
+							</li>
+							<li class="loginboxtip">
+								<i class="d" id="chk_newpasswd1">{lang register_password_tips}<!--{if $_G['setting']['pwlength']}-->, {lang register_password_length_tips1} $_G['setting']['pwlength'] {lang register_password_length_tips2}<!--{/if}--></i>
+							</li>
+						</ul>
+					</div>
+					<div class="loginbox">
+						<ul>
+							<li class="loginboxname">{lang new_password_confirm}</li>
+							<li class="loginboxinput">
+								<input type="password" id="newpasswd2" name="newpasswd2" size="30" class="px p_fre" />
+							</li>
+							<li class="loginboxtip">
+								<em><i id="tip_newpasswd1" class="p_tip"></i><em><em><i id="tip_newpasswd2" class="p_tip"></i><em>
+							</li>
+						</ul>
+					</div>
+					<div class="loginbox">
+					<ul>
+						<li class="loginboxname"></li>
+						<li class="loginboxinput loginboxreg">
+							<button class="pn pnc" type="submit" name="getpwsubmit" value="true"><span>{lang submit}</span></button>
+						</li>
+					</ul>
 				</div>
-				<p class="fsb pns cl">
-					<em>&nbsp;</em>
-					<button class="pn pnc" type="submit" name="getpwsubmit" value="true"><span>{lang submit}</span></button>
-				</p>
+				</div>
 			</form>
 			<script type="text/javascript" src="{$_G[setting][jspath]}register.js?{VERHASH}"></script>
 			<script type="text/javascript">
@@ -40,5 +68,9 @@
 			</script>
 		</div>
 	</div>
-</div>
+
+
+</div>	
+
+
 <!--{template common/footer}-->
