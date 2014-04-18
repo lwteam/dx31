@@ -15,6 +15,10 @@
 				<div class="bbsinfoname">
 					<h1><a href="forum.php?mod=forumdisplay&fid=$_G[fid]">$_G['forum'][name]</a></h1>
 				</div>
+				<div class="bbsinfomenu">
+					<a href="forum.php?mod=forumdisplay&fid=$_G[fid]" {if !$view}class="on"{/if}>所有反馈</a>
+					<a href="forum.php?mod=forumdisplay&fid=$_G[fid]&view=me" {if $view}class="on"{/if}>我的反馈</a>
+				</div>
 			</div>
 			<div class="bbsinfostat">
 				<!--{if $moderatedby}--><div class="right">版主：$moderatedby</div><!--{/if}-->
@@ -31,16 +35,15 @@
 					<!--{loop $_Data['buglist_handling'] $key $value}-->
 						<!--{eval if ($key>3)continue;}-->
 						{if isset($handling) && $handling == $key}
-							<li class="on"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,NULL,$hardware,$version)}"><i class="$value[icon]"></i>$value[title]<img src="images/common/cancel.png"></a></li>
+							<li class="on"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $view?'&view=me':''}{echo $this->GetSelectUrl($classid,NULL,$hardware,$version)}"><i class="$value[icon]"></i>$value[title]<img src="images/common/cancel.png"></a></li>
 						{else}
-							<li><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $this->GetSelectUrl($classid,$key,$hardware,$version)}"><i class="$value[icon]"></i>$value[title]</a></li>
+							<li><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $view?'&view=me':''}{echo $this->GetSelectUrl($classid,$key,$hardware,$version)}"><i class="$value[icon]"></i>$value[title]</a></li>
 						{/if}
 					<!--{/loop}-->
 					</ul>
 				</div>
 			</div>
-
-
+			<!--{if !$view}-->
 			<div class="forumclass">
 				<div class="shadow"></div>
 				<div class="forumclasslist">
@@ -97,6 +100,7 @@
 					</ul>
 				</div>
 			</div>
+			<!--{/if}-->
 
 			<div class="viewlist">
 				<div class="listhead viewlistli">

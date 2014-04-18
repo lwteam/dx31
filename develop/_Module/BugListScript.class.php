@@ -53,32 +53,45 @@ class BugListScript {
 		if ($this->action == 'forumdisplay') {
 
 			define('BUGLIST','forumdisplay');
-					
+
 			//每页数量
 			$pagenum = $_G['tpp'];
 			$page = $_G['page'];
+			$view = $_GET['view'];
 			$classid = isset($_GET['classid'])?$_GET['classid']:NULL;
 			$hardware = isset($_GET['hardware'])?$_GET['hardware']:NULL;
 			$version = isset($_GET['version'])?$_GET['version']:NULL;
 			$handling = isset($_GET['handling'])?$_GET['handling']:NULL;
 
-			$sqlwhere = 'WHERE 1 ';
-			if ($classid) {
-				$BugClass = $this->BugClassSelectSql($classid);
-				if ($BugClass) {
-					$sqlwhere .= ' AND '.$BugClass;
+	
+			if ($view == 'me') {
+				$sqlwhere = "WHERE `uid`='$_G[uid]'";
+				if ($handling!==NULL) {
+					$sqlwhere .= " AND b.`handling`='$handling'";
 				}
-			}
-			if ($handling!==NULL) {
-				$sqlwhere .= " AND b.`handling`='$handling'";
-			}
+			}else{
+				$sqlwhere = 'WHERE 1 ';
+				if ($classid) {
+					$BugClass = $this->BugClassSelectSql($classid);
+					if ($BugClass) {
+						$sqlwhere .= ' AND '.$BugClass;
+					}
+				}
+				if ($handling!==NULL) {
+					$sqlwhere .= " AND b.`handling`='$handling'";
+				}
 
-			if ($hardware) {
-				$sqlwhere .= " AND b.`hardware`='$hardware'";
+				if ($hardware) {
+					$sqlwhere .= " AND b.`hardware`='$hardware'";
+				}
+				if ($version) {
+					$sqlwhere .= " AND b.`version`='$version'";
+				}
+
 			}
-			if ($version) {
-				$sqlwhere .= " AND b.`version`='$version'";
-			}
+					
+
+
 
 			
 			$TotalNum = DB::result_first("SELECT count(*) FROM ".DB::table('buglist')." b $sqlwhere ");

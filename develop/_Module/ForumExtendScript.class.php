@@ -117,7 +117,7 @@ class ForumExtendScript {
 			}elseif ($_G['fid'] == $_Data['buglistfid']){
 				define('TopPoint','buglist');
 			}
-		}elseif(!$_GET){
+		}elseif(constant('CURMODULE')  == 'index'){
 			dheader("Location: ./");
 		}
 
