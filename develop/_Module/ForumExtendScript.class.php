@@ -24,7 +24,7 @@ class ForumExtendScript {
 			}
 			discuz_table::store_cache(0, $_Data['forumextend_fup'], 86400 , 'forumextend_fup');
 		}
-		if (defined('CURSCRIPT') && CURSCRIPT == 'forum') {
+		if (defined('CURSCRIPT') && constant('CURSCRIPT')  == 'forum') {
 			return true;
 		}else{
 			return false;
@@ -111,10 +111,9 @@ class ForumExtendScript {
 		}elseif ($_G['fid']) {
 			if ($_G['fid'] != $_Data['buglistfid'] && $_G['forum'] && $_Data['forumextend_fup'][$_G['forum']['fup']]) {
 				define('TopPoint',$_Data['forumextend_fup'][$_G['forum']['fup']]);
-				if(TopPoint == 'vibeui'){
+				if(constant('TopPoint')  == 'vibeui'){
 					loadcache('product');
 				}
-				
 			}elseif ($_G['fid'] == $_Data['buglistfid']){
 				define('TopPoint','buglist');
 			}
