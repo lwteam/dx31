@@ -8,12 +8,25 @@ class ForumExtendScript {
 		require_once _Data('buglistfid');
 		require_once _Data('forumextend');
 
-		if (!$_Data['forumextend_fup']) {
-			$_Data['forumextend_fup'] = array();
+		if(($_Data['forumextend_fup'] = discuz_table::fetch_cache(0, 'forumextend_fup')) === false){
+			$_Data['forumextend_fup'] = $fuparray = array();
 			foreach ($_Data['forumextend'] as $key => $array) {
-				foreach ($array as $value) $_Data['forumextend_fup'][$value] = $key;
+				foreach ($array as $value) {
+					$_Data['forumextend_fup'][$value] = $key;
+					$fuparray[] = $value;
+				}
 			}
+			$fupfids = join(',',$fuparray);
+			$query = DB::query("SELECT fid,fup FROM ".DB::table('forum_forum')." WHERE status='1' AND fup IN ($fupfids) AND type = 'forum' ORDER BY displayorder");
+
+			while($forum = DB::fetch($query)) {
+				$_Data['forumextend_fup'][$forum['fid']] =$_Data['forumextend_fup'][$forum['fup']];
+			}
+			discuz_table::store_cache(0, $_Data['forumextend_fup'], 86400 , 'forumextend_fup');
 		}
+	
+
+
 	
 		if (defined('CURSCRIPT') && CURSCRIPT == 'forum') {
 			if (in_array($_GET['operation'], array('model','vibeui','apps','portal'))) {
@@ -50,18 +63,14 @@ class ForumExtendScript {
 				$fups = $_Data['forumextend'][$operation];
 				$fupsids = join(',',$fups);
 
-				$forums = DB::fetch_all("SELECT * FROM ".DB::table('forum_forum')." WHERE status='1' AND (fup IN ($fupsids) || fid IN ($fupsids) ) AND type IN ('forum','group') ORDER BY displayorder");
+				$forums = DB::fetch_all("SELECT ff.*, f.* FROM ".DB::table('forum_forum')." f 
+						LEFT JOIN ".DB::table('forum_forumfield')." ff USING (fid) 
+					WHERE f.status='1' AND (f.fup IN ($fupsids) || f.fid IN ($fupsids) ) 
+						AND f.type IN ('forum','group') ORDER BY f.type,f.displayorder");
 
-				$fids = array();
-				foreach($forums as $forum) {
-					$fids[$forum['fid']] = $forum['fid'];
-				}
-				$forum_fields = C::t('forum_forumfield')->fetch_all($fids);
 
+	
 				foreach($forums as $forum) {
-					if($forum_fields[$forum['fid']]['fid']) {
-						$forum = array_merge($forum, $forum_fields[$forum['fid']]);
-					}
 
 					$forumname[$forum['fid']] = strip_tags($forum['name']);
 					$forum['extra'] = empty($forum['extra']) ? array() : dunserialize($forum['extra']);
@@ -134,12 +143,18 @@ class ForumExtendScript {
 				}
 				discuz_table::store_cache(0, $catlist, 86400 , 'catlist_'.$operation);
 			}
+
+				
 			include template('forum/discuz');
 			exit;
 		}else{
 			define('TopPoint',$_Data['forumextend_fup'][$_G['forum']['fup']]);
-		}	
+		}
+
+		
+
 	}
+
 }
 
 
