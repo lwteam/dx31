@@ -239,7 +239,7 @@ CSS 写作注意事项：
 	Explain:		黄色背景的提示条，一般用在单行醒目提示，不可用于多行块级区域
 	Last Modify:	lushnis
 */
-	.ntc_l { padding: 5px 10px; background: #FEFEE9; }
+	.ntc_l { padding: 10px 10px; background: #FEFEE9; font-size: 12px; }
 		.ntc_l .d { width: 20px; height: 20px; background: url({IMGDIR}/op.png) no-repeat 0 0; line-height: 9999px; overflow: hidden; }
 			.ntc_l .d:hover { background-position: 0 -20px; }
 

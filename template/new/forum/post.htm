@@ -88,7 +88,7 @@
 	onsubmit="return {if BUGLIST =='post'}jQuery.bugsubmit(this){else}validate(this){/if}">
 
 
-<div id="container">
+<div id="container" class="post">
 	<div class="breadcrumbs">
 		<a href="./" title="{lang homepage}">$_G[setting][bbname]</a>$navigation$actionsubject<span class="pipe">&raquo;</span>$actiontitle
 	</div>
@@ -124,13 +124,13 @@
 	<!--{if $specialextra}-->
 		<input type="hidden" name="specialextra" value="$specialextra" />
 	<!--{/if}-->
-	<div class="main">
+	<div class="postbox">
+	<div id="main">
 		<div class="listbg pad20" {if !$showthreadsorts && !$adveditor} id="editorbox"{/if}>
 			<div id="postbox">
 				<!--{subtemplate forum/post_editor_extra}-->
 				<!--{subtemplate forum/post_editor_body}-->
 				<!--{hook/post_middle}-->
-				<div style="display:none;"><!--{subtemplate forum/post_editor_attribute}--></div>
 				<!--{if $_GET[action] != 'edit'}-->
 					<div id="seccheck">
 						<!--{if $secqaacheck || $seccodecheck}-->
@@ -164,6 +164,10 @@
 			</div>
 		</div>
 	</div>
+	<div id="sidebar">
+		<!--{subtemplate forum/post_editor_attribute}-->
+	</div>
+</div>
 </div>
 
 </form>

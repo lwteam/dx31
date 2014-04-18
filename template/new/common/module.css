@@ -263,16 +263,21 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 /** end **/
 
 /** forum::post,group::post **/
-#post_extra_tb { position: relative; z-index: 2; }
-	#post_extra_tb label { float: left; margin-right: 3px; height: 21px; border: 1px solid {COMMONBORDER}; line-height: 21px; white-space: nowrap; }
-		#post_extra_tb label.a { border-bottom-color: {SPECIALBG}; background: {SPECIALBG} none; box-shadow: none; }
-			#post_extra_tb label span { float: left; padding: 0 8px 0 20px; background: url({IMGDIR}/dot.gif) no-repeat 8px 8px; line-height: 21px; }
-				#post_extra_tb span.a { background-image: url({IMGDIR}/dot_c.gif); }
+#post_extra_tb { position: relative; z-index: 2; margin:-1px -3px 0 -1px; background:#eceef1; border: 1px solid #e3e5e8; }
+	#post_extra_tb label { float: left; height: 40px; width:80px; text-align: center; margin: -1px 0 -1px -1px; border: 1px solid #e3e5e8; }
+	#post_extra_tb label.last { width:68px; }
+		#post_extra_tb label.a {  background: #f5f7f9; box-shadow: none; border-bottom-color:#f5f7f9; }
+			#post_extra_tb label span { line-height: 40px;  }
+				#post_extra_tb span.a {  }
 
 #post_extra_c { position: relative; z-index: 1; }
-	#post_extra_c .exfm { margin: -1px 0 0; border: 1px solid {COMMONBORDER}; }
+#post_extra_c .extratop { border-bottom:1px solid #eee; }
+#post_extra_c .exfm table td { padding:10px 0; }
+#post_extra_c .px { padding: 3px 0 3px 10px; margin:0;}
+#post_extra_c .replycredit div { border-bottom:1px solid #e3e5e8; padding-bottom:10px; margin-bottom:10px;}
+	#post_extra_c .exfm { margin:0; border:0; background:none; padding: 10px 19px;}
 
-#extra_additional_c label { float:left; width: 16%; }
+#extra_additional_c label { float:left; width: 50%; padding-bottom: 10px;}
 
 #draftlist { border-style: solid; border-width: 1px 1px 0; border-color: {WRAPBG}; }
 	#draftlist.a { position: relative; z-index: 302; border-color: {DROPMENUBORDER}; {DROPMENUBGCODE} }
@@ -365,22 +370,22 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 
 /* 发特殊主题帖 by dfox */
 	.sinf p, .sadd p { padding: 2px 0; height: 30px; line-height: 30px; }
-	.sinf .px, .sadd .px { width: 120px; }
-	.sinf { float: left; padding-right: 14px; width: 380px; border-right: 1px dashed {WRAPBORDERCOLOR}; }
+	.sinf .px, .sadd .px { width: 70px; }
+	.sinf { float: left; width: 270px; margin-top: 10px;}
 		.sinf h4 { padding: 6px 0; }
 		.sinf textarea { width: 368px; height: 80px; }
 		.sinf a.d { margin-top: 8px; }
 		.sinf object { vertical-align: middle; }
 		.onum { float: left; margin-right: 6px; width: 16px; }
-		.oinf { width: 270px !important; }
+		.oinf { width: 170px !important; }
 			.sinf dl, .sadd dl { overflow: hidden; }
 			.sinf dl dt, .sadd dl dt { float: left; padding-top: 3px\9; width: 75px; clear: left; }
 			.sinf dl dd, .sadd dl dd { margin-bottom: 10px; overflow: hidden; }
-			.sinf dl dd { width: 300px; }
+			.sinf dl dd { width: 190px; }
 			.sinf span.fb, .sadd span.fb { display: block; float: left; margin-right: 6px; height: 26px; line-height: 26px; white-space: nowrap; }
 				.sinf dl dd strong { padding: 0 8px; }
-	.sadd { float: left; margin-left: 10px; width: 520px; overflow: hidden; }
-		.sadd dl dd { width: 420px; }
+	.sadd { float: left;  width: 270px; overflow: hidden; }
+		.sadd dl dd { width: 190px; }
 		.ct2_a .sadd { width: 360px; }
 		.ct2_a .sadd dl dd { width: 260px; }
 		.spl em { float: left; margin-right: 9px; height: 20px; line-height: 20px; }

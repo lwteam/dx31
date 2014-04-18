@@ -111,7 +111,6 @@ var disablepostctrl = parseInt('{$_G['group']['disablepostctrl']}');
 	<input type="hidden" name="usesig" value="$usesigcheck" />
 	<input type="hidden" name="subject" value="  " />
 	<div class="referto">
-		<button {if $allowpostreply}type="submit" {elseif !$_G['uid']}type="button" onclick="showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes')" {/if}{if !$seccodecheck}onmouseover="checkpostrule('seccheck_fastpost', 'ac=reply');this.onmouseover=null" {/if}name="replysubmit" id="fastpostsubmit" class="greensmallbutton" value="replysubmit" tabindex="5">{lang post_newreply}</button>
 		<!--{hook/viewthread_fastpost_btn_extra}-->
 		<!--{if helper_access::check_module('follow')}-->
 		<label class="lb"><input type="checkbox" name="adddynamic" class="pc" value="1" />{lang post_reply_relay}</label>
@@ -120,6 +119,7 @@ var disablepostctrl = parseInt('{$_G['group']['disablepostctrl']}');
 		<label for="fastpostrefresh"><input id="fastpostrefresh" type="checkbox" class="pc" />{lang post_fastreply_gotolast}</label>
 		<script type="text/javascript">if(getcookie('fastpostrefresh') == 1) {$('fastpostrefresh').checked=true;}</script>
 		<!--{/if}-->
+		<button {if $allowpostreply}type="submit" {elseif !$_G['uid']}type="button" onclick="showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes')" {/if}{if !$seccodecheck}onmouseover="checkpostrule('seccheck_fastpost', 'ac=reply');this.onmouseover=null" {/if}name="replysubmit" id="fastpostsubmit" class="bluesolidsmallbutton" value="replysubmit" tabindex="5">{lang post_newreply}</button>
 	</div>
 
 				</div>

@@ -130,7 +130,7 @@ var fid = parseInt('$_G[fid]');
 			<!--{/if}-->
 
 			<div class="referto">
-				<button {if $fastpost}type="submit" {elseif !$_G['uid']}type="button" onclick="showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes')" {/if}{if !$seccodecheck}onmouseover="checkpostrule('seccheck_fastpost', 'ac=newthread');this.onmouseover=null" {/if}name="topicsubmit" id="fastpostsubmit" class="greensmallbutton" value="topicsubmit" tabindex="13">{lang post_newthread}</button>
+				<button {if $fastpost}type="submit" {elseif !$_G['uid']}type="button" onclick="showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes')" {/if}{if !$seccodecheck}onmouseover="checkpostrule('seccheck_fastpost', 'ac=newthread');this.onmouseover=null" {/if}name="topicsubmit" id="fastpostsubmit" class="greensolidsmallbutton" value="topicsubmit" tabindex="13">{lang post_newthread}</button>
 				<!--{hook/forumdisplay_fastpost_btn_extra}-->
 				<!--{if !empty($_G['setting']['pluginhooks']['forumdisplay_fastpost_sync_method'])}-->
 					<span>
