@@ -26,7 +26,6 @@ class ForumExtendScript {
 		}
 		if (defined('CURSCRIPT') && CURSCRIPT == 'forum') {
 			return true;
-			
 		}else{
 			return false;
 		}
@@ -38,7 +37,7 @@ class ForumExtendScript {
 		require_once libfile('function/forumlist');
 
 		if (in_array($_GET['operation'], array('model','vibeui','apps','portal'))) {
-$operation = $_GET['operation'];
+			$operation = $_GET['operation'];
 			define('TopPoint',$operation);
 
 			if (!isset($_Data['forumextend'][$operation]) || !$_Data['forumextend'][$operation]) {
@@ -116,8 +115,8 @@ $operation = $_GET['operation'];
 					loadcache('product');
 				}
 				
-			}else{
-
+			}elseif ($_G['fid'] == $_Data['buglistfid']){
+				define('TopPoint','buglist');
 			}
 		}else{
 			dheader("Location: ./");

@@ -44,7 +44,9 @@ class BugListScript {
 	public function execute() {
 		global $_G,$_Data;
 
-		define('TopPoint','buglist');
+
+
+			
 
 		$_Data['buglist_handling'][4] = $_Data['buglist_handling'][3];
 
