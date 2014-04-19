@@ -181,7 +181,7 @@ CREATE TABLE `pre_checkin_week` (
 DROP TABLE IF EXISTS `pre_manage_log`;
 CREATE TABLE `pre_manage_log` (
   `uid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `username` char(15) NOT NULL DEFAULT '',
+  `username` char(24) NOT NULL DEFAULT '',
   `dateline` int(10) unsigned NOT NULL DEFAULT '0',
   `action` char(15) NOT NULL DEFAULT '', -- 姓名
   `url` text NOT NULL,
@@ -194,8 +194,8 @@ CREATE TABLE `pre_manage_log` (
 DROP TABLE IF EXISTS `pre_manage_user`;
 CREATE TABLE `pre_manage_user` (
   `uid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `username` char(15) NOT NULL DEFAULT '',
-  `name` char(15) NOT NULL DEFAULT '', -- 姓名
+  `username` char(24) NOT NULL DEFAULT '',
+  `name` char(24) NOT NULL DEFAULT '', -- 姓名
   `dateline` int(10) unsigned NOT NULL DEFAULT '0',
   `permission` text NOT NULL,
   `dist` tinyint(1)  NOT NULL DEFAULT '0', -- 用户级别 -1 超级管理员 0 非管理员 1 产品经理 2产品工程师 3 信息员
@@ -222,7 +222,7 @@ DROP TABLE IF EXISTS `pre_buglist`;
 CREATE TABLE `pre_buglist` (
   `tid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `uid` mediumint(8) unsigned NOT NULL,
-  `username` char(15) NOT NULL DEFAULT '',
+  `username` char(24) NOT NULL DEFAULT '',
   `classid` smallint(6) unsigned NOT NULL DEFAULT '0', -- 分类
   `handling` smallint(6) unsigned NOT NULL DEFAULT '0', -- 处理状态情况 0 新提交 1 待解决 2 正在解决 3 已经解决 4 确认解决(完结)
   `hardware` smallint(6) unsigned NOT NULL DEFAULT '0', -- 分类
@@ -238,9 +238,9 @@ CREATE TABLE `pre_buglist` (
   `samenum` int(10) unsigned NOT NULL DEFAULT '0', -- 也遇到人数
   `property` mediumtext NOT NULL, -- 分类属性 的值 比如   {id=>array(key,title,value) //选择,id=>array(title,value)//输入}
   `touid` mediumint(8) unsigned NOT NULL, -- 反馈状态指派用户ID
-  `tousername` char(15) NOT NULL DEFAULT '', -- 反馈状态指派用户名
+  `tousername` char(24) NOT NULL DEFAULT '', -- 反馈状态指派用户名
   `douid` mediumint(8) unsigned NOT NULL, -- 解决状态指派用户ID
-  `dousername` char(15) NOT NULL DEFAULT '', -- 解决状态指派用户名
+  `dousername` char(24) NOT NULL DEFAULT '', -- 解决状态指派用户名
   `bstatus` smallint(6) unsigned NOT NULL DEFAULT '0',-- 二进制状态信息 二进制位 可以存储32个操作状态
   PRIMARY KEY (`tid`),
   KEY `classhandling` (`classid`,`handling`),
@@ -261,8 +261,8 @@ DROP TABLE IF EXISTS `pre_buglist_log`;
 CREATE TABLE `pre_buglist_log` (
   `tid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `uid` mediumint(8) unsigned NOT NULL,
-  `username` char(15) NOT NULL DEFAULT '',
-  `name` char(15) NOT NULL DEFAULT '', -- 姓名
+  `username` char(24) NOT NULL DEFAULT '',
+  `name` char(24) NOT NULL DEFAULT '', -- 姓名
   `itcode` char(255) NOT NULL DEFAULT '', -- 
   `dateline` int(10) unsigned NOT NULL DEFAULT '0', -- 提交时间
   `handling` smallint(6) unsigned NOT NULL DEFAULT '0', -- 操作处理后状态情况
@@ -279,9 +279,9 @@ CREATE TABLE `pre_buglist_user` (
   `uid` mediumint(8) unsigned NOT NULL,
   `username` char(24) NOT NULL DEFAULT '', -- another
   `dateline` int(10) unsigned NOT NULL DEFAULT '0',
-  `another` char(15) NOT NULL DEFAULT '', -- 马甲
+  `another` char(24) NOT NULL DEFAULT '', -- 马甲
   `avatar` char(255) NOT NULL DEFAULT '', -- 头像
-  `name` char(15) NOT NULL DEFAULT '', -- 姓名
+  `name` char(24) NOT NULL DEFAULT '', -- 姓名
   `itcode` char(255) NOT NULL DEFAULT '', -- 
   `email` char(255) NOT NULL DEFAULT '', -- 
   `phone` char(255) NOT NULL DEFAULT '', -- 电话

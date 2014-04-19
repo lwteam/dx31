@@ -7,7 +7,7 @@
 	<td><h3>状态设置</h3>
 
 <!--{loop $_Data['buglist_handling'] $k $v}-->
-	<input type="radio" class="pc" name="handling" value="$k" {if $k == $onebuglist['handling']}checked{/if} {if  !BugWorkPerm($myPermission,$onebuglist,$k)}disabled{/if}><span class="handling" style="color:$v[color]">$v[title]</span>
+	<input type="radio" class="pc" name="handling" value="$k" {if $k == $onebuglist['handling']}checked{/if} {if  !Library::BugWorkPerm($myPermission,$onebuglist,$k)}disabled{/if}><span class="handling" style="color:$v[color]">$v[title]</span>
 	<!--{if $k != 4}--><span class="pipe"><img src="http://png-5.findicons.com/files/icons/2676/pixicus/10/arrow_right.png"></span><!--{/if}-->
 <!--{/loop}-->
 
