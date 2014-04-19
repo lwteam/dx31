@@ -208,12 +208,14 @@ var BMDialog = {
 			}
 		});
 	},
-	'property':function (tid,obj_id){
+	'property':function (tid,obj_id,showreal){
 		var $ = jQuery;
 		$(obj_id).show();
 		$(obj_id).html('Loading....');
 		$.getJSON('manage.php?action=buglist&operation=property&id='+tid, function(response){
-			
+			if ($('._buglog').length>0) {
+				$('._buglog').html(response.buglogs);
+			};
 			$(obj_id).html(response.content);
 		});	
 	},

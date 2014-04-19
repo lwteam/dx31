@@ -104,36 +104,10 @@
 <!--{hook/viewthread_postbottom $postcount}-->
 
 <!--{if  TopPoint == 'buglist' && $post['first']}-->
-	<!--{if $bthread['hlog']}-->
-	<div class="solve">
-		<h3>联想工程师互动</h3>
-		<!--{loop $bthread['hlog']  $value}-->
-		<div class="solvelist">
-			<div class="solvemain">
-				<div class="solvelisttop">
-					<small title="{echo date('Y-m-d H:i',$value[dateline]);}">{echo date('m-d H:i',$value[dateline]);}</small><i></i>
-					<strong>
-					<!--{if $value[dist]}-->
-						<!--{if $value[hide]}-->$value[another]<!--{else}-->$value[name]<!--{/if}-->
-					<!--{else}-->$value[username]<!--{/if}-->
-					</strong>（<em><!--{if $value[dist]}-->$value[title]<!--{else}-->反馈者<!--{/if}--></em>）
-				<!--{if Library::getstatus($value[status],1)}-->
-					<!--{if Library::getstatus($value[status],2)}-->反馈者补充
-					<!--{else}-->
-					未更改状态， 需要反馈者补充
-					<!--{/if}-->
-				<!--{else}-->
-				状态更改为 <span style="color:$_Data['buglist_handling'][$value[handling]][color]">$_Data['buglist_handling'][$value[handling]][title] </span>
-				<!--{/if}-->
-					
-
-				</div>
-				<!--{if $value[message]}-->
-				<div class="solvecontent">$value[message]</div>
-				<!--{/if}-->
-			</div>
-		</div>
-		<!--{/loop}-->
+	<!--{if $bthread['hlogs']}-->
+	<div class="solve _buglog">
+		<!--{eval $buglogs = $bthread['hlogs'];}-->
+		<!--{template buglist/viewthread_buglog_ajax}-->
 	</div>
 	<!--{/if}-->
 	<div id="show_$bthread[tid]" style="display:none" class="postquote"></div>

@@ -137,7 +137,23 @@ if($operation == 'supply'){
 	if ($template) {
 		include template($template,0, './develop/manage/template');
 		$response['content']  = ob_get_clean();
+		if ($response['scode'] == '1' && $template == 'buglist_property') {
+			$query = DB::query("SELECT bl.*,bu.dist,bu.avatar,bu.title,bu.name,bu.itcode FROM ".DB::table('buglist_log')." bl
+			LEFT JOIN  ".DB::table('buglist_user')." bu USING(uid) WHERE bl.tid='$id' ORDER BY bl.`dateline` DESC");
+			while($value = DB::fetch($query)) {
+				//转换全部状态信息
+				$value['handlings'] = unserialize($value['handlings']);
+				$value['handlingtxt'] = $_Data['buglist_handling'][$value['handling']]['title'];
+				
+				$value['note'] = unserialize($value['note']);
+				$buglogs[] = $value;
+			}
+			include template('buglist/viewthread_buglog_ajax');
+			$response['buglogs']  = ob_get_clean();
+		}
+		
 	}
+
 	echo json_encode($response);
 	exit();
 

@@ -14,13 +14,13 @@ class BugListScript {
 		$this->point = $point;
 		if ($this->point == 'hooks') {
 				
-			if (defined('CURSCRIPT') && CURSCRIPT == 'forum' && defined('CURMODULE') && CURMODULE == 'forumdisplay' &&  $_G['fid'] == $_Data['buglistfid'] ) {
+			if ( constant('CURSCRIPT') == 'forum' && constant('CURMODULE') == 'forumdisplay' &&  $_G['fid'] == $_Data['buglistfid'] ) {
 				$this->action = 'forumdisplay';
 				return true;
-			}elseif (defined('CURSCRIPT') && CURSCRIPT == 'forum' && defined('CURMODULE') && CURMODULE == 'viewthread' &&  $_G['fid'] == $_Data['buglistfid'] ) {
+			}elseif ( constant('CURSCRIPT') == 'forum' && constant('CURMODULE') == 'viewthread' &&  $_G['fid'] == $_Data['buglistfid'] ) {
 				$this->action = 'viewthread';
 				return true;
-			}elseif (defined('CURSCRIPT') && CURSCRIPT == 'forum' && defined('CURMODULE') && CURMODULE == 'post' &&  $_G['fid'] == $_Data['buglistfid'] && $_GET['action']=='newthread') {
+			}elseif ( constant('CURSCRIPT') == 'forum' && constant('CURMODULE') == 'post' &&  $_G['fid'] == $_Data['buglistfid'] && $_GET['action']=='newthread') {
 				$this->action = 'post';
 				return true;
 			}else{
@@ -29,7 +29,7 @@ class BugListScript {
 			}
 		}elseif ($this->point == 'output') {
 				
-			if (defined('CURSCRIPT') && CURSCRIPT == 'forum' && defined('CURMODULE') && CURMODULE == 'post' &&  $_G['fid'] == $_Data['buglistfid'] && $_GET['action']=='newthread') {
+			if ( constant('CURSCRIPT') == 'forum' && constant('CURMODULE') == 'post' &&  $_G['fid'] == $_Data['buglistfid'] && $_GET['action']=='newthread') {
 				$this->action = 'post';
 					
 				return true;
@@ -182,15 +182,15 @@ class BugListScript {
 
 	
 
-				$query = DB::query("SELECT bl.*,bu.dist,bu.avatar,bu.title FROM ".DB::table('buglist_log')." bl
+				$query = DB::query("SELECT bl.*,bu.dist,bu.avatar,bu.name,bu.another,bu.title,bu.team,bu.hide FROM ".DB::table('buglist_log')." bl
 				LEFT JOIN  ".DB::table('buglist_user')." bu USING(uid) WHERE bl.tid='{$_G['thread']['tid']}' ORDER BY bl.`dateline` DESC");
 				while($value = DB::fetch($query)) {
 					//转换全部状态信息
 					$value['handlings'] = unserialize($value['handlings']);
 					$value['handlingtxt'] = $_Data['buglist_handling'][$value['handling']]['title'];
-					
 					$value['note'] = unserialize($value['note']);
-					$bthread['hlog'][] = $value;
+					unset($value['itcode'] );
+					$bthread['hlogs'][] = $value;
 				}
 				
 				global $BugOption;
