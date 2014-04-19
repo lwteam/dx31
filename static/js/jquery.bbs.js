@@ -74,7 +74,6 @@ jQuery(function($) {
 					loadajax = 1;
 					if (response.scode == '1') {
 						elementmust = response.must;
-						console.log(response.content);
 						$('._bugattr').html(response.content);
 						loadajax = 1;
 					};
