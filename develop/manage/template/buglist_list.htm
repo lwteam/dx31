@@ -64,7 +64,7 @@
 			">$value['handlingarray']['name']</a></td>
 			<td class="_qtip_lc last">
 			<a onclick="BMDialog.property($value[tid],'#show_$value[tid]');" href="javascript:void(0);" class="bluesmallbutton" >属性</a>
-			<!--{if  BugWorkPerm($myPermission,$value)}-->
+			<!--{if  Library::BugWorkPerm($myPermission,$value)}-->
 				<a  onclick="BMDialog.get(this,$value[tid]);" href="javascript:void(0);" title="处理该问题的流程" class="bluesmallbutton">处理</a>
 				<!--{if $value['handling'] != 3}-->
 				 <a onclick="BMDialog.get(this,$value[tid],'supply');" href="javascript:void(0);" title="操作让用户补充信息" class="bluesmallbutton">补充</a>
