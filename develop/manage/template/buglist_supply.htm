@@ -6,17 +6,16 @@
 <tbody>
 
 <tr>
-	<td>需要用户补充信息的原因（用户前台可看到）<br>
-	<textarea name="message"   style="height:50px;width:400px" ></textarea></td>
+	<td><h3>需要用户补充信息的原因（用户前台可看到）</h3>
+	<textarea name="message" ></textarea></td>
 </tr>
 <tr>
-	<td>后台备注<br>
-	<textarea name="note" style="height:50px;width:400px"></textarea></td>
+	<td><h3>后台备注</h3>
+	<textarea name="note"></textarea></td>
 </tr>
 <tr>
-	<td>
-	<button type="button" onclick="javascript:BMDialog.post('$id','supply');"> 提 交 </button>
-	<button type="button" onclick="javascript:BMDialog.close();"> 取 消 </button>
+	<td class="last">
+	<button type="button" onclick="javascript:BMDialog.close();"  class="graysmallbutton"> 取 消 </button><button type="button" onclick="javascript:BMDialog.post('$id','supply');" class="bluebutton"> 提 交 </button>
 	</td>
 </tr>
 </tbody></table>

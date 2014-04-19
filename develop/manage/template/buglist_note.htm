@@ -6,13 +6,12 @@
 <tbody>
 
 <tr>
-	<td>后台备注(必填,对信息进行后台备注,备注的内容显示在标题后)<br>
-	<textarea name="note" style="height:50px;width:400px"></textarea></td>
+	<td><h3>后台备注(必填,对信息进行后台备注,备注的内容显示在标题后)</h3>
+	<textarea name="note"></textarea></td>
 </tr>
 <tr>
-	<td>
-	<button type="button" onclick="javascript:BMDialog.post('$id','note');"> 提 交 </button>
-	<button type="button" onclick="javascript:BMDialog.close();"> 取 消 </button>
+	<td class="last">
+	<button type="button" onclick="javascript:BMDialog.close();" class="graysmallbutton"> 取 消 </button><button type="button" onclick="javascript:BMDialog.post('$id','note');" class="bluebutton"> 提 交 </button>
 	</td>
 </tr>
 </tbody></table>

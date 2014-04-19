@@ -41,10 +41,10 @@
 .greencolor, .greensmallbutton {
   color: #5fb336; }
 
-.redcolor {
+.redcolor, .redsmallbutton {
   color: #dd4422; }
 
-.whitecolor, .greenbutton, .greenbutton:hover, .bluebutton, .bluebutton:hover, .bluesmallbutton:hover, .greensmallbutton:hover, .bluesolidsmallbutton, .bluesolidsmallbutton:hover, .greensolidsmallbutton, .greensolidsmallbutton:hover, .mheadmenu a.select {
+.whitecolor, .greenbutton, .greenbutton:hover, .bluebutton, .bluebutton:hover, .bluesmallbutton:hover, .greensmallbutton:hover, .redsmallbutton:hover, .bluesolidsmallbutton, .bluesolidsmallbutton:hover, .greensolidsmallbutton, .greensolidsmallbutton:hover, .mheadmenu a.select {
   color: white; }
 
 .smallfont {
@@ -87,7 +87,7 @@
 .greenborder, .greensmallbutton {
   border: 1px solid #5fb336; }
 
-.redborder {
+.redborder, .redsmallbutton {
   border: 1px solid #dd4422; }
 
 .borderbottom, .mside li, .mlist tr, .mmain .noborder .managetablehead table tr, .mlistboxhead {
@@ -135,7 +135,7 @@
 .bluelightbg1, .mside li:hover, .mlist tr.displayshow, .mlist tr:hover, .mlist .managetr {
   background-color: #f5f7f9; }
 
-.redbg {
+.redbg, .redsmallbutton:hover {
   background: #dd4422; }
 
 .reddarkbg {
@@ -154,13 +154,13 @@
 .brround {
   border-radius: 50%; }
 
-.br3, .greenbutton, .bluebutton, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton, .mside li:hover, .mmain {
+.br3, .greenbutton, .bluebutton, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .redsmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton, .mside li:hover, .mmain {
   border-radius: 3px; }
 
 .bs {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05); }
 
-.ta, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton {
+.ta, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .redsmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton {
   transition: all 0.2s ease-in-out; }
 
 .bsin {
@@ -189,7 +189,7 @@
 .hidetext {
   line-height: 1000px; }
 
-.inlineblock, .greenbutton, .bluebutton, .bluesmallbutton, .greensmallbutton, .graysmallbutton {
+.inlineblock, .greenbutton, .bluebutton, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .redsmallbutton {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: middle;
@@ -203,7 +203,7 @@
 .pa, .shadeline {
   position: absolute; }
 
-.tn, .greenbutton:hover, .bluebutton:hover, .bluesmallbutton:hover, .greensmallbutton:hover, .graysmallbutton:hover, .bluesolidsmallbutton:hover, .greensolidsmallbutton:hover {
+.tn, .greenbutton:hover, .bluebutton:hover, .bluesmallbutton:hover, .greensmallbutton:hover, .graysmallbutton:hover, .redsmallbutton:hover, .bluesolidsmallbutton:hover, .greensolidsmallbutton:hover {
   text-decoration: none; }
 
 .cutline {
@@ -255,7 +255,7 @@
   line-height: 40px;
   padding: 0 22px; }
 
-.smallbutton, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton {
+.smallbutton, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .redsmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton {
   height: 33px;
   line-height: 33px;
   padding: 0 18px; }
