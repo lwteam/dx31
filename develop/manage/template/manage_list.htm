@@ -1,34 +1,35 @@
 <!--{subtemplate common/header}-->
 	<!--{eval include template('header',0, './develop/manage/template');}-->
-	<div class="mgcont">
-		<div class="mgtit">
-			$manageitem_array[$action]
-			<p><a href="manage.php?action=manage&operation=update"{if $operation=='update'} class="select"{/if}>添加</a><a href="manage.php?action=manage&operation=list"{if $operation=='list'} class="select"{/if}>列表</a></p>
+	<div class="mmain">
+		<div class="mhead">
+			<div class="mheadmenu"><a href="manage.php?action=$action&operation=update"{if $operation=='update'} class="select"{/if}>添加</a><a href="manage.php?action=$action&operation=list"{if $operation=='list'} class="select"{/if}>列表</a></div>
+			<h3>$manageitem_array[$action]</h3>
 		</div>
-		<table class="managetable" cellpadding="0" cellspacing="0" border="0">
-		<tr class="tit">
-			<td width="10%" class="left">用户名</td>
-			<td width="10%" class="left">姓名</td>
-			<td width="40%" class="left">享有权限</td>
-			<td width="5%">级别</td>
-			<td width="10%">分发人</td>
+		<div class="mlist">
+		<table cellpadding="0" cellspacing="0"  width="100%">
+		<tr class="managetablehead">
+			<td width="10%">用户名</td>
+			<td width="8%">姓名</td>
+			<td width="30%">享有权限</td>
+			<td width="10%">级别</td>
+			<td width="13%">分发人</td>
 			<td width="10%">创建时间</td>
 			<td width="15%">管理</td>
 		</tr>
 		<!--{if $Permissionlist}-->
 		<!--{loop $Permissionlist $i $value}-->
 
-		<tr{if $i%2==1} class="diff"{/if}>
-			<td class="left"> <a href="home.php?mod=space&uid={$value[uid]}" title="{$value[uid]}">{$value[username]}</a> </td>
-			<td class="left">$value[name]</td>
+		<tr>
+			<td class="first"> <a href="home.php?mod=space&uid={$value[uid]}" title="{$value[uid]}">{$value[username]}</a> </td>
+			<td>$value[name]</td>
 			
-			<td  class="left">$value['permissiontxt']</td>
+			<td>$value['permissiontxt']</td>
 			<td>{if $value[dist]==1}产品经理{elseif $value[dist]==2}产品工程师{elseif $value[dist]==3}反馈工程师{elseif $value[dist]==4}信息专员{/if}</td>
 			<td><!--{if $value[distuid]}-->{$value[distusername]}<!--{/if}--></td>
 			<td>{echo date('m-d H:i',$value[dateline]);}</td>
-			<td>
+			<td  class="last">
 		<!--{if $value[dist] != -1}-->
-			<a href="manage.php?action={$action}&operation=update&id={$value[uid]}">编辑</a> | <a href="manage.php?action={$action}&operation=delete&id={$value[uid]}">删除</a><!--{/if}--></td>
+			<a href="manage.php?action={$action}&operation=update&id={$value[uid]}" class="greensmallbutton">编辑</a><a href="manage.php?action={$action}&operation=delete&id={$value[uid]}" class="graysmallbutton">删除</a><!--{/if}--></td>
 		</tr>
 
 		<tr id="show_$value[uid]" style="display:none">
@@ -37,12 +38,12 @@
 
 		<!--{/loop}-->
 		<!--{else}-->
-		<tr>
+		<tr class="managetablehead">
 			<td colspan="6">查询不到任何数据</th>
 		</tr>
 		<!--{/if}-->
 		</table>
-
+</div>
 	</div><!-- mgcont -->
 </div><!-- manage -->
 

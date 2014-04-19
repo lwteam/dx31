@@ -1,43 +1,42 @@
 <!--{subtemplate common/header}-->
 	<!--{eval include template('header',0, './develop/manage/template');}-->
-	<div class="mgcont">
-		<div class="mgtit">
-			$manageitem_array[$action]
-			<input name="action" type="hidden" value="systemlog">
-			<p><input id="search" name="search" placeholder="搜索内容"  value="$_GET[search]" type="text">
-			<a href="manage.php?action=$action&operation=update" class="select">添加文章</a></p>
+	<div class="mmain">
+		<div class="mhead">
+			<div class="mheadmenu"><a href="manage.php?action=$action&operation=update"{if $operation=='update'} class="select"{/if}>添加</a><a href="manage.php?action=$action&operation=list"{if $operation=='list'} class="select"{/if}>列表</a></div>
+			<h3>$manageitem_array[$action]</h3>
 		</div>
-		<table class="managetable" cellpadding="0" cellspacing="0" border="0">
-			<tr>
-				<td width="8%" class="bob bluebg" style="text-align:center;">排序</td>
-				<td width="35%" class="bob bluebg">标题</td>
-				<td width="40%" class="bob bluebg">焦点信息</td>
-				<td width="17%" class="bob bluebg">管理</td>
+
+		<div class="mlist">
+		<table cellpadding="0" cellspacing="0" width="100%">
+			<tr class="managetablehead">
+				<td width="5%" class="first">排序</td>
+				<td width="45%">标题</td>
+				<td width="35%">焦点信息</td>
+				<td width="15%" class="last">管理</td>
 			</tr>
 			<!--{if $topicfocuslist}-->
 
 			<!--{loop $topicfocuslist $key $value}-->
 			<tr>
-				<td class="bob" width="8%" style="text-align:center; font-weight:700;">{$value[order]}</td>
-				<td class="bob" width="35%" style="line-height:22px;"><a href="{$value[url]}"><strong class="bluec">{$value[title]}</strong></a> <br /><!--{if $value['info']}-->$value[info]<!--{/if}--></td>
-				<td class="bob mpic" width="40%"><a href="{$value[url]}" target="_blank"><!--{if $value[pic]}--><img height="70" width="263"  src="{$value[pic]}" /><!--{else}-->无图<!--{/if}--></a><br />
+				<td class="first">{$value[order]}</td>
+				<td><a href="{$value[url]}"><strong class="bluec">{$value[title]}</strong></a> <br /><!--{if $value['info']}-->$value[info]<!--{/if}--></td>
+				<td class="pic"><a href="{$value[url]}" target="_blank"><!--{if $value[pic]}--><img height="70" width="315"  src="{$value[pic]}" /><!--{else}-->无图<!--{/if}--></a><br />
 				</td>
 
-				<td width="17%" class="bob mbu"><a href="manage.php?action={$action}&operation=update&id={$key}">编辑</a> | <a href="manage.php?action={$action}&operation=delete&id={$key}">删除</a>
+				<td class="last"><a href="manage.php?action={$action}&operation=update&id={$key}" class="graysmallbutton">编辑</a><a href="manage.php?action={$action}&operation=delete&id={$key}" class="graysmallbutton">删除</a>
 				</td>
 			</tr>
 			<!--{/loop}-->
-			<!--{if $multipage}-->
-			<tr>
-				<td colspan="7">$multipage</th>
-			</tr>
-			<!--{/if}-->
 		<!--{else}-->
 			<tr>
-				<td colspan="7">查询不到任何数据</th>
+				<td colspan="4">查询不到任何数据</th>
 			</tr>
 		<!--{/if}-->
 		</table>
+		<!--{if $multipage}-->
+				$multipage
+			<!--{/if}-->
+	</div>
 
 	</div><!-- mgcont -->
 </div><!-- manage -->

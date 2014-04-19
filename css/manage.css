@@ -1,0 +1,385 @@
+.w6 {
+  width: 280px; }
+
+.w18 {
+  width: 880px; }
+
+.w24 {
+  width: 1180px;
+  margin: 0 auto; }
+
+.g1, .mlist tr {
+  height: 50px; }
+
+.g1lh, .mside h3, .mhead, .mlistboxhead {
+  line-height: 50px; }
+
+.g2 {
+  height: 80px; }
+
+.color1, .buglist_inbox h3 {
+  color: #000; }
+
+.color2, .managetablehead strong {
+  color: #333; }
+
+.color3, .graysmallbutton {
+  color: #555; }
+
+.color4 {
+  color: #777; }
+
+.color5 {
+  color: #999; }
+
+.color6, .pipe {
+  color: #ccc; }
+
+.bluecolor, .bluesmallbutton, .mside h3, .mside li.select, .mside li.select:hover {
+  color: #5990de; }
+
+.greencolor, .greensmallbutton {
+  color: #5fb336; }
+
+.redcolor {
+  color: #dd4422; }
+
+.whitecolor, .greenbutton, .greenbutton:hover, .bluebutton, .bluebutton:hover, .bluesmallbutton:hover, .greensmallbutton:hover, .bluesolidsmallbutton, .bluesolidsmallbutton:hover, .greensolidsmallbutton, .greensolidsmallbutton:hover, .mheadmenu a.select {
+  color: white; }
+
+.smallfont {
+  font-size: 12px; }
+
+.bodyfont, .buglist_inbox h3 {
+  font-size: 14px; }
+
+.middlefont, .mlistboxhead {
+  font-size: 16px; }
+
+.bigfont {
+  font-size: 18px; }
+
+.hfont, .mside h3, .mhead h3 {
+  font-size: 22px;
+  font-weight: 400; }
+
+.border {
+  border: 1px solid white; }
+
+.grayborder, .mlist tr, .mlist tr.displayshow td, .mmain .noborder .managetablehead table tr, .buglist_inbox td {
+  border: 1px solid #eeeeee; }
+
+.grayborder1, .graysmallbutton {
+  border: 1px solid #e6e6e6; }
+
+.grayborder2, .mlistboxhead, .buglist_loading, .buglist_inbox, .buglist_inbox textarea {
+  border: 1px solid #dadada; }
+
+.blueborder, .bluesmallbutton, .mhead {
+  border: 1px solid #5990de; }
+
+.bluelightborder {
+  border: 1px solid #ebf0f7; }
+
+.bluedarkborder, .mside li, .mside li.select, .mside li.select:hover, .mside li:hover, .mmain, .mmain .noborder .managetablehead table {
+  border: 1px solid #e3e5e8; }
+
+.greenborder, .greensmallbutton {
+  border: 1px solid #5fb336; }
+
+.redborder {
+  border: 1px solid #dd4422; }
+
+.borderbottom, .mside li, .mlist tr, .mmain .noborder .managetablehead table tr, .mlistboxhead, .buglist_inbox td {
+  border-width: 0 0 1px; }
+
+.bordertop {
+  border-width: 1px 0 0; }
+
+.borderright {
+  border-width: 0 1px 0 0; }
+
+.borderstyle, .mside li, .mlistboxhead {
+  border-style: dashed; }
+
+.bg, .shadeline, .graysmallbutton:hover, .mside li.select, .mside li.select:hover, .mmain, .buglist_loading, .buglist_inbox {
+  background-color: white; }
+
+.bg1 {
+  background-color: #f5f5f5; }
+
+.bg2, .graysmallbutton {
+  background: #eeeeee; }
+
+.bg3 {
+  background: gray; }
+
+.greenbg, .greenbutton, .greensmallbutton:hover, .greensolidsmallbutton {
+  background: #5fb336; }
+
+.greendarkbg, .greenbutton:hover, .greensolidsmallbutton:hover {
+  background: #59a732; }
+
+.greenlightbg {
+  background: #f3f7ee; }
+
+.bluebg, .bluebutton, .bluesmallbutton:hover, .bluesolidsmallbutton, .mheadmenu a.select {
+  background-color: #5990de; }
+
+.bluedarkbg, .bluebutton:hover, .bluesolidsmallbutton:hover {
+  background: #2e74d6; }
+
+.bluelightbg, .mheadmenu a {
+  background: #d1dced; }
+
+.bluelightbg1, .mside li:hover, .mlist tr.displayshow, .mlist tr:hover, .mlist .managetr, .buglist_inbox textarea {
+  background-color: #f5f7f9; }
+
+.redbg {
+  background: #dd4422; }
+
+.reddarkbg {
+  background: #c73d1f; }
+
+.redlightbg {
+  background: #fdf4f2; }
+
+.icon {
+  background-image: url(../images/icon.png);
+  background-repeat: no-repeat; }
+
+.br50 {
+  border-radius: 50px; }
+
+.brround {
+  border-radius: 50%; }
+
+.br3, .greenbutton, .bluebutton, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton, .mside li:hover, .mmain, .buglist_loading, .buglist_inbox, .buglist_inbox textarea {
+  border-radius: 3px; }
+
+.bs {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05); }
+
+.ta, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton {
+  transition: all 0.2s ease-in-out; }
+
+.bsin {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05) inset; }
+
+.clear:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+.clear {
+  zoom: 1; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.hide, .hidetext, .wordnowrap, .shadeline {
+  overflow: hidden; }
+
+.hidetext {
+  line-height: 1000px; }
+
+.inlineblock, .greenbutton, .bluebutton, .bluesmallbutton, .greensmallbutton, .graysmallbutton {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline; }
+
+.pr, .mside {
+  position: relative; }
+
+.pa, .shadeline {
+  position: absolute; }
+
+.tn, .greenbutton:hover, .bluebutton:hover, .bluesmallbutton:hover, .greensmallbutton:hover, .graysmallbutton:hover, .bluesolidsmallbutton:hover, .greensolidsmallbutton:hover {
+  text-decoration: none; }
+
+.cutline {
+  height: 15px;
+  width: 1px;
+  background: #dadada;
+  margin-top: 17px; }
+
+.word, .mlist td {
+  word-wrap: break-word;
+  word-break: break-all; }
+
+.wordnowrap {
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.minh {
+  min-height: 500px;
+  _height: 500px;
+  _overflow: visible; }
+
+.linespace {
+  margin-bottom: 10px; }
+
+.pad20 {
+  padding: 20px; }
+
+.pipe {
+  margin: 0 8px;
+  font-family: "Tahoma", Arial,sans-serif; }
+
+.lh24 {
+  line-height: 24px; }
+
+.shadeline {
+  width: 100%;
+  height: 1px;
+  left: 0;
+  bottom: 20px;
+  z-index: 99; }
+
+.yahei {
+  font-family: "microsoft yahei"; }
+
+._disable {
+  display: none; }
+
+.bigbutton, .greenbutton, .bluebutton {
+  line-height: 40px;
+  padding: 0 22px; }
+
+.smallbutton, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton {
+  height: 33px;
+  line-height: 33px;
+  padding: 0 18px; }
+
+.mside {
+  width: 130px;
+  float: left;
+  z-index: 1; }
+
+.mside h3 {
+  padding: 6px 0 10px 15px; }
+
+.mside li {
+  padding: 10px 0 10px 15px; }
+
+.mside li.select, .mside li:hover.select {
+  margin: -1px -19px 0 0;
+  padding-left: 14px;
+  border-style: solid;
+  border-width: 1px 0 1px 1px;
+  border-radius: 3px 0 0 3px; }
+
+.mside li:hover {
+  margin: -1px -9px 0 0;
+  padding-left: 14px; }
+
+.mmain {
+  float: right;
+  width: 1030px;
+  min-height: 700px;
+  _height: 700px;
+  _overflow: visible; }
+
+.mhead {
+  margin: 0 20px;
+  padding: 5px 0;
+  border-width: 0 0 2px; }
+
+.mhead h3 {
+  display: inline; }
+
+.mheadmenu {
+  float: right;
+  margin-top: 18px; }
+
+.mheadmenu a {
+  float: left;
+  padding: 0 20px;
+  line-height: 40px;
+  margin-left: 5px;
+  border-radius: 3px 3px 0 0; }
+
+.mlist {
+  padding: 0 20px 20px; }
+
+.mlist .pg {
+  padding: 20px 0; }
+
+.mlist button {
+  border: 0; }
+
+.mlist tr.displayshow td {
+  padding: 20px;
+  border-width: 0 1px; }
+
+.mlist tr:hover, .mlist .managetr {
+  border-width: 0 1px 1px; }
+
+.mlist tr:hover .first {
+  padding-left: 9px; }
+
+.mlist td {
+  padding: 10px; }
+
+.mlist td .px {
+  margin: 0;
+  border-color: #ccc; }
+
+.mlist td.name {
+  text-align: right; }
+
+.mmain .noborder {
+  padding-top: 20px; }
+
+.mmain .noborder tr, .mmain .noborder tr:hover.managetablehead {
+  border-width: 0;
+  background: none; }
+
+.mlist .last a {
+  margin-right: 10px;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 10px; }
+
+.mlist tr:hover.managetablehead {
+  border-width: 0 0 1px;
+  background: none; }
+
+.mlistboxhead {
+  margin: 0 20px 20px; }
+
+.wd27em {
+  width: 50em; }
+
+.wd20em {
+  margin: 0px;
+  width: 18em; }
+
+.buglist_loading, .buglist_inbox {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); }
+
+.buglist_inbox h3 {
+  height: 24px;
+  line-height: 24px;
+  font-weight: 100;
+  padding-bottom: 8px; }
+
+.buglist_inbox td {
+  padding: 15px 20px; }
+
+.buglist_inbox textarea {
+  padding: 10px;
+  height: 50px;
+  width: 400px; }
+
+.handling {
+  display: inline; }

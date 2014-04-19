@@ -1,13 +1,12 @@
 <!--{subtemplate common/header}-->
 <!--{eval include template('header',0, './develop/manage/template');}-->
 
-	<div class="mgcont">
-		<h3>$manageitem_array[$action]</h3>
-		<div class="mgcont">
+	<div class="mmain">
+		<div class="mhead"><h3>$manageitem_array[$action]</h3></div>
+		<div class="mlist">
 
-<h1 id="sti" class="mt"> <em class="wx " id="returnmessage"> ① 版块静态定制列表  </em> </h1>
-<table class="managetable" cellpadding="2" cellspacing="2" border="1" width="100%">
-<tr>
+<table cellpadding="2" cellspacing="2" width="100%">
+<tr class="managetablehead">
 	<td width="5%">排序</td>
 	<td width="15%">版区名称</td>
 	<td width="15%">版块名称</td>
@@ -15,7 +14,7 @@
 	<td width="10%">管理</td>
 </tr>
 <!--{loop $partforumslist $value}-->
-	<tr>
+	<tr class="managetr">
 		<td width="5%">{$value[order]}</td>
 		<td width="15%" colspan="2"  style="text-align: left;padding-left:20px"><a href="forum.php?mod=forumdisplay&fid={$value[fid]}" target="_blank" style="color:red"> {$value[name]} / $value[fid]<!--{if $value[name] != $forumslist[$value[fid]][name]}--> <SUB>/ {$forumslist[$value[fid]][name]}</SUB><!--{/if}--></a></td>
 		<td width="30%"><!--{if $value[staticname]}--><a href="/{$value[staticname]}/" target="_blank" style="color:red">/{$value[staticname]}/</a><!--{/if}--></td>
@@ -31,12 +30,13 @@
 	<!--{/loop}-->
 <!--{/loop}-->
 </table>
+</div>
 <a name="staticlink"></a>
 <form method="post" autocomplete="off" id="postform" action="manage.php?action={$action}" enctype="multipart/form-data">
 	<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
 
-	<h1 id="sti" class="mt"> <em class="wx " id="returnmessage"><a href="manage.php?action={$action}"> ② 定制静态URL别名</a></em></h1>
-	<div id="postbox">
+	<h1 id="sti" class="mlistboxhead"> <em class="wx " id="returnmessage">定制静态URL别名</em></h1>
+	<div id="postbox" class="mlist">
 
 		<div class="pbt cl">
 			<div class="z" > <span>
@@ -72,7 +72,7 @@
 		</div>
 		<div class="mtm"> </div>
 		<div class="mtm mbm">
-			<button type="submit" id="postsubmit" class="pn pnc" value="true" name="topicsubmit"><span>编辑应用</span></button>
+			<button type="submit" id="postsubmit" class="bluebutton" value="true" name="topicsubmit"><span>编辑应用</span></button>
 			<input type="hidden" id="postsave" name="save" value="" />
 		</div>
 	</div>

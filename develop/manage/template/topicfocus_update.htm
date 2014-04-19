@@ -1,9 +1,9 @@
 <!--{subtemplate common/header}-->
 		<!--{eval include template('header',0, './develop/manage/template');}-->
-		<div class="mgcont">
-			<div class="mgtit">
-				$manageitem_array[$action]
-				<p><a href="manage.php?action=$action&operation=update"{if $operation=='update'} class="select"{/if}>添加</a><a href="manage.php?action=$action&operation=list"{if $operation=='list'} class="select"{/if}>列表</a></p>
+		<div class="mmain">
+			<div class="mhead">
+				<div class="mheadmenu"><a href="manage.php?action=$action&operation=update"{if $operation=='update'} class="select"{/if}>添加</a><a href="manage.php?action=$action&operation=list"{if $operation=='list'} class="select"{/if}>列表</a></div>
+				<h3>$manageitem_array[$action]</h3>
 			</div>
 			
 <form method="post" autocomplete="off" id="postform" action="manage.php?action={$action}&operation=update" enctype="multipart/form-data">
@@ -11,13 +11,16 @@
 	<!--{if isset($_GET['id'])}-->
 	<input type="hidden" name="id" id="id" value="{$id}" />
 	<!--{/if}-->
-	<h1 id="sti" class="mt"> 
-	<em class="wx " id="returnmessage"><a href="manage.php?action={$action}"> ② 发布新文章</a></em></h1>
-	<!--{if isset($_GET['id'])}-->
-	<h1 id="sti" class="mt"> <em class="wx " id="returnmessage"> ③ 编辑文章 </em> : {$article[title]} (信息ID:{$_GET['id']})</h1>
-	<!--{/if}-->
+	<h1 id="sti" class="mlistboxhead"> 
+		<!--{if !isset($_GET['id'])}-->
+	<em class="wx " id="returnmessage">发布新文章</em>
+	<!--{else}-->
+	<em class="wx " id="returnmessage">编辑文章 </em> : {$article[title]} (信息ID:{$_GET['id']})
+		<!--{/if}-->
+	</h1>
+	
 
-	<div id="postbox">
+	<div id="postbox" class="mlist">
 		<div class="pbt cl">
 			<p>1.焦点标题：</p>
 			<input type="text" name="topicfocus[title]" value="{$topicfocus_One[title]}" id="subject" onkeyup="strLenCalc(this, 'checklen', 80);" class="px wd27em" />
@@ -39,13 +42,13 @@
 			<div style="height:100px;"><img src="{$topicfocus_One[pic]}" height="100" width="376"></div>
 			<!--{/if}-->
 			<p>5.焦点图片：</p>
-			<input type="file"  name="topicfocuspic"  class="px wd27em" style="width:95px;height:22px" tabindex="1" /><span id="subjectchk" class="left maname">640 * 170</span>
+			<input type="file"  name="topicfocuspic"  class="px wd27em" style="width:95px;height:22px" tabindex="1" /><span id="subjectchk" class="left maname">720 * 160</span>
 
 		</div>
 
 		<div class="mtm"> </div>
 		<div class="mtm mbm">
-			<button type="submit" id="postsubmit" class="pn pnc" value="true" name="topicsubmit"><span><!--{if $_GET['id']}-->编辑<!--{else}-->发布<!--{/if}--></span></button>
+			<button type="submit" id="postsubmit" class="bluebutton" value="true" name="topicsubmit"><span><!--{if $_GET['id']}-->编辑<!--{else}-->发布<!--{/if}--></span></button>
 			<input type="hidden" id="postsave" name="save" value="" />
 		</div>
 	</div>

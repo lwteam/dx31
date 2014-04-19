@@ -3,32 +3,28 @@
 
 
 
-		<div class="mgcont">
-
-			<div class="mgtit">
-				$manageitem_array[$action]
-				<p><a href="manage.php?action=manage&operation=update"{if $operation=='update'} class="select"{/if}>添加</a><a href="manage.php?action=manage&operation=list"{if $operation=='list'} class="select"{/if}>列表</a></p>
-			</div>
+		<div class="mmain">
+		<div class="mhead">
+			<div class="mheadmenu"><a href="manage.php?action=$action&operation=update"{if $operation=='update'} class="select"{/if}>添加</a><a href="manage.php?action=$action&operation=list"{if $operation=='list'} class="select"{/if}>列表</a></div>
+			<h3>$manageitem_array[$action]</h3>
+		</div>
 			<form method="post" autocomplete="off" action="manage.php?action={$action}&operation=update" enctype="multipart/form-data">
-			<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
+			<input type="hidden" name="formhash"  id="formhash" value="{FORMHASH}" />
 			<!--{if $id}-->
 			<input type="hidden" name="id" value="{$id}" />
 			<!--{/if}-->
-			
-			<table class="distpermission" cellpadding="2" cellspacing="2" border="0" width="100%">
-				<tr  class="tit">
-					<td  colspan="2">分发权限</td>
+			<div class="mlist noborder">
+			<table cellpadding="2" cellspacing="2" border="0" width="100%">
+				<tr class="managetablehead">
+					<td class="name">用户名</td>
+					<td  ><input type="text" class="px" name="Permission[username]" value="{$Permission_One['username']}" /></td>
 				</tr>
-				<tr>
-					<td  class="tit">用户名</td>
-					<td  ><input type="text" name="Permission[username]" value="{$Permission_One['username']}" /></td>
+				<tr class="managetablehead">
+					<td class="name">中文姓名</td>
+					<td  ><input type="text" class="px" name="Permission[name]" value="{$Permission_One['name']}" /></td>
 				</tr>
-				<tr>
-					<td  class="tit">中文姓名</td>
-					<td  ><input type="text" name="Permission[name]" value="{$Permission_One['name']}" /></td>
-				</tr>
-				<tr>
-					<td class="tit">用户级别</td>
+				<tr class="managetablehead">
+					<td class="name">用户级别</td>
 					<td >
 						<input type="radio" name="Permission[dist]" {if !$Permission_One['dist']}checked{/if} value="0" 	>无级别
 						<input type="radio" name="Permission[dist]" {if $Permission_One['dist']==1}checked{/if} value="1" 	>产品经理 
@@ -38,10 +34,10 @@
 					 </td>
 				</tr>
 
-				<tr>
-					<td class="tit">权限列表</td>
+				<tr class="managetablehead">
+					<td class="name">权限列表</td>
 					<td>
-						<table  cellpadding="2" cellspacing="2" border="1" width="700">
+						<table  cellpadding="2" cellspacing="2" width="700" class="bluelightborder">
 						<tr>
 							<td width="200">权限</td>
 							<td>关联权限设置</td>
@@ -84,12 +80,13 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr class="managetablehead">
 					<td ></td>
-					<td ><button type="submit" id="postsubmit" class="whitec darkga mfont" value="true" name="topicsubmit"><span>更新权限</span></button>
+					<td ><button type="submit" id="postsubmit" class="bluebutton" value="true" name="topicsubmit"><span>更新权限</span></button>
 					</td>
 				</tr>
 			</table>
+		</div>
 			</form>
 		</div><!-- mgcont -->
 	</div><!-- manage -->

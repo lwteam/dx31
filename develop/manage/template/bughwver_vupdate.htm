@@ -1,9 +1,8 @@
 <!--{subtemplate common/header}-->
 		<!--{eval include template('header',0, './develop/manage/template');}-->
-		<div class="mgcont">
-			<div class="mgtit">
-				$manageitem_array[$action]
-				<p>
+		<div class="mmain">
+		<div class="mhead">
+			<div class="mheadmenu">
 				<!--{if $myPermission['hardware']}-->
 				<a href="manage.php?action=$action&operation=update"{if $operation=='update'} class="select"{/if}>添加硬件</a>
 				<!--{/if}-->
@@ -14,21 +13,22 @@
 				<a href="manage.php?action=$action&operation=aupdate"{if $operation=='aupdate'} class="select"{/if}>添加问题属性</a>
 				<!--{/if}-->
 				<a href="manage.php?action=$action&operation=list"{if $operation=='list'} class="select"{/if}>列表</a>
-				</p>
+				</div>
+				<h3>$manageitem_array[$action]</h3>
 			</div>
 			<form method="post" autocomplete="off" action="manage.php?action={$action}&operation=$operation" enctype="multipart/form-data">
 			<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
 			<!--{if $id}-->
 			<input type="hidden" name="id" value="{$id}" />
 			<!--{/if}-->
-			
-			<table class="distpermission" cellpadding="2" cellspacing="2" border="0" width="100%">
+			<div class="mlist noborder">
+			<table cellpadding="2" cellspacing="2" width="100%">
 				<tr>
-					<td  class="tit">版本标题</td>
-					<td  ><input type="text" name="bughwver[title]" value="{$bughwver_One['title']}" /></td>
+					<td class="name">版本标题</td>
+					<td  ><input type="text" class="px" name="bughwver[title]" value="{$bughwver_One['title']}" /></td>
 				</tr>
 				<tr>
-					<td  class="tit">版本归属类别</td>
+					<td class="name">版本归属类别</td>
 					<td>
 					<select name="bughwver[type]"  size="5">
 						<!--{loop $_Data['version'] $key $name}-->
@@ -41,11 +41,12 @@
 				</tr>
 				<tr>
 					<td ></td>
-					<td ><button type="submit" value="true" name="topicsubmit"><span> 提 交 </span></button>
+					<td ><button type="submit" value="true" name="topicsubmit" class="bluebutton"><span> 提 交 </span></button>
 					</td>
 				</tr>
 			</table>
 			</form>
+		</div>
 		</div><!-- mgcont -->
 	</div><!-- manage -->
 </div>
