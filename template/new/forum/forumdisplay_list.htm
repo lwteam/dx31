@@ -87,10 +87,12 @@
 											<!--{/if}-->
 										<!--{/if}-->
 										<!--{if $thread['replycredit'] > 0}-->
-											- <span>[{lang replycredit} <strong> $thread['replycredit']</strong> ]</span>
+											<span class="redcolor"> 【 {lang replycredit} <strong> $thread['replycredit']</strong> 】</span>
 										<!--{/if}-->
 										<!--{if $thread['rushreply']}-->
-											<img src="/images/common/rushreply_s.png" title="{lang rushreply}" align="absmiddle" />
+											<!--{if $rushinfo[$thread[tid]]}-->
+											<span id="rushtimer_$thread[tid]"> {lang havemore_special} <span id="rushtimer_body_$thread[tid]" class="redcolor"></span> <script language="javascript">settimer($rushinfo[$thread[tid]]['timer'], 'rushtimer_body_$thread[tid]');</script>{if $rushinfo[$thread[tid]]['timertype'] == 'start'} {lang header_start} {else} {lang over} {/if} {lang right_special}</span>
+											<!--{/if}-->
 										<!--{/if}-->
 		    	 				</th>
 		    	 				<td class="freply"><a href="forum.php?mod=viewthread&tid=$thread[tid]&extra=$extra">$thread[allreplies]</a></td>
