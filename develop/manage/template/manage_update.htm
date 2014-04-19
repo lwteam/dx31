@@ -24,6 +24,10 @@
 					<td  ><input type="text" class="px" name="Permission[name]" value="{$Permission_One['name']}" /></td>
 				</tr>
 				<tr class="managetablehead">
+					<td class="name">团队名称</td>
+					<td  ><input type="text" class="px" name="Permission[team]" value="{$Permission_One['team']}" /></td>
+				</tr>
+				<tr class="managetablehead">
 					<td class="name">用户级别</td>
 					<td >
 						<input type="radio" name="Permission[dist]" {if !$Permission_One['dist']}checked{/if} value="0" 	>无级别
