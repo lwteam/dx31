@@ -31,7 +31,7 @@
 			<!--{/loop}-->
 			</select>
 		<!--{else}-->
-			<input type="text" id="$value[elementid]" name="bugattr[{$value[id]}]" value="$value[value]" class="bip-i" autocomplete="off">
+			<input type="text" id="$value[elementid]" name="bugattr[{$value[id]}]" value="$value[value]" class="px" autocomplete="off">
 		<!--{/if}-->
 		
 	</div>
@@ -40,9 +40,11 @@
 <style>
 .bip{}
 .bip .bip-t{}
-.bip .bip-s {width:200px;}
+.bip .px { width:200px; margin:0;}
+.bip .bip-s {width:200px; line-height: 35px; height: 35px;}
 .bip .bip-i{ 
 width:290px;
+
 padding: 2px 4px;
 line-height: 17px;
 border: 1px solid;

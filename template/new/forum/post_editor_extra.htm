@@ -37,16 +37,16 @@
 
 <!--{if BUGLIST =='post'}-->
 <style>
-._dis {display:none}
-.buglist-cselect select{width:160px;height:100px;}
+.exfm  { padding:15px 20px 20px; }
+.buglist-cselect select{width:180px; height:180px; margin-right: 15px; }
+.sppoll p { padding: 2px 0; height: 30px; line-height: 30px; }
 </style>
 <div class="exfm cl _bug">
-	<div class="sinf sppoll z">
+	<div class="sppoll z">
 		<input type="hidden" name="classid"  id="classid" value="$bthread[classid]">
 		<input type="hidden" name="btid"  id="btid" value="$bthread[tid]">
-		反馈问题选项
 		<p>
-			分类:
+			选择分类
 			<span>
 			<!--{if $bthread[classid]}-->
 			<!--{eval $bfid = substr($bthread[classid],0,1);}-->
@@ -55,6 +55,7 @@
 			</span>
 		</p>
 		<div class="buglist-cselect">
+			
 			<select size="10"  class="_bugclass">
 				<!--{loop $_Data['buglist'] $key $value}-->
 					{if strlen($key) == 1}<option value="$key" {if ($key == substr($bthread[classid],0,1))} selected{/if}>$value</option>{/if}
