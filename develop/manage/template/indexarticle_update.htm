@@ -1,21 +1,24 @@
 <!--{subtemplate common/header}-->
 		<!--{eval include template('header',0, './develop/manage/template');}-->
-		<div class="mgcont">
-			<div class="mgtit">
-				$manageitem_array[$action]
-				<p><a href="manage.php?action=$action&operation=update"{if $operation=='update'} class="select"{/if}>添加</a><a href="manage.php?action=$action&operation=list"{if $operation=='list'} class="select"{/if}>列表</a></p>
+		<div class="mmain">
+			<div class="mhead">
+				<div  class="mheadmenu"><a href="manage.php?action=$action&operation=update"{if $operation=='update'} class="select"{/if}>添加</a><a href="manage.php?action=$action&operation=list"{if $operation=='list'} class="select"{/if}>列表</a></div>
+				<h3>$manageitem_array[$action]</h3>
 			</div>
 <form method="post" autocomplete="off" id="postform" action="manage.php?action={$action}&operation=update" enctype="multipart/form-data">
 	<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
 	<!--{if $_G['gp_id']}-->
 	<input type="hidden" name="id" id="id" value="{$id}" />
 	<!--{/if}-->
-	<h1 id="sti" class="mt"> 
-	<em class="wx " id="returnmessage"><a href="manage.php?action={$action}"> ② 发布新文章</a></em></h1>
-	<!--{if $_G['gp_id']}-->
-	<h1 id="sti" class="mt"> <em class="wx " id="returnmessage"> ③ 编辑文章 </em> : {$article_One[title]} (信息ID:{$_G['gp_id']})</h1>
+	<h1 id="sti" class="mlistboxhead"> 
+	<!--{if !$_G['gp_id']}-->
+	<em class="wx " id="returnmessage">发布新文章</em>
+	<!--{else}-->
+	<em class="wx " id="returnmessage">编辑文章 </em> : {$article_One[title]} (信息ID:{$_G['gp_id']})
 	<!--{/if}-->
-	<div id="postbox">
+	</h1>
+	
+	<div class="mlist">
 		<div class="pbt cl">
 			<p>1.关联主题tid</p>
 			<input type="text" name="article[tid]" id="article_tid" value="{$article_One[tid]}" class="px wd27em" /> <button type="button" id="postsubmit" value="true" name="keysubmit" onclick="readtidajax();">分析关键字/填充内容</button>
@@ -73,7 +76,7 @@
 		</div>
 		<!--{/if}-->
 		<div class="pbt cl">
-			<p>8.标题图（大小：宽310、高145）</p>
+			<p>8.标题图（大小：宽720、高160）</p>
 			<input type="file"  name="titlepic"  class="px wd27em" />	
 		</div>
 
@@ -84,7 +87,7 @@
 		</div>
 		<div class="mtm"> </div>
 		<div class="mtm mbm">
-			<button type="submit" id="postsubmit" class="pn pnc" value="true" name="topicsubmit"><span><!--{if $_G['gp_id']}-->编辑文章<!--{else}-->发布文章<!--{/if}--></span></button>
+			<button type="submit" id="postsubmit" class="bluebutton" value="true" name="topicsubmit"><span><!--{if $_G['gp_id']}-->编辑文章<!--{else}-->发布文章<!--{/if}--></span></button>
 			<input type="hidden" id="postsave" name="save" value="" />
 		</div>
 	</div>

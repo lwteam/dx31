@@ -3,67 +3,63 @@
 
 
 
-		<div class="mgcont">
-
-			<div class="mgtit">
-				$manageitem_array[$action]
-			</div>
+		<div class="mmain">
+		<div class="mhead">
+				<h3>$manageitem_array[$action]</h3>
+		</div>
 			<form method="post" autocomplete="off" action="manage.php?action={$action}&operation=update" enctype="multipart/form-data">
 			<input type="hidden" name="formhash" id="formhash" value="{FORMHASH}" />
-			
-			<table class="distpermission" cellpadding="2" cellspacing="2" border="0" width="100%">
-				<tr  class="tit">
-					<td  colspan="2">我的信息</td>
+			<div class="mlist noborder">
+			<table cellpadding="2" cellspacing="2" width="100%">
+				<tr class="managetablehead">
+					<td class="name">我的马甲昵称</td>
+					<td  ><input type="text" name="myinfo[another]" class="px" value="{$mydata['another']}" />(用户别名)  &nbsp;{echo FieldsCheck('another');}</td>
 				</tr>
-				
-				<tr>
-					<td  class="tit">我的马甲昵称</td>
-					<td  ><input type="text" name="myinfo[another]" value="{$mydata['another']}" />(用户别名)  &nbsp;{echo FieldsCheck('another');}</td>
-				</tr>
-				<tr>
-					<td  class="tit">我的马甲头像</td>
+				<tr class="managetablehead">
+					<td class="name">我的马甲头像</td>
 					<td  ><img src="$mydata['avatar']">
 					<br><input type="file" name="avatar" class="px wd27em"> &nbsp;{echo FieldsCheck('avatar');}</td>
 				</tr>
-				<tr>
-					<td class="tit">隐藏以下真实信息</td>
+				<tr class="managetablehead">
+					<td class="name">隐藏以下真实信息</td>
 					<td >
 						<input type="radio" class="roundbix" name="myinfo[hide]" {if !$mydata['hide']}checked{/if} value="0" onchange="distvar(this.value,this.checked)">否
 						<input type="radio" class="roundbix" name="myinfo[hide]" {if $mydata['hide']}checked{/if} value="1" onchange="distvar(this.value,this.checked)">是
 						
 					 </td>
 				</tr>
-				<tr>
-					<td  class="tit">我的姓名</td>
-					<td  ><input type="text" name="myinfo[name]" value="{$mydata['name']}" disabled/> </td>
+				<tr class="managetablehead">
+					<td class="name">我的姓名</td>
+					<td  ><input type="text" name="myinfo[name]" class="px" value="{$mydata['name']}" disabled/> </td>
 				</tr>
-				<tr>
-					<td  class="tit">我的itcode</td>
-					<td  ><input type="text" name="myinfo[itcode]" value="{$mydata['itcode']}" /> &nbsp;{echo FieldsCheck('itcode');}</td>
+				<tr class="managetablehead">
+					<td class="name">我的itcode</td>
+					<td  ><input type="text" name="myinfo[itcode]" class="px" value="{$mydata['itcode']}" /> &nbsp;{echo FieldsCheck('itcode');}</td>
 				</tr>
-				<tr>
-					<td  class="tit">我的邮箱</td>
-					<td  ><input type="text" name="myinfo[email]" value="{$mydata['email']}" /> &nbsp;{echo FieldsCheck('email');}</td>
+				<tr class="managetablehead">
+					<td class="name">我的邮箱</td>
+					<td  ><input type="text" name="myinfo[email]" class="px" value="{$mydata['email']}" /> &nbsp;{echo FieldsCheck('email');}</td>
 				</tr>
-				<tr>
-					<td  class="tit">我的电话</td>
-					<td  ><input type="text" name="myinfo[phone]" value="{$mydata['phone']}" /> &nbsp;{echo FieldsCheck('phone');}</td>
+				<tr class="managetablehead">
+					<td class="name">我的电话</td>
+					<td  ><input type="text" name="myinfo[phone]" class="px" value="{$mydata['phone']}" /> &nbsp;{echo FieldsCheck('phone');}</td>
 				</tr>
-				<tr>
-					<td  class="tit">我的职位头衔</td>
-					<td  ><input type="text" name="myinfo[title]" value="{$mydata['title']}" /> &nbsp;{echo FieldsCheck('title');}</td>
+				<tr class="managetablehead">
+					<td class="name">我的职位头衔</td>
+					<td  ><input type="text" name="myinfo[title]" class="px" value="{$mydata['title']}" /> &nbsp;{echo FieldsCheck('title');}</td>
 				</tr>
-				<tr>
-					<td  class="tit">我的介绍</td>
+				<tr class="managetablehead">
+					<td class="name">我的介绍</td>
 					<td  ><textarea name="myinfo[message]" class="pt wd27em" style="height:300px" id="article_content">{$mydata['message']}</textarea> &nbsp;{echo FieldsCheck('message');}</td>
 				</tr>
 
-				<tr>
-					<td ></td>
-					<td ><button type="submit" id="postsubmit" class="whitec darkga mfont" value="true" name="topicsubmit"><span>完善我的信息</span></button>
+				<tr class="managetablehead">
+					<td class="name"></td>
+					<td ><button type="submit" id="postsubmit" class="bluebutton" value="true" name="topicsubmit"><span>完善我的信息</span></button>
 					</td>
 				</tr>
 			</table>
+		</div>
 			</form>
 		</div><!-- mgcont -->
 	</div><!-- manage -->

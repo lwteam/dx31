@@ -1,13 +1,13 @@
 <!--{subtemplate common/header}-->
 	<!--{eval include template('header',0, './develop/manage/template');}-->
-	<div class="mgcont">
-		<div class="mgtit">
-			$manageitem_array[$action] / 
+	<div class="mmain">
+			<div class="mhead">
+			<h3>$manageitem_array[$action] / 
 			我的级别:{if $myPermission[dist]==1}产品经理
 			{elseif $myPermission[dist]==2}产品工程师
 			{elseif $myPermission[dist]==3}反馈工程师
-			{elseif $myPermission[dist]==4}信息专员{/if}
-			<p>
+			{elseif $myPermission[dist]==4}信息专员{/if}</h3>
+			<div  class="mheadmenu">
 			<!--{if in_array($myPermission['dist'], array(-1,1,4))}-->
 			<a href="manage.php?action=buglist&operation=list&handling=-1"{if $handling==-1} class="select"{/if}>全部状态</a>
 			<!--{/if}-->
@@ -16,30 +16,30 @@
 				<a href="manage.php?action=buglist&operation=list&handling=$k"{if $handling==$k} class="select"{/if}>$v[title]</a>
 				<!--{/if}-->
 			<!--{/loop}-->
-			</p>
+			</div>
 		</div>
+
+		<div class="mlist">
 		
-		<table class="buglisttable qtipload" cellpadding="0" cellspacing="0" border="0">
-		<tr class="tit">
-			<td width="20"></td>
-			<td width="80" class="left">分类</td>
-			<td width="80" class="left">遇到人数</td>
-			<td  class="left">标题</td>
-			<td width="100">机型</td>
-			<td width="100">版本</td>
-			<td width="120">创建时间</td>
-			<td  width="100" class="left">当前流程</td>
-			<td  width="100" class="left">处理人</td>
-			<td  width="160" class="left">操作</td>
+		<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr class="managetablehead">
+			<td width="8%">分类</td>
+			<td width="5%">遇到</td>
+			<td width="25%">标题</td>
+			<td width="5%">机型</td>
+			<td width="5%">版本</td>
+			<td width="8%">创建时间</td>
+			<td width="8%">当前流程</td>
+			<td width="8%">处理人</td>
+			<td width="8%">操作</td>
 		</tr>
 		<!--{if $buglists}-->
 		<!--{loop $buglists $i $value}-->
 
-		<tr{if $i%2==1} class="diff"{/if}>
-			<td></td>
-			<td class="left"><b>$_Data['buglist'][$value[classid]]</b></td>
-			<td class="left">$value[samenum]人</td>
-		    <td class="left _qtip_tr">
+		<tr>
+			<td class="first"><b>$_Data['buglist'][$value[classid]]</b></td>
+			<td>$value[samenum]人</td>
+		    <td class="_qtip_tr">
 				<a href="forum.php?mod=viewthread&fid=$value[fid]&tid=$value[tid]" target="_blank" title="提问人: $value[author] 浏览量:$value[views]  回复数:$value[replies] ">$value[subject]</a>
 				<!--{if $value['note']}-->
 				<span class="buglist_note" title="[ {$value['note']['username']} ] $value['note']['name'] $value['note']['itcode'] {echo date('Y-m-d H:i',$value[note][dateline]);} 备注">$value['note']['message']</span>
@@ -51,41 +51,41 @@
 			</td>
 			<td>$BugOption[hardware][$value[hardware]][title]</td>
 			<td>$BugOption[version][$value[version]][title]</td>
-			<td class="left _qtip_tr"><span title="问题创建时间: {echo date('Y-m-d H:i',$value[dateline]);}">{echo date('m-d H:i',$value[dateline]);}</span></td>
-			<td  class="left">
+			<td class="_qtip_tr"><span title="问题创建时间: {echo date('Y-m-d H:i',$value[dateline]);}">{echo date('m-d H:i',$value[dateline]);}</span></td>
+			<td>
 			<!--{loop $_Data['buglist_handling'] $k $v}-->
 				<!--{if $k == $value['handling']}-->
 				<span class="handling" style="color:$v[color]">$v[title]</span> 
 				<!--{/if}-->
 			<!--{/loop}-->
 			</td>
-			<td  class="left _qtip_lc">
+			<td  class="_qtip_lc">
 			<a href="home.php?mod=space&uid=$value['handlingarray']['uid']" title="[ {$value['handlingarray']['username']} ] $value['handlingarray']['name'] $value['handlingarray']['itcode']  {echo date('Y-m-d H:i',$value['handlingarray']['dateline']);}
 			">$value['handlingarray']['name']</a></td>
-			<td class="left _qtip_lc">
-			<a onclick="BMDialog.property($value[tid],'#show_$value[tid]');" href="javascript:void(0);" >查看属性</a>
+			<td class="_qtip_lc last">
+			<a onclick="BMDialog.property($value[tid],'#show_$value[tid]');" href="javascript:void(0);" class="bluesmallbutton" >属性</a>
 			<!--{if  BugWorkPerm($myPermission,$value)}-->
-				<a  onclick="BMDialog.get(this,$value[tid]);" href="javascript:void(0);" title="处理该问题的流程">处理</a>
+				<a  onclick="BMDialog.get(this,$value[tid]);" href="javascript:void(0);" title="处理该问题的流程" class="bluesmallbutton">处理</a>
 				<!--{if $value['handling'] != 3}-->
-				 <a onclick="BMDialog.get(this,$value[tid],'supply');" href="javascript:void(0);" title="操作让用户补充信息">补充</a>
+				 <a onclick="BMDialog.get(this,$value[tid],'supply');" href="javascript:void(0);" title="操作让用户补充信息" class="bluesmallbutton">补充</a>
 				<!--{/if}-->
-				<a onclick="BMDialog.get(this,$value[tid],'note');" href="javascript:void(0);" title="对信息进行后台备注,备注的内容显示在标题后">备注</a>
+				<a onclick="BMDialog.get(this,$value[tid],'note');" href="javascript:void(0);" title="对信息进行后台备注,备注的内容显示在标题后" class="bluesmallbutton">备注</a>
 			<!--{/if}-->
 			</td>
 		</tr>
 
-		<tr >
-			<td id="show_$value[tid]" style="display:none" colspan="10">查询不到任何数据</th>
+		<tr style="display:none">
+			<td id="show_$value[tid]" style="display:none" colspan="9">查询不到任何数据</th>
 		</tr>
 
 		<!--{/loop}-->
 		<!--{else}-->
-		<tr>
-			<td colspan="10">查询不到任何数据</th>
+		<tr class="managetablehead">
+			<td colspan="9">查询不到任何数据</th>
 		</tr>
 		<!--{/if}-->
 		</table>
-
+</div>
 	</div><!-- mgcont -->
 </div><!-- manage -->
 
