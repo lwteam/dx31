@@ -46,53 +46,6 @@ function MyCompletion($myPermission){
 
 
 
-function BugWorkPerm($myPermission,$onebuglist,$handling = NULL){
-
-	$ishave = FALSE;
-
-	if($onebuglist['handling'] == 0){
-		//新提交
-		if($handling == 0 || $handling == 1 || $handling == 4 || $handling === NULL ){
-			// 查看权限
-			if (in_array($myPermission['dist'], array(1,3,4))) {
-				$ishave = TRUE;
-			}
-		}
-	}elseif($onebuglist['handling'] == 1){
-
-		//待解决
-
-		if($handling == 1 || $handling == 2 || $handling == 3 || $handling === NULL ){
-			// 查看权限
-			if (in_array($myPermission['dist'], array(2))) {
-				$ishave = TRUE;
-			}
-		}
-
-
-	}elseif($onebuglist['handling']== 2){
-		//正在解决
-		if($handling == 2 || $handling == 3 || $handling === NULL ){
-			// 查看权限
-			if (in_array($myPermission['dist'], array(2)) && $onebuglist['douid']==$myPermission['uid']) {
-				$ishave = TRUE;
-			}
-		}
-	}elseif($onebuglist['handling'] == 3){
-		//已经解决
-		if($handling == 3 || $handling == 4 || $handling === NULL ){
-			//
-			if (in_array($myPermission['dist'], array(1,3,4)) && $onebuglist['touid']==$myPermission['uid']) {
-				$ishave = TRUE;
-			}
-		}
-
-	}elseif($onebuglist['handling'] == 4){
-
-	}
-
-	return $ishave;
-}
 
 function BugClassSelect($id,$limitid = 0 ) {
 	global $_Data;

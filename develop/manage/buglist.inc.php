@@ -56,7 +56,7 @@ if($operation == 'supply'){
 		$response['error'] = '不存在的问题,请确认操作';
 		$template = 'buglist_error';
 	}else{
-		$HavePerm = BugWorkPerm($myPermission,$onebuglist);
+		$HavePerm = Library::BugWorkPerm($myPermission,$onebuglist);
 		if (!$message && $_POST) {
 			$response['error'] = '请填写用户需要补充信息的原因,请确认操作';
 			$template = 'buglist_error';
@@ -160,7 +160,7 @@ if($operation == 'supply'){
 		$response['error'] = '不存在的问题,请确认操作';
 		$template = 'buglist_error';
 	}else{
-		$HavePerm = BugWorkPerm($myPermission,$onebuglist);
+		$HavePerm = Library::BugWorkPerm($myPermission,$onebuglist);
 		if (!$note && $_POST) {
 			$response['error'] = '请填写用户需要补充信息的原因,请确认操作';
 			$template = 'buglist_error';
@@ -217,7 +217,7 @@ if($operation == 'supply'){
 		$template = 'buglist_error';
 	}else{
 		
-		$HavePerm = BugWorkPerm($myPermission,$onebuglist,$handling);
+		$HavePerm = Library::BugWorkPerm($myPermission,$onebuglist,$handling);
 		if (!$HavePerm) {
 			$response['error'] = '您没有权限处理该问题,请确认操作';
 			$template = 'buglist_error';

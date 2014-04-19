@@ -114,18 +114,18 @@ if($operation == 'delete'){
 				}
 			}
 
-			$buguser = DB::fetch_first("SELECT * FROM ".DB::table('buglist_user')." WHERE `uid`='{$member[uid]}' LIMIT 1");
+			$buguser = DB::fetch_first("SELECT * FROM ".DB::table('buglist_user')." WHERE `uid`='$member[uid]' LIMIT 1");
 
 			if($Permission['dist']>0){
 				if(!$buguser){
 					DB::query("INSERT INTO  ".DB::table('buglist_user')."  
-					(`uid`, `username`, `dateline`, `name`, `dist`, `distuid`) VALUES  
-					('$member[uid]', '$member[username]', '$_G[timestamp]', '{$Permission[name]}', '{$Permission[dist]}', '{$myPermission[uid]}')");
+					(`uid`, `username`, `dateline`, `name`, `team`, `dist`, `distuid`) VALUES  
+					('$member[uid]', '$member[username]', '$_G[timestamp]', '$Permission[name]','$Permission[team]', '$Permission[dist]', '$myPermission[uid]')");
 				}else{
-					DB::query("UPDATE  ".DB::table('buglist_user')."  SET `name`='$Permission[name]' WHERE (`uid`='$member[uid]')");
+					DB::query("UPDATE  ".DB::table('buglist_user')."  SET `name`='$Permission[name]',`team`='$Permission[team]' WHERE (`uid`='$member[uid]')");
 				}
 			}elseif($buguser){
-				DB::query("DELETE FROM ".DB::table('buglist_user')." WHERE `uid`='{$member[uid]}' LIMIT 1");
+				DB::query("DELETE FROM ".DB::table('buglist_user')." WHERE `uid`='$member[uid]' LIMIT 1");
 			}
 
 			showmessage('系统权限已经更新', 'manage.php?action=manage');

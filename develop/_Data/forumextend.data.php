@@ -1,10 +1,10 @@
 <?php
 
 $_Data['forumextend'] = array(
-	'model'=>array(747,746,745,744),
+	'model'=>array(255),
 	'vibeui'=>array(665),
 	'apps'=>array(255),
-	'portal'=>array(743)
+	'portal'=>array(744,738)
 );
 /*
 

@@ -182,18 +182,17 @@ class BugListScript {
 
 	
 
-				if ($bthread['handling']>0) {
-					$query = DB::query("SELECT * FROM ".DB::table('buglist_log')." bl
-					LEFT JOIN  ".DB::table('buglist_user')." bu USING(uid) WHERE bl.tid='{$_G['thread']['tid']}' ORDER BY bl.`dateline` DESC");
-					while($value = DB::fetch($query)) {
-						//转换全部状态信息
-						$value['handlings'] = unserialize($value['handlings']);
-						$value['handlingtxt'] = $_Data['buglist_handling'][$value['handling']]['title'];
-						
-						$value['note'] = unserialize($value['note']);
-						$bthread['hlog'][] = $value;
-					}
+				$query = DB::query("SELECT bl.*,bu.dist,bu.avatar,bu.title FROM ".DB::table('buglist_log')." bl
+				LEFT JOIN  ".DB::table('buglist_user')." bu USING(uid) WHERE bl.tid='{$_G['thread']['tid']}' ORDER BY bl.`dateline` DESC");
+				while($value = DB::fetch($query)) {
+					//转换全部状态信息
+					$value['handlings'] = unserialize($value['handlings']);
+					$value['handlingtxt'] = $_Data['buglist_handling'][$value['handling']]['title'];
+					
+					$value['note'] = unserialize($value['note']);
+					$bthread['hlog'][] = $value;
 				}
+				
 				global $BugOption;
 				foreach (array('hardware','version' ) as $value) {
 					$query = DB::query("SELECT * FROM ".DB::table('buglist_'.$value).' ORDER BY id DESC');

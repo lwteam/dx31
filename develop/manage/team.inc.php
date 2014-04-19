@@ -24,6 +24,8 @@ if($myPermission['dist']!=1){
 $myPermission = PermissionLine($myPermission);
 
 
+
+
 if($operation == 'delete'){
 	//删除
 	$Permission = DB::fetch_first("SELECT * FROM ".DB::table('manage_user')." WHERE `uid`='{$_GET[id]}' LIMIT 1");
@@ -39,6 +41,9 @@ if($operation == 'delete'){
 
 }elseif($operation == 'update'){
 	$loadtemplate = 'team_update';
+
+	$teamname = DB::result_first("SELECT team FROM ".DB::table('buglist_user')." WHERE `uid`='$_G[uid]' LIMIT 1");
+
 
 	if($id){
 		//编辑
@@ -146,8 +151,8 @@ if($operation == 'delete'){
 			if($Permission['dist']>0){
 				if(!$buguser){
 					DB::query("INSERT INTO  ".DB::table('buglist_user')."  
-					(`uid`, `username`, `dateline`, `name`, `dist`, `distuid`) VALUES  
-					('$member[uid]', '$member[username]', '$_G[timestamp]', '{$Permission[name]}', '{$Permission[dist]}', '{$myPermission[uid]}')");
+					(`uid`, `username`, `dateline`, `name`, `team`, `dist`, `distuid`) VALUES  
+					('$member[uid]', '$member[username]', '$_G[timestamp]', '$Permission[name]','$teamname', '$Permission[dist]', '{$myPermission[uid]}')");
 				}else{
 					DB::query("UPDATE  ".DB::table('buglist_user')."  SET `name`='$Permission[name]',`dist`='$Permission[dist]' WHERE (`uid`='$member[uid]')");
 				}

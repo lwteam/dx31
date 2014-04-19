@@ -14,7 +14,7 @@ if(!defined('IN_DISCUZ')) {
 
 $loadtemplate = 'userinfo';
 //必须填写的用户POST字段
-$FieldsMustComplete = array('another'=>0,'avatar'=>1, 'itcode'=>1, 'email'=>1, 'phone'=>1, 'title'=>1, 'message'=>1, 'hide'=>0);
+$FieldsMustComplete = array('another'=>0,'avatar'=>1, 'itcode'=>1, 'email'=>1, 'phone'=>1, 'title'=>1, 'hide'=>0);
 
 
 
@@ -45,6 +45,7 @@ if($_POST){
 			$mydata[$key] = $value;
 		}
 	}
+	unset($mydata['name'],$mydata['team']);
 
 	if(!$error){
 

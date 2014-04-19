@@ -49,14 +49,14 @@ class ForumExtendScript {
 			}
 
 			$fups = $_Data['forumextend'][$operation];
-			$fupsids = join(',',$fups);
+			$fupfids = join(',',$fups);
 
 
 			//使用缓存
 			if(($catlist = discuz_table::fetch_cache(0, 'catlist_'.$operation)) === false){
 				$forums = DB::fetch_all("SELECT ff.*, f.* FROM ".DB::table('forum_forum')." f 
 						LEFT JOIN ".DB::table('forum_forumfield')." ff USING (fid) 
-					WHERE f.status='1' AND (f.fup IN ($fupsids) || f.fid IN ($fupsids) ) 
+					WHERE f.status='1' AND (f.fup IN ($fupfids) || f.fid IN ($fupfids) ) 
 						AND f.type IN ('forum','group') ORDER BY f.type,f.displayorder");
 				foreach($forums as $forum) {
 					$forumname[$forum['fid']] = strip_tags($forum['name']);
@@ -108,7 +108,7 @@ class ForumExtendScript {
 				//热门论坛
 				if(($HotForums = discuz_table::fetch_cache(0, 'HotForums_'.$operation)) === false){
 					$HotForums = DB::fetch_all("SELECT  f.* FROM ".DB::table('forum_forum')." f 
-					WHERE f.type='forum' AND f.fup IN ($fupsids) ORDER BY f.todayposts LIMIT 10");
+					WHERE f.type='forum' AND f.fup IN ($fupfids) ORDER BY f.todayposts LIMIT 10");
 					discuz_table::store_cache(0, $HotForums, 7200 , 'HotForums_'.$operation);
 				}
 				//推荐主题
