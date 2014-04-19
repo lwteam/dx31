@@ -6,7 +6,7 @@
 			<small title="{echo date('Y-m-d H:i',$value[dateline]);}">{echo date('m-d H:i',$value[dateline]);}</small><i></i>
 			<strong>
 			<!--{if $value[dist]}-->
-				<!--{if !$value[hide]||$value[itcode]}-->$value[name]<!--{else}-->$value[another]<!--{/if}-->
+				<!--{if !$value[hide]||$value[itcode]}-->$value[name] / $value[itcode]<!--{else}-->$value[another]<!--{/if}-->
 			<!--{else}-->
 				$value[username]
 			<!--{/if}-->
