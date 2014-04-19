@@ -35,52 +35,49 @@
 		<!--{if $_GET[action] == 'edit' && $isfirstpost && $thread['displayorder'] == -4}--> <span>({lang draft})</span><!--{/if}-->
 </div>
 
-	<!--{if BUGLIST =='post'}-->
-	<style>
-	._dis {display:none}
-	.buglist-cselect select{width:160px;height:100px;}
-	</style>
-	<div class="exfm cl _bug">
-		<div class="sinf sppoll z">
-			<input type="hidden" name="classid"  id="classid" value="$bthread[classid]">
-			<input type="hidden" name="btid"  id="btid" value="$bthread[tid]">
-			反馈问题选项
-			<p>
-				分类:
-				<span>
-				<!--{if $bthread[classid]}-->
-				<!--{eval $bfid = substr($bthread[classid],0,1);}-->
-				{$_Data['buglist'][$bfid]}   &gt;   {$_Data['buglist'][$bthread[classid]]}
+<!--{if BUGLIST =='post'}-->
+<style>
+._dis {display:none}
+.buglist-cselect select{width:160px;height:100px;}
+</style>
+<div class="exfm cl _bug">
+	<div class="sinf sppoll z">
+		<input type="hidden" name="classid"  id="classid" value="$bthread[classid]">
+		<input type="hidden" name="btid"  id="btid" value="$bthread[tid]">
+		反馈问题选项
+		<p>
+			分类:
+			<span>
+			<!--{if $bthread[classid]}-->
+			<!--{eval $bfid = substr($bthread[classid],0,1);}-->
+			{$_Data['buglist'][$bfid]}   &gt;   {$_Data['buglist'][$bthread[classid]]}
+			<!--{/if}-->
+			</span>
+		</p>
+		<div class="buglist-cselect">
+			<select size="10"  class="_bugclass">
+				<!--{loop $_Data['buglist'] $key $value}-->
+					{if strlen($key) == 1}<option value="$key" {if ($key == substr($bthread[classid],0,1))} selected{/if}>$value</option>{/if}
+				<!--{/loop}-->
+			</select>
+			<!--{eval $topid = 0;}-->
+			<!--{loop $_Data['buglist'] $key $value}-->
+				<!--{if strlen($key) == 1}-->
+					<!--{if $topid != $key}-->
+						<!--{if $topid >0}--></select><!--{/if}-->
+						<select size="10" class="_bugsclass _bugsclass{$key}{if ($key != substr($bthread[classid],0,1))} _dis{/if}">
+					<!--{/if}-->
+				<!--{else}-->
+					<option value="$key" {if $bthread[classid] == $key} selected{/if}>$value</option>
 				<!--{/if}-->
-				</span>
-			</p>
-			<div class="buglist-cselect">
-
-<select size="10"  class="_bugclass">
-	<!--{loop $_Data['buglist'] $key $value}-->
-		{if strlen($key) == 1}<option value="$key" {if ($key == substr($bthread[classid],0,1))} selected{/if}>$value</option>{/if}
-	<!--{/loop}-->
-</select>
-
-
-<!--{eval $topid = 0;}-->
-<!--{loop $_Data['buglist'] $key $value}-->
-	<!--{if strlen($key) == 1}-->
-		<!--{if $topid != $key}-->
-			<!--{if $topid >0}--></select><!--{/if}-->
-			<select size="10" class="_bugsclass _bugsclass{$key}{if ($key != substr($bthread[classid],0,1))} _dis{/if}">
-		<!--{/if}-->
-	<!--{else}-->
-		<option value="$key" {if $bthread[classid] == $key} selected{/if}>$value</option>
-	<!--{/if}-->
-	<!--{eval $topid = substr($key,0,1);}-->
-<!--{/loop}-->
-</select>
-			</div>
+				<!--{eval $topid = substr($key,0,1);}-->
+			<!--{/loop}-->
+			</select>
 		</div>
-		<div class="sadd z _bugattr">Loading....</div>
 	</div>
-	<!--{/if}-->
+	<div class="sadd z _bugattr">Loading....</div>
+</div>
+<!--{/if}-->
 
 <div id="attachnotice_attach" class=" mbm locked" style="display:none">
 	{lang you_have} <span id="unusednum_attach"></span> {lang attach_unused} &nbsp; <a href="javascript:;" class="xi2" onclick="attachoption('attach', 2);" />{lang attach_view}</a><span class="pipe">|</span><a href="javascript:;" class="xi2" onclick="attachoption('attach', 1)">{lang attach_use}</a><span class="pipe">|</span><a href="javascript:;" class="xi2" onclick="attachoption('attach', 0)">{lang attach_delete}</a>

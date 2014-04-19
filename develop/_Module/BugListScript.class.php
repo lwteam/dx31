@@ -20,7 +20,7 @@ class BugListScript {
 			}elseif (defined('CURSCRIPT') && CURSCRIPT == 'forum' && defined('CURMODULE') && CURMODULE == 'viewthread' &&  $_G['fid'] == $_Data['buglistfid'] ) {
 				$this->action = 'viewthread';
 				return true;
-			}elseif (defined('CURSCRIPT') && CURSCRIPT == 'forum' && defined('CURMODULE') && CURMODULE == 'post' &&  $_G['fid'] == $_Data['buglistfid'] ) {
+			}elseif (defined('CURSCRIPT') && CURSCRIPT == 'forum' && defined('CURMODULE') && CURMODULE == 'post' &&  $_G['fid'] == $_Data['buglistfid'] && $_GET['action']=='newthread') {
 				$this->action = 'post';
 				return true;
 			}else{
@@ -29,7 +29,7 @@ class BugListScript {
 			}
 		}elseif ($this->point == 'output') {
 				
-			if (defined('CURSCRIPT') && CURSCRIPT == 'forum' && defined('CURMODULE') && CURMODULE == 'post' &&  $_G['fid'] == $_Data['buglistfid'] ) {
+			if (defined('CURSCRIPT') && CURSCRIPT == 'forum' && defined('CURMODULE') && CURMODULE == 'post' &&  $_G['fid'] == $_Data['buglistfid'] && $_GET['action']=='newthread') {
 				$this->action = 'post';
 					
 				return true;

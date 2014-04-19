@@ -23,7 +23,7 @@
 	<!--{/if}-->
 	<!--{loop $bugattrlist $i $value}-->
 	<div class="bip">
-		<p class="bip-t">$value[title] (<!--{if $value[must]}-->必填<!--{/if}-->)</p>
+		<p class="bip-t">$value[title] (<!--{if $value[must]}-->必填<!--{else}-->选填<!--{/if}-->)</p>
 		<!--{if $value['inputtype']}-->
 			<select class="bip-s" id="$value[elementid]" size="1" name="bugattr[{$value[id]}]">
 			<!--{loop $value['selectlist'] $opkey $opval}-->
