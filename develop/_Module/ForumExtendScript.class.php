@@ -104,11 +104,14 @@ class ForumExtendScript {
 			}
 
 			if (($operation == 'model' || $operation == 'apps') && !$_G['fid']) {
-				if(($HotModels = discuz_table::fetch_cache(0, 'HotModels_'.$operation)) === false){
-					$HotModels = DB::fetch_all("SELECT  f.* FROM ".DB::table('forum_forum')." f 
+
+				//热门论坛
+				if(($HotForums = discuz_table::fetch_cache(0, 'HotForums_'.$operation)) === false){
+					$HotForums = DB::fetch_all("SELECT  f.* FROM ".DB::table('forum_forum')." f 
 					WHERE f.type='forum' AND f.fup IN ($fupsids) ORDER BY f.todayposts LIMIT 10");
-					discuz_table::store_cache(0, $HotModels, 7200 , 'HotModels_'.$operation);
+					discuz_table::store_cache(0, $HotForums, 7200 , 'HotForums_'.$operation);
 				}
+				//推荐主题
 				if(($RecomThreads = discuz_table::fetch_cache(0, 'RecomThreads_'.$operation)) === false){
 					$opfids_csv = join(',',$opfids);
 					$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE fid IN ($opfids_csv) AND `position` IN('0','1') ORDER BY displayorder  LIMIT 10");
@@ -123,8 +126,8 @@ class ForumExtendScript {
 				}
 			}
 
-			if (  constant('CURMODULE') != 'viewthread') {
-
+			if ( constant('CURMODULE') != 'viewthread') {
+				// 热门主题
 				if(($HotThreads = discuz_table::fetch_cache(0, 'HotThreads_'.$operation)) === false){
 					$selectfids_csv = join(',',$opfids);
 					$selecttime = strtotime("-7 days");
@@ -155,6 +158,36 @@ class ForumExtendScript {
 					}
 				}
 			}
+			if ($_G['forum']['type'] == 'forum') {
+				$_G['dforum'] = $_G['forum'];
+			}elseif ($_G['forum']['type'] == 'sub') {
+				global $sublist;
+
+				$_G['dforum'] = $_G['cache']['forums'][$_G['forum']['fup']];
+
+				$sublist = array();
+				$query = C::t('forum_forum')->fetch_all_info_by_fids(0, 'available', 0, $_G['forum']['fup'], 1, 0, 0, 'sub');
+
+				if(!empty($_G['member']['accessmasks'])) {
+					$fids = array_keys($query);
+					$accesslist = C::t('forum_access')->fetch_all_by_fid_uid($fids, $_G['uid']);
+					foreach($query as $key => $val) {
+						$query[$key]['allowview'] = $accesslist[$key];
+					}
+				}
+				foreach($query as $sub) {
+					$sub['extra'] = dunserialize($sub['extra']);
+					if(!is_array($sub['extra'])) {
+						$sub['extra'] = array();
+					}
+					if(forum($sub)) {
+						$sub['orderid'] = count($sublist);
+						$sublist[] = $sub;
+					}
+				}
+					
+			}
+
 				
 		}elseif(constant('CURMODULE')  == 'index'){
 			dheader("Location: ./");

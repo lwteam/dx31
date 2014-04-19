@@ -13,7 +13,9 @@
 		<div class="bbsinfo">
 				<div class="bbsinfoabout">
 					<div class="bbsinfoname">
-						<h1><a href="forum.php?mod=forumdisplay&fid=$_G[fid]">$_G['forum'][name]</a><small>官方论坛</small></h1>
+						<h1><a href="forum.php?mod=forumdisplay&fid=$_G[dforum][fid]">$_G[dforum][name]</a>
+						<!--{if in_array(constant('TopPoint'),array('model','vibeui','apps'))}-->
+						<small>官方论坛</small><!--{/if}--></h1>
 					</div>
 					<!--{template forum/forumdisplay_subforum}-->
 				</div>

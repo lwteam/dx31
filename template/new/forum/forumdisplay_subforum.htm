@@ -1,11 +1,12 @@
 
 <div class="bbsinfomenu">
 
+<a{if $_G['fid']==$_G['dforum']['fid']} class="on"{/if} href="forum.php?mod=forumdisplay&fid=$_G[dforum][fid]" {if !empty($_G[dforum][redirect])}target="_blank"{/if}><h2>主列表<!--{if $_G[dforum][todayposts] && !$_G[dforum]['redirect']}--><em title="{lang forum_todayposts}">$_G[dforum][todayposts]</em><!--{/if}--></h2></a>
+
 <!--{loop $sublist $sub}-->
 <!--{eval $forumurl = !empty($sub['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$sub['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$sub['fid'];}-->
-<!--{if $_G['forum']['forumcolumns']}-->
-<!--{else}-->
-<a href="$forumurl" {if !empty($sub[redirect])}target="_blank"{/if}><h2>$sub[name]<!--{if $sub[todayposts] && !$sub['redirect']}--><em title="{lang forum_todayposts}">$sub[todayposts]</em><!--{/if}--></h2></a>
-<!--{/if}-->
+
+<a{if $_G['fid']==$sub['fid']} class="on"{/if} href="$forumurl" {if !empty($sub[redirect])}target="_blank"{/if}><h2>$sub[name]<!--{if $sub[todayposts] && !$sub['redirect']}--><em title="{lang forum_todayposts}">$sub[todayposts]</em><!--{/if}--></h2></a>
+
 <!--{/loop}-->
 </div>

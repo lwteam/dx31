@@ -243,10 +243,10 @@ class ArticleScript {
 			$multipage = multi($TotalNum, $pagenum, $page, "forum.php?mod=forumdisplay&fid=$_G[fid]", $_G['setting']['threadmaxpages']);
 			
 
-			if(($HotModels = discuz_table::fetch_cache(0, 'HotModels_index')) === false){
-				$HotModels = DB::fetch_all("SELECT  f.* FROM ".DB::table('forum_forum')." f 
+			if(($HotForums = discuz_table::fetch_cache(0, 'HotForums_index')) === false){
+				$HotForums = DB::fetch_all("SELECT  f.* FROM ".DB::table('forum_forum')." f 
 				WHERE f.type='forum'  ORDER BY f.todayposts LIMIT 10");
-				discuz_table::store_cache(0, $HotModels, 7200 , 'HotModels_index');
+				discuz_table::store_cache(0, $HotForums, 7200 , 'HotForums_index');
 			}
 			if(($RecomThreads = discuz_table::fetch_cache(0, 'RecomThreads_index')) === false){
 				$opfids_csv = join(',',$opfids);
@@ -262,17 +262,11 @@ class ArticleScript {
 				discuz_table::store_cache(0, $RecomThreads, 7200 , 'RecomThreads_index');
 			}
 
-				if(($HotThreads = discuz_table::fetch_cache(0, 'HotThreads_index')) === false){
-
-					$selecttime = strtotime("-7 days");
-
-					$HotThreads = DB::fetch_all("SELECT * FROM ".DB::table('forum_thread')." WHERE dateline>'$selecttime' AND `displayorder` IN('0','1','2','3','4') ORDER BY `replies` DESC LIMIT 10");
-					discuz_table::store_cache(0, $HotThreads, 43200 , 'HotThreads_index');
-				}
-
-
-
-
+			if(($HotThreads = discuz_table::fetch_cache(0, 'HotThreads_index')) === false){
+				$selecttime = strtotime("-7 days");
+				$HotThreads = DB::fetch_all("SELECT * FROM ".DB::table('forum_thread')." WHERE dateline>'$selecttime' AND `displayorder` IN('0','1','2','3','4') ORDER BY `replies` DESC LIMIT 10");
+				discuz_table::store_cache(0, $HotThreads, 43200 , 'HotThreads_index');
+			}
 			include template('article/index');
 			exit;
 		}
