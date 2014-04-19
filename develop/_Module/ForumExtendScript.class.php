@@ -24,7 +24,10 @@ class ForumExtendScript {
 			}
 			discuz_table::store_cache(0, $_Data['forumextend_fup'], 86400 , 'forumextend_fup');
 		}
-		if (defined('CURSCRIPT') && constant('CURSCRIPT')  == 'forum') {
+
+
+
+		if (defined('CURSCRIPT') && constant('CURSCRIPT')  == 'forum' && in_array(constant('CURMODULE'),array('index','forumdisplay','viewthread'))) {
 			return true;
 		}else{
 			return false;
@@ -36,36 +39,32 @@ class ForumExtendScript {
 		
 		require_once libfile('function/forumlist');
 
-		if (in_array($_GET['operation'], array('model','vibeui','apps','portal'))) {
-			$operation = $_GET['operation'];
+		$operation = $_GET['operation'];
+		if (in_array($operation, array('model','vibeui','apps','portal'))) {
+			
 			define('TopPoint',$operation);
 
 			if (!isset($_Data['forumextend'][$operation]) || !$_Data['forumextend'][$operation]) {
 				return;
 			}
 
+			$fups = $_Data['forumextend'][$operation];
+			$fupsids = join(',',$fups);
+
+
 			//使用缓存
 			if(($catlist = discuz_table::fetch_cache(0, 'catlist_'.$operation)) === false){
-				$fups = $_Data['forumextend'][$operation];
-				$fupsids = join(',',$fups);
-
 				$forums = DB::fetch_all("SELECT ff.*, f.* FROM ".DB::table('forum_forum')." f 
 						LEFT JOIN ".DB::table('forum_forumfield')." ff USING (fid) 
 					WHERE f.status='1' AND (f.fup IN ($fupsids) || f.fid IN ($fupsids) ) 
 						AND f.type IN ('forum','group') ORDER BY f.type,f.displayorder");
-
-
-	
 				foreach($forums as $forum) {
-
 					$forumname[$forum['fid']] = strip_tags($forum['name']);
 					$forum['extra'] = empty($forum['extra']) ? array() : dunserialize($forum['extra']);
 					if(!is_array($forum['extra'])) {
 						$forum['extra'] = array();
 					}
-
 					if($forum['type'] != 'group') {
-
 						$threads += $forum['threads'];
 						$posts += $forum['posts'];
 						$todayposts += $forum['todayposts'];
@@ -77,7 +76,6 @@ class ForumExtendScript {
 								$forum['subforums'] = '';
 								$forumlist[$forum['fid']] = $forum;
 							}
-
 						} elseif(isset($forumlist[$forum['fup']])) {
 
 							$forumlist[$forum['fup']]['threads'] += $forum['threads'];
@@ -88,7 +86,7 @@ class ForumExtendScript {
 								$forumlist[$forum['fup']]['subforums'] .= (empty($forumlist[$forum['fup']]['subforums']) ? '' : ', ').'<a href="'.$forumurl.'" '.(!empty($forum['extra']['namecolor']) ? ' style="color: ' . $forum['extra']['namecolor'].';"' : '') . '>'.$forum['name'].'</a>';
 							}
 						}
-
+						$opfids[] = $forum['fid'];
 					} else {
 
 						if($forum['moderators']) {
@@ -96,43 +94,71 @@ class ForumExtendScript {
 						}
 						$forum['forumscount'] 	= 0;
 						$catlist[$forum['fid']] = $forum;
-
 					}
 				}
 				unset( $forum_fields);
-
-
 				discuz_table::store_cache(0, $catlist, 86400 , 'catlist_'.$operation);
+				discuz_table::store_cache(0, $opfids, 86400 , 'Opfids_'.$operation);
+			}else{
+				$opfids = discuz_table::store_cache(0, $opfids, 86400 , 'Opfids_'.$operation);
 			}
 
+			if (($operation == 'model' || $operation == 'apps') && !$_G['fid']) {
+				if(($HotModels = discuz_table::fetch_cache(0, 'HotModels_'.$operation)) === false){
+					$HotModels = DB::fetch_all("SELECT  f.* FROM ".DB::table('forum_forum')." f 
+					WHERE f.type='forum' AND f.fup IN ($fupsids) ORDER BY f.todayposts LIMIT 10");
+					discuz_table::store_cache(0, $HotModels, 7200 , 'HotModels_'.$operation);
+				}
+				if(($RecomThreads = discuz_table::fetch_cache(0, 'RecomThreads_'.$operation)) === false){
+					$opfids_csv = join(',',$opfids);
+					$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE fid IN ($opfids_csv) AND `position` IN('0','1') ORDER BY displayorder  LIMIT 10");
+					while($thread = DB::fetch($query)) {
+						$imgd = explode("\t", $thread['filename']);
+						if($imgd[0] && $imgd[3]) {
+							$thread['filename'] = getforumimg($imgd[0], 0, $imgd[1], $imgd[2]);
+						}
+						$RecomThreads[] =$thread;
+					}
+					discuz_table::store_cache(0, $RecomThreads, 7200 , 'RecomThreads_'.$operation);
+				}
+			}
+
+			if (  constant('CURMODULE') != 'viewthread') {
+
+				if(($HotThreads = discuz_table::fetch_cache(0, 'HotThreads_'.$operation)) === false){
+					$selectfids_csv = join(',',$opfids);
+					$selecttime = strtotime("-7 days");
+
+					$HotThreads = DB::fetch_all("SELECT * FROM ".DB::table('forum_thread')." WHERE fid in ($selectfids_csv) AND dateline>'$selecttime' AND `displayorder` IN('0','1','2','3','4') ORDER BY `replies` DESC LIMIT 10");
+					discuz_table::store_cache(0, $HotThreads, 43200 , 'HotThreads_'.$operation);
+				}
+			}
 				
 			include template('forum/discuz');
 			exit;
 		}elseif ($_G['fid']) {
-			if ($_G['fid'] != $_Data['buglistfid'] && $_G['forum'] && $_Data['forumextend_fup'][$_G['forum']['fup']]) {
-				define('TopPoint',$_Data['forumextend_fup'][$_G['forum']['fup']]);
-				if(constant('TopPoint')  == 'vibeui'){
-					loadcache('product');
+			if ($_G['forum']['type'] != 'group') {
+				if ($_G['fid'] != $_Data['buglistfid'] && $_G['forum'] && $_Data['forumextend_fup'][$_G['forum']['fup']]) {
+					define('TopPoint',$_Data['forumextend_fup'][$_G['forum']['fup']]);
+					if(constant('TopPoint')  == 'vibeui'){
+						loadcache('product');
+					}
+				}elseif ($_G['fid'] == $_Data['buglistfid']){
+					define('TopPoint','buglist');
 				}
-			}elseif ($_G['fid'] == $_Data['buglistfid']){
-				define('TopPoint','buglist');
+
+				if ( constant('CURMODULE') != 'viewthread' && $_G['fid'] && $_G['fid'] != $_Data['buglistfid']) {
+					if(($HotThreads = discuz_table::fetch_cache($_G['fid'], 'HotThreads_')) === false){
+						$selecttime = strtotime("-7 days");
+						$HotThreads = DB::fetch_all("SELECT * FROM ".DB::table('forum_thread')." WHERE `fid`='{$_G['fid']}' AND dateline>'$selecttime' AND `displayorder` IN('0','1','2','3','4') ORDER BY `replies` DESC LIMIT 10");
+						discuz_table::store_cache($_G['fid'], $HotModels, 43200 , 'HotThreads_');
+					}
+				}
 			}
+				
 		}elseif(constant('CURMODULE')  == 'index'){
 			dheader("Location: ./");
 		}
-
-
-
-
-
-		if ($this->action == 'group') {
-
-			
-		}else{
-			define('TopPoint',$_Data['forumextend_fup'][$_G['forum']['fup']]);
-		}
-
-		
 
 	}
 

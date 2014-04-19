@@ -6,16 +6,25 @@
 			<div class="sboxtitle"><h3 class="ht">热门论坛</h3></div>
 			<div class="sboxsub">
 				<ul class="sboxsubtable">
-					<li><span class="toprank">1</span><a href="">Vibe Z</a></li><li><span class="toprank">2</span><a href="">K910</a></li>
-					<li><span class="toprank">3</span><a href="">K860</a></li><li><span class="topranks">4</span><a href="">S820t</a></li>
-					<li><span class="topranks">4</span><a href="">P780</a></li><li><span class="topranks">6</span><a href="">K8</a></li>
-					<li><span class="topranks">7</span><a href="">Vibe UI</a></li><li><span class="topranks">8</span><a href="">茄子快传</a></li>
-					<li><span class="topranks">9</span><a href="">美图</a></li><li><span class="topranks">10</span><a href="">自拍广场</a></li>
+					<!--{loop $hotforums $key $value}-->
+					<li><span class="toprank">$key</span><a href="forum.php?mod=forumdisplay&fid=$value[fid]">$value[name]</a></li>
+					<!--{/loop}-->
 				</ul>
 			</div>
 		</div>
 		<!--{elseif TopPoint == 'model'}-->
-
+			<!--{if !$_G['fid']}-->
+			<div class="sbox">
+				<div class="sboxtitle"><h3 class="ht">热门机型</h3></div>
+				<div class="sboxsub">
+					<ul class="sboxsubtable">
+						<!--{loop $HotModels $key $value}-->
+						<li><span class="toprank">{echo $key+1}</span><a href="forum.php?mod=forumdisplay&fid=$value[fid]">$value[name]</a></li>
+						<!--{/loop}-->
+					</ul>
+				</div>
+			</div>
+			<!--{/if}-->
 		<!--{elseif TopPoint == 'vibeui'}-->
 		<div class="sbox special">
 			<div class="speciallist">
@@ -68,24 +77,23 @@
 						{if $bthread[version]}<div><strong>机型</strong><br />$BugOption[version][$bthread[version]][title]</div>{/if}
 						<div class="last"><strong>模块</strong><br />$bthread[classnavtxt]</div>
 					</div>
-	<!--{loop $_Data['buglist_handling'] $key $value}-->
-		<!--{if $bthread['handlingnum']==1 && $bthread['handling']==4 && !in_array($key,array('0','4'))}-->
-			<div class="processlist{if $bthread['handling'] == $key}  on{/if}">
-				<i></i>
-				<h3>$value[title]</h3>
-				<p>$value[text]</p>
-			</div>
-		<!--{else}-->
-			<!--{if $key<4 }-->
-			<div class="processlist{if $bthread['handling'] == $key}  on{/if}">
-				<i></i>
-				<h3>$value[title] <!--{if $bthread[supply] &&$bthread[supplytime]}-->[用户已补充]<!--{elseif $bthread[supply]}-->[需要用户补充]<!--{/if}--></h3>
-				<p>$value[text]</p>
-			</div>
-			<!--{/if}-->
-		<!--{/if}-->
-	<!--{/loop}-->
-
+				<!--{loop $_Data['buglist_handling'] $key $value}-->
+					<!--{if $bthread['handlingnum']==1 && $bthread['handling']==4 && !in_array($key,array('0','4'))}-->
+						<div class="processlist{if $bthread['handling'] == $key}  on{/if}">
+							<i></i>
+							<h3>$value[title]</h3>
+							<p>$value[text]</p>
+						</div>
+					<!--{else}-->
+						<!--{if $key<4 }-->
+						<div class="processlist{if $bthread['handling'] == $key}  on{/if}">
+							<i></i>
+							<h3>$value[title] <!--{if $bthread[supply] &&$bthread[supplytime]}-->[用户已补充]<!--{elseif $bthread[supply]}-->[需要用户补充]<!--{/if}--></h3>
+							<p>$value[text]</p>
+						</div>
+						<!--{/if}-->
+					<!--{/if}-->
+				<!--{/loop}-->
 				</div>
 			</div>
 			<!--{/if}-->
@@ -108,28 +116,28 @@
 			<div class="sboxtitle"><h3 class="ht">{if CURMODULE == 'forumdisplay'}版主推荐{else}推荐阅读{/if}</h3></div>
 			<div class="sboxsub">
 				<ul class="sboxsubrecommend">
-					<li><div><a href=""><img src="test/list1.png" width="80" height="60"></a></div><a href="">百度可穿戴设备网站上线:智能手表亮相</a></li>
-					<li><div><a href=""><img src="test/list2.png" width="80" height="60"></a></div><a href="">创业公司如何做可穿戴设备?小米会做可穿戴设备吗? </a></li>
-					<li><div><a href=""><img src="test/list3.png" width="80" height="60"></a></div><a href="">八核TCL idolX+全球首发 可穿戴设备同期发布</a></li>
+				<!--{if CURMODULE == 'forumdisplay'}-->
+					<!--{eval $RecomThreads = $_G['forum']['recommendlist']['images'];}-->
+				<!--{/if}-->
+				<!--{loop $RecomThreads $key $thread}-->
+				<li><div><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]"><img src="$thread[filename]" width="80" height="60"></a></div><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a></li>
+				<!--{/loop}-->
+				
 				</ul>
 			</div>
 		</div>
 		<!--{/if}-->
-		<!--{if TopPoint != 'buglist' &&  (CURMODULE == 'viewthread' || CURMODULE == 'forumdisplay')}-->
+		<!--{if TopPoint != 'buglist'}-->
 		<div class="sbox">
 			<div class="sboxtitle"><h3 class="ht">{if CURMODULE == 'viewthread'}相关帖子{else}热帖{/if}</h3></div>
 			<div class="sboxsub">
 				<ul class="sboxsubtext">
-					<li><span class="toprank">1</span><a href="">百度可穿戴设备网站上线</a></li>
-					<li><span class="toprank">2</span><a href="">百度可穿戴设备网站上线:智能手表亮相</a></li>
-					<li><span class="toprank">3</span><a href="">谷歌眼镜明年12月上市</a></li>
-					<li><span class="topranks">4</span><a href="">真实体验吐槽 大家评智能腕表有多弱</a></li>
-					<li><span class="topranks">5</span><a href="">让你时刻保持清醒的逆天神器</a></li>
-					<li><span class="topranks">6</span><a href="">谷歌眼镜明年12月上市</a></li>
-					<li><span class="topranks">7</span><a href="">真实体验吐槽 大家评智能腕表有多弱</a></li>
-					<li><span class="topranks">8</span><a href="">让你时刻保持清醒的逆天神器</a></li>
-					<li><span class="topranks">9</span><a href="">谷歌眼镜明年12月上市</a></li>
-					<li><span class="topranks">10</span><a href="">真实体验吐槽 大家评智能腕表有多弱</a></li>
+				<!--{if CURMODULE == 'viewthread'}-->
+					<!--{eval $HotThreads = $postlist[$_G[forum_firstpid]]['relateitem'];}-->
+				<!--{/if}-->
+					<!--{loop $HotThreads $key $thread}-->
+						<li><span class="toprank">{echo $key+1}</span><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a></li>
+					<!--{/loop}-->
 				</ul>
 			</div>
 		</div>

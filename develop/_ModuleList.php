@@ -15,6 +15,8 @@ ModuleAdd('staticlink_showmessage/dheader/output');
 ModuleAdd('staticlink_showmessage/showmessage/output');
 
 
+ModuleAdd('PublicCore/core');
+
 if(defined('CURSCRIPT') && in_array(CURSCRIPT,array('home','forum'))){
 	ModuleAdd('Checkin/hooks');
 }

@@ -26,18 +26,14 @@ $manageitem_array = array(
 	"indexarticle"=>"首页推荐",
 	"topicfocus"=>"头图管理",
 	"articletag"=>"文章标签",
-	
 	"userinfo"=>"个人信息维护",
 	"diyforum"=>"版块自定义",
 	"buglist"=>"用户反馈",
 	"bughwver"=>"反馈属性检索管理",
-	
 	"product"=>	"版块产品更新",
 	"team"=>"Team权限管理",
-	
 	"teamdata"=>"团队数据统计",
 	"teamlog"=>"团队操作记录",
-
 	"staticlink"=>"平台URL管理",
 	"manage"=>"平台权限分配",
 	"systemlog"=>"平台操作记录",
