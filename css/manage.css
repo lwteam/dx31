@@ -17,7 +17,7 @@
 .g2 {
   height: 80px; }
 
-.color1 {
+.color1, .mside h3 {
   color: #000; }
 
 .color2, .managetablehead strong {
@@ -35,7 +35,7 @@
 .color6, .pipe {
   color: #ccc; }
 
-.bluecolor, .bluesmallbutton, .mside h3, .mside li.select, .mside li.select:hover {
+.bluecolor, .bluesmallbutton, .mside li.select, .mside li.select:hover {
   color: #5990de; }
 
 .greencolor, .greensmallbutton {
@@ -129,7 +129,7 @@
 .bluedarkbg, .bluebutton:hover, .bluesolidsmallbutton:hover {
   background: #2e74d6; }
 
-.bluelightbg, .mheadmenu a {
+.bluelightbg, .mside h3, .mheadmenu a {
   background: #d1dced; }
 
 .bluelightbg1, .mside li:hover, .mlist tr.displayshow, .mlist tr:hover, .mlist .managetr {
@@ -154,7 +154,7 @@
 .brround {
   border-radius: 50%; }
 
-.br3, .greenbutton, .bluebutton, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .redsmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton, .mside li:hover, .mmain {
+.br3, .greenbutton, .bluebutton, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .redsmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton, .mside h3, .mside li:hover, .mmain {
   border-radius: 3px; }
 
 .bs {
@@ -266,7 +266,8 @@
   z-index: 1; }
 
 .mside h3 {
-  padding: 6px 0 10px 15px; }
+  text-align: center;
+  margin-bottom: 15px; }
 
 .mside li {
   padding: 10px 0 10px 15px; }
