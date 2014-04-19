@@ -117,8 +117,15 @@
 						<!--{if $value[hide]}-->$value[another]<!--{else}-->$value[name]<!--{/if}-->
 					<!--{else}-->$value[username]<!--{/if}-->
 					</strong>（<em><!--{if $value[dist]}-->$value[title]<!--{else}-->反馈者<!--{/if}--></em>）
-
-					$value['handlingtxt']
+				<!--{if Library::getstatus($value[status],1)}-->
+					<!--{if Library::getstatus($value[status],2)}-->反馈者补充
+					<!--{else}-->
+					未更改状态， 需要反馈者补充
+					<!--{/if}-->
+				<!--{else}-->
+				状态更改为 <span style="color:$_Data['buglist_handling'][$value[handling]][color]">$_Data['buglist_handling'][$value[handling]][title] </span>
+				<!--{/if}-->
+					
 
 				</div>
 				<!--{if $value[message]}-->

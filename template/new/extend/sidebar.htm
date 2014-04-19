@@ -97,7 +97,7 @@
 						<!--{if $key<4 }-->
 						<div class="processlist{if $bthread['handling'] == $key}  on{/if}">
 							<i></i>
-							<h3>$value[title] <!--{if $bthread[supply] &&$bthread[supplytime]}-->[用户已补充]<!--{elseif $bthread[supply]}-->[需要用户补充]<!--{/if}--></h3>
+							<h3>$value[title]<!--{if $bthread['handling'] == $key}--><!--{if $bthread[supply] &&$bthread[supplytime]}-->[用户已补充]<!--{elseif $bthread[supply]}-->[需要用户补充]<!--{/if}--><!--{/if}--></h3>
 							<p>$value[text]</p>
 						</div>
 						<!--{/if}-->

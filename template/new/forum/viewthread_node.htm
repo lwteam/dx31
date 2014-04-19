@@ -221,11 +221,18 @@ $postshowavatars = !($_G['setting']['bannedmessages'] & 2 && ($post['memberstatu
 						<div class="right">
 							<!--{if $post['first'] }-->
 								<!--{if  TopPoint == 'buglist'}-->
-									<a class="greensmallbutton" onclick="BMDialog.get(this,$bthread[tid]);" href="javascript:void(0);" title="处理该问题的流程">我来处理</a> <a class="greensmallbutton"  onclick="BMDialog.get(this,$value[tid],'supply');" href="javascript:void(0);" title="操作让用户补充信息">需要补充</a><span class="pipe">|</span>
-									
-									<a class="bluesmallbutton" onclick="BMDialog.property($bthread[tid],'#show_$bthread[tid]');" href="javascript:void(0);" >其他信息</a><span class="pipe">|</span>
-									<!--{if $bthread[supply] && !$bthread[supplytime]}-->
-										<a  class="greensmallbutton" onclick="BMDialog.get(this,$bthread[tid],null,true);" href="javascript:void(0);" >我要补充</a><span class="pipe">|</span>
+									<!--{if $GLOBALS[myPermission]['permission'] && in_array('buglist',$myPermission['permission'])}-->
+										<!--{if  Library::BugWorkPerm($myPermission,$bthread)}-->
+											<a  class="redsmallbutton" onclick="BMDialog.get(this,$bthread[tid]);" href="javascript:void(0);" title="处理该问题的流程">处理</a>
+											<!--{if $bthread['handling'] != 3}-->
+											 <a class="greensmallbutton" onclick="BMDialog.get(this,$bthread[tid],'supply');" href="javascript:void(0);" title="操作让用户补充信息">需要补充</a>
+											<!--{/if}-->
+											<a  class="greensmallbutton"  onclick="BMDialog.get(this,$bthread[tid],'note');" href="javascript:void(0);" title="对信息进行后台备注,备注的内容显示在标题后">后台备注</a>
+										<!--{/if}-->
+										<a class="greensmallbutton" onclick="BMDialog.property($bthread[tid],'#show_$bthread[tid]');" href="javascript:void(0);" >其他信息</a><span class="pipe">|</span>
+									<!--{/if}-->
+									<!--{if $bthread[uid] == $_G[uid] && $bthread[supply] && !$bthread[supplytime]}-->
+										<a  class="greensmallbutton" onclick="BMDialog.get(this,$bthread[tid],null,true);" href="javascript:void(0);" >我来补充</a><span class="pipe">|</span>
 									<!--{/if}-->
 								<!--{/if}-->
 
