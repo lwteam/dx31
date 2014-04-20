@@ -164,7 +164,7 @@ if($_G['forum']['status'] == 3) {
 			
 			unset($TopPoint, $TopPointtxt, $SuperiorName, $SuperiorHtml);
 		} else {
-			$navigation = '<span class="pipe">&raquo;</span><a href="forum.php?mod=forumdisplay&fid='.$_G['forum']['fup'].'">'.$forum_up['name'].'</a><span class="pipe">&raquo;</span>'.'<a href="forum.php?mod=forumdisplay&fid='.$_G['fid'].'">'.$_G['forum']['name'].'</a><span class="pipe">&raquo;</span>'.$forumarchive[$_GET['archiveid']]['displayname'];
+			$navigation = '<span class="pipe">&raquo;</span><a href="forum.php?mod=forumdisplay&fid='.$_G['forum']['fup'].'">'.$forum_up['name'].'</a><span class="pipe">&raquo;</span>'.'<a href="forum.php?mod=forumdisplay&fid='.$_G['fid'].'">'.$_G['forum']['name'].'</a>'.$forumarchive[$_GET['archiveid']]['displayname'];
 		}
 	}
 

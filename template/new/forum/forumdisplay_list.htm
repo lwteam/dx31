@@ -1,10 +1,15 @@
 <div id="threadlist" class="viewlist tablelist" {if $_G['uid']} style="position: relative;"{/if}>
 
+		<!--{if empty($_G['forum']['picstyle']) || $_G['cookie']['forumdefstyle']}-->
+			<script type="text/javascript">var lasttime = $_G['timestamp'];var listcolspan= '{if !$_GET['archiveid'] && $_G['forum']['ismoderator']}7{else}6{/if}';</script>
+		<!--{/if}-->
+
 		<div id="forumnew" style="display:none"></div>
 		<form method="post" autocomplete="off" name="moderate" id="moderate" action="forum.php?mod=topicadmin&action=moderate&fid=$_G[fid]&infloat=yes&nopost=yes">
 			<input type="hidden" name="formhash" value="{FORMHASH}" />
 			<input type="hidden" name="listextra" value="$extra" />
 			<table summary="forum_$_G[fid]" id="threadlisttableid" cellspacing="0" cellpadding="0" class="forumtbale">
+
 					<!--{if $_G['forum_threadcount']}-->
 					<tbody>
 						<tr class="tablehead">
@@ -17,25 +22,16 @@
 							<td class="fright"></td>
 						</tr>
 					</tbody>
-
-					<!--{if empty($_G['forum']['picstyle']) || $_G['cookie']['forumdefstyle']}-->
-					<script type="text/javascript">var lasttime = $_G['timestamp'];var listcolspan= '{if !$_GET['archiveid'] && $_G['forum']['ismoderator']}7{else}6{/if}';</script>
-					<!--{/if}-->
-
 					<!--{if empty($_G['forum']['picstyle']) || $_G['cookie']['forumdefstyle']}-->
 						<!--{loop $_G['forum_threadlist'] $key $thread}-->							
 							<!--{if $_G[setting][forumseparator] == 1 && $separatepos == $key + 1}-->
+								<tbody id="separatorline" style="display:none"><tr><td class="fleft"></td><td class="ftime"></td><td class="favatar"></td><th class="fpostname"></th><td class="freply"></td><td class="flast"></td><td class="fright"></td></tr></tbody>
 								<script type="text/javascript">hideStickThread();</script>
 							<!--{/if}-->
 							<!--{if $separatepos <= $key + 1}-->
 								<!--{ad/threadlist}-->
 							<!--{/if}-->
-
 					
-
-					<!--{if !$separatepos || !$_G['setting']['forumseparator']}-->
-						<tbody id="separatorline" style="display:none"><tr><td class="fleft"></td><td class="ftime"></td><td class="favatar"></td><th class="fpostname"></th><td class="freply"></td><td class="flast"></td><td class="fright"></td></tr></tbody>
-					<!--{/if}-->
 
 		    		<tbody id="$thread[id]"{if $_G['hiddenexists'] && $thread['hidden']} style='display:none'{/if}>
 		    	 		<tr>

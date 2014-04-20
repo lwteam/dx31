@@ -69,15 +69,15 @@
 		</form>
 		$_G['forum_tagscript']
 		<div class="viewpost">
+			<div id="pg">
+				$multipage
+			</div>
 			<!--{if !$_G['forum_thread']['is_archived']}-->
 				<a id="newspecialtmp" class="greenbutton" href="forum.php?mod=post&action=newthread&fid=$_G[fid]" title="{lang send_posts}">{lang send_posts}</a>
 			<!--{/if}-->
 			<!--{if $allowpostreply && !$_G['forum_thread']['archiveid']}-->
 				<a id="post_replytmp" href="forum.php?mod=post&action=reply&fid=$_G[fid]&tid=$_G[tid]" class="bluebutton" title="{lang reply}">{lang reply}</a>
 			<!--{/if}-->
-			<div id="pg">
-				$multipage
-			</div>
 		</div>
 		<!--{if $fastpost}-->
 			<!--{subtemplate forum/viewthread_fastpost}-->
