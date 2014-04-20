@@ -114,7 +114,7 @@ if($_G['forum']['type'] == 'forum') {
 		
 		unset($TopPoint, $TopPointtxt, $SuperiorName, $SuperiorHtml);
 	} else {
-		$navigation = '<span class="pipe">&raquo;</span><a href="forum.php?mod=forumdisplay&fid='.$_G['forum']['fup'].'">'.$forum_up['name'].'</a><span class="pipe">&raquo;</span>'.'<a href="forum.php?mod=forumdisplay&fid='.$_G['fid'].'">'.$_G['forum']['name'].'</a><span class="pipe">&raquo;</span>'.$forumarchive[$_GET['archiveid']]['displayname'];
+		$navigation = '<span class="pipe">&raquo;</span><a href="forum.php?mod=forumdisplay&fid='.$_G['forum']['fup'].'">'.$forum_up['name'].'</a><span class="pipe">&raquo;</span>'.'<a href="forum.php?mod=forumdisplay&fid='.$_G['fid'].'">'.$_G['forum']['name'].'</a>'.$forumarchive[$_GET['archiveid']]['displayname'];
 	}
 	$seodata = array('forum' => $_G['forum']['name'], 'fup' => $forum_up['name'], 'fgroup' => $forum_top['name'], 'page' => intval($_GET['page']));
 }

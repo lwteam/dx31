@@ -118,32 +118,34 @@
 		    	 		<li class="ttime">$thread[dateline]</li>
 		    	 		<li class="tstatus"><em class="$thread[handlingstylec]">$thread['handlingtxt']</em></li>
 		    	 		<li class="tpostname">
+		    	 			<div class="pin">
+										<!--{if in_array($thread['displayorder'], array(1, 2, 3, 4))}-->
+											<img src="/images/common/pin.gif" title="$_G[setting][threadsticky][3-$thread[displayorder]]" />
+										<!--{/if}-->
+									</div>
 		    	 			<a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]{if $extra}extra=$extra{/if}"$thread[highlight]{if $thread['isgroup'] == 1 || $thread['forumstick']} target="_blank"{else} onclick="atarget(this)"{/if}>$thread[subject]</a>
 							<!--{if $thread[icon] >= 0}-->
-								<img src="{STATICURL}image/stamp/{$_G[cache][stamps][$thread[icon]][url]}" alt="{$_G[cache][stamps][$thread[icon]][text]}" align="absmiddle" />
-							<!--{/if}-->
-							<!--{if $stemplate && $sortid}-->$stemplate[$sortid][$thread[tid]]<!--{/if}-->
-							<!--{if $thread['attachment'] == 2}-->
-								<img src="{STATICURL}image/filetype/image_s.gif" alt="attach_img" title="{lang attach_img}" align="absmiddle" />
-							<!--{elseif $thread['attachment'] == 1}-->
-								<img src="{STATICURL}image/filetype/common.gif" alt="attachment" title="{lang attachment}" align="absmiddle" />
-							<!--{/if}-->
-							<!--{if $thread['mobile']}-->
-								<img src="{IMGDIR}/mobile-attach-$thread['mobile'].png" alt="{lang post_mobile}" align="absmiddle" />
-							<!--{/if}-->
-							<!--{if $thread['digest'] > 0 && $filter != 'digest'}-->
-								<img src="{IMGDIR}/digest_$thread[digest].gif" align="absmiddle" alt="digest" title="{lang thread_digest} $thread[digest]" />
-							<!--{/if}-->
-							<!--{if $thread['displayorder'] == 0}-->
-								<!--{if $thread['rate'] > 0}-->
-									<img src="{IMGDIR}/agree.gif" align="absmiddle" alt="agree" title="{lang rate_credit_add}" />
-								<!--{elseif $thread['rate'] < 0}-->
-									<img src="{IMGDIR}/disagree.gif" align="absmiddle" alt="disagree" title="{lang posts_deducted}" />
-								<!--{/if}-->
-							<!--{/if}-->
-							<!--{if $thread['replycredit'] > 0}-->
-								- <span>[{lang replycredit} <strong> $thread['replycredit']</strong> ]</span>
-							<!--{/if}-->
+											<img src="{STATICURL}image/stamp/{$_G[cache][stamps][$thread[icon]][url]}" alt="{$_G[cache][stamps][$thread[icon]][text]}" align="absmiddle" />
+										<!--{/if}-->
+										<!--{if $stemplate && $sortid}-->$stemplate[$sortid][$thread[tid]]<!--{/if}-->
+										<!--{if $thread['attachment'] == 2}-->
+											<img src="/images/common/image_s.gif" alt="attach_img" title="{lang attach_img}" align="absmiddle" />
+										<!--{elseif $thread['attachment'] == 1}-->
+											<img src="/images/common/common.gif" alt="attachment" title="{lang attachment}" align="absmiddle" />
+										<!--{/if}-->
+										<!--{if $thread['mobile']}-->
+											<img src="{IMGDIR}/mobile-attach-$thread['mobile'].png" title="{lang post_mobile}" align="absmiddle" />
+										<!--{/if}-->
+										<!--{if $thread['digest'] > 0 && $filter != 'digest'}-->
+											<img src="/images/common/digest.gif" align="absmiddle" alt="digest" title="{lang thread_digest} $thread[digest]" />
+										<!--{/if}-->
+										<!--{if $thread['displayorder'] == 0}-->
+											<!--{if $thread['rate'] > 0}-->
+												<img src="/images/common/agree.gif" align="absmiddle" alt="agree" title="{lang rate_credit_add}" />
+											<!--{elseif $thread['rate'] < 0}-->
+												<img src="/images/common/disagree.gif" align="absmiddle" alt="disagree" title="{lang posts_deducted}" />
+											<!--{/if}-->
+										<!--{/if}-->
 		    	 		</li>
 		    	 		<li class="tcounter">$thread[samenum]</li>
 		    	 		<li class="tauthor"><a href="home.php?mod=space&uid=$thread[authorid]">$thread[author]</a></li>
