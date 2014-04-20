@@ -27,7 +27,7 @@ class ForumExtendScript {
 
 
 
-		if (defined('CURSCRIPT') && constant('CURSCRIPT')  == 'forum' && in_array(constant('CURMODULE'),array('index','forumdisplay','viewthread'))) {
+		if (defined('CURSCRIPT') && constant('CURSCRIPT')  == 'forum' && in_array(constant('CURMODULE'),array('index','forumdisplay','viewthread','post'))) {
 			return true;
 		}else{
 			return false;

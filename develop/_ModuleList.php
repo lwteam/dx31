@@ -28,7 +28,9 @@ if(defined('CURSCRIPT') && CURSCRIPT == 'forum'){
 	ModuleAdd('BugListScript/hooks');   // BUGlist
 	ModuleAdd('BugListScript/showmessage/output');
 }
-
+if(defined('CURSCRIPT') && CURSCRIPT == 'home' && $_GET['ac']=='plugin' &&  in_array($_GET['opdo'], array('accountchange','lenovoid'))){
+	ModuleAdd('HomeSpacecpExtend/hooks');
+}
 
 
 ?>

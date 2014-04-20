@@ -120,23 +120,56 @@ if($_GET['from'] == 'portal') {
 	$_G['grouptypeid'] = $_G['forum']['fup'];
 
 } else {
-	$navigation = '';
-	$upnavlink = 'forum.php?mod=forumdisplay&amp;fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '');
 
-	if($_G['forum']['type'] == 'sub') {
-		$fup = $_G['cache']['forums'][$_G['forum']['fup']]['fup'];
-		$t_link = $_G['cache']['forums'][$fup]['type'] == 'group' ? 'forum.php?gid='.$fup : 'forum.php?mod=forumdisplay&fid='.$fup;
-		$navigation .= '<a href="'.$t_link.'">'.($_G['cache']['forums'][$fup]['name']).'</a>';
+
+	$forum_up = $_G['cache']['forums'][$_G['forum']['fup']];
+	if($_G['forum']['type'] == 'forum') {
+		$fgroupid = $_G['forum']['fup'];
+		if(empty($_GET['archiveid'])) {
+			$TopPoint = constant('TopPoint');
+			if (constant('TopPoint') && $_Data['forumextend'][$TopPoint]) {
+				$TopPointtxt = $_Data['forumextendtxt'][$TopPoint];
+				if ($TopPointtxt == $_G['forum']['name']) {
+					$SuperiorHtml = '';
+				}else{
+					$SuperiorName = $TopPointtxt.($TopPointtxt != $forum_up['name']?'('.$forum_up['name'].')':'');
+					$SuperiorHtml = '<span class="pipe">&raquo;</span><a href="forum.php?operation='.$TopPoint.'">'.$SuperiorName.'</a>';
+				}
+			}else{
+				$SuperiorHtml = '<span class="pipe">&raquo;</span><a href="forum.php?gid='.$forum_up['fid'].'">'.$forum_up['name'].'</a>';
+			}
+
+			$navigation = $SuperiorHtml.'<span class="pipe">&raquo;</span><a href="forum.php?mod=forumdisplay&fid='.$_G['forum']['fid'].'">'.$_G['forum']['name'].'</a>';
+			unset($TopPoint, $TopPointtxt, $SuperiorName, $SuperiorHtml);
+		} else {
+			$navigation = '<span class="pipe">&raquo;</span>'.'<a href="forum.php?mod=forumdisplay&fid='.$_G['fid'].'">'.$_G['forum']['name'].'</a><span class="pipe">&raquo;</span>'.$forumarchive[$_GET['archiveid']]['displayname'];
+		}
+	} else {
+		$fgroupid = $forum_up['fup'];
+		if (constant('TopPoint') && $_Data['forumextend'][$TopPoint]) {
+			$forum_top =  $_G['cache']['forums'][$forum_up['fup']];
+
+			if (constant('TopPoint')) {
+				$TopPoint = constant('TopPoint');
+				$TopPointtxt = $_Data['forumextendtxt'][$TopPoint];
+				if ($TopPointtxt == $forum_up['name']) {
+					$SuperiorHtml = '';
+				}else{
+					$SuperiorName = $TopPointtxt.($TopPointtxt != $forum_top['name']?'('.$forum_top['name'].')':'');
+					$SuperiorHtml = '<span class="pipe">&raquo;</span><a href="forum.php?operation='.$TopPoint.'">'.$SuperiorName.'</a>';
+				}
+			}else{
+				$SuperiorHtml = '<span class="pipe">&raquo;</span><a href="forum.php?gid='.$forum_top['fid'].'">'.$forum_top['name'].'</a>';
+			}
+
+			$navigation = $SuperiorHtml.'<span class="pipe">&raquo;</span><a href="forum.php?mod=forumdisplay&fid='.$forum_up['fid'].'">'.$forum_up['name'].'</a><span class="pipe">&raquo;</span>'.$_G['forum']['name'];
+			
+			unset($TopPoint, $TopPointtxt, $SuperiorName, $SuperiorHtml);
+		} else {
+			$navigation = '<span class="pipe">&raquo;</span><a href="forum.php?mod=forumdisplay&fid='.$_G['forum']['fup'].'">'.$forum_up['name'].'</a><span class="pipe">&raquo;</span>'.'<a href="forum.php?mod=forumdisplay&fid='.$_G['fid'].'">'.$_G['forum']['name'].'</a><span class="pipe">&raquo;</span>'.$forumarchive[$_GET['archiveid']]['displayname'];
+		}
 	}
 
-	if($_G['forum']['fup']) {
-		$fup = $_G['forum']['fup'];
-		$t_link = $_G['cache']['forums'][$fup]['type'] == 'group' ? 'forum.php?gid='.$fup : 'forum.php?mod=forumdisplay&fid='.$fup;
-		$navigation .= '<a href="'.$t_link.'">'.($_G['cache']['forums'][$fup]['name']).'</a>';
-	}
-
-	$t_link = 'forum.php?mod=forumdisplay&amp;fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '');
-	$navigation .= '<span class="pipe">&raquo;</span><a href="'.$t_link.'">'.($_G['forum']['name']).'</a>';
 
 	if($archiveid) {
 		if($threadtable_info[$archiveid]['displayname']) {
