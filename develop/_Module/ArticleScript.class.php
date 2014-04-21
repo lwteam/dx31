@@ -240,7 +240,7 @@ class ArticleScript {
 				$articles[] = $value;
 			}	
 
-			$multipage = multi($TotalNum, $pagenum, $page, "forum.php?mod=forumdisplay&fid=$_G[fid]", $_G['setting']['threadmaxpages']);
+			$multipage = multi($TotalNum, $pagenum, $page, "forum.php?", $_G['setting']['threadmaxpages']);
 			
 
 			if(($HotForums = discuz_table::fetch_cache(0, 'HotForums_index')) === false){
