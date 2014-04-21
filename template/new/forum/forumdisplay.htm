@@ -34,7 +34,7 @@
 				<ul>
 					<li {if $_GET['orderby'] == 'dateline'}class="on"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=author&orderby=dateline$forumdisplayadd[author]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}"><i class="newthead"></i>最新</a></li>
 					<li {if $_GET['filter'] == 'lastpost'}class="on"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=lastpost&orderby=lastpost$forumdisplayadd[lastpost]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}"><i class="lastthead"></i>最后回复</a></li>
-					<li><a href=""><i class="hotthead"></i>周热门</a></li>
+					<li {if $_GET['filter'] == 'reply'}class="on"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=reply&orderby=replies&dateline=604800""><i class="hotthead"></i>热门</a></li>
 					<li {if $_GET['filter'] == 'digest'}class="on"{/if}><a href="forum.php?mod=forumdisplay&fid=$_G[fid]&filter=digest&digest=1$forumdisplayadd[digest]{if $_GET['archiveid']}&archiveid={$_GET['archiveid']}{/if}"><i class="verythead"></i>精华</a></li>
 				</ul>
 			</div>
