@@ -57,8 +57,9 @@
 				<!--{/if}-->
 			</td>
 			<td  class="_qtip_lc last" >
-			<a href="home.php?mod=space&uid=$value['handlingarray']['uid']" title="[ {$value['handlingarray']['username']} ] $value['handlingarray']['name'] $value['handlingarray']['itcode']  {echo date('Y-m-d H:i',$value['handlingarray']['dateline']);}
-			">$value['handlingarray']['name']</a></td>
+			<!--{if $value['handlingarray']['name']}-->
+			<span title="[ {$value['handlingarray']['username']} ] $value['handlingarray']['name'] $value['handlingarray']['itcode']  {echo date('Y-m-d H:i',$value['handlingarray']['dateline']);}
+			">$value['handlingarray']['name']</span><!--{/if}--></td>
 			<td>$BugOption[hardware][$value[hardware]][title]</td>
 			<td>$BugOption[version][$value[version]][title]</td>
 			<td class="_qtip_tr"><span title="问题创建时间: {echo date('Y-m-d H:i',$value[dateline]);}">{echo date('m-d H:i',$value[dateline]);}</span></td>
@@ -104,7 +105,7 @@ jQuery(function($) {
 		$(".content").click(function () {
 			$(".content").removeClass("selected");
 			$('.tool,.ajax').hide();
-			$(this).addClass("selected").find('.tool').show('normal');
+			$(this).addClass("selected").find('.tool').slideDown('slow');
 		})
 	};
 });
