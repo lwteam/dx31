@@ -38,7 +38,7 @@
 .bluecolor, .bluesmallbutton, .mside li.select, .mside li.select:hover {
   color: #5990de; }
 
-.greencolor, .greensmallbutton {
+.greencolor, .greensmallbutton, .buglist_note {
   color: #5fb336; }
 
 .redcolor, .redsmallbutton {
@@ -47,7 +47,7 @@
 .whitecolor, .greenbutton, .greenbutton:hover, .bluebutton, .bluebutton:hover, .bluesmallbutton:hover, .greensmallbutton:hover, .redsmallbutton:hover, .bluesolidsmallbutton, .bluesolidsmallbutton:hover, .greensolidsmallbutton, .greensolidsmallbutton:hover, .mheadmenu a.select {
   color: white; }
 
-.smallfont {
+.smallfont, .buglist_note {
   font-size: 12px; }
 
 .bodyfont {
@@ -368,4 +368,3 @@
 .wd20em {
   margin: 0px;
   width: 18em; }
-.tool {text-align: right;}
