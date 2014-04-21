@@ -1910,10 +1910,13 @@ function initSearchmenu(searchform, cloudSearchUrl) {
 		}
 		searchtxt.onmouseover = function () {
 			searchtxt.placeholder = '请输入搜索内容';
+			searchtxt.focus();
 		};
 		searchtxt.onmouseout = function () {
 			searchtxt.placeholder = '';
 			searchtxt.value = '';
+			searchtxt.blur();
+			
 		};
 
 		
