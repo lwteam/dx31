@@ -22,6 +22,9 @@ $bfid = $_Data['buglistfid'];
 $id = (int)$_REQUEST['id'];
 $operation = $_REQUEST['operation']?$_REQUEST['operation']:'list'; 
 $handling = isset($_GET['handling'])?$_GET['handling']:1; 
+$page = $_G['page'];
+$pagenum = $_G['tpp'];
+
 
 if($id){
 	$onebuglist = DB::fetch_first("SELECT *  FROM ".DB::table('buglist')."  WHERE tid='$id'" );
@@ -424,10 +427,18 @@ if($operation == 'supply'){
 		showmessage('您没有权限查看相关信息', 'javascript:history.go(-1);');
 	}
 
-	
+	if ($_GET['search']) {
+		$sqlwhere = " WHERE `title`  LIKE '%$_GET[search]%'";
+	}
+	$TotalNum = DB::result_first("SELECT count(*) FROM ".DB::table('buglist')." b  $sqlwhere  ORDER BY b.`lasttime` DESC");
+	if(@ceil($TotalNum/$pagenum) < $page){
+		$page = 1;
+	}
+	$offset = ($page - 1) * $pagenum;
+
 	$query = DB::query("SELECT * FROM ".DB::table('buglist')." b 
 	LEFT JOIN ".DB::table('forum_thread')." t 
-	USING(`tid`) $sqlwhere  ORDER BY b.`lasttime` DESC");
+	USING(`tid`) $sqlwhere  ORDER BY b.`lasttime` DESC LIMIT $offset,$pagenum ");
 	while($value = DB::fetch($query)) {
 		//转换全部状态信息
 		$value['handlings'] = unserialize($value['handlings']);
@@ -435,6 +446,9 @@ if($operation == 'supply'){
 		$value['note'] = unserialize($value['note']);
 		$buglists[] = $value;
 	}
+	$multipage = multi($TotalNum, $pagenum, $page, "manage.php?action=$action&operation=".$operation, $_G['setting']['threadmaxpages']);
+
+
 
 	//echo var_dump(serialize(array(array('handling'=>'2','dateline'=>'85344544544','uid'=>'2','username'=>'test','itcode'=>'caogl','name'=>'曹广来'))));
 	foreach (array('hardware','version' ) as $value) {
