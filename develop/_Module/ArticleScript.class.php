@@ -221,7 +221,7 @@ class ArticleScript {
 			$pagenum = 6;
 			$page = $_G['page'];
 
-			$TotalNum = DB::result_first("SELECT count(*) FROM ".DB::table('buglist')." b $sqlwhere ");
+			$TotalNum = DB::result_first("SELECT count(*) FROM ".DB::table('article')." b ");
 			if(@ceil($TotalNum/$pagenum) < $page){
 				$page = 1;
 			}
