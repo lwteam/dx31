@@ -30,8 +30,8 @@
 				<t class="managetablehead"r>
 					<td class="name">用户级别</td>
 					<td >
-						<input type="radio" class="roundbix" name="Permission[dist]" {if $Permission_One['dist']==2}checked{/if} value="2" onchange="distvar(this.value,this.checked)">产品工程师
-						<input type="radio" class="roundbix" name="Permission[dist]" {if $Permission_One['dist']==3}checked{/if} value="3" onchange="distvar(this.value,this.checked)">反馈工程师
+						<input type="radio" class="pc" name="Permission[dist]" {if $Permission_One['dist']==2}checked{/if} value="2" onchange="distvar(this.value,this.checked)">产品工程师<span class="pipe"></span>
+						<input type="radio" class="pc" name="Permission[dist]" {if $Permission_One['dist']==3}checked{/if} value="3" onchange="distvar(this.value,this.checked)">反馈工程师
 					 </td>
 				</tr>
 				<tr class="managetablehead">
@@ -48,7 +48,7 @@
 						<!--{eval if(in_array($value,array('team')))continue;}-->
 						<!--{eval $ischecked = in_array($value,$Permission_One['permission']);}-->
 						<tr>
-							<td><input type="checkbox" id="$value" name="Permission[permission][]" {if $ischecked}checked="true"{/if}
+							<td><input type="checkbox" class="pc" id="$value" name="Permission[permission][]" {if $ischecked}checked="true"{/if}
 							onchange="ShowPermBody(this)" value="$value" $onchange> 
 							$i $manageitem_array[$value]</td>
 							<td>
