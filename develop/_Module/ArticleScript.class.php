@@ -221,7 +221,7 @@ class ArticleScript {
 			$pagenum = 6;
 			$page = $_G['page'];
 
-			$TotalNum = DB::result_first("SELECT count(*) FROM ".DB::table('buglist')." b $sqlwhere ");
+			$TotalNum = DB::result_first("SELECT count(*) FROM ".DB::table('article')." b ");
 			if(@ceil($TotalNum/$pagenum) < $page){
 				$page = 1;
 			}
@@ -250,7 +250,7 @@ class ArticleScript {
 			}
 			if(($RecomThreads = discuz_table::fetch_cache(0, 'RecomThreads_index')) === false){
 				$opfids_csv = join(',',$opfids);
-				$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE `position` IN('0','1') ORDER BY displayorder  LIMIT 10");
+				$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE `position` IN('0','1') ORDER BY displayorder  LIMIT 5");
 				while($thread = DB::fetch($query)) {
 					$imgd = explode("\t", $thread['filename']);
 					if($imgd[0] && $imgd[3]) {
