@@ -114,7 +114,7 @@ class ForumExtendScript {
 				//推荐主题
 				if(($RecomThreads = discuz_table::fetch_cache(0, 'RecomThreads_'.$operation)) === false){
 					$opfids_csv = join(',',$opfids);
-					$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE fid IN ($opfids_csv) AND `position` IN('0','1') ORDER BY displayorder  LIMIT 10");
+					$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE fid IN ($opfids_csv) AND `position` IN('0','1') ORDER BY displayorder  LIMIT 5");
 					while($thread = DB::fetch($query)) {
 						$imgd = explode("\t", $thread['filename']);
 						if($imgd[0] && $imgd[3]) {
