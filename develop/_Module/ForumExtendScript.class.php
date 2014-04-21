@@ -44,6 +44,11 @@ class ForumExtendScript {
 			
 			define('TopPoint',$operation);
 
+			$TopPoint = constant('TopPoint');
+			$TopPointtxt = $_Data['forumextendtxt'][$TopPoint];
+			global $navigation;
+			$navigation = '<span class="pipe">&raquo;</span><a href="forum.php?operation='.$TopPoint.'">'.$TopPointtxt.'</a>';
+
 			if (!isset($_Data['forumextend'][$operation]) || !$_Data['forumextend'][$operation]) {
 				return;
 			}
@@ -103,6 +108,8 @@ class ForumExtendScript {
 				$opfids = discuz_table::store_cache(0, $opfids, 86400 , 'Opfids_'.$operation);
 			}
 
+			unset($_G['cache']['forumlinks']);
+
 			if (($operation == 'model' || $operation == 'apps') && !$_G['fid']) {
 
 				//热门论坛
@@ -114,7 +121,7 @@ class ForumExtendScript {
 				//推荐主题
 				if(($RecomThreads = discuz_table::fetch_cache(0, 'RecomThreads_'.$operation)) === false){
 					$opfids_csv = join(',',$opfids);
-					$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE fid IN ($opfids_csv) AND `position` IN('0','1') ORDER BY displayorder  LIMIT 10");
+					$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE fid IN ($opfids_csv) AND `position` IN('0','1') ORDER BY displayorder  LIMIT 5");
 					while($thread = DB::fetch($query)) {
 						$imgd = explode("\t", $thread['filename']);
 						if($imgd[0] && $imgd[3]) {
