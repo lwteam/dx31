@@ -44,12 +44,12 @@
 				<tr>
 					<td class="name">类型</td>
 					<td>
-						<input type="radio" name="bughwver[inputtype]" value="0" {if  !$bughwver_One['inputtype']}checked="ture"{/if} onchange="ShowInputBody(this)"> 输入框
-						<input type="radio" name="bughwver[inputtype]" value="1" {if  $bughwver_One['inputtype']}checked="ture"{/if} onchange="ShowInputBody(this)"> 选择框
+						<input type="radio" class="pc" name="bughwver[inputtype]" value="0" {if  !$bughwver_One['inputtype']}checked="ture"{/if} onchange="ShowInputBody(this)"> 输入框<span class="pipe"></span>
+						<input type="radio" class="pc" name="bughwver[inputtype]" value="1" {if  $bughwver_One['inputtype']}checked="ture"{/if} onchange="ShowInputBody(this)"> 选择框
 					</td>
 				</tr>
 				<tr id="inputtext_layer" style="display:{echo $bughwver_One[inputtype]==1?'':'none'}">
-					<td  class="tit _qtip">选择框内容<span title="填写这项用于设置选择框的选择项目,每行一条">(提示)</span></td>
+					<td  class="tit _qtip name">选择框内容<span title="填写这项用于设置选择框的选择项目,每行一条">(提示)</span></td>
 					<td>
 						<textarea name="bughwver[text]" style="height:100px" id="inputtext">$bughwver_One[text]</textarea> 
 					</td>
@@ -58,8 +58,8 @@
 				<tr>
 					<td class="name">是否为必填</td>
 					<td>
-						<input type="radio" name="bughwver[must]" value="0" {if  !$bughwver_One['must']}checked="ture"{/if}> 否
-						<input type="radio" name="bughwver[must]" value="1" {if  $bughwver_One['must']}checked="ture"{/if}> 是
+						<input type="radio" class="pc" name="bughwver[must]" value="0" {if  !$bughwver_One['must']}checked="ture"{/if}> 否<span class="pipe"></span>
+						<input type="radio" class="pc" name="bughwver[must]" value="1" {if  $bughwver_One['must']}checked="ture"{/if}> 是
 					</td>
 				</tr>
 

@@ -30,11 +30,11 @@
 				<tr class="managetablehead">
 					<td class="name">用户级别</td>
 					<td >
-						<input type="radio" name="Permission[dist]" {if !$Permission_One['dist']}checked{/if} value="0" 	>无级别
-						<input type="radio" name="Permission[dist]" {if $Permission_One['dist']==1}checked{/if} value="1" 	>产品经理 
-						<input type="radio" name="Permission[dist]" {if $Permission_One['dist']==2}checked{/if} value="2" 	>产品工程师
-						<input type="radio" name="Permission[dist]" {if $Permission_One['dist']==3}checked{/if} value="3" 	>反馈工程师
-						<input type="radio" name="Permission[dist]" {if $Permission_One['dist']==4}checked{/if} value="4" 	>信息专员
+						<input type="radio" name="Permission[dist]" class="pc" {if !$Permission_One['dist']}checked{/if} value="0" 	>无级别<span class="pipe"></span>
+						<input type="radio" name="Permission[dist]" class="pc" {if $Permission_One['dist']==1}checked{/if} value="1" 	>产品经理 <span class="pipe"></span>
+						<input type="radio" name="Permission[dist]" class="pc" {if $Permission_One['dist']==2}checked{/if} value="2" 	>产品工程师<span class="pipe"></span>
+						<input type="radio" name="Permission[dist]" class="pc" {if $Permission_One['dist']==3}checked{/if} value="3" 	>反馈工程师<span class="pipe"></span>
+						<input type="radio" name="Permission[dist]" class="pc" {if $Permission_One['dist']==4}checked{/if} value="4" 	>信息专员
 					 </td>
 				</tr>
 
@@ -51,7 +51,7 @@
 						<!--{loop $myPermission['permission'] $key $value}-->
 						<!--{eval $ischecked = in_array($value,$Permission_One['permission']);}-->
 						<tr>
-							<td><input type="checkbox" id="$value" name="Permission[permission][]" {if $ischecked}checked="true"{/if}
+							<td><input type="checkbox" class="pc" id="$value" name="Permission[permission][]" {if $ischecked}checked="true"{/if}
 							onchange="ShowPermBody(this)" value="$value" $onchange> 
 							$i $manageitem_array[$value]</td>
 							<td>

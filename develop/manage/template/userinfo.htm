@@ -12,23 +12,6 @@
 			<div class="mlist noborder">
 			<table cellpadding="2" cellspacing="2" width="100%">
 				<tr class="managetablehead">
-					<td class="name">我的马甲昵称</td>
-					<td  ><input type="text" name="myinfo[another]" class="px" value="{$mydata['another']}" />(用户别名)  &nbsp;{echo FieldsCheck('another');}</td>
-				</tr>
-				<tr class="managetablehead">
-					<td class="name">我的马甲头像</td>
-					<td  ><img src="$mydata['avatar']">
-					<br><input type="file" name="avatar" class="px wd27em"> &nbsp;{echo FieldsCheck('avatar');}</td>
-				</tr>
-				<tr class="managetablehead">
-					<td class="name">隐藏以下真实信息</td>
-					<td >
-						<input type="radio" class="roundbix" name="myinfo[hide]" {if !$mydata['hide']}checked{/if} value="0" onchange="distvar(this.value,this.checked)">否
-						<input type="radio" class="roundbix" name="myinfo[hide]" {if $mydata['hide']}checked{/if} value="1" onchange="distvar(this.value,this.checked)">是
-						
-					 </td>
-				</tr>
-				<tr class="managetablehead">
 					<td class="name">我的姓名</td>
 					<td  ><input type="text" name="myinfo[name]" class="px" value="{$mydata['name']}" disabled/> </td>
 				</tr>
@@ -38,7 +21,7 @@
 				</tr>
 				<tr class="managetablehead">
 					<td class="name">我的itcode</td>
-					<td  ><input type="text" name="myinfo[itcode]" class="px" value="{$mydata['itcode']}" /> &nbsp;{echo FieldsCheck('itcode');}</td>
+					<td  ><input type="text" name="myinfo[itcode]" class="px" value="{$mydata['itcode']}" /> &nbsp;{echo FieldsCheck('itcode');}（用于内部人员查看和交流）</td>
 				</tr>
 				<tr class="managetablehead">
 					<td class="name">我的邮箱</td>
@@ -49,10 +32,26 @@
 					<td  ><input type="text" name="myinfo[phone]" class="px" value="{$mydata['phone']}" /> &nbsp;{echo FieldsCheck('phone');}</td>
 				</tr>
 				<tr class="managetablehead">
+					<td class="name">隐藏以下真实信息</td>
+					<td >
+						<input type="radio" class="pc" name="myinfo[hide]" {if !$mydata['hide']}checked{/if} value="0" onchange="distvar(this.value,this.checked)">否<span class="pipe"></span>
+						<input type="radio" class="pc" name="myinfo[hide]" {if $mydata['hide']}checked{/if} value="1" onchange="distvar(this.value,this.checked)">是
+						
+					 </td>
+				</tr>
+				<tr class="managetablehead">
+					<td class="name">我的马甲昵称</td>
+					<td  ><input type="text" name="myinfo[another]" class="px" value="{$mydata['another']}" /> &nbsp;{echo FieldsCheck('another');}（非论坛用户名及姓名，主要用于个人信息的对外展示）</td>
+				</tr>
+				<tr class="managetablehead">
 					<td class="name">我的职位头衔</td>
 					<td  ><input type="text" name="myinfo[title]" class="px" value="{$mydata['title']}" /> &nbsp;{echo FieldsCheck('title');}</td>
 				</tr>
-
+				<tr class="managetablehead">
+					<td class="name">我的马甲头像</td>
+					<td  ><img src="$mydata['avatar']">
+					<br><input type="file" name="avatar" class="px wd27em"> &nbsp;{echo FieldsCheck('avatar');}</td>
+				</tr>
 				<tr class="managetablehead">
 					<td class="name"></td>
 					<td ><button type="submit" id="postsubmit" class="bluebutton" value="true" name="topicsubmit"><span>完善我的信息</span></button>
