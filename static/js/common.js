@@ -1913,6 +1913,7 @@ function initSearchmenu(searchform, cloudSearchUrl) {
 		};
 		searchtxt.onmouseout = function () {
 			searchtxt.placeholder = '';
+			searchtxt.value = '';
 		};
 
 		
