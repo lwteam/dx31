@@ -288,7 +288,7 @@ CREATE TABLE `pre_buglist_user` (
   `title` char(255) NOT NULL DEFAULT '', -- 工作头衔
   `team` char(255) NOT NULL DEFAULT '', -- team名称
   `dist` smallint(6) unsigned NOT NULL DEFAULT '0', -- 级别  1. 产品经理 2 产品工程师 3.反馈专员  4. 信息专员
-  `distuid` tinyint(1)  NOT NULL DEFAULT '0', -- 指派UID 归属TEAM
+  `distuid` mediumint(8) unsigned NOT NULL DEFAULT '0', -- 指派UID 归属TEAM
   `hide` tinyint(1)  NOT NULL DEFAULT '0', -- 是否隐藏个人信息
   PRIMARY KEY (`uid`),
   KEY `distuid` (`distuid`)
