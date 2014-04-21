@@ -17,3 +17,5 @@ UPDATE `pre_forum_forum` SET `jammer`='0' ; -- 取消所有干扰码
 
 
 TRUNCATE TABLE  `pre_forum_forumrecommend`;
+
+UPDATE `pre_forum_forumfield` SET `extra`='' ; -- 去除板块颜色 之类的设置
