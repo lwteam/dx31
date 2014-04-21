@@ -44,6 +44,11 @@ class ForumExtendScript {
 			
 			define('TopPoint',$operation);
 
+			$TopPoint = constant('TopPoint');
+			$TopPointtxt = $_Data['forumextendtxt'][$TopPoint];
+			global $navigation;
+			$navigation = '<span class="pipe">&raquo;</span><a href="forum.php?operation='.$TopPoint.'">'.$TopPointtxt.'</a>';
+
 			if (!isset($_Data['forumextend'][$operation]) || !$_Data['forumextend'][$operation]) {
 				return;
 			}

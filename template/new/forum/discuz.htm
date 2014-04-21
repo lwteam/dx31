@@ -1,8 +1,12 @@
 <!--{template common/header}-->
 
+
+<!--{if $navigation}-->
+<div class="breadcrumbs">
+		<a href="./">$_G[setting][bbname]</a>$navigation
+</div>
+<!--{/if}-->
 <div id="main">
-
-
 
 	<!--{loop $catlist $key $cat}-->
 	<div class="listbg" id="category_$cat[fid]">
