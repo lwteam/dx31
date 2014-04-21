@@ -1908,7 +1908,14 @@ function initSearchmenu(searchform, cloudSearchUrl) {
 		if(searchtxt.value == '请输入搜索内容') {
 			searchtxt.value = '';
 		}
-		searchtxt.placeholder = '请输入搜索内容';
+		searchtxt.onmouseover = function () {
+			searchtxt.placeholder = '请输入搜索内容';
+		};
+		searchtxt.onmouseout = function () {
+			searchtxt.placeholder = '';
+		};
+
+		
 	} else {
 		searchtxt.onfocus = function () {
 			if(searchtxt.value == '请输入搜索内容') {
