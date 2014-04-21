@@ -37,7 +37,7 @@ if($operation == 'delete'){
 	$loadtemplate = 'manage_update';
 	if($id){
 		//编辑
-		$Permission_One = DB::fetch_first("SELECT * FROM ".DB::table('manage_user')." WHERE `uid`='{$id}' LIMIT 1");
+		$Permission_One = DB::fetch_first("SELECT mu.*,bu.team FROM ".DB::table('manage_user')." mu LEFT JOIN  ".DB::table('buglist_user')." bu USING(uid)  WHERE mu.`uid`='{$id}' LIMIT 1");
 		if($Permission_One){
 			$Permission_One['permission'] = $Permission_One['permission']?unserialize($Permission_One['permission']):array();
 			$Permission_One['hardware'] = $Permission_One['hardware']?unserialize($Permission_One['hardware']):array();
