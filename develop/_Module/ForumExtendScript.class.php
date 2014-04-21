@@ -103,6 +103,8 @@ class ForumExtendScript {
 				$opfids = discuz_table::store_cache(0, $opfids, 86400 , 'Opfids_'.$operation);
 			}
 
+			unset($_G['cache']['forumlinks']);
+
 			if (($operation == 'model' || $operation == 'apps') && !$_G['fid']) {
 
 				//热门论坛
