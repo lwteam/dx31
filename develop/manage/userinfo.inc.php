@@ -21,7 +21,7 @@ $FieldsMustComplete = array('another'=>0,'avatar'=>1, 'itcode'=>1, 'email'=>1, '
 $mydata = DB::fetch_first("SELECT * FROM ".DB::table('buglist_user')." WHERE `uid`='{$myPermission[uid]}' LIMIT 1");
 
 if(!$mydata){
-	showmessage('您不需要完善个人信息', 'javascript:history.go(-1);');
+	showmessage('您不需要完善个人信息', 'manage.php');
 }
 
 if($_POST){
