@@ -144,7 +144,7 @@
 						<!--{loop $list $stid $thread}-->
 						<tr{if $actives[me] && $viewtype=='reply' || $viewtype=='postcomment'} class="bw0_all"{/if}>
 							<td class="icn">
-								<a href="forum.php?mod=viewthread&tid=$thread[tid]&highlight=$index[keywords]" title="{lang open_new_window}" target="_blank">
+								<a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]&highlight=$index[keywords]" title="{lang open_new_window}" target="_blank">
 								<!--{if $thread[folder] == 'lock'}-->
 									<img src="{IMGDIR}/folder_lock.gif" />
 								<!--{elseif $thread['special'] == 1}-->
@@ -181,7 +181,7 @@
 								<!--{if $viewtype == 'reply' || $viewtype == 'postcomment'}-->
 									<a href="forum.php?mod=redirect&goto=findpost&ptid=$thread[tid]&pid=$thread[pid]" target="_blank">$thread[subject]</a>
 								<!--{else}-->
-									<a href="forum.php?mod=viewthread&tid=$thread[tid]" target="_blank" {if $thread['displayorder'] == -1}class="recy"{/if}>$thread[subject]</a>
+									<a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]" target="_blank" {if $thread['displayorder'] == -1}class="recy"{/if}>$thread[subject]</a>
 								<!--{/if}-->
 								<!--{if $thread['digest'] > 0}-->
 									<img src="{IMGDIR}/digest_$thread[digest].gif" alt="{lang digest} $thread[digest]" align="absmiddle" />
@@ -213,7 +213,7 @@
 								<!--{/if}-->
 
 								<td class="num">
-									<a href="forum.php?mod=viewthread&tid=$thread[tid]" class="xi2" target="_blank">$thread[replies]</a>
+									<a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]" class="xi2" target="_blank">$thread[replies]</a>
 									<em>$thread[views]</em>
 								</td>
 
