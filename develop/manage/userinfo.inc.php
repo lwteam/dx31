@@ -42,13 +42,19 @@ if($_POST){
 	}
 	foreach($myinfo as $key => $value){
 		if(isset($FieldsMustComplete[$key])){
-			$mydata[$key] = $value;
+			$mydata[$key] = trim(htmlspecialchars($value));
 		}
 	}
 	unset($mydata['name'],$mydata['team']);
 
-	if(!$error){
+	if ($mydata['title']) {
+		$mydata['hide'] = '0';
+	}else{
+		$mydata['title'] = '';
+		$mydata['hide'] = '1';
+	}
 
+	if(!$error){
 		if( $_FILES['avatar']) {
 			//require_once libfile('class/upload');
 			$upload = new discuz_upload();
@@ -62,8 +68,7 @@ if($_POST){
 				$xx = $image->Thumb(DISCUZ_ROOT.$mydata['avatar'],'forum/'.$upload->attach['attachment'], '100', '100', 2);
 			}
 		}
-		DB::update('buglist_user', $mydata, "`uid`='{$mydata[uid]}'");
-
+		DB::update('buglist_user', $mydata, "`uid`='$mydata[uid]'");
 		showmessage('您的信息已经完善', 'manage.php?action='.$action);
 	}
 		
