@@ -251,7 +251,9 @@ class ArticleScript {
 			//推荐主题
 			if(($RecomThreads = discuz_table::fetch_cache(0, 'RecomThreads_index')) === false){
 				$opfids_csv = join(',',$opfids);
-				$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE `position` IN('0','1') ORDER BY displayorder  LIMIT 5");
+				$query = DB::query("SELECT ffc.* FROM ".DB::table('forum_threadmod')." ftm
+							LEFT JOIN ".DB::table('forum_forumrecommend')." ffc ON (ffc.tid=ftm.tid )
+						WHERE ffc.`position` IN('0','1') AND  ftm.action = 'REC' ORDER by ftm.dateline DESC LIMIT 5");
 				while($thread = DB::fetch($query)) {
 					$imgd = explode("\t", $thread['filename']);
 					if($imgd[0] && $imgd[3]) {
