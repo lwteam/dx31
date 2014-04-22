@@ -7,7 +7,7 @@
 			<div class="sboxsub">
 				<ul class="sboxsubtable">
 					<!--{loop $HotForums $key $value}-->
-					<li><span {echo $key<3}class="toprank"{else}>class="topranks"{/if}{echo $key+1}</span><a href="forum.php?mod=forumdisplay&fid=$value[fid]">$value[name]</a></li>
+					<li><span {if $key<3}class="toprank"{else}>class="topranks"{/if}{echo $key+1}</span><a href="forum.php?mod=forumdisplay&fid=$value[fid]">$value[name]</a></li>
 					<!--{/loop}-->
 				</ul>
 			</div>
@@ -19,7 +19,7 @@
 				<div class="sboxsub">
 					<ul class="sboxsubtable">
 						<!--{loop $HotForums $key $value}-->
-						<li><span {echo $key<3}class="toprank"{else}>class="topranks"{/if}>{echo $key+1}</span><a href="forum.php?mod=forumdisplay&fid=$value[fid]">$value[name]</a></li>
+						<li><span {if $key<3}class="toprank"{else}>class="topranks"{/if}>{echo $key+1}</span><a href="forum.php?mod=forumdisplay&fid=$value[fid]">$value[name]</a></li>
 						<!--{/loop}-->
 					</ul>
 				</div>
@@ -55,7 +55,7 @@
 			<div class="sboxsub">
 				<ul class="sboxsubtable">
 					<!--{loop $HotForums $key $value}-->
-					<li><span {echo $key<3}class="toprank"{else}>class="topranks"{/if}>{echo $key+1}</span><a href="forum.php?mod=forumdisplay&fid=$value[fid]">$value[name]</a></li>
+					<li><span {if $key<3}class="toprank"{else}>class="topranks"{/if}>{echo $key+1}</span><a href="forum.php?mod=forumdisplay&fid=$value[fid]">$value[name]</a></li>
 					<!--{/loop}-->
 				</ul>
 			</div>
