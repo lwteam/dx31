@@ -190,7 +190,7 @@ class ArticleScript {
 		}elseif($act  == 'ajax'){
 
 
-			$tpp = 2;
+			$tpp = 4;
 			$nextoffset = $_GET['offset']+$tpp;
 
 			$query = DB::query("SELECT a.*,t.authorid, t.author,t.authorid, t.replies, t.dateline FROM ".DB::table('article')." a 
@@ -211,6 +211,9 @@ class ArticleScript {
 			$response['offset'] = $nextoffset;
 			include template('article/index_ajax');
 			$response['content']  = ob_get_clean();
+			$response['totalnum'] = DB::result_first("SELECT count(*) FROM ".DB::table('article')." b ");
+			$page = (int)($nextoffset/$tpp +1);
+			$response['multipage'] = multi($response['totalnum'], $tpp, $page, "forum.php?", $_G['setting']['threadmaxpages']);
 			echo json_encode($response);
 			exit();
 
@@ -218,7 +221,7 @@ class ArticleScript {
 
 			$act = $select = 'index';
 
-			$pagenum = 6;
+			$pagenum = 4;
 			$page = $_G['page'];
 
 			$TotalNum = DB::result_first("SELECT count(*) FROM ".DB::table('article')." b ");
@@ -240,7 +243,7 @@ class ArticleScript {
 				$articles[] = $value;
 			}	
 
-			$multipage = multi($TotalNum, $pagenum, $page, "forum.php?", $_G['setting']['threadmaxpages']);
+			$multipage = multi($TotalNum, $pagenum, $page, "/", $_G['setting']['threadmaxpages']);
 			
 			//热门论坛
 			if(($HotForums = discuz_table::fetch_cache(0, 'HotForums_index')) === false){

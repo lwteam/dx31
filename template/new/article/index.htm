@@ -21,7 +21,7 @@
 			<!--{/loop}-->
 			<div id="pmore">
 					<a href="javascript:loadcontent()">阅读更多文章...</a>
-					<script>var loadding = false,loadnum = 0,loadoffset = 0;</script>
+					<script>var loadding = false,loadnum = 0,loadoffset = {echo ($page-1)*$pagenum};</script>
 			</div>
 			<div id="pg">$multipage</div>
 		</div>

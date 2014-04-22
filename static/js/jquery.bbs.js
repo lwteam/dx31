@@ -131,7 +131,13 @@ function loadcontent(){
 			loadoffset = response.offset;
 			loadding = false;
 			$(".listcontent").last().after(response.content);
-			$("#pmore a").html('阅读更多文章...');
+			$("#pg").html(response.multipage);
+			if (loadoffset<response.totalnum) {
+				$("#pmore a").html('阅读更多文章...');
+			}else{
+				$("#pmore a").html('已经没有文章了');
+			}
+			
 		}
 	});
 }
