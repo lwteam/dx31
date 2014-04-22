@@ -141,9 +141,10 @@
 			<div class="sboxtitle"><h3 class="ht">{if CURMODULE == 'viewthread'}相关帖子{else}热帖{/if}</h3></div>
 			<div class="sboxsub">
 				<ul class="sboxsubtext">
-				<!--{if CURMODULE == 'viewthread'}-->
-					<!--{eval $HotThreads = $postlist[$_G[forum_firstpid]]['relateitem'];}-->
-				<!--{/if}-->
+					<!--{if CURMODULE == 'viewthread'}-->
+						<!--{eval $HotThreads = $postlist[$_G[forum_firstpid]]['relateitem'];}-->
+					<!--{/if}-->
+					
 					<!--{loop $HotThreads $key $thread}-->
 						<li><span class="toprank">{echo $key+1}</span><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a></li>
 					<!--{/loop}-->

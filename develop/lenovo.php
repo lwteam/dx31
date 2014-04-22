@@ -15,6 +15,8 @@ if ($act == 'auth') {
 	header('Location: http://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin&lenovoid.realm=bbs.lenovo.com&lenovoid.uinfo=username&lenovoid.cb='.urlencode('http://bbs.lenovo.com/lenovo.php?act=callback'));
 	exit();	
 }
+
+//https://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin&lenovoid.source=browser:realm:chita.lps.lenovo.com&lenovoid.realm=chita.lps.lenovo.com&lenovoid.uinfo=username&lenovoid.cb=http://lefen.lenovo.com/lfb/lenovo.php?mod=login
 /*
 elseif ($act == 'callback') {
 	require_once libfile('function/member');
