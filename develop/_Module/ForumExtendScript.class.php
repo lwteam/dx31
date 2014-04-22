@@ -121,7 +121,9 @@ class ForumExtendScript {
 				//推荐主题
 				if(($RecomThreads = discuz_table::fetch_cache(0, 'RecomThreads_'.$operation)) === false){
 					$opfids_csv = join(',',$opfids);
-					$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE fid IN ($opfids_csv) AND `position` IN('0','1') ORDER BY displayorder  LIMIT 5");
+					$query = DB::query("SELECT ffc.* FROM ".DB::table('forum_threadmod')." ftm
+							LEFT JOIN ".DB::table('forum_forumrecommend')." ffc ON (ffc.tid=ftm.tid )
+						WHERE ffc.fid IN ($opfids_csv) AND ffc.`position` IN('0','1') AND  ftm.action = 'REC' ORDER by ftm.dateline DESC LIMIT 5");
 					while($thread = DB::fetch($query)) {
 						$imgd = explode("\t", $thread['filename']);
 						if($imgd[0] && $imgd[3]) {
@@ -132,13 +134,11 @@ class ForumExtendScript {
 					discuz_table::store_cache(0, $RecomThreads, 7200 , 'RecomThreads_'.$operation);
 				}
 			}
-
+			// 热门主题
 			if ( constant('CURMODULE') != 'viewthread') {
-				// 热门主题
 				if(($HotThreads = discuz_table::fetch_cache(0, 'HotThreads_'.$operation)) === false){
 					$selectfids_csv = join(',',$opfids);
 					$selecttime = strtotime("-7 days");
-
 					$HotThreads = DB::fetch_all("SELECT * FROM ".DB::table('forum_thread')." WHERE fid in ($selectfids_csv) AND dateline>'$selecttime' AND `displayorder` IN('0','1','2','3','4') ORDER BY `replies` DESC LIMIT 10");
 					discuz_table::store_cache(0, $HotThreads, 43200 , 'HotThreads_'.$operation);
 				}
@@ -157,11 +157,29 @@ class ForumExtendScript {
 					define('TopPoint','buglist');
 				}
 
+				//推荐主题
+				global $RecomThreads;
+				if(($RecomThreads = discuz_table::fetch_cache($_G['fid'], 'RecomThreads')) === false){
+					$opfids_csv = join(',',array($_G['fid']));
+					$query = DB::query("SELECT ffc.* FROM ".DB::table('forum_threadmod')." ftm
+							LEFT JOIN ".DB::table('forum_forumrecommend')." ffc ON (ffc.tid=ftm.tid )
+						WHERE ffc.fid IN ($opfids_csv) AND ffc.`position` IN('0','1') AND  ftm.action = 'REC' ORDER by ftm.dateline DESC LIMIT 5");
+					while($thread = DB::fetch($query)) {
+						$imgd = explode("\t", $thread['filename']);
+						if($imgd[0] && $imgd[3]) {
+							$thread['filename'] = getforumimg($imgd[0], 0, $imgd[1], $imgd[2]);
+						}
+						$RecomThreads[] =$thread;
+					}
+					discuz_table::store_cache($_G['fid'], $RecomThreads, 7200 , 'RecomThreads');
+				}	
+				// 热门主题
 				if ( constant('CURMODULE') != 'viewthread' && $_G['fid'] && $_G['fid'] != $_Data['buglistfid']) {
-					if(($HotThreads = discuz_table::fetch_cache($_G['fid'], 'HotThreads_')) === false){
+					global $HotThreads;
+					if(($HotThreads = discuz_table::fetch_cache($_G['fid'], 'HotThreads')) === false){
 						$selecttime = strtotime("-7 days");
 						$HotThreads = DB::fetch_all("SELECT * FROM ".DB::table('forum_thread')." WHERE `fid`='{$_G['fid']}' AND dateline>'$selecttime' AND `displayorder` IN('0','1','2','3','4') ORDER BY `replies` DESC LIMIT 10");
-						discuz_table::store_cache($_G['fid'], $HotModels, 43200 , 'HotThreads_');
+						discuz_table::store_cache($_G['fid'], $HotModels, 43200 , 'HotThreads');
 					}
 				}
 			}

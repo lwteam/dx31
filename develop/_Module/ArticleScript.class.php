@@ -242,15 +242,18 @@ class ArticleScript {
 
 			$multipage = multi($TotalNum, $pagenum, $page, "forum.php?", $_G['setting']['threadmaxpages']);
 			
-
+			//热门论坛
 			if(($HotForums = discuz_table::fetch_cache(0, 'HotForums_index')) === false){
 				$HotForums = DB::fetch_all("SELECT  f.* FROM ".DB::table('forum_forum')." f 
 				WHERE f.type='forum'  ORDER BY f.todayposts LIMIT 10");
 				discuz_table::store_cache(0, $HotForums, 7200 , 'HotForums_index');
 			}
+			//推荐主题
 			if(($RecomThreads = discuz_table::fetch_cache(0, 'RecomThreads_index')) === false){
 				$opfids_csv = join(',',$opfids);
-				$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE `position` IN('0','1') ORDER BY displayorder  LIMIT 5");
+				$query = DB::query("SELECT ffc.* FROM ".DB::table('forum_threadmod')." ftm
+							LEFT JOIN ".DB::table('forum_forumrecommend')." ffc ON (ffc.tid=ftm.tid )
+						WHERE ffc.`position` IN('0','1') AND  ftm.action = 'REC' ORDER by ftm.dateline DESC LIMIT 5");
 				while($thread = DB::fetch($query)) {
 					$imgd = explode("\t", $thread['filename']);
 					if($imgd[0] && $imgd[3]) {
@@ -258,10 +261,9 @@ class ArticleScript {
 					}
 					$RecomThreads[] =$thread;
 				}
-
 				discuz_table::store_cache(0, $RecomThreads, 7200 , 'RecomThreads_index');
 			}
-
+			//热门主题
 			if(($HotThreads = discuz_table::fetch_cache(0, 'HotThreads_index')) === false){
 				$selecttime = strtotime("-7 days");
 				$HotThreads = DB::fetch_all("SELECT * FROM ".DB::table('forum_thread')." WHERE dateline>'$selecttime' AND `displayorder` IN('0','1','2','3','4') ORDER BY `replies` DESC LIMIT 10");

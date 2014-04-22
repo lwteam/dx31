@@ -53,7 +53,7 @@
 			return;
 		}
 		curpage++;
-		var url = nextpageurl + '&t=' + parseInt((+new Date()/1000)/(Math.random()*1000));
+		var url = nextpageurl + (nextpageurl.charAt(nextpageurl.length - 1) == '/'?'?t=':'&t=')  + parseInt((+new Date()/1000)/(Math.random()*1000));
 		var x = new Ajax('HTML');
 		x.get(url, function (s) {
 			s = s.replace(/\n|\r/g, '');
