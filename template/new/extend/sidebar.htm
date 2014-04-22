@@ -120,7 +120,7 @@
 
 		<!--{/if}-->
 		
-		<!--{if TopPoint != 'buglist' && CURMODULE != 'viewthread'}-->
+		<!--{if TopPoint != 'buglist'}-->
 		<div class="sbox">
 			<div class="sboxtitle"><h3 class="ht">{if CURMODULE == 'forumdisplay'}版主推荐{else}推荐阅读{/if}</h3></div>
 			<div class="sboxsub">
@@ -134,20 +134,21 @@
 		</div>
 		<!--{/if}-->
 		<!--{if TopPoint != 'buglist'}-->
-		<div class="sbox">
-			<div class="sboxtitle"><h3 class="ht">{if CURMODULE == 'viewthread'}相关帖子{else}热帖{/if}</h3></div>
-			<div class="sboxsub">
-				<ul class="sboxsubtext">
-					<!--{if CURMODULE == 'viewthread'}-->
-						<!--{eval $HotThreads = $postlist[$_G[forum_firstpid]]['relateitem'];}-->
-					<!--{/if}-->
-
-					<!--{loop $HotThreads $key $thread}-->
-						<li><span class="toprank">{echo $key+1}</span><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a></li>
-					<!--{/loop}-->
-				</ul>
+			<!--{if CURMODULE == 'viewthread'}-->
+				<!--{eval $HotThreads = $postlist[$_G[forum_firstpid]]['relateitem'];}-->
+			<!--{/if}-->
+			<!--{if $HotThreads}-->
+			<div class="sbox">
+				<div class="sboxtitle"><h3 class="ht">{if CURMODULE == 'viewthread'}相关帖子{else}热帖{/if}</h3></div>
+				<div class="sboxsub">
+					<ul class="sboxsubtext">
+						<!--{loop $HotThreads $key $thread}-->
+							<li><span class="toprank">{echo $key+1}</span><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a></li>
+						<!--{/loop}-->
+					</ul>
+				</div>
 			</div>
-		</div>
+			<!--{/if}-->
 		<!--{/if}-->
 		<div class="sbox">
 			<div class="sboxtitle"><span class="more"><a href="" title="更多">更多</a></span><h3 class="ht">活动</h3></div>

@@ -9,9 +9,9 @@ catlist_ {'model','vibeui','apps','portal'} 86400  //分区列表
 
 Opfids_ {model','vibeui','apps','portal'} 86400  分区内所有板块id
 
-HotThreads_ {'inex','model','vibeui','apps','portal'}  //热门主题
+HotThreads_ {'inex','model','vibeui','apps','portal'}  //热门主题43200
 
-HotThreads_ fid  //热门主题
+HotThreads_ fid  //热门主题43200 
 
 // 板块导航条定位
 forumextend_fup  
