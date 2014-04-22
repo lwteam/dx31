@@ -4,13 +4,7 @@
 	<div class="solvemain">
 		<div class="solvelisttop">
 			<small title="{echo date('Y-m-d H:i',$value[dateline]);}">{echo date('m-d H:i',$value[dateline]);}</small><i></i>
-			<strong>
-			<!--{if $value[dist]}-->
-				<!--{if !$value[hide]||$value[itcode]}-->$value[name]<!--{if $value[itcode]}--> / $value[itcode]<!--{/if}--><!--{else}-->$value[another]<!--{/if}-->
-			<!--{else}-->
-				$value[username]
-			<!--{/if}-->
-			</strong>（<em><!--{if $value[dist]}-->$value[title]<!--{else}-->反馈者<!--{/if}--></em>）
+			<strong>$value[showname]</strong>（<em><!--{if $value[dist]}-->$value[title]<!--{else}-->反馈者<!--{/if}--></em>）
 		<!--{if Library::getstatus($value[status],1)}-->
 			<!--{if Library::getstatus($value[status],2)}-->反馈者补充<!--{else}-->未更改状态， 需要反馈者补充<!--{/if}-->
 		<!--{else}-->
