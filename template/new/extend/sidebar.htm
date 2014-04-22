@@ -125,9 +125,6 @@
 			<div class="sboxtitle"><h3 class="ht">{if CURMODULE == 'forumdisplay'}版主推荐{else}推荐阅读{/if}</h3></div>
 			<div class="sboxsub">
 				<ul class="sboxsubrecommend">
-				<!--{if CURMODULE == 'forumdisplay'}-->
-					<!--{eval $RecomThreads = $_G['forum']['recommendlist']['images'];}-->
-				<!--{/if}-->
 				<!--{loop $RecomThreads $key $thread}-->
 				<li><div><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]"><img src="$thread[filename]" width="80" height="60"></a></div><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a></li>
 				<!--{/loop}-->
@@ -144,7 +141,7 @@
 					<!--{if CURMODULE == 'viewthread'}-->
 						<!--{eval $HotThreads = $postlist[$_G[forum_firstpid]]['relateitem'];}-->
 					<!--{/if}-->
-					
+
 					<!--{loop $HotThreads $key $thread}-->
 						<li><span class="toprank">{echo $key+1}</span><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a></li>
 					<!--{/loop}-->

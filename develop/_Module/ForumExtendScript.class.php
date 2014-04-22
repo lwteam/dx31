@@ -121,7 +121,7 @@ class ForumExtendScript {
 				//推荐主题
 				if(($RecomThreads = discuz_table::fetch_cache(0, 'RecomThreads_'.$operation)) === false){
 					$opfids_csv = join(',',$opfids);
-					$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE fid IN ($opfids_csv) AND `position` IN('0','1') ORDER BY displayorder  LIMIT 5");
+					$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE fid IN ($opfids_csv) AND `position` IN('0','1')  LIMIT 5");
 					while($thread = DB::fetch($query)) {
 						$imgd = explode("\t", $thread['filename']);
 						if($imgd[0] && $imgd[3]) {
@@ -154,6 +154,20 @@ class ForumExtendScript {
 				}elseif ($_G['fid'] == $_Data['buglistfid']){
 					define('TopPoint','buglist');
 				}
+
+							//推荐主题
+				if(($RecomThreads = discuz_table::fetch_cache(0, 'RecomThreads_'.$operation)) === false){
+					$opfids_csv = join(',',array($_G['fid']));
+					$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE fid IN ($opfids_csv) AND `position` IN('0','1')  LIMIT 5");
+					while($thread = DB::fetch($query)) {
+						$imgd = explode("\t", $thread['filename']);
+						if($imgd[0] && $imgd[3]) {
+							$thread['filename'] = getforumimg($imgd[0], 0, $imgd[1], $imgd[2]);
+						}
+						$RecomThreads[] =$thread;
+					}
+					discuz_table::store_cache(0, $RecomThreads, 7200 , 'RecomThreads_'.$operation);
+				}	
 				// 热门主题
 				if ( constant('CURMODULE') != 'viewthread' && $_G['fid'] && $_G['fid'] != $_Data['buglistfid']) {
 					global $HotThreads;
