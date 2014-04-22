@@ -17,6 +17,15 @@
 .g2 {
   height: 80px; }
 
+@media only screen and (max-width: 1200px) {
+  .w24 {
+    width: 980px; }
+
+  .w18 {
+    width: 700px; }
+
+  .w6 {
+    width: 270px; } }
 .color1, .mside h3, .mheadmenu a {
   color: #000; }
 
