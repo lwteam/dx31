@@ -12,6 +12,8 @@ class PublicCore {
 		$myPermission['permission'] = $myPermission['permission']?unserialize($myPermission['permission']):array();
 		$myPermission['hardware'] = $myPermission['hardware']?unserialize($myPermission['hardware']):array();
 
+		$_G['setting']['pluginhooks']['register_logging_method'] = $_G['setting']['pluginhooks']['logging_method'] = '<a href="lenovo.php">联想通行证</a>';
+
 	}
 }
 
