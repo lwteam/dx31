@@ -269,6 +269,7 @@ CREATE TABLE `pre_buglist_log` (
   `status` smallint(6) unsigned NOT NULL DEFAULT '0',-- 二进制状态信息  1位:ture:修改状态了 false:补充 2:用户已经补充
   `message` char(255) NOT NULL DEFAULT '', -- 处理信息
   `note` char(255) NOT NULL DEFAULT '', -- 后台备注
+  `dist` smallint(6) unsigned NOT NULL DEFAULT '0', -- 级别  1. 产品经理 2 产品工程师 3.反馈专员  4. 信息专员
   KEY (`tid`,`dateline`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8; 
 
