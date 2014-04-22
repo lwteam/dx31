@@ -65,6 +65,9 @@ class BugListScript {
 
 	
 			if ($view == 'me') {
+				if(empty($_G['uid'])) {
+					showmessage('to_login', '', array(), array('showmsg' => true, 'login' => 1));
+				}
 				$sqlwhere = "WHERE `uid`='$_G[uid]'";
 				if ($handling!==NULL) {
 					$sqlwhere .= " AND b.`handling`='$handling'";
