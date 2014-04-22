@@ -176,10 +176,10 @@ class ForumExtendScript {
 				// 热门主题
 				if ( constant('CURMODULE') != 'viewthread' && $_G['fid'] && $_G['fid'] != $_Data['buglistfid']) {
 					global $HotThreads;
-					if(($HotThreads = discuz_table::fetch_cache($_G['fid'], 'HotThreads_')) === false){
+					if(($HotThreads = discuz_table::fetch_cache($_G['fid'], 'HotThreads')) === false){
 						$selecttime = strtotime("-7 days");
 						$HotThreads = DB::fetch_all("SELECT * FROM ".DB::table('forum_thread')." WHERE `fid`='{$_G['fid']}' AND dateline>'$selecttime' AND `displayorder` IN('0','1','2','3','4') ORDER BY `replies` DESC LIMIT 10");
-						discuz_table::store_cache($_G['fid'], $HotModels, 43200 , 'HotThreads_');
+						discuz_table::store_cache($_G['fid'], $HotModels, 43200 , 'HotThreads');
 					}
 				}
 			}
