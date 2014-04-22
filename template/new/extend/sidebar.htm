@@ -137,7 +137,7 @@
 			<!--{if CURMODULE == 'viewthread'}-->
 				<!--{eval $HotThreads = $postlist[$_G[forum_firstpid]]['relateitem'];}-->
 			<!--{/if}-->
-			<!--{if !$HotThreads}-->
+			<!--{if $HotThreads}-->
 			<div class="sbox">
 				<div class="sboxtitle"><h3 class="ht">{if CURMODULE == 'viewthread'}相关帖子{else}热帖{/if}</h3></div>
 				<div class="sboxsub">
