@@ -156,6 +156,7 @@ class ForumExtendScript {
 				}
 
 							//推荐主题
+				global $RecomThreads;
 				if(($RecomThreads = discuz_table::fetch_cache(0, 'RecomThreads_'.$operation)) === false){
 					$opfids_csv = join(',',array($_G['fid']));
 					$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE fid IN ($opfids_csv) AND `position` IN('0','1')  LIMIT 5");
