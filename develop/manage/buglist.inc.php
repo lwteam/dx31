@@ -100,6 +100,7 @@ if($operation == 'supply'){
 					$insert['handling']	= $onebuglist['handling'];
 					$insert['message']	= $message;
 					$insert['note']		= $note;
+					$insert['dist']		= $myPermission['dist'];
 					$insert['status']	= Library::setstatus(1,1);
 					
 
@@ -306,6 +307,7 @@ if($operation == 'supply'){
 					$insert['handling']	= $handling;
 					$insert['message']	= $message;
 					$insert['note']		= $note;
+					$insert['dist']		= $myPermission['dist'];
 
 					DB::insert('buglist_log', $insert);
 

@@ -169,6 +169,11 @@ class BugListScript {
 			$bthread = DB::fetch_first("SELECT *  FROM ".DB::table('buglist')."  WHERE tid='{$_G['thread']['tid']}'" );
 			if ($bthread) {
 
+				if ($bthread['handling'] == 4) {
+					$bthread['handling'] = 3;
+					$bthread['handlingend'] = true;
+				}
+
 
 				$bthread['classnavtxt'] = ((strlen($bthread['classid']) != 1)?$_Data['buglist'][substr($bthread['classid'],0,1)].' > ':'').$_Data['buglist'][$bthread['classid']];
 
@@ -182,7 +187,7 @@ class BugListScript {
 
 	
 
-				$query = DB::query("SELECT bl.*,bu.dist,bu.avatar,bu.name,bu.another,bu.title,bu.team,bu.hide FROM ".DB::table('buglist_log')." bl
+				$query = DB::query("SELECT bl.*,bu.avatar,bu.name,bu.another,bu.title,bu.team,bu.hide FROM ".DB::table('buglist_log')." bl
 				LEFT JOIN  ".DB::table('buglist_user')." bu USING(uid) WHERE bl.tid='{$_G['thread']['tid']}' ORDER BY bl.`dateline` DESC");
 				while($value = DB::fetch($query)) {
 					//转换全部状态信息
