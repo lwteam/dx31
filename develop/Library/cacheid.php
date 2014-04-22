@@ -20,3 +20,5 @@ forumextend_fup
 HotForums_  {'inex','model','vibeui','apps','portal'}  7200  //热门论坛
 
 RecomThreads_  {'index','model','vibeui','apps','portal'} 7200 //热门推荐
+
+RecomThreads fid   7200 板块内推荐

@@ -155,9 +155,9 @@ class ForumExtendScript {
 					define('TopPoint','buglist');
 				}
 
-							//推荐主题
+				//推荐主题
 				global $RecomThreads;
-				if(($RecomThreads = discuz_table::fetch_cache(0, 'RecomThreads_'.$operation)) === false){
+				if(($RecomThreads = discuz_table::fetch_cache($_G['fid'], 'RecomThreads')) === false){
 					$opfids_csv = join(',',array($_G['fid']));
 					$query = DB::query("SELECT * FROM pre_forum_forumrecommend WHERE fid IN ($opfids_csv) AND `position` IN('0','1')  LIMIT 5");
 					while($thread = DB::fetch($query)) {
@@ -167,7 +167,7 @@ class ForumExtendScript {
 						}
 						$RecomThreads[] =$thread;
 					}
-					discuz_table::store_cache(0, $RecomThreads, 7200 , 'RecomThreads_'.$operation);
+					discuz_table::store_cache($_G['fid'], $RecomThreads, 7200 , 'RecomThreads');
 				}	
 				// 热门主题
 				if ( constant('CURMODULE') != 'viewthread' && $_G['fid'] && $_G['fid'] != $_Data['buglistfid']) {
