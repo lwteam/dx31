@@ -5,35 +5,44 @@ $_SERVER['SCRIPT_NAME'] = 'lenovo.php';
 define('CURSCRIPT', 'lenovo');
 require './source/class/class_core.php';
 $discuz = & discuz_core::instance();
+$discuz = C::app();
 $discuz->init();
 
+require libfile('function/member');
+require libfile('class/member');
+
+
+//require_once libfile('function/member');
+loaducenter();
+/*
+登陆测试
+
+http://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin&lenovoid.realm=chita.lps.lenovo.com&lenovoid.uinfo=username&lenovoid.cb=http://bbs.lenovo.com/lenovo.php
+
+
+*/
 
 $act = $_REQUEST['act']?$_REQUEST['act']:'auth'; 
 
 
 if ($act == 'auth') {
-	echo'<pre>';
-	var_dump( $_GET );
-	echo'</pre>';exit;
-		
-	//header('Location: http://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin&lenovoid.realm=bbs.lenovo.com&lenovoid.uinfo=username&lenovoid.cb='.urlencode('http://bbs.lenovo.com/lenovo.php?act=callback'));
-	//exit();	
-}
 
-//https://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin&lenovoid.source=browser:realm:chita.lps.lenovo.com&lenovoid.realm=chita.lps.lenovo.com&lenovoid.uinfo=username&lenovoid.cb=http://lefen.lenovo.com/lfb/lenovo.php?mod=login
-/*
-elseif ($act == 'callback') {
-	require_once libfile('function/member');
+	header('Location: http://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin&lenovoid.realm=chita.lps.lenovo.com&lenovoid.uinfo=username&lenovoid.cb='.urlencode('http://bbs.lenovo.com/lenovo.php?act=callback'));
+	exit();	
+}elseif ($act == 'callback') {
+
+
 
 	if(!$_GET['lenovoid_wust']){
 		showmessage('授权失败请重试!','index.php');	
 	}
 
-	$content = @file_get_contents('http://uss.lenovomm.com/interserver/authen/1.2/getaccountid?realm=bbs.lenovo.com&lpsust='.$_GET['lenovoid_wust']);
+	$content = @file_get_contents('http://uss.lenovomm.com/interserver/authen/1.2/getaccountid?realm=chita.lps.lenovo.com&lpsust='.$_GET['lenovoid_wust']);
 
 	$xml = simplexml_load_string($content);
 	$AccountID = (string)$xml->AccountID;
 	$Username = (string)$xml->Username;
+
 
 	if(!$AccountID){
 		showmessage('联想通行证LenovoID授权失败请重试');
@@ -43,14 +52,16 @@ elseif ($act == 'callback') {
 		showmessage('您的账号和联想通行证已经成功绑定');
 	}else{
 		$member = DB::fetch_first("SELECT m.*,ml.lenovoid FROM ".DB::table('common_member_lenovoid')." ml
-				LEFT JOIN  ".DB::table('common_member')." USING(`uid`)
+				LEFT JOIN  ".DB::table('common_member')." m USING(`uid`)
 			WHERE ml.`lenovoid`='{$AccountID}' LIMIT 1");
+
+			
 		if($member && $member['lenovoid'] ){
 			//登陆
 			setloginstatus($member, 2592000);
-
+				
 			C::t('common_member_status')->update($_G['uid'], array('lastip' => $_G['clientip'], 'port' => $_G['remoteport'], 'lastvisit' =>TIMESTAMP, 'lastactivity' => TIMESTAMP));
-			$ucsynlogin = $this->setting['allowsynlogin'] ? uc_user_synlogin($_G['uid']) : '';
+			$ucsynlogin = $_G['setting']['allowsynlogin'] ? uc_user_synlogin($_G['uid']) : '';
 
 			$param = array(
 				'username' => $_G['member']['username'],
@@ -59,27 +70,33 @@ elseif ($act == 'callback') {
 				'groupid' => $_G['groupid'],
 				'syn' => $ucsynlogin ? 1 : 0
 			);
-
 			$extra = array(
 				'showdialog' => true,
 				'locationtime' => true,
 				'extrajs' => $ucsynlogin
 			);
+			$loginmessage = $_G['groupid'] == 8 ? 'login_succeed_inactive_member' : 'login_succeed';
+			$location = $invite || $_G['groupid'] == 8 ? 'home.php?mod=space&do=home' : dreferer();
+
 			showmessage($loginmessage, $location, $param, $extra);
 			
 		}else{
 
-
-			$username = $email = '';
-
+			
+			$i = 0;
 			do {
-				$uid = uc_user_register(addslashes($username), $password, $email, '', '', $_G['clientip']);
-			} while ($uid > 0);
+				$username = 'LW'.date('Y',TIMESTAMP).Library::randstring(8,'N');
+				if ($i == 0 && isemail($Username)) {
+					$uc_emailexist = uc_user_checkemail($Username);
+				}
+				$email = (isemail($Username) && !$uc_emailexist)?$Username:$username.'@bbs.lenovo.com';
 
+				$uid = uc_user_register(addslashes($username), $password, $email, '', '', $_G['clientip']);
+			} while ($uid <= 0);
+			$_G['username'] = $username;
 
 			$password = md5(random(10));
 			$secques = $questionid > 0 ? random(8) : '';
-
 
 			if($setregip !== null) {
 				if($setregip == 1) {
@@ -90,17 +107,22 @@ elseif ($act == 'callback') {
 			}
 
 			$groupinfo = array();
-			if($this->setting['regverify']) {
+
+			if($_G['setting']['regverify']) {
 				$groupinfo['groupid'] = 8;
 			} else {
-				$groupinfo['groupid'] = $this->setting['newusergroupid'];
+				$groupinfo['groupid'] = $_G['setting']['newusergroupid'];
 			}		
 
-			$emailstatus = 1;
 
-			$init_arr = array('credits' => explode(',', $this->setting['initcredits']), 'profile'=>$profile, 'emailstatus' => $emailstatus);
+
+			$emailstatus = 0;
+
+			$init_arr = array('credits' => explode(',', $_G['setting']['initcredits']), 'profile'=>$profile, 'emailstatus' => $emailstatus);
 
 			C::t('common_member')->insert($uid, $username, $password, $email, $_G['clientip'], $groupinfo['groupid'], $init_arr);
+
+
 			if($emailstatus) {
 				updatecreditbyaction('realemail', $uid);
 			}
@@ -110,9 +132,9 @@ elseif ($act == 'callback') {
 			build_cache_userstats();
 
 
-			if($this->setting['regctrl'] || $this->setting['regfloodctrl']) {
-				C::t('common_regip')->delete_by_dateline($_G['timestamp']-($this->setting['regctrl'] > 72 ? $this->setting['regctrl'] : 72)*3600);
-				if($this->setting['regctrl']) {
+			if($_G['setting']['regctrl'] || $_G['setting']['regfloodctrl']) {
+				C::t('common_regip')->delete_by_dateline($_G['timestamp']-($_G['setting']['regctrl'] > 72 ? $_G['setting']['regctrl'] : 72)*3600);
+				if($_G['setting']['regctrl']) {
 					C::t('common_regip')->insert(array('ip' => $_G['clientip'], 'count' => -1, 'dateline' => $_G['timestamp']));
 				}
 			}
@@ -154,8 +176,8 @@ elseif ($act == 'callback') {
 			$locationmessage = 'register_succeed_location';
 
 
-			$param = array('bbname' => $this->setting['bbname'], 'username' => $_G['username'], 'usergroup' => $_G['group']['grouptitle'], 'uid' => $_G['uid']);
-			if(strpos($url_forward, $this->setting['regname']) !== false || strpos($url_forward, 'buyinvitecode') !== false) {
+			$param = array('bbname' => $_G['setting']['bbname'], 'username' => $_G['username'], 'usergroup' => $_G['group']['grouptitle'], 'uid' => $_G['uid']);
+			if(strpos($url_forward, $_G['setting']['regname']) !== false || strpos($url_forward, 'buyinvitecode') !== false) {
 				$url_forward = 'forum.php';
 			}
 			$href = str_replace("'", "\'", $url_forward);
@@ -170,15 +192,18 @@ elseif ($act == 'callback') {
 				'</script>',
 				'striptags' => false,
 			);
+
+			DB::insert('common_member_lenovoid',  array('uid'=>$uid,'lenovoid'=>$AccountID, 'dateline'=>TIMESTAMP));
+			DB::insert('common_member_accountchange', array('uid'=>$uid,'username'=>$username,'email'=>$email));
+
+				
 			showmessage($message, $url_forward, $param, $extra);
 
 
-			DB::insert('common_member_accountchange', array('uid'=>$member['uid'],'username'=>$member['username'],'email'=>$member['email']));
+			
 
 		}
 	}
-
-
 
 }elseif ($act == 'binding') {
 	if(empty($_G['uid'])) {
@@ -188,7 +213,7 @@ elseif ($act == 'callback') {
 	if($user || $user['lenovoid']) {
 		showmessage('您的账号和联想通行证已经绑定过了,如需绑定其他联想通行证请先解除现有的绑定关系!');
 	}else{
-		header('Location: http://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin&lenovoid.realm=dr.lenovomm.com&lenovoid.uinfo=username&lenovoid.cb='.urlencode('http://bbs.lenovo.com/lenovo.php?act=callback&bind=1'));
+		header('Location: http://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin&lenovoid.realm=chita.lps.lenovo.com&lenovoid.uinfo=username&lenovoid.cb='.urlencode('http://bbs.lenovo.com/lenovo.php?act=callback&bind=1'));
 		exit();
 	}
 
@@ -201,10 +226,11 @@ elseif ($act == 'callback') {
 	if(!$user || !$user['lenovoid']) {
 		showmessage('您没有绑定过联想通行证,无法进行解绑操作!');
 	}else{
+		showmessage('暂时不开通联想通行证解绑操作!');
 		DB::query("DELETE FROM ".DB::table('common_member_lenovoid')." WHERE `uid`='$_G[uid]' LIMIT 1");
 		showmessage('您的账号和联想通行证之间的绑定关系已经解除!');
 	}
 }
-*/
+
 
 ?>

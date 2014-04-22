@@ -1,7 +1,33 @@
 <?php
 
 class Library {
+	function randstring($length = 5,$mod = 'UMN', $starthash = '') {
+		$hash = $starthash;
 
+		if (preg_match ( "/U/i", $mod )) {
+			$chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		}
+		if (preg_match ( "/M/i", $mod )) {
+			$chars .= 'abcdefghijklmnopqrstuvwxyz';
+		}
+		if (preg_match ( "/N/i", $mod )) {
+			$chars .= '0123456789';
+		}
+
+		
+		$max = strlen ( $chars ) - 1;
+		if (PHP_VERSION < '4.2.0') {
+			mt_srand ( ( double ) microtime () * 1000000 );
+		}
+		for($i = 0; $i < $length; $i ++) {
+			
+			$hash .= $chars [mt_rand ( 0, $max )];
+			if ($i == 0) {
+				$hash = ($hash [0] == '0') ? '1' : $hash;
+			}
+		}
+		return $hash;
+	}
 	public function getstatus($status, $position) {
 		$t = $status & pow(2, $position - 1) ? 1 : 0;
 		return $t;
