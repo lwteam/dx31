@@ -1,20 +1,24 @@
 <?php
 
 chdir('../');
-$_SERVER['SCRIPT_NAME'] = 'manage.php';
-define('CURSCRIPT', 'manage');
+$_SERVER['SCRIPT_NAME'] = 'lenovo.php';
+define('CURSCRIPT', 'lenovo');
 require './source/class/class_core.php';
 $discuz = & discuz_core::instance();
 $discuz->init();
 
 
-$act = $_REQUEST['act']?$_REQUEST['act']:'goto'; 
+$act = $_REQUEST['act']?$_REQUEST['act']:'auth'; 
 
 
 if ($act == 'auth') {
 	header('Location: http://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin&lenovoid.realm=bbs.lenovo.com&lenovoid.uinfo=username&lenovoid.cb='.urlencode('http://bbs.lenovo.com/lenovo.php?act=callback'));
 	exit();	
-}elseif ($act == 'callback') {
+}
+
+//https://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin&lenovoid.source=browser:realm:chita.lps.lenovo.com&lenovoid.realm=chita.lps.lenovo.com&lenovoid.uinfo=username&lenovoid.cb=http://lefen.lenovo.com/lfb/lenovo.php?mod=login
+/*
+elseif ($act == 'callback') {
 	require_once libfile('function/member');
 
 	if(!$_GET['lenovoid_wust']){
@@ -197,6 +201,6 @@ if ($act == 'auth') {
 		showmessage('您的账号和联想通行证之间的绑定关系已经解除!');
 	}
 }
-
+*/
 
 ?>

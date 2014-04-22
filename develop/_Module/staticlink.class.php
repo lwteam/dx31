@@ -128,7 +128,8 @@ class staticlink_viewthread_location {
 
 		 //修改静态SEO
 
-		$_G['setting']['seohead'] = str_replace('forum.php?mod=viewthread','forum.php?mod=viewthread&fid='.$fid,$_G['setting']['seohead']);
+		 
+		$_G['setting']['seohead'] = preg_replace('/forum\.php\?mod=viewthread^(?!&fid=)/','forum.php?mod=viewthread&fid='.$fid,$_G['setting']['seohead']);
 
 		if($_G['gp_fid'] != $fid){
 			loadcache('staticlink');
