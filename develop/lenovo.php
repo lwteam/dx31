@@ -82,6 +82,7 @@ if ($act == 'auth') {
 			
 		}else{
 
+			$password = md5(random(10));
 			
 			$i = 0;
 			do {
