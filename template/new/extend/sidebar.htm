@@ -143,7 +143,7 @@
 				<div class="sboxsub">
 					<ul class="sboxsubtext">
 						<!--{loop $HotThreads $key $thread}-->
-							<li><span class="toprank">{echo $key+1}</span><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a></li>
+							<li><span {if $key<3}class="toprank"{else}class="topranks"{/if}>{echo $key+1}</span><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a></li>
 						<!--{/loop}-->
 					</ul>
 				</div>
