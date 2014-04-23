@@ -17,7 +17,7 @@
 .g2 {
   height: 80px; }
 
-@media only screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
   .w24 {
     width: 980px; }
 
@@ -72,7 +72,7 @@
   font-size: 22px;
   font-weight: 400; }
 
-@media only screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
   .bodyfont {
     font-size: 12px; }
 
