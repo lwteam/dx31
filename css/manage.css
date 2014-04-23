@@ -72,6 +72,19 @@
   font-size: 22px;
   font-weight: 400; }
 
+@media only screen and (max-width: 1200px) {
+  .bodyfont {
+    font-size: 12px; }
+
+  .middlefont, .mlistboxhead {
+    font-size: 14px; }
+
+  .bigfont {
+    font-size: 16px; }
+
+  .hfont, .mside h3, .mhead h3 {
+    font-size: 18px;
+    font-weight: 400; } }
 .border {
   border: 1px solid white; }
 
