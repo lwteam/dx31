@@ -12,7 +12,7 @@ $_Data['forumextendtxt'] = array(
 	'vibeui'=>'VIBE UI',
 	'apps'=>'乐家族产品',
 	'portal'=>'乐玩广场',
-	'buglist'=>'BUG反馈'
+	'buglist'=>'畅说'
 );
 
 /*
