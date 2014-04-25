@@ -3,33 +3,13 @@
 <!--{subtemplate home/spacecp_header}-->
 
 <script type="text/javascript" src="{$_G[setting][jspath]}register.js?{VERHASH}"></script>
-<p class="bbda pbm mbm">使用 <font color="blue">联想通行证 LenovoID</font> 注册, 以及 <font color="blue">乐Phone之家</font>, <font color="blue">乐粉帮论坛</font> 的老用户享有<font color=red>一次</font>修改账号信息(用户名,邮箱地址)的机会</p>
-<form action="home.php?mod=spacecp&ac=profile" method="post" autocomplete="off">
-	<input type="hidden" value="{FORMHASH}" name="formhash" />
-	<table summary="{lang memcp_profile}" cellspacing="0" cellpadding="0" class="tfm">
-		<tr>
-			<th></th>
-			<td>
-				<p class="d">新的账号名称</p>
-				<input type="text" name="newusername" class="px" value="$_G[username]" />
-			</td>
-		</tr>
-		<tr>
-			<th></th>
-			<td>
-				<p class="d">新的邮箱地址</p>
-				<input type="text" name="newemail" id="newpassword2"class="px" />
-			</td>
-		</tr>
-		
-				
-		<tr>
-			<th>&nbsp;</th>
-			<td><button type="submit" name="pwdsubmit" value="true" class="pn pnc" /><strong>确认修改</strong></button></td>
-		</tr>
-	</table>
-	<input type="hidden" name="passwordsubmit" value="true" />
-</form>
+<p class="bbda pbm mbm">您可以管理您的账号和联想通行证之间的关系</p>
+
+		<!--{if $user && $user['lenovoid']}-->
+		<button type="submit" name="pwdsubmit" value="true" class="pn pnc" onclick="location.href='lenovo.php?act=unbinding'"/><strong>解除联想通行证绑定</strong></button>
+		<!--{else}-->
+		<button type="submit" name="pwdsubmit" value="true" class="pn pnc" onclick="location.href='lenovo.php?act=binding'" /><strong>绑定我的联想通行证</strong></button>
+		<!--{/if}-->
 
 		</div>
 	</div>
