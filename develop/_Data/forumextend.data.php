@@ -11,7 +11,7 @@ $_Data['forumextendtxt'] = array(
 	'model'=>'机型专区',
 	'vibeui'=>'VIBE UI',
 	'apps'=>'乐家族产品',
-	'portal'=>'乐玩广场',
+	'portal'=>'玩家广场',
 	'buglist'=>'畅说'
 );
 
