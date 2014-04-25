@@ -269,6 +269,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 		#post_extra_tb label.a {  background: #f5f5f5; box-shadow: none; border-bottom-color:#f5f5f5; }
 			#post_extra_tb label span { line-height: 40px;  }
 				#post_extra_tb span.a {  }
+				#post_extra_tb #extra_rushreplyset_b,#post_extra_tb #extra_tag_b { width:68px; }
 
 #post_extra_c { position: relative; z-index: 1; }
 #post_extra_c .extratop { border-bottom:1px solid #eee; }
@@ -277,11 +278,16 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 #post_extra_c .replycredit div { border-bottom:1px solid #e3e5e8; padding-bottom:10px; margin-bottom:10px;}
 	#post_extra_c .exfm { margin:0; border:0; background:none; padding: 10px 19px;}
 
-#extra_additional_c label { float:left; width: 50%; padding-bottom: 10px;}
+#extra_additional_c label { float:left; width: 50%; padding-bottom: 10px; text-overflow:ellipsis; white-space:nowrap;}
 
 #draftlist { border-style: solid; border-width: 1px 1px 0; border-color: {WRAPBG}; }
 	#draftlist.a { position: relative; z-index: 302; border-color: {DROPMENUBORDER}; {DROPMENUBGCODE} }
 	#draftlist_menu { margin-top: -1px; padding: 10px; border: 1px solid {DROPMENUBORDER}; {DROPMENUBGCODE}; }
+
+					@media screen and (max-width: 1370px)  {
+#post_extra_tb #extra_rushreplyset_b,#post_extra_tb #extra_tag_b { width:53px; }
+#post_extra_c #extra_tag_c .px { width:220px;}
+}
 /** end **/
 
 
@@ -372,6 +378,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	.sinf p, .sadd p { padding: 2px 0; height: 30px; line-height: 30px; }
 	.sinf .px, .sadd .px { width: 70px; }
 	.sinf { float: left; width: 270px; margin-top: 10px;}
+
 		.sinf h4 { padding: 6px 0; }
 		.sinf textarea { width: 368px; height: 80px; }
 		.sinf a.d { margin-top: 8px; }
@@ -398,6 +405,10 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 			.spmf em{ float: left; width: 150px;  }
 			.spmf3 em{ float: left; margin-right: 12px; }
 				.spmf3 .px { margin: 0 !important; width: 72px; }
+
+	@media screen and (max-width: 1370px)  {
+.sinf,.sadd { width: 230px;}
+}
 /** end **/
 
 

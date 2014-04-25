@@ -17,6 +17,15 @@
 .g2 {
   height: 80px; }
 
+@media screen and (max-width: 1370px) {
+  .w24 {
+    width: 1070px; }
+
+  .w18 {
+    width: 800px; }
+
+  .w6 {
+    width: 260px; } }
 @media screen and (max-width: 1200px) {
   .w24 {
     width: 980px; }
@@ -25,7 +34,7 @@
     width: 700px; }
 
   .w6 {
-    width: 270px; } }
+    width: 260px; } }
 .color1, .mside h3, .mheadmenu a {
   color: #000; }
 
@@ -281,6 +290,9 @@
   height: 33px;
   line-height: 33px;
   padding: 0 18px; }
+
+#container {
+  width: 1180px; }
 
 .mside {
   width: 130px;

@@ -19,10 +19,10 @@
 				<!--{/if}-->
 			<!--{/if}-->
 			<!--{if ($_GET[action] == 'newthread' && $_G['group']['allowpostrushreply'] && $special != 2) || ($_GET[action] == 'edit' && getstatus($thread['status'], 3))}-->
-				<label id="extra_rushreplyset_b" onclick="showExtra('extra_rushreplyset')" style="width:68px;"><span id="extra_rushreplyset_chk">抢楼</span></label>
+				<label id="extra_rushreplyset_b" onclick="showExtra('extra_rushreplyset')"><span id="extra_rushreplyset_chk">抢楼</span></label>
 			<!--{/if}-->
 			<!--{if $_G['group']['allowposttag']}-->
-				<label id="extra_tag_b" onclick="showExtra('extra_tag')" style="width:68px;"><span id="extra_tag_chk">标签</span></label>
+				<label id="extra_tag_b" onclick="showExtra('extra_tag')"><span id="extra_tag_chk">标签</span></label>
 			<!--{/if}-->
 		<!--{/if}-->
 		<!--{hook/post_attribute_extra}-->
@@ -155,7 +155,6 @@
 						<!--{/if}-->
 						<label for="parseurloff"><input type="checkbox" name="parseurloff" id="parseurloff" class="pc" value="1" $urloffcheck />{lang disable}{lang post_parseurl}</label>
 						<label for="smileyoff"><input type="checkbox" name="smileyoff" id="smileyoff" class="pc" value="1" $smileyoffcheck />{lang disable}{lang smilies}</label>
-						<label for="bbcodeoff"><input type="checkbox" name="bbcodeoff" id="bbcodeoff" class="pc" value="1" $codeoffcheck />{lang disable}{lang discuzcode}</label>
 						<!--{if $_G['group']['allowimgcontent']}-->
 							<label for="imgcontent"><input type="checkbox" name="imgcontent" id="imgcontent" class="pc" value="1" $imgcontentcheck onclick="switchEditor(this.checked?0:1);$('e_switchercheck').checked=this.checked;" />{lang content_to_pic}</label>
 						<!--{else}-->
