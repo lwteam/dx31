@@ -95,6 +95,11 @@ if ($page<2) {
 	$totalnum = DB::result_first("SELECT count(*) FROM convert_lefen.".DB::table('forum_thread')." ct
 		left join ".DB::table('forum_thread')." t USING(`tid`) WHERE t.tid is null AND ct.fid IN (".join(',',$opfids).")");
 	$page = 1;
+
+	echo'<pre> Tnum';
+var_dump( ("SELECT count(*) FROM convert_lefen.".DB::table('forum_thread')." ct
+		left join ".DB::table('forum_thread')." t USING(`tid`) WHERE t.tid is null AND ct.fid IN (".join(',',$opfids).")") );
+echo'</pre>';
 }
 
 if(@ceil($totalnum/$ProcessNum) < $page){
@@ -105,29 +110,25 @@ if(@ceil($totalnum/$ProcessNum) < $page){
 $offset = ($page - 1) * $ProcessNum;
 
 
-
+echo'<pre> Stid';
+var_dump(  $thread[tid] );
+echo'</pre>';
 $query = DB::query("SELECT ct.* FROM convert_lefen.".DB::table('forum_thread')." ct
 		left join ".DB::table('forum_thread')." t USING(`tid`) WHERE t.tid is null AND ct.fid IN (".join(',',$opfids).") ORDER BY ct.tid ASC LIMIT $offset,$ProcessNum");
 while($thread = DB::fetch($query)) {
-	if (!DB::fetch_first("SELECT *  FROM ".DB::table('forum_thread')." WHERE tid='$thread[tid]'")) {
-		threadconvert::lenovothread($thread['tid']);
-	}
 	
 }
-if($totalnum <= $ProcessNum*$page){
-	showmnextpage('乐粉主题DIFF数据已经转换完毕! 将进行乐粉帖子DIFF数据转换','diffpost.php');
-}
-
-showmnextpage("乐粉主题DIFF数据正在转换中...".loadingdata(),'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.'page='.($page+1).'&totalnum='.$totalnum.'&starttime='.$starttime,0);
-
-
-
+echo'<pre>Etid';
+var_dump( $thread[tid] );
+echo'</pre>';exit;
+	
 
 /*
 
 
- DELETE FROM `pre_forum_thread` WHERE  `fid` in (665,255,649,678,714,690,734,689,706,705,692,686,683,699,691,724,713,711,733,737,668,688,679,676,672,671,329,269,335,648,383,669,728,715,730,264,729,701,735,736,639,385,670,400,660,674,362,293,386,662,675,687,677) ;
- DELETE FROM `pre_forum_post` 	WHERE  `fid` in (665,255,649,678,714,690,734,689,706,705,692,686,683,699,691,724,713,711,733,737,668,688,679,676,672,671,329,269,335,648,383,669,728,715,730,264,729,701,735,736,639,385,670,400,660,674,362,293,386,662,675,687,677);
+ DELETE FROM `pre_forum_thread` WHERE `tid`>166496 AND `tid`<216497 ;
+  DELETE FROM `pre_forum_post` 	WHERE  `tid`>166496 AND `tid`<216497 ;
+ DELETE FROM `pre_forum_post` 	WHERE `pid`>2583945 AND `pid`<2633945 ;
 
 
 
