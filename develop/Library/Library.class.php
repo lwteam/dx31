@@ -211,6 +211,47 @@ class Library {
 		return $ishave;
 	}
 
-	
+	public function object($object){
+		static $objects;
+		if(!isset($objects[$object])){
+			$objects[$object] = New $object();
+		}
+		return $objects[$object];
+	}
+
+	public function fetch_cache($ids, $pre_cache_key = null) {
+		$data = false;
+		if(memory('check')) {
+			$data = memory('get', $ids, $pre_cache_key);
+		}
+		return $data;
+	}
+
+	public function store_cache($id, $data, $cache_ttl = null, $pre_cache_key = null) {
+		$ret = false;
+		if(memory('check')) {
+			$ret = memory('set', $id, $data, $cache_ttl, $pre_cache_key);
+		}
+		return $ret;
+	}
+
+	public function clear_cache($ids, $pre_cache_key = null) {
+		$ret = false;
+		if(memory('check')) {
+			$ret = memory('rm', $ids, $pre_cache_key);
+		}
+		return $ret;
+	}
+
+	public function update_cache($id, $data, $cache_ttl = null, $pre_cache_key = null) {
+		$ret = false;
+		if(memory('check')) {
+			if(($_data = memory('get', $id, $pre_cache_key)) !== false) {
+				$ret = $this->store_cache($id, array_merge($_data, $data), $cache_ttl, $pre_cache_key);
+			}
+		}
+		return $ret;
+	}
+
 }
 
