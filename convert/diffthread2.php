@@ -95,6 +95,11 @@ if ($page<2) {
 	$totalnum = DB::result_first("SELECT count(*) FROM convert_lefen.".DB::table('forum_thread')." ct
 		left join ".DB::table('forum_thread')." t USING(`tid`) WHERE t.tid is null AND ct.fid IN (".join(',',$opfids).")");
 	$page = 1;
+
+	echo'<pre> Tnum';
+var_dump( ("SELECT count(*) FROM convert_lefen.".DB::table('forum_thread')." ct
+		left join ".DB::table('forum_thread')." t USING(`tid`) WHERE t.tid is null AND ct.fid IN (".join(',',$opfids).")") );
+echo'</pre>';
 }
 
 if(@ceil($totalnum/$ProcessNum) < $page){
@@ -104,9 +109,7 @@ if(@ceil($totalnum/$ProcessNum) < $page){
 
 $offset = ($page - 1) * $ProcessNum;
 
-echo'<pre> Tnum';
-var_dump( $totalnum );
-echo'</pre>';
+
 echo'<pre> Stid';
 var_dump(  $thread[tid] );
 echo'</pre>';
