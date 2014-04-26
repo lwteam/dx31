@@ -4,6 +4,7 @@ buglist_mstatus 86400
 
 buglist_hotbugs 86400 //热门问题 根据遇到人数排列
 
+forumlist_{'model','vibeui','apps','portal'} 18000  //分区列表
 
 catlist_ {'model','vibeui','apps','portal'} 86400  //分区列表
 

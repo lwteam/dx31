@@ -103,7 +103,7 @@ class ForumExtendScript {
 				}
 				unset( $forum_fields);
 				Library::store_cache(0, $catlist, 86400 , 'catlist_'.$operation);
-				Library::store_cache(0, $forumlist, 86400 , 'forumlist_'.$operation);
+				Library::store_cache(0, $forumlist, 18000 , 'forumlist_'.$operation);
 				Library::store_cache(0, $opfids, 86400 , 'opfids_'.$operation);
 			}else{
 				$opfids = Library::fetch_cache(0, 'opfids_'.$operation);
