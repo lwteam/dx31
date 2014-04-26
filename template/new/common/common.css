@@ -1374,7 +1374,6 @@ CSS 写作注意事项：
 .bac {margin: 0; padding: 0; width: 70px; height: 30px;line-height: 30px; color: {LINK}; overflow: hidden; text-decoration: none; background: url({IMGDIR}/pg_arw.png) no-repeat 0 0; text-align: center; text-indent: -7px; display: block;}
 
 #psd .bn .mbn input, #postbox input { margin-right: 4px; }
-#postbox .mbn, #psd .mbn { height: 1.6em; line-height: 1.6em; }
 
 /* 用于积分奖励提示等弹出层提示 */
 .popupcredit {}
