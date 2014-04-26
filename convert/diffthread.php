@@ -92,7 +92,8 @@ if (!$starttime) {
 
 
 if ($page<2) {
-	$totalnum = DB::result_first("SELECT count(*)  FROM convert_lefen.".DB::table('forum_thread')." WHERE fid IN (".join(',',$opfids).") ORDER BY tid asc");
+	$totalnum = DB::result_first("SELECT count(*) FROM convert_lefen.".DB::table('forum_thread')." ct
+		left join ".DB::table('forum_thread')." t USING(`tid`) WHERE t.tid is null AND ct.fid IN (".join(',',$opfids).")");
 	$page = 1;
 }
 
@@ -103,7 +104,10 @@ if(@ceil($totalnum/$ProcessNum) < $page){
 
 $offset = ($page - 1) * $ProcessNum;
 
-$query = DB::query("SELECT * FROM convert_lefen.".DB::table('forum_thread')." WHERE fid IN (".join(',',$opfids).") ORDER BY tid ASC LIMIT $offset,$ProcessNum");
+
+
+$query = DB::query("SELECT ct.* FROM convert_lefen.".DB::table('forum_thread')." ct
+		left join ".DB::table('forum_thread')." t USING(`tid`) WHERE t.tid is null AND ct.fid IN (".join(',',$opfids).") ORDER BY ct.tid ASC LIMIT $offset,$ProcessNum");
 while($thread = DB::fetch($query)) {
 	if (!DB::fetch_first("SELECT *  FROM ".DB::table('forum_thread')." WHERE tid='$thread[tid]'")) {
 		threadconvert::lenovothread($thread['tid']);
@@ -117,4 +121,21 @@ if($totalnum <= $ProcessNum*$page){
 showmnextpage("乐粉主题DIFF数据正在转换中...".loadingdata(),'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.'page='.($page+1).'&totalnum='.$totalnum.'&starttime='.$starttime,0);
 
 
+
+
+/*
+
+
+ DELETE FROM `pre_forum_thread` WHERE `tid`>166496 AND `tid`<216497 ;
+ DELETE FROM `pre_forum_post` 	WHERE `pid`>2583945 AND `pid`<2633945 ;
+
+
+
+
+
+
+
+
+
+*/
 ?>

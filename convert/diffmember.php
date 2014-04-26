@@ -75,7 +75,8 @@ if (!$starttime) {
 
 
 if ($page<2) {
-	$totalnum = DB::result_first("SELECT count(*)  FROM convert_lefen.".DB::table('common_member')." ORDER BY uid asc");
+	$totalnum = DB::result_first("SELECT count(*) FROM convert_lefen.".DB::table('common_member')." cm
+		LEFT JOIN ".DB::table('common_member')." m USING(`uid`) WHERE m.uid is null");
 	$page = 1;
 }
 
@@ -87,7 +88,9 @@ if(@ceil($totalnum/$ProcessNum) < $page){
 
 $offset = ($page - 1) * $ProcessNum;
 
-$query = DB::query("SELECT * FROM convert_lefen.".DB::table('common_member')." ORDER BY uid asc LIMIT $offset,$ProcessNum");
+
+$query = DB::query("SELECT cm.* FROM convert_lefen.".DB::table('common_member')." cm
+left join ".DB::table('common_member')." m USING(`uid`) WHERE m.uid is null ORDER BY cm.uid ASC LIMIT $offset,$ProcessNum");
 while($user = DB::fetch($query)) {
 	if (!DB::fetch_first("SELECT *  FROM ".DB::table('common_member')." WHERE uid='$user[uid]'")) {
 		memberconvert::lenovomember($user['uid']);
@@ -98,5 +101,19 @@ if($totalnum <= $ProcessNum*$page){
 }
 showmnextpage("乐粉会员DIFF数据正在转换中...".loadingdata(),'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.'page='.($page+1).'&totalnum='.$totalnum.'&starttime='.$starttime,0);
 
+/*
 
+
+
+
+ DELETE FROM `pre_ucenter_members` 			WHERE `uid`>1031836 AND `uid`<1081836 ;
+ DELETE FROM `pre_ucenter_memberfields` 	WHERE `uid`>1031836 AND `uid`<1081836 ;
+ DELETE FROM `pre_common_member` 			WHERE `uid`>1031836 AND `uid`<1081836 ;
+ DELETE FROM `pre_common_member_lenovoid` 	WHERE `uid`>1031836 AND `uid`<1081836 ;
+ DELETE FROM `common_member_accountchange`	WHERE `uid`>1031836 AND `uid`<1081836 ;
+
+
+
+
+*/
 ?>

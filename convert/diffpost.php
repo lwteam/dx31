@@ -123,7 +123,8 @@ if (!$starttime) {
 
 if ($page<2) {
 
-	$totalnum = DB::result_first("SELECT count(*)  FROM convert_lefen.".DB::table('forum_post')."  WHERE fid IN (".join(',',$opfids).") ");
+	$totalnum = DB::result_first("SELECT count(*) FROM convert_lefen.".DB::table('forum_post')." cp
+		left join ".DB::table('forum_post')." p USING(`pid`) WHERE p.pid is null AND cp.fid IN (".join(',',$opfids).") ");
 	$page = 1;
 
 }
@@ -133,8 +134,11 @@ if(@ceil($totalnum/$ProcessNum) < $page){
 }
 
 $offset = ($page - 1) * $ProcessNum;
+
+$query = DB::query("SELECT cp.* FROM convert_lefen.".DB::table('forum_post')." cp
+		left join ".DB::table('forum_post')." p USING(`pid`) WHERE p.pid is null AND cp.fid IN (".join(',',$opfids).") ORDER BY cp.pid ASC LIMIT $offset,$ProcessNum");
+
 	
-$query = DB::query("SELECT * FROM convert_lefen.".DB::table('forum_post')." WHERE fid IN (".join(',',$opfids).")   ORDER BY pid DESC LIMIT $offset,$ProcessNum");
 while($post = DB::fetch($query)) {
 	if (!DB::fetch_first("SELECT *  FROM ".DB::table('forum_post')." WHERE pid='$post[pid]'")) {
 		threadconvert::diffpost($post['pid']);

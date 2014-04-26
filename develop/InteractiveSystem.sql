@@ -422,7 +422,7 @@ CREATE TABLE `pre_common_member_accountchange` (
   `rename` tinyint(1) unsigned NOT NULL DEFAULT '0', -- 是否更改用户名
   `renamed` tinyint(1) unsigned NOT NULL DEFAULT '0', -- 是否成功更改
   PRIMARY KEY (`uid`),
-  UNIQUE KEY `renamed` (`rename`,`renamed`)
+  UNIQUE KEY `renamed` (`uid`,`rename`,`renamed`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 
