@@ -14,6 +14,8 @@ require 'function.php';
 
 $posttables = array('forum_thread','forum_post','forum_attachment','forum_attachment_0','forum_attachment_1','forum_attachment_2','forum_attachment_3','forum_attachment_4','forum_attachment_5','forum_attachment_6','forum_attachment_7','forum_attachment_8','forum_attachment_9');
 
+$postcleartables = array('forum_thread_lephonepid');
+
 $convertlefids = array(85,87,67,71,4,13);
 
 $convertlefidsjoin = join(',',$convertlefids);

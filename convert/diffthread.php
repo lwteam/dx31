@@ -127,6 +127,7 @@ showmnextpage("乐粉主题DIFF数据正在转换中...".loadingdata(),'http://'
 
 
  DELETE FROM `pre_forum_thread` WHERE `tid`>166496 AND `tid`<216497 ;
+  DELETE FROM `pre_forum_post` 	WHERE  `tid`>166496 AND `tid`<216497 ;
  DELETE FROM `pre_forum_post` 	WHERE `pid`>2583945 AND `pid`<2633945 ;
 
 

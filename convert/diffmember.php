@@ -110,7 +110,7 @@ showmnextpage("乐粉会员DIFF数据正在转换中...".loadingdata(),'http://'
  DELETE FROM `pre_ucenter_memberfields` 	WHERE `uid`>1031836 AND `uid`<1081836 ;
  DELETE FROM `pre_common_member` 			WHERE `uid`>1031836 AND `uid`<1081836 ;
  DELETE FROM `pre_common_member_lenovoid` 	WHERE `uid`>1031836 AND `uid`<1081836 ;
- DELETE FROM `common_member_accountchange`	WHERE `uid`>1031836 AND `uid`<1081836 ;
+ DELETE FROM `pre_common_member_accountchange`	WHERE `uid`>1031836 AND `uid`<1081836 ;
 
 
 
