@@ -127,6 +127,36 @@
 	<div class="postbox">
 	<div id="main">
 		<div class="listbg pad20" {if !$showthreadsorts && !$adveditor} id="editorbox"{/if}>
+			<!--{if $_GET[action] == 'newthread'}-->
+			<ul class="tb cl mbw" >
+				<!--{if $savecount}-->
+					<li class="y"><a id="draftlist" href="javascript:;" class="xi2" onmouseover="showMenu({'ctrlid':'draftlist','ctrlclass':'a','duration':2,'pos':'34'})">{lang draftbox}(<strong>$savecount</strong>)</a></li>
+				<!--{/if}-->
+				<!--{if !$_G['forum']['threadsorts']['required'] && !$_G['forum']['allowspecialonly']}--><li$postspecialcheck[0]><a href="javascript:;" onclick="switchpost('forum.php?mod=post&action=newthread')">{lang post_newthread}</a></li><!--{/if}-->
+				<!--{loop $_G['forum']['threadsorts'][types] $tsortid $name}-->
+					<li{if $sortid == $tsortid} class="a"{/if}><a href="javascript:;" onclick="switchpost('forum.php?mod=post&action=newthread&sortid=$tsortid')"><!--{echo strip_tags($name);}--></a></li>
+				<!--{/loop}-->
+				<!--{if $_G['group']['allowpostpoll']}--><li$postspecialcheck[1]><a href="javascript:;" onclick="switchpost('forum.php?mod=post&action=newthread&special=1')">{lang post_newthreadpoll}</a></li><!--{/if}-->
+				<!--{if $_G['setting']['threadplugins']}-->
+					<!--{loop $_G['forum']['threadplugin'] $tpid}-->
+						<!--{if array_key_exists($tpid, $_G['setting']['threadplugins']) && @in_array($tpid, $_G['group']['allowthreadplugin'])}-->
+							<li{if $specialextra==$tpid} class="a"{/if}><a href="javascript:;" onclick="switchpost('forum.php?mod=post&action=newthread&specialextra=$tpid')">{$_G[setting][threadplugins][$tpid][name]}</a></li>
+						<!--{/if}-->
+					<!--{/loop}-->
+				<!--{/if}-->
+			</ul>
+
+		<!--{elseif $_GET[action] == 'edit' && $isfirstpost && !$thread['sortid']}-->
+			<ul class="tb cl mbw">
+				<li{if !$sortid} class="a"{/if}><a href="javascript:;" onclick="switchpost('forum.php?mod=post&action=edit&tid=$_G[tid]&pid=$pid')">$actiontitle</a></li>
+				<!--{if $_GET[action] == 'edit' && $isfirstpost && !$thread['sortid']}-->
+					<!--{loop $_G['forum']['threadsorts'][types] $tsortid $name}-->
+						<li{if $sortid == $tsortid} class="a"{/if}><a href="javascript:;" onclick="switchpost('forum.php?mod=post&action=edit&tid=$_G[tid]&pid=$pid&sortid=$tsortid')"><!--{echo strip_tags($name);}--></a></li>
+					<!--{/loop}-->
+				<!--{/if}-->
+			</ul>
+		<!--{/if}-->
+
 			<div id="postbox">
 				<!--{subtemplate forum/post_editor_extra}-->
 				<!--{subtemplate forum/post_editor_body}-->
@@ -142,6 +172,7 @@
 						<button type="submit" id="postsubmit" class="greenbutton" value="true" name="{if $_GET[action] == 'newthread'}topicsubmit{elseif $_GET[action] == 'reply'}replysubmit{elseif $_GET[action] == 'edit'}editsubmit{/if}">
 						<!--{if $_GET[action] == 'newthread'}-->
 							<!--{if $special == 0}--><span>{lang post_newthread}</span>
+							<!--{elseif $special == 1}--><span>{lang post_newthreadpoll}</span>
 							<!--{elseif $special == 127}-->
 								<span><!--{if $buttontext}-->$buttontext<!--{else}-->{lang post_newthread}<!--{/if}--></span>
 							<!--{/if}-->
@@ -153,11 +184,20 @@
 						<!--{/if}-->
 						</button>
 
+						<!--{if helper_access::check_module('follow') && $_GET[action] != 'edit'}-->
+						<span id="adddynamicspan"><label><input type="checkbox" name="adddynamic" id="adddynamic" value="true" class="pc" {if $_G['forum']['allowfeed'] && !$_G[tid] && empty($_G['forum']['viewperm'])}checked="checked"{/if} />{lang post_relay}</label></span>
+						<!--{/if}-->
 						<!--{if !empty($_G['setting']['pluginhooks']['post_sync_method'])}-->
 							<span>
 								{lang post_sync_method}:
 								<!--{hook/post_sync_method}-->
 							</span>
+						<!--{/if}-->
+						<!--{if $special == 2}-->
+							<label><input type="checkbox" name="continueadd" value="yes" class="pc" />{lang post_message2}</label>
+						<!--{/if}-->
+						<!--{if helper_access::check_module('group') && $mygroups && $_G['forum']['status'] != 3}-->
+						<span id="adddynamicspan"><label>&nbsp;&nbsp;{lang fromgroup}:<select name="mygroupid"><option value="">{lang selectmygroup}</option><!--{loop $mygroups $mygroupid $mygroupname}--><option value="{$mygroupid}__{$mygroupname}" {if $selectgroupid == $mygroupid} selected{/if}>$mygroupname</option><!--{/loop}--></select></label></span>
 						<!--{/if}-->
 					</div>
 					<!--{hook/post_bottom}-->
