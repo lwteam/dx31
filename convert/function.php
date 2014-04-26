@@ -81,7 +81,13 @@ function mv_attach($aid,$tableid) {
 	$attach= DB::fetch_first("SELECT * FROM ".DB::table('forum_attachment_'.$tableid)." WHERE `aid`='$aid'" );
 
 	$path  = str_replace ( '\\', '/',  ATTACHPATH.$attach['attachment'] );
-	$oldpath  = str_replace ( '\\', '/',  ATTACHPATH_OLD.$attach['attachment'] );
+
+	if (stripos($attach['attachment'], 'lephonecc/') === false) {
+		$oldpath  = str_replace ( '\\', '/',  LEFEN_OLD.$attach['attachment'] );
+	}else{
+		$oldpath  = str_replace ( '\\', '/',  LEPHONE_OLD.str_replace('lephonecc/', '', $attach['attachment']) );
+	}
+	
 
 	nmkdir($path);
 	if (file_exists($oldpath.'.thumb.jpg')) {

@@ -92,9 +92,6 @@ if (!$starttime) {
 
 
 if ($page<2) {
-	foreach ($postcleartables  as  $value) {
-		DB::query("TRUNCATE TABLE ".DB::table($value));
-	}
 	$totalnum = DB::result_first("SELECT count(*)  FROM convert_lefen.".DB::table('forum_thread')." WHERE fid IN (".join(',',$opfids).") ORDER BY tid asc");
 	$page = 1;
 }
@@ -114,20 +111,10 @@ while($thread = DB::fetch($query)) {
 	
 }
 if($totalnum <= $ProcessNum*$page){
-	
-	DB::query("ALTER TABLE ".DB::table('forum_thread')." auto_increment=".($thread['tid']+50000).";");
-
-	$maxpid=  DB::result_first("SELECT pid  FROM ".DB::table('forum_post')." ORDER by pid desc LIMIT 1");
-	$maxpid = $maxpid+50000;
-
-	DB::query("REPLACE INTO ".DB::table('forum_post_tableid')." SET `pid`='$maxpid'");
-
-
-	
-	showmnextpage('乐粉主题帖子数据已经转换完毕! 将进行乐Phone.CC主题数据转换','cc_thread.php');
+	showmnextpage('乐粉主题DIFF数据已经转换完毕! 将进行乐粉帖子DIFF数据转换','diffpost.php');
 }
 
-showmnextpage("乐粉主题帖子数据正在转换中...".loadingdata(),'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.'page='.($page+1).'&totalnum='.$totalnum.'&starttime='.$starttime,0);
+showmnextpage("乐粉主题DIFF数据正在转换中...".loadingdata(),'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.'page='.($page+1).'&totalnum='.$totalnum.'&starttime='.$starttime,0);
 
 
 ?>

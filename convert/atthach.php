@@ -14,7 +14,10 @@ require 'function.php';
 ini_set('memory_limit','12800M');
 
 
-define('ATTACHPATH_OLD', DISCUZ_ROOT.'convert/data/attachment/forum/');
+define('LEPHONE_OLD', DISCUZ_ROOT.'convert/lefen/data/attachment/forum/');
+
+define('LEFEN_OLD', DISCUZ_ROOT.'convert/lephone/data/attachment/forum/');
+
 define('ATTACHPATH', DISCUZ_ROOT.'data/attachment/forum/');
 
 

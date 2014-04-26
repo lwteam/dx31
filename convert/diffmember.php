@@ -75,9 +75,6 @@ if (!$starttime) {
 
 
 if ($page<2) {
-	foreach ($membercleartables  as  $value) {
-		DB::query("TRUNCATE TABLE ".DB::table($value));
-	}
 	$totalnum = DB::result_first("SELECT count(*)  FROM convert_lefen.".DB::table('common_member')." ORDER BY uid asc");
 	$page = 1;
 }
@@ -97,10 +94,9 @@ while($user = DB::fetch($query)) {
 	}
 }
 if($totalnum <= $ProcessNum*$page){
-	DB::query("ALTER TABLE ".DB::table('common_member')." auto_increment=".($user['uid']+50000).";");
-	showmnextpage('乐粉会员数据已经转换完毕! 将进行乐Phone.CC会员数据转换!','cc_member.php');
+	showmnextpage('乐粉会员DIFF数据已经转换完毕! 将进行DIFF主题数据数据转换!','diffthread.php');
 }
-showmnextpage("乐粉会员数据正在转换中...".loadingdata(),'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.'page='.($page+1).'&totalnum='.$totalnum.'&starttime='.$starttime,0);
+showmnextpage("乐粉会员DIFF数据正在转换中...".loadingdata(),'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.'page='.($page+1).'&totalnum='.$totalnum.'&starttime='.$starttime,0);
 
 
 ?>
