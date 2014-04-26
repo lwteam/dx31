@@ -49,7 +49,7 @@
 							<!--{else}-->
 							<a href="javascript:;" title=""><img src="{IMGDIR}/nophoto.gif" width="130px" /></a>
 							<!--{/if}-->
-							<p class="mtn mbn xi2">
+							<p class="mtm mbm xi2">
 								<!--{if $_G['group']['allowvote']}-->
 									<label><input class="pr" type="$optiontype" id="option_$key" name="pollanswers[]" value="$option[polloptionid]" {if $_G['forum_thread']['is_archived']}disabled="disabled"{/if} {if $optiontype=='checkbox'}onclick="poll_checkbox(this)"{else}onclick="$('pollsubmit').disabled = false"{/if} /></label>
 								<!--{/if}-->
@@ -99,9 +99,8 @@
 				<!--{/loop}-->
 			
 			<!--{/if}-->
-			<tr class="pollbutton">
-				<!--{if $_G['group']['allowvote']}--><td class="selector">&nbsp;</td><!--{/if}-->
-				<td colspan="{if $isimagepoll}4{else}2{/if}">
+		</table>
+		<div class="pollbutton">
 					<!--{hook/viewthread_poll_bottom}-->
 					<!--{if $_G['group']['allowvote'] && !$_G['forum_thread']['is_archived']}-->
 						<button class="greenbutton" type="submit" disabled="disabled" name="pollsubmit" id="pollsubmit" value="true"{if $post['invisible'] < 0} disabled="disabled"{/if}>{lang submit}</button>
@@ -115,9 +114,6 @@
 					<!--{elseif !$allowvotethread}-->
 						<span class="pc">{lang poll_msg_allowvotethread}</span>
 					<!--{/if}-->
-				</td>
-			</tr>
-		</table>
-		
+		</div>
 	</div>
 </form>

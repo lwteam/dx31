@@ -1100,13 +1100,13 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 
 .pcht .pbg { height:18px; background:#eee; border-radius:50px; }
 .pcht .pbr { height:18px; border-radius:50px; background-image:none; }
-.pcht .pollbutton td { padding-top:15px;}
+.pcht .pollbutton { padding-top:15px; text-align:center;}
 .pollbutton button { border:0; }
 .pollbutton .pc { margin-left:15px;}
 .pcht .picpoll { padding:10px; }
 
-	.polltd { padding: 10px; border:1px solid #eee; border-radius: 3px; \text-align:center; }
-	.polltd a { display:inline-block; height:130px; }
+	.polltd { padding:15px 10px 10px; border:1px solid #eee; border-radius: 3px; text-align:center; }
+	.polltd a { display:block; height:130px; }
 		.pcht table td { padding: 5px; vertical-align: top; }
 			.pslt { width: 20px; vertical-align: middle !important; }
 			.pvt { width: auto; }
@@ -1114,7 +1114,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 			.pvts { width: 100px; }
 
 			.pinf a { color: {HIGHLIGHTLINK}; }
-		.imgf2 { position: relative; margin:0 -10px -10px; background:#f3f7ee; height:18px;  border-top:1px solid #eee;  padding:10px;}
+		.imgf2 { position: relative; margin:0 -10px -10px; background:#f5f7f9; height:18px;  border-top:1px solid #eee;  padding:10px;}
 		.jdt { display: block; width: 1px; border-radius:3px; height:20px; margin:-1px -3px 0 -1px; }
 		.imgfc { position: absolute; left: 0; top: 0; padding: 10px 10%; width: 80%; line-height: 20px; height:18px; font-size: 12px; }
 	/*
