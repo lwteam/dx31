@@ -394,7 +394,7 @@ CREATE TABLE `pre_buglist_urecords` (
 DROP TABLE IF EXISTS `pre_common_member_lenovoid`;
 CREATE TABLE `pre_common_member_lenovoid` (
   `uid` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `lenovoid` char(15) NOT NULL DEFAULT '',
+  `lenovoid` char(50) NOT NULL DEFAULT '',
   `dateline` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   UNIQUE KEY `lenovoid` (`lenovoid`)
