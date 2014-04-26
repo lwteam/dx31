@@ -103,9 +103,12 @@ class ForumExtendScript {
 				}
 				unset( $forum_fields);
 				Library::store_cache(0, $catlist, 86400 , 'catlist_'.$operation);
-				Library::store_cache(0, $opfids, 86400 , 'Opfids_'.$operation);
+				Library::store_cache(0, $forumlist, 86400 , 'forumlist_'.$operation);
+				Library::store_cache(0, $opfids, 86400 , 'opfids_'.$operation);
 			}else{
-				$opfids = Library::store_cache(0, $opfids, 86400 , 'Opfids_'.$operation);
+				$opfids = Library::fetch_cache(0, 'opfids_'.$operation);
+				$forumlist = Library::fetch_cache(0, 'forumlist_'.$operation);
+				$catlist = Library::fetch_cache(0, 'catlist_'.$operation);
 			}
 
 			unset($_G['cache']['forumlinks']);
