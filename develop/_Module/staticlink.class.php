@@ -141,12 +141,6 @@ class staticlink_viewthread_location {
 				exit;
 			}
 		}
-		if ($_GET['haierspi']==1) {
-			echo'<pre>';
-			var_dump( $_G['gp_fid'] , $fid );
-			echo'</pre>';exit;
-		}
-
 	}
 }
 // 修改提示信息中的跳转地址
