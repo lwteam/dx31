@@ -46,7 +46,15 @@ $offset = ($page - 1) * $ProcessNum;
 
 $query = DB::query("SELECT * FROM ".DB::table('forum_attachment')."  ORDER BY aid ASC LIMIT $offset,$ProcessNum");
 while($attach = DB::fetch($query)) {
-	mv_attach($attach['aid'],$attach['tableid']);
+	$echo =mv_attach($attach['aid'],$attach['tableid']);
+
+	if (!$echo) {
+		echo'<pre>';
+		var_dump( $attach['tid'],$echo,$_G['path'],$_G['oldpath'] );
+		echo'</pre>';exit;
+	}
+
+
 }
 if($totalnum <= $ProcessNum*$page){
 	showmnextpage('附件数据整理完毕!');

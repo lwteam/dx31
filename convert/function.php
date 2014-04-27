@@ -78,6 +78,7 @@ function mv_avatar($uid,$olduid) {
 
 
 function mv_attach($aid,$tableid) {
+	global $_G;
 	$attach= DB::fetch_first("SELECT * FROM ".DB::table('forum_attachment_'.$tableid)." WHERE `aid`='$aid'" );
 
 	$path  = str_replace ( '\\', '/',  ATTACHPATH.$attach['attachment'] );
@@ -91,13 +92,11 @@ function mv_attach($aid,$tableid) {
 
 	nmkdir($path);
 	if (file_exists($oldpath.'.thumb.jpg')) {
-	//	@rename($oldpath.'.thumb.jpg',$path.'.thumb.jpg');
+		@copy($oldpath.'.thumb.jpg',$path.'.thumb.jpg');
 	}
-	echo'<pre>';
-	var_dump(  copy($oldpath,$path),$oldpath,$path );
-	echo'</pre>';exit;
-		
-	//return rename($oldpath,$path);
+	$_G['oldpath'] = $oldpath;
+	$_G['path'] = $path;
+	return copy($oldpath,$path);
 }
 
 function nmkdir($path, $mode = 0777){
