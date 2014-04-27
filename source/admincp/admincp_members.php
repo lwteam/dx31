@@ -4,7 +4,7 @@
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
  *
- *      $Id: admincp_members.php 34090 2013-10-09 03:44:16Z nemohou $
+ *      $Id: admincp_members.php 32356 2013-01-06 03:24:21Z chenmengshu $
  */
 
 if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
@@ -100,14 +100,13 @@ EOF;
 						}
 					}
 					$lockshow = $member['status'] == '-1' ? '<em class="lightnum">['.cplang('lock').']</em>' : '';
-					$freezeshow = $member['freeze'] ? '<em class="lightnum">['.cplang('freeze').']</em>' : '';
 					$members .= showtablerow('', array('class="td25"', '', 'title="'.implode("\n", $memberextcredits).'"'), array(
 						"<input type=\"checkbox\" name=\"uidarray[]\" value=\"$member[uid]\"".($member['adminid'] == 1 ? 'disabled' : '')." class=\"checkbox\">",
 						($_G['setting']['connect']['allow'] && $member['conisbind'] ? '<img class="vmiddle" src="static/image/common/connect_qq.gif" /> ' : '')."<a href=\"home.php?mod=space&uid=$member[uid]\" target=\"_blank\">$member[username]</a>",
 						$member['credits'],
 						$member['posts'],
 						$usergroups[$member['adminid']]['grouptitle'],
-						$usergroups[$member['groupid']]['grouptitle'].$lockshow.$freezeshow,
+						$usergroups[$member['groupid']]['grouptitle'].$lockshow,
 						"<a href=\"".ADMINSCRIPT."?action=members&operation=group&uid=$member[uid]\" class=\"act\">$lang[usergroup]</a><a href=\"".ADMINSCRIPT."?action=members&operation=access&uid=$member[uid]\" class=\"act\">$lang[members_access]</a>".
 						($_G['setting']['extcredits'] ? "<a href=\"".ADMINSCRIPT."?action=members&operation=credit&uid=$member[uid]\" class=\"act\">$lang[credits]</a>" : "<span disabled>$lang[edit]</span>").
 						"<a href=\"".ADMINSCRIPT."?action=members&operation=medal&uid=$member[uid]\" class=\"act\">$lang[medals]</a>".
@@ -1525,12 +1524,6 @@ EOF;
 			if($postcomment_cache_pid) {
 				C::t('forum_postcache')->delete($postcomment_cache_pid);
 			}
-			if(!$member['adminid']) {
-				$member_status = C::t('common_member_status')->fetch($member['uid']);
-				if($member_status) {
-					captcha::report($member_status['lastip']);
-				}
-			}
 		} elseif($member['groupid'] == 4 || $member['groupid'] == 5) {
 			if(!empty($member['groupterms']['main']['groupid'])) {
 				$groupidnew = $member['groupterms']['main']['groupid'];
@@ -1770,8 +1763,8 @@ EOF;
 
 
 		$accessmasks = C::t('forum_access')->fetch_all_by_uid($_GET['uid']);
+		$adminuser = C::t('common_member'.$tableext)->fetch($_GET['uid']);
 		foreach ($accessmasks as $id => $access) {
-			$adminuser = C::t('common_member'.$tableext)->fetch($access['adminuser']);
 			$access['dateline'] = $access['dateline'] ? dgmdate($access['dateline']) : '';
 			$forum = $_G['cache']['forums'][$id];
 			showtablerow('', '', array(
@@ -2209,7 +2202,6 @@ EOF;
 					'expiration' => $expiration,
 				);
 				C::t('common_banned')->insert($data);
-				captcha::report($_GET['ip1new'].'.'.$_GET['ip2new'].'.'.$_GET['ip3new'].'.'.$_GET['ip4new']);
 			}
 
 			if(is_array($_GET['expirationnew'])) {
@@ -2809,10 +2801,6 @@ function showsearchform($operation = '') {
 		array(-1, $lang['yes']),
 		array(0, $lang['no']),
 	), 1), $_GET['status'], 'mradio');
-	showsetting('members_search_freezestatus', array('freeze', array(
-		array(1, $lang['yes']),
-		array(0, $lang['no']),
-	), 1), $_GET['freeze'], 'mradio');
 	showsetting('members_search_emailstatus', array('emailstatus', array(
 		array(1, $lang['yes']),
 		array(0, $lang['no']),
@@ -3052,7 +3040,6 @@ function notifymembers($operation, $variable) {
 			if(!empty($setarr)) {
 				$limit = 2000;
 				set_time_limit(0);
-				$i = 0;
 				while(true) {
 					$uids = searchmembers($search_condition, $limit, $i*$limit);
 					$allcount = C::t('common_member_count')->fetch_all($uids);
@@ -3066,7 +3053,6 @@ function notifymembers($operation, $variable) {
 						C::t('common_member_count')->clear_extcredits($uids, $setarr);
 					}
 					if(count($uids) < $limit) break;
-					$i++;
 				}
 			} else {
 				cpmsg('members_reward_invalid', '', 'error');
@@ -3348,6 +3334,8 @@ function connectunbind($member) {
 		return;
 	}
 	$_G['member'] = array_merge($_G['member'], $member);
+	$connectService = Cloud::loadClass('Service_Connect');
+	$connectService->connectUserUnbind();
 
 	C::t('#qqconnect#connect_memberbindlog')->insert(array('uid' => $member['uid'], 'uin' => $member['conopenid'], 'type' => '2', 'dateline' => $_G['timestamp']));
 	C::t('common_member')->update($member['uid'], array('conisbind'=>0));
