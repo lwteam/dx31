@@ -101,6 +101,7 @@ if (!$starttime) {
 
 if ($page<2) {
 	DB::query("TRUNCATE TABLE ".DB::table('buglist'));
+	DB::query("TRUNCATE TABLE ".DB::table('buglist_log'));
 	$totalnum = DB::result_first("SELECT count(*)  FROM ".DB::table('forum_thread')." WHERE fid = '$bugfid'  ORDER BY tid asc");
 	$page = 1;
 }
