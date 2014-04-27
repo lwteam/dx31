@@ -57,59 +57,51 @@ class ForumExtendScript {
 			$fupfids = join(',',$fups);
 
 
-			//使用缓存
-			if(($catlist = Library::fetch_cache(0, 'catlist_'.$operation)) === false){
-				$forums = DB::fetch_all("SELECT ff.*, f.* FROM ".DB::table('forum_forum')." f 
-						LEFT JOIN ".DB::table('forum_forumfield')." ff USING (fid) 
-					WHERE f.status='1' AND (f.fup IN ($fupfids) || f.fid IN ($fupfids) ) 
-						AND f.type IN ('forum','group') ORDER BY f.type,f.displayorder");
-				foreach($forums as $forum) {
-					$forumname[$forum['fid']] = strip_tags($forum['name']);
-					$forum['extra'] = empty($forum['extra']) ? array() : dunserialize($forum['extra']);
-					if(!is_array($forum['extra'])) {
-						$forum['extra'] = array();
-					}
-					if($forum['type'] != 'group') {
-						$threads += $forum['threads'];
-						$posts += $forum['posts'];
-						$todayposts += $forum['todayposts'];
 
-						if($forum['type'] == 'forum' && isset($catlist[$forum['fup']])) {
-							if(forum($forum)) {
-								$catlist[$forum['fup']]['forums'][] = $forum['fid'];
-								$forum['orderid'] = $catlist[$forum['fup']]['forumscount']++;
-								$forum['subforums'] = '';
-								$forumlist[$forum['fid']] = $forum;
-							}
-						} elseif(isset($forumlist[$forum['fup']])) {
-
-							$forumlist[$forum['fup']]['threads'] += $forum['threads'];
-							$forumlist[$forum['fup']]['posts'] += $forum['posts'];
-							$forumlist[$forum['fup']]['todayposts'] += $forum['todayposts'];
-							if($_G['setting']['subforumsindex'] && $forumlist[$forum['fup']]['permission'] == 2 && !($forumlist[$forum['fup']]['simple'] & 16) || ($forumlist[$forum['fup']]['simple'] & 8)) {
-								$forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$forum['fid'];
-								$forumlist[$forum['fup']]['subforums'] .= (empty($forumlist[$forum['fup']]['subforums']) ? '' : ', ').'<a href="'.$forumurl.'" '.(!empty($forum['extra']['namecolor']) ? ' style="color: ' . $forum['extra']['namecolor'].';"' : '') . '>'.$forum['name'].'</a>';
-							}
-						}
-						$opfids[] = $forum['fid'];
-					} else {
-
-						if($forum['moderators']) {
-						 	$forum['moderators'] = moddisplay($forum['moderators'], 'flat');
-						}
-						$forum['forumscount'] 	= 0;
-						$catlist[$forum['fid']] = $forum;
-					}
+			$forums = DB::fetch_all("SELECT ff.*, f.* FROM ".DB::table('forum_forum')." f 
+					LEFT JOIN ".DB::table('forum_forumfield')." ff USING (fid) 
+				WHERE f.status='1' AND (f.fup IN ($fupfids) || f.fid IN ($fupfids) ) 
+					AND f.type IN ('forum','group') ORDER BY f.type,f.displayorder");
+			foreach($forums as $forum) {
+				$forumname[$forum['fid']] = strip_tags($forum['name']);
+				$forum['extra'] = empty($forum['extra']) ? array() : dunserialize($forum['extra']);
+				if(!is_array($forum['extra'])) {
+					$forum['extra'] = array();
 				}
-				unset( $forum_fields);
-				Library::store_cache(0, $catlist, 0 , 'catlist_'.$operation);
-				Library::store_cache(0, $forumlist, 0 , 'forumlist_'.$operation);
-				Library::store_cache(0, $opfids, 0 , 'opfids_'.$operation);
-			}else{
-				$opfids = Library::fetch_cache(0, 'opfids_'.$operation);
-				$forumlist = Library::fetch_cache(0, 'forumlist_'.$operation);
-				$catlist = Library::fetch_cache(0, 'catlist_'.$operation);
+				if($forum['type'] != 'group') {
+					$threads += $forum['threads'];
+					$posts += $forum['posts'];
+					$todayposts += $forum['todayposts'];
+
+					if($forum['type'] == 'forum' && isset($catlist[$forum['fup']])) {
+						if(forum($forum)) {
+							$catlist[$forum['fup']]['forums'][] = $forum['fid'];
+							$forum['orderid'] = $catlist[$forum['fup']]['forumscount']++;
+							$forum['subforums'] = '';
+							$forumlist[$forum['fid']] = $forum;
+						}
+					} elseif(isset($forumlist[$forum['fup']])) {
+
+						$forumlist[$forum['fup']]['threads'] += $forum['threads'];
+						$forumlist[$forum['fup']]['posts'] += $forum['posts'];
+						$forumlist[$forum['fup']]['todayposts'] += $forum['todayposts'];
+						if($_G['setting']['subforumsindex'] && $forumlist[$forum['fup']]['permission'] == 2 && !($forumlist[$forum['fup']]['simple'] & 16) || ($forumlist[$forum['fup']]['simple'] & 8)) {
+							$forumurl = !empty($forum['domain']) && !empty($_G['setting']['domain']['root']['forum']) ? 'http://'.$forum['domain'].'.'.$_G['setting']['domain']['root']['forum'] : 'forum.php?mod=forumdisplay&fid='.$forum['fid'];
+							$forumlist[$forum['fup']]['subforums'] .= (empty($forumlist[$forum['fup']]['subforums']) ? '' : ', ').'<a href="'.$forumurl.'" '.(!empty($forum['extra']['namecolor']) ? ' style="color: ' . $forum['extra']['namecolor'].';"' : '') . '>'.$forum['name'].'</a>';
+						}
+					}
+					$opfids[] = $forum['fid'];
+				} else {
+
+					if($forum['moderators']) {
+					 	$forum['moderators'] = moddisplay($forum['moderators'], 'flat');
+					}
+					$forum['forumscount'] 	= 0;
+					$catlist[$forum['fid']] = $forum;
+				}
 			}
+			unset( $forum_fields);
+
 
 			unset($_G['cache']['forumlinks']);
 
