@@ -16,10 +16,13 @@ CREATE TABLE `pre_article` (
   `adateline` int(10) unsigned NOT NULL DEFAULT '0',
   `tid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `fid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `order` int(5) unsigned NOT NULL DEFAULT '0',
+  `index` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `category` (`category`),
   KEY `tags` (`tags`),
-  KEY `index` (`index`)
+  KEY `index` (`index`)，
+  KEY `order` (`order`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- TAG列表

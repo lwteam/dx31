@@ -25,8 +25,8 @@ class memberconvert
 		$insert = array();
 		$insert['uid']		= $uid;
 		
-		$insert['posts']	= DB::result_first("SELECT count(*)  FROM ".DB::table('forum_thread')." WHERE authorid='$uid'");
-		$insert['threads']	= DB::result_first("SELECT count(*)  FROM ".DB::table('forum_post')." WHERE authorid='$uid'");
+		$insert['threads']	= DB::result_first("SELECT count(*)  FROM ".DB::table('forum_thread')." WHERE authorid='$uid'");
+		$insert['posts']	= DB::result_first("SELECT count(*)  FROM ".DB::table('forum_post')." WHERE authorid='$uid'");
 		$insert['extcredits1']	= '0';
 		$insert['extcredits2']	= $insert['posts']+$insert['threads'];
 		$insert['extcredits6']	= DB::result_first("SELECT extcredits1  FROM convert_lefen.".DB::table('common_member_count')." WHERE uid='$uid'");;
@@ -50,7 +50,7 @@ ini_set('memory_limit','12800M');
 
 
 
-$ProcessNum  = 1000;
+$ProcessNum  = 10000;
 $page = (int)$_REQUEST['page'];
 $totalnum = (int)$_REQUEST['totalnum'];
 $starttime = (int)$_REQUEST['starttime'];

@@ -744,6 +744,7 @@ function loadcache($cachenames, $force = false) {
 	return true;
 }
 
+
 function dgmdate($timestamp, $format = 'dt', $timeoffset = '9999', $uformat = '') {
 	global $_G;
 	$format == 'u' && !$_G['setting']['dateconvert'] && $format = 'dt';
@@ -753,8 +754,6 @@ function dgmdate($timestamp, $format = 'dt', $timeoffset = '9999', $uformat = ''
 		$tformat = getglobal('setting/timeformat');
 		$dtformat = $dformat.' '.$tformat;
 		$offset = getglobal('member/timeoffset');
-		$sysoffset = getglobal('setting/timeoffset');
-		$offset = $offset == 9999 ? ($sysoffset ? $sysoffset : 0) : $offset;
 		$lang = lang('core', 'date');
 	}
 	$timeoffset = $timeoffset == 9999 ? $offset : $timeoffset;
@@ -762,32 +761,29 @@ function dgmdate($timestamp, $format = 'dt', $timeoffset = '9999', $uformat = ''
 	$format = empty($format) || $format == 'dt' ? $dtformat : ($format == 'd' ? $dformat : ($format == 't' ? $tformat : $format));
 	if($format == 'u') {
 		$todaytimestamp = TIMESTAMP - (TIMESTAMP + $timeoffset * 3600) % 86400 + $timeoffset * 3600;
-		//$s = gmdate(!$uformat ? $dtformat : $uformat, $timestamp);
-		$s = date('Y-m-d H:i:s', $timestamp);
+		$s = gmdate(!$uformat ? str_replace(":i", ":i:s", $dtformat) : $uformat, $timestamp);
 		$time = TIMESTAMP + $timeoffset * 3600 - $timestamp;
-
-
-
 		//一年前
 		$yeartimestamp = $todaytimestamp-86400*365;
 
 		if($timestamp >= $todaytimestamp) {
-			$return = '<span title="'.$s.'">'.date('H:i',$timestamp ).'</span>';
+			$return = '<span title="'.$s.'">'.gmdate('H:i',$timestamp ).'</span>';
 		} elseif(($days = intval(($todaytimestamp - $timestamp) / 86400)) >= 0 && $days < 7) {
 			$return = ($days + 1).' '.$lang['day'].$lang['before'];
 			if(!defined('IN_MOBILE')) {
 				$return = '<span title="'.$s.'">'.$return.'</span>';
 			}
 		} elseif ($timestamp > $yeartimestamp) {
-			$return = '<span title="'.$s.'">'.date('m-d',$timestamp ).'</span>';
+			$return = '<span title="'.$s.'">'.gmdate('m-d',$timestamp ).'</span>';
 		} else {
-			$return = '<span title="'.$s.'">'.date('Y',$timestamp ).lang('space', 'year').'</span>';
+			$return = '<span title="'.$s.'">'.gmdate('Y',$timestamp ).lang('space', 'year').'</span>';
 		}
 		return $return;
 	} else {
 		return gmdate($format, $timestamp);
 	}
 }
+
 
 function dmktime($date) {
 	if(strpos($date, '-')) {
@@ -1161,6 +1157,33 @@ function runhooks($scriptextra = '') {
 function hookscript($script, $hscript, $type = 'funcs', $param = array(), $func = '', $scriptextra = '') {
 	global $_G;
 	static $pluginclasses;
+
+
+	/* ModuleSystem Point */
+
+
+	if(ModulePointWhether('hookscript',__FUNCTION__,__CLASS__)){
+		UNSET($GLOBALS['_ModuleActionStorage' ]);
+		$returns['script'] = $script;
+		$returns['hscript'] = $hscript;
+		$returns['type'] = $type;
+		$returns['param'] = $param;
+		$returns['func'] = $func;
+		$returns['scriptextra'] = $scriptextra;
+
+
+		$Modextract = ModulePoint('hookscript',__FUNCTION__,__CLASS__,$returns);
+		if(isset($Modextract) && is_array($Modextract)){
+			extract($Modextract);
+			unset($Modextract);
+		}
+	}
+
+
+	/* ModuleSystem Point */
+
+
+	
 	if($hscript == 'home') {
 		if($script == 'space') {
 			$scriptextra = !$scriptextra ? $_GET['do'] : $scriptextra;

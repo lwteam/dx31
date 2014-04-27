@@ -71,29 +71,34 @@ function mv_avatar($uid,$olduid) {
 	$oldpath  = get_avatar_path($olduid,AVATARPATH_OLD);
 	nmkdir($path);
 	foreach (array('big', 'middle', 'small') as  $value) {
-		$retrue  = $retrue && @rename(str_replace('$size$', $value, $oldpath),str_replace('$size$', $value, $path));
+		$retrue  = $retrue && @copy(str_replace('$size$', $value, $oldpath),str_replace('$size$', $value, $path));
 	}
 	return $retrue;
 }
 
 
 function mv_attach($aid,$tableid) {
+	global $_G;
 	$attach= DB::fetch_first("SELECT * FROM ".DB::table('forum_attachment_'.$tableid)." WHERE `aid`='$aid'" );
 
-	$path  = str_replace ( '\\', '/',  ATTACHPATH.$attach['attachment'] );
+	
 
 	if (stripos($attach['attachment'], 'lephonecc/') === false) {
 		$oldpath  = str_replace ( '\\', '/',  LEFEN_OLD.$attach['attachment'] );
+		$path  = str_replace ( '\\', '/',  ATTACHPATH.$attach['attachment'] );
 	}else{
 		$oldpath  = str_replace ( '\\', '/',  LEPHONE_OLD.str_replace('lephonecc/', '', $attach['attachment']) );
+		$path  = str_replace ( '\\', '/',  ATTACHPATH.'lephonecc/'.$attach['attachment'] );
 	}
 	
 
 	nmkdir($path);
 	if (file_exists($oldpath.'.thumb.jpg')) {
-		@rename($oldpath.'.thumb.jpg',$path.'.thumb.jpg');
+		@copy($oldpath.'.thumb.jpg',$path.'.thumb.jpg');
 	}
-	return rename($oldpath,$path);
+	$_G['oldpath'] = $oldpath;
+	$_G['path'] = $path;
+	return copy($oldpath,$path);
 }
 
 function nmkdir($path, $mode = 0777){

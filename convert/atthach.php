@@ -14,9 +14,9 @@ require 'function.php';
 ini_set('memory_limit','12800M');
 
 
-define('LEPHONE_OLD', DISCUZ_ROOT.'convert/lefen/data/attachment/forum/');
+define('LEFEN_OLD', DISCUZ_ROOT.'convert/lefen/data/attachment/forum/');
 
-define('LEFEN_OLD', DISCUZ_ROOT.'convert/lephone/data/attachment/forum/');
+define('LEPHONE_OLD', DISCUZ_ROOT.'convert/lephone/data/attachment/forum/');
 
 define('ATTACHPATH', DISCUZ_ROOT.'data/attachment/forum/');
 
@@ -46,7 +46,15 @@ $offset = ($page - 1) * $ProcessNum;
 
 $query = DB::query("SELECT * FROM ".DB::table('forum_attachment')."  ORDER BY aid ASC LIMIT $offset,$ProcessNum");
 while($attach = DB::fetch($query)) {
-	mv_attach($attach['aid'],$attach['tableid']);
+	$echo =mv_attach($attach['aid'],$attach['tableid']);
+
+	if (false && !$echo) {
+		echo'<pre>';
+		var_dump( $attach['aid'],$attach['tableid'],$attach['tid'],$echo,$_G['path'],$_G['oldpath'] );
+		echo'</pre>';exit;
+	}
+
+
 }
 if($totalnum <= $ProcessNum*$page){
 	showmnextpage('附件数据整理完毕!');
