@@ -140,10 +140,10 @@ class staticlink_viewthread_location {
 			if($staticlink[$fid] && $staticlink[$fid]['staticname']){
 		echo'<pre>';
 		var_dump( $_G['gp_fid'] ,$fid , $staticlink[$fid] && $staticlink[$fid]['staticname'] );
-		echo'</pre>';
+		echo'</pre>';exit;
 				//header( "HTTP/1.1 301 Moved Permanently" );
 				//header('Location: '.$_G['siteurl'].$staticlink[$fid]['staticname'].'/t'.$_G['gp_tid'].'/');
-				exit;
+				//exit;
 			}
 		}
 		echo'<pre>';
