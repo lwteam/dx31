@@ -44,7 +44,7 @@ $offset = ($page - 1) * $ProcessNum;
 
 $query = DB::query("SELECT * FROM ".DB::table('common_member_lephoneuid')."  ORDER BY uid ASC LIMIT $offset,$ProcessNum");
 while($user = DB::fetch($query)) {
-	mv_avatar($user['uid'],$user['lephoneuid']);
+	$echo = mv_avatar($user['uid'],$user['lephoneuid']);
 }
 if($totalnum <= $ProcessNum*$page){
 	showmnextpage('乐Phone.CC用户数据搬迁完毕!');
