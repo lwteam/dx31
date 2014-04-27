@@ -48,7 +48,7 @@ $query = DB::query("SELECT * FROM ".DB::table('forum_attachment')."  ORDER BY ai
 while($attach = DB::fetch($query)) {
 	$echo =mv_attach($attach['aid'],$attach['tableid']);
 
-	if (!$echo) {
+	if (false && !$echo) {
 		echo'<pre>';
 		var_dump( $attach['aid'],$attach['tableid'],$attach['tid'],$echo,$_G['path'],$_G['oldpath'] );
 		echo'</pre>';exit;
