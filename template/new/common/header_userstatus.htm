@@ -21,7 +21,7 @@
 	</div>
 <!--{elseif !$_G[connectguest]}-->
 	<div class="login">
-		<a href="lenovo.php">联想通行证登陆</a><span class="pipe">/</span><a href="member.php?mod=logging&action=login&referer={echo rawurlencode($dreferer)}" onclick="showWindow('login', this.href);return false;">{lang login}</a><span class="pipe">/</span><a href="member.php?mod={$_G[setting][regname]}">$_G['setting']['reglinkname']</a>
+		<a href="lenovo.php">联想通行证登陆</a><span class="pipe">/</span><a href="member.php?mod=logging&action=login&referer={echo rawurlencode($dreferer)}" onclick="showWindow('login', this.href);return false;">{lang login}</a><span class="pipe"></span><a href="member.php?mod={$_G[setting][regname]}">$_G['setting']['reglinkname']</a>
 	</div>
 <!--{else}-->
 
