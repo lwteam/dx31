@@ -131,6 +131,11 @@ class staticlink_viewthread_location {
 		 
 		$_G['setting']['seohead']= preg_replace('/forum\.php\?mod=viewthread(?!&fid)/','forum.php?mod=viewthread&fid='.$fid,$_G['setting']['seohead']);
 
+		echo'<pre>';
+		var_dump( $_G['gp_fid'] , $fid );
+		echo'</pre>';exit;
+			
+
 		if($_G['gp_fid'] != $fid){
 			loadcache('staticlink');
 			$staticlink = & $_G['cache']['staticlink'];
