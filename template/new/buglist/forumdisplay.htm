@@ -127,7 +127,9 @@
 									<!--{eval $classtxt = $_Data['buglist'][$thread[classid]];}-->
 									<!--{if strlen($thread[classid])>1 && substr($thread[classid],0,1)==2 }-->
 											<!--{eval $topclassid = substr($thread[classid],0,1);}-->
-											<!--{eval $classttxt = $_Data['buglist'][$topclassid] ;}-->
+											<!--{eval $classtoptxt = $_Data['buglist'][$topclassid];}-->
+									<!--{else}-->
+											<!--{eval $classtoptxt = '';}-->
 									<!--{/if}-->
 		    	 			<a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]{if $extra}extra=$extra{/if}"$thread[highlight]{if $thread['isgroup'] == 1 || $thread['forumstick']} target="_blank"{else} onclick="atarget(this)"{/if}>$thread[subject]</a>
 							<!--{if $thread[icon] >= 0}-->
@@ -152,7 +154,7 @@
 												<img src="/images/common/disagree.gif" align="absmiddle" alt="disagree" title="{lang posts_deducted}" />
 											<!--{/if}-->
 										<!--{/if}-->
-							<!--{if $classtxt}--><i class="classttxt" title="$classttxt -> $classtxt">$classtxt</i><!--{/if}-->
+							<!--{if $classtxt}--><i class="classttxt" title="{if $classtoptxt}$classtoptxt -> {/if}$classtxt">$classtxt</i><!--{/if}-->
 		    	 		</li>
 		    	 		<li class="tcounter">$thread[samenum]</li>
 		    	 		<li class="tauthor"><a href="home.php?mod=space&uid=$thread[authorid]">$thread[author]</a></li>
