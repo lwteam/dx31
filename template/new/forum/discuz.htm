@@ -20,7 +20,7 @@
 						<!--{if $cat[forumcolumns] == 4 ||$cat[forumcolumns] == 5}-->
 						<li>
 							<div class="foruminfo">
-								<p class="forumicon"><!--{if $forum[icon]}-->$forum[icon]<!--{else}--><a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}><img src="{if $cat[forumcolumns] == 4}images/extend/noicon.png{elseif $cat[forumcolumns] == 5}images/extend/nophone.png{/if}" alt="$forum[name]" /><!--{/if}--></a></p>
+								<p class="forumicon"><!--{if $forum[icon]}-->$forum[icon]<!--{else}--><img src="{if $cat[forumcolumns] == 4}images/extend/noicon.png{elseif $cat[forumcolumns] == 5}images/extend/nophone.png{/if}" alt="$forum[name]" /><!--{/if}--></p>
 								<p class="forumname"><strong><a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}{if $forum[extra][namecolor]} style="color: {$forum[extra][namecolor]};"{/if}>$forum[name]</a></strong></p>
 								<p class="forumcount" title="{lang forum_todayposts}">今日：<!--{echo dnumber($forum[todayposts])}--></p>
 							</div>
@@ -28,7 +28,7 @@
 						<!--{else}-->
 							<li>
 								<div class="foruminfo">
-									<p class="forumicon"><a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}><!--{if $forum[icon]}-->$forum[icon]<!--{/if}--></a></p>
+									<p class="forumicon"><!--{if $forum[icon]}-->$forum[icon]<!--{/if}--></p>
 									<p class="forumname"><strong><a href="$forumurl"{if $forum[redirect]} target="_blank"{/if}{if $forum[extra][namecolor]} style="color: {$forum[extra][namecolor]};"{/if}>$forum[name]</a></strong><span title="今日发帖"><!--{echo dnumber($forum[todayposts])}--><i></i></span></p>
 									<p class="forumabout">$forum[description]</p>
 									<p class="forumcount">{lang forum_threads}：<!--{echo dnumber($forum[threads])}--><span class="pipe">/</span>{lang forum_posts}：<!--{echo dnumber($forum[posts])}--></p>
