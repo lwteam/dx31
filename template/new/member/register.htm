@@ -255,8 +255,17 @@
 						<li class="loginboxname"></li>
 						<li class="loginboxinput loginboxreg">
 									<button class="bluebutton" id="registerformsubmit" type="submit" name="regsubmit" value="true" tabindex="1"><strong><!--{if $_GET[action] == 'activation'}-->{lang activation}<!--{else}-->{lang submit}<!--{/if}--></strong></button>
+
+						</li>
+					</ul>
+					</div>
+					<div class="loginbox loginboxagree">
+					<ul>
+						<li class="loginboxname"></li>
+						<li class="loginboxinput">
+
 								<!--{if $bbrules}-->
-									<input type="checkbox" class="pc" name="agreebbrule" value="$bbrulehash" id="agreebbrule" checked="checked" /> <label for="agreebbrule">{lang agree}<a href="javascript:;" onclick="showBBRule()">{lang rulemessage}</a></label>
+									<input type="checkbox" class="pc" name="agreebbrule" value="$bbrulehash" id="agreebbrule" checked="checked" /><label for="agreebbrule">{lang agree}<a href="javascript:;" onclick="showBBRule()">{lang rulemessage}</a></label>
 								<!--{/if}-->
 						</li>
 					</ul>
@@ -265,7 +274,7 @@
 			<!--{if !empty($_G['setting']['pluginhooks']['register_logging_method'])}-->
 			<div class="loginbox loginboxmethod">
 					<li class="loginboxname"><strong>{lang login_method}:</strong></li>
-					<li class="loginboxinput"><!--{hook/register_logging_method}--></li>
+					<li class="loginboxinput"><!--{hook/logging_method}--> <font color="red">← 原乐粉帮用户请点击此链接登陆</font></li>
 			</div>
 			<!--{/if}-->
 		</div>
