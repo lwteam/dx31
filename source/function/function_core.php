@@ -763,35 +763,27 @@ function dgmdate($timestamp, $format = 'dt', $timeoffset = '9999', $uformat = ''
 		$todaytimestamp = TIMESTAMP - (TIMESTAMP + $timeoffset * 3600) % 86400 + $timeoffset * 3600;
 		$s = gmdate(!$uformat ? str_replace(":i", ":i:s", $dtformat) : $uformat, $timestamp);
 		$time = TIMESTAMP + $timeoffset * 3600 - $timestamp;
+		//一年前
+		$yeartimestamp = $todaytimestamp-86400*365;
+
 		if($timestamp >= $todaytimestamp) {
-			if($time > 3600) {
-				return '<span title="'.$s.'">'.intval($time / 3600).'&nbsp;'.$lang['hour'].$lang['before'].'</span>';
-			} elseif($time > 1800) {
-				return '<span title="'.$s.'">'.$lang['half'].$lang['hour'].$lang['before'].'</span>';
-			} elseif($time > 60) {
-				return '<span title="'.$s.'">'.intval($time / 60).'&nbsp;'.$lang['min'].$lang['before'].'</span>';
-			} elseif($time > 0) {
-				return '<span title="'.$s.'">'.$time.'&nbsp;'.$lang['sec'].$lang['before'].'</span>';
-			} elseif($time == 0) {
-				return '<span title="'.$s.'">'.$lang['now'].'</span>';
-			} else {
-				return $s;
-			}
+			$return = '<span title="'.$s.'">'.gmdate('H:i',$timestamp ).'</span>';
 		} elseif(($days = intval(($todaytimestamp - $timestamp) / 86400)) >= 0 && $days < 7) {
-			if($days == 0) {
-				return '<span title="'.$s.'">'.$lang['yday'].'&nbsp;'.gmdate($tformat, $timestamp).'</span>';
-			} elseif($days == 1) {
-				return '<span title="'.$s.'">'.$lang['byday'].'&nbsp;'.gmdate($tformat, $timestamp).'</span>';
-			} else {
-				return '<span title="'.$s.'">'.($days + 1).'&nbsp;'.$lang['day'].$lang['before'].'</span>';
+			$return = ($days + 1).' '.$lang['day'].$lang['before'];
+			if(!defined('IN_MOBILE')) {
+				$return = '<span title="'.$s.'">'.$return.'</span>';
 			}
+		} elseif ($timestamp > $yeartimestamp) {
+			$return = '<span title="'.$s.'">'.gmdate('m-d',$timestamp ).'</span>';
 		} else {
-			return $s;
+			$return = '<span title="'.$s.'">'.gmdate('Y',$timestamp ).lang('space', 'year').'</span>';
 		}
+		return $return;
 	} else {
 		return gmdate($format, $timestamp);
 	}
 }
+
 
 function dmktime($date) {
 	if(strpos($date, '-')) {
