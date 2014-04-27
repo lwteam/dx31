@@ -138,11 +138,17 @@ class staticlink_viewthread_location {
 			$staticlink = & $_G['cache']['staticlink'];
 
 			if($staticlink[$fid] && $staticlink[$fid]['staticname']){
-				header( "HTTP/1.1 301 Moved Permanently" );
-				header('Location: '.$_G['siteurl'].$staticlink[$fid]['staticname'].'/t'.$_G['gp_tid'].'/');
+		echo'<pre>';
+		var_dump( $_G['gp_fid'] ,$fid , $staticlink[$fid] && $staticlink[$fid]['staticname'] );
+		echo'</pre>';
+				//header( "HTTP/1.1 301 Moved Permanently" );
+				//header('Location: '.$_G['siteurl'].$staticlink[$fid]['staticname'].'/t'.$_G['gp_tid'].'/');
 				exit;
 			}
 		}
+		echo'<pre>';
+		var_dump( $_G['gp_fid'] , $fid );
+		echo'</pre>';exit;
 	}
 }
 // 修改提示信息中的跳转地址
