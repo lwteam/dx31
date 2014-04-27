@@ -71,7 +71,7 @@ function mv_avatar($uid,$olduid) {
 	$oldpath  = get_avatar_path($olduid,AVATARPATH_OLD);
 	nmkdir($path);
 	foreach (array('big', 'middle', 'small') as  $value) {
-		$retrue  = $retrue && @copy(str_replace('$size$', $value, $oldpath),str_replace('$size$', $value, $path));
+		$retrue  = $retrue && copy(str_replace('$size$', $value, $oldpath),str_replace('$size$', $value, $path));
 	}
 	return $retrue;
 }
