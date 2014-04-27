@@ -91,9 +91,13 @@ function mv_attach($aid,$tableid) {
 
 	nmkdir($path);
 	if (file_exists($oldpath.'.thumb.jpg')) {
-		@rename($oldpath.'.thumb.jpg',$path.'.thumb.jpg');
+	//	@rename($oldpath.'.thumb.jpg',$path.'.thumb.jpg');
 	}
-	return rename($oldpath,$path);
+	echo'<pre>';
+	var_dump(  copy($oldpath,$path),$oldpath,$path );
+	echo'</pre>';exit;
+		
+	//return rename($oldpath,$path);
 }
 
 function nmkdir($path, $mode = 0777){
