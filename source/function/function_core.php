@@ -1161,6 +1161,33 @@ function runhooks($scriptextra = '') {
 function hookscript($script, $hscript, $type = 'funcs', $param = array(), $func = '', $scriptextra = '') {
 	global $_G;
 	static $pluginclasses;
+
+
+	/* ModuleSystem Point */
+
+
+	if(ModulePointWhether('hookscript',__FUNCTION__,__CLASS__)){
+		UNSET($GLOBALS['_ModuleActionStorage' ]);
+		$returns['script'] = $script;
+		$returns['hscript'] = $hscript;
+		$returns['type'] = $type;
+		$returns['param'] = $param;
+		$returns['func'] = $func;
+		$returns['scriptextra'] = $scriptextra;
+
+
+		$Modextract = ModulePoint('hookscript',__FUNCTION__,__CLASS__,$returns);
+		if(isset($Modextract) && is_array($Modextract)){
+			extract($Modextract);
+			unset($Modextract);
+		}
+	}
+
+
+	/* ModuleSystem Point */
+
+
+	
 	if($hscript == 'home') {
 		if($script == 'space') {
 			$scriptextra = !$scriptextra ? $_GET['do'] : $scriptextra;

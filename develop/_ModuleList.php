@@ -32,5 +32,8 @@ if(defined('CURSCRIPT') && CURSCRIPT == 'home'){
 	ModuleAdd('HomeSpacecpExtend/hooks');
 }
 
+ModuleAdd('BugListScript/hookscript');
+
+
 
 ?>

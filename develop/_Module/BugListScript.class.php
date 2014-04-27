@@ -10,7 +10,8 @@ class BugListScript {
 		require_once _Data('buglistfid');
 		require_once _Data('buglist_handling');
 
-
+		$_G['setting']['plugins']['func']['hookscript']['deletethread'] = true;
+		$_G['setting']['plugins']['func']['hookscriptmobile']['deletethread'] = true;
 		$this->point = $point;
 		if ($this->point == 'hooks') {
 				
@@ -37,6 +38,10 @@ class BugListScript {
 				
 				return false;
 			}
+
+		}elseif ($this->point == 'hookscript' && $this->returns['script'] =='deletethread' && $this->returns['param']['step'] =='delete' ) {
+			$this->action = 'delete';
+			return true;
 		}else{
 			return false;
 		}
@@ -336,6 +341,8 @@ class BugListScript {
 				}
 				
 			}
+		}elseif ($this->action == 'delete') {
+			DB::query(" DELETE FROM ".DB::table('buglist')." WHERE `tid` IN (".$_G['deletethreadtids'].")");
 		}
 	}
 	public function BugClassSelectSql($id,$filed='b.`classid`') {
