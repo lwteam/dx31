@@ -136,8 +136,8 @@ class staticlink_viewthread_location {
 			$staticlink = & $_G['cache']['staticlink'];
 
 			if($staticlink[$fid] && $staticlink[$fid]['staticname']){
-				header( "HTTP/1.1 301 Moved Permanently" );
-				header('Location: '.$_G['siteurl'].$staticlink[$fid]['staticname'].'/t'.$_G['gp_tid'].'/');
+			//	header( "HTTP/1.1 301 Moved Permanently" );
+				//header('Location: '.$_G['siteurl'].$staticlink[$fid]['staticname'].'/t'.$_G['gp_tid'].'/');
 				exit;
 			}
 		}
