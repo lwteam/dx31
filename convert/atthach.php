@@ -50,7 +50,7 @@ while($attach = DB::fetch($query)) {
 
 	if (!$echo) {
 		echo'<pre>';
-		var_dump( $attach['tid'],$echo,$_G['path'],$_G['oldpath'] );
+		var_dump( $attach['aid'],$attach['tableid'],$attach['tid'],$echo,$_G['path'],$_G['oldpath'] );
 		echo'</pre>';exit;
 	}
 
