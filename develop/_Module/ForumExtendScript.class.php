@@ -110,7 +110,7 @@ class ForumExtendScript {
 				//热门论坛
 				if(($HotForums = Library::fetch_cache(0, 'HotForums_'.$operation)) === false){
 					$HotForums = DB::fetch_all("SELECT  f.* FROM ".DB::table('forum_forum')." f 
-					WHERE f.type='forum' AND f.fup IN ($fupfids) ORDER BY f.todayposts LIMIT 10");
+					WHERE f.type='forum' AND f.fup IN ($fupfids) ORDER BY f.todayposts  DESC LIMIT 10");
 					Library::store_cache(0, $HotForums, 7200 , 'HotForums_'.$operation);
 				}
 				//推荐主题
