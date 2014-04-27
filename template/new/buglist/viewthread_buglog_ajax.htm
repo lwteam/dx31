@@ -1,4 +1,6 @@
-<h3>联想工程师互动</h3>
+<!--{eval $topclassid = substr($bthread[classid],0,1);}-->
+<!--{eval $classtoptxt = $_Data['buglist'][$topclassid];}-->
+<h3>{if $classtoptxt}$classtoptxt {else}联想{/if}工程师互动</h3>
 <!--{loop $buglogs  $value}-->
 <div class="solvelist">
 	<div class="solvemain">
