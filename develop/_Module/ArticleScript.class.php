@@ -248,7 +248,7 @@ class ArticleScript {
 			//热门论坛
 			if(($HotForums = Library::fetch_cache(0, 'HotForums_index')) === false){
 				$HotForums = DB::fetch_all("SELECT  f.* FROM ".DB::table('forum_forum')." f 
-				WHERE f.type='forum'  ORDER BY f.todayposts LIMIT 10");
+				WHERE f.type='forum'  ORDER BY f.todayposts DESC LIMIT 10");
 				Library::store_cache(0, $HotForums, 7200 , 'HotForums_index');
 			}
 			//推荐主题
