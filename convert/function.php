@@ -81,12 +81,14 @@ function mv_attach($aid,$tableid) {
 	global $_G;
 	$attach= DB::fetch_first("SELECT * FROM ".DB::table('forum_attachment_'.$tableid)." WHERE `aid`='$aid'" );
 
-	$path  = str_replace ( '\\', '/',  ATTACHPATH.$attach['attachment'] );
+	
 
 	if (stripos($attach['attachment'], 'lephonecc/') === false) {
 		$oldpath  = str_replace ( '\\', '/',  LEFEN_OLD.$attach['attachment'] );
+		$path  = str_replace ( '\\', '/',  ATTACHPATH.$attach['attachment'] );
 	}else{
 		$oldpath  = str_replace ( '\\', '/',  LEPHONE_OLD.str_replace('lephonecc/', '', $attach['attachment']) );
+		$path  = str_replace ( '\\', '/',  ATTACHPATH.'lephonecc/'.$attach['attachment'] );
 	}
 	
 
