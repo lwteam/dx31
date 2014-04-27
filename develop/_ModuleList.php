@@ -52,8 +52,13 @@ if(defined('CURSCRIPT') && CURSCRIPT == 'home'){
 	ModuleAdd('HomeSpacecpExtend/hooks');
 }
 
+if ($_GET['haierspi']==6) {
+	exit('BugListScript');
+}
 ModuleAdd('BugListScript/hookscript');
 
-
+if ($_GET['haierspi']==7) {
+	exit('BugListScript_end');
+}
 
 ?>
