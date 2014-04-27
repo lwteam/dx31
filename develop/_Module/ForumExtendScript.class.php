@@ -102,9 +102,9 @@ class ForumExtendScript {
 					}
 				}
 				unset( $forum_fields);
-				Library::store_cache(0, $catlist, 86400 , 'catlist_'.$operation);
-				Library::store_cache(0, $forumlist, 18000 , 'forumlist_'.$operation);
-				Library::store_cache(0, $opfids, 86400 , 'opfids_'.$operation);
+				Library::store_cache(0, $catlist, 0 , 'catlist_'.$operation);
+				Library::store_cache(0, $forumlist, 0 , 'forumlist_'.$operation);
+				Library::store_cache(0, $opfids, 0 , 'opfids_'.$operation);
 			}else{
 				$opfids = Library::fetch_cache(0, 'opfids_'.$operation);
 				$forumlist = Library::fetch_cache(0, 'forumlist_'.$operation);
