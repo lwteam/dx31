@@ -131,15 +131,17 @@ class staticlink_viewthread_location {
 		 
 		$_G['setting']['seohead']= preg_replace('/forum\.php\?mod=viewthread(?!&fid)/','forum.php?mod=viewthread&fid='.$fid,$_G['setting']['seohead']);
 
-
-
 		if($_G['gp_fid'] != $fid){
 			loadcache('staticlink');
 			$staticlink = & $_G['cache']['staticlink'];
 
 			if($staticlink[$fid] && $staticlink[$fid]['staticname']){
-				header( "HTTP/1.1 301 Moved Permanently" );
-				header('Location: '.$_G['siteurl'].$staticlink[$fid]['staticname'].'/t'.$_G['gp_tid'].'/');
+				echo'<pre>';
+				var_dump( debug_backtrace() );
+				echo'</pre>';exit;
+					
+			//	header( "HTTP/1.1 301 Moved Permanently" );
+				//header('Location: '.$_G['siteurl'].$staticlink[$fid]['staticname'].'/t'.$_G['gp_tid'].'/');
 				exit;
 			}
 		}
