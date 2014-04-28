@@ -84,8 +84,7 @@ class debug {
 			$var = $var[$keyvar];
 		}
 	}
-	static function die($sError)
-	 {
+	static function stack($sError){
 	     echo "<hr /><div>".$sError."<br /><table border='1'>";
 	     $sOut=""; $aCallstack=debug_backtrace();
 	     
@@ -101,7 +100,7 @@ class debug {
 	     }
 	     echo "</table></div><hr /></p>";
 	     die();
-	 }
+	}
 }
 
 ?>
