@@ -224,7 +224,15 @@ if ($act == 'auth') {
 			if(!$AccountID){
 				showmessage('联想通行证LenovoID授权失败请重试');
 			}
+			$member = DB::fetch_first("SELECT m.*,ml.lenovoid FROM ".DB::table('common_member_lenovoid')." ml
+				LEFT JOIN  ".DB::table('common_member')." m USING(`uid`)
+				WHERE ml.`lenovoid`='{$AccountID}' LIMIT 1");
 
+			if ($member && $member['uid']) {
+				showmessage('这个联想通行证已经绑定过了，请更换一个！');
+			}
+			
+			DB::query("DELETE FROM ".DB::table('common_member_lenovoid')." WHERE `lenovoid`='{$AccountID}' LIMIT 1");
 			DB::query("DELETE FROM ".DB::table('common_member_lenovoid')." WHERE `uid`='$_G[uid]' LIMIT 1");
 			DB::insert('common_member_lenovoid', array('uid'=>$_G['uid'],'lenovoid'=>$AccountID,'dateline'=>TIMESTAMP));
 			showmessage('您的账号和联想通行证已经成功绑定!','home.php?mod=spacecp&ac=plugin&opdo=lenovoid');
