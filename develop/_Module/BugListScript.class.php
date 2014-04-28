@@ -160,7 +160,7 @@ class BugListScript {
 				$offsettime = $thiszerotime - 604800;
 				$HotBugs = DB::fetch_all("SELECT b.*,t.fid,t.subject FROM ".DB::table('buglist')." b 
 					LEFT JOIN ".DB::table('forum_thread')." t USING(`tid`) 
-				 WHERE b.dateline>'$offsettime' ORDER BY b.`samenum` DESC LIMIT 10");
+				 WHERE b.dateline>'$offsettime' ORDER BY b.`samenum` DESC LIMIT 9");
 				discuz_table::store_cache(0, $HotBugs, 86400 , 'buglist_hotbugs');
 			}
 	
@@ -221,7 +221,7 @@ class BugListScript {
 					$offsettime = $thiszerotime - 604800;
 					$HotBugs = DB::fetch_all("SELECT b.*,t.fid,t.subject FROM ".DB::table('buglist')." b 
 						LEFT JOIN ".DB::table('forum_thread')." t USING(`tid`) 
-					 WHERE b.dateline>'$offsettime' ORDER BY b.`samenum` DESC LIMIT 10");
+					 WHERE b.dateline>'$offsettime' ORDER BY b.`samenum` DESC LIMIT 9");
 					discuz_table::store_cache(0, $HotBugs, 86400 , 'buglist_hotbugs');
 				}
 
