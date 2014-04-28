@@ -111,8 +111,8 @@
 				<div class="sboxtitle"><h3 class="ht">热门问题</h3></div>
 				<div class="sboxsub">
 					<ul class="sboxsubtext">
-					<!--{loop $HotBugs $thread}-->
-						<li><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a></li>
+					<!--{loop $HotBugs $value}-->
+						<li><a href="forum.php?mod=viewthread&fid=$value[fid]&tid=$value[tid]">$value[subject]</a></li>
 					<!--{/loop}-->
 					</ul>
 				</div>
@@ -125,8 +125,8 @@
 			<div class="sboxtitle"><h3 class="ht">{if CURMODULE == 'forumdisplay'}版主推荐{else}推荐阅读{/if}</h3></div>
 			<div class="sboxsub">
 				<ul class="sboxsubrecommend">
-				<!--{loop $RecomThreads $key $thread}-->
-				<li><div><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]"><img src="$thread[filename]" width="80" height="60"></a></div><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a></li>
+				<!--{loop $RecomThreads $key $value}-->
+				<li><div><a href="forum.php?mod=viewthread&fid=$value[fid]&tid=$value[tid]"><img src="$value[filename]" width="80" height="60"></a></div><a href="forum.php?mod=viewthread&fid=$value[fid]&tid=$value[tid]">$value[subject]</a></li>
 				<!--{/loop}-->
 				
 				</ul>
@@ -142,8 +142,8 @@
 				<div class="sboxtitle"><h3 class="ht">{if CURMODULE == 'viewthread'}相关帖子{else}热帖{/if}</h3></div>
 				<div class="sboxsub">
 					<ul class="sboxsubtext">
-						<!--{loop $HotThreads $key $thread}-->
-							<li><span {if $key<3}class="toprank"{else}class="topranks"{/if}>{echo $key+1}</span><a href="forum.php?mod=viewthread&fid=$thread[fid]&tid=$thread[tid]">$thread[subject]</a></li>
+						<!--{loop $HotThreads $key $value}-->
+							<li><span {if $key<3}class="toprank"{else}class="topranks"{/if}>{echo $key+1}</span><a href="forum.php?mod=viewthread&fid=$value[fid]&tid=$value[tid]">$value[subject]</a></li>
 						<!--{/loop}-->
 					</ul>
 				</div>
