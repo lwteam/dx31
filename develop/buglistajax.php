@@ -145,6 +145,8 @@ if ($action == 'getattr') {
 		$update = array();
 		$update['supply'] = '1';
 		$update['supplytime'] = $_G['timestamp'];
+		$update['lasttime'] = $_G['timestamp'];
+		
 		DB::update('buglist', $update, "`tid`='$tid'");
 
 		$response['message'] = '已经完成操作,正在返回';

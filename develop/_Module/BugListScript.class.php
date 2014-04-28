@@ -111,7 +111,7 @@ class BugListScript {
 
 			$query = DB::query("SELECT * FROM ".DB::table('buglist')." b 
 			LEFT JOIN ".DB::table('forum_thread')." t USING(`tid`) 
-			$sqlwhere  ORDER BY b.`dateline` DESC LIMIT $offset,$pagenum");
+			$sqlwhere  ORDER BY b.`lasttime` DESC LIMIT $offset,$pagenum");
 			
 			while($thread = DB::fetch($query)) {
 				$thread['handlingtxt'] = $_Data['buglist_handling'][$thread['handling']]['title'];

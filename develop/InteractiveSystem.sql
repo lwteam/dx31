@@ -460,10 +460,6 @@ DROP COLUMN `another`,
 DROP COLUMN `avatar`,
 DROP COLUMN `hide`;
 
-ALTER TABLE `pre_buglist_user`
-DROP COLUMN `another`,
-DROP COLUMN `avatar`,
-DROP COLUMN `hide`;
 
 ALTER TABLE `pre_buglist_log`
 ADD COLUMN `title` char(255) NOT NULL DEFAULT ''  AFTER `itcode`;
