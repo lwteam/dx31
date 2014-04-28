@@ -195,15 +195,12 @@ class BugListScript {
 
 	
 
-				$query = DB::query("SELECT bl.*,bu.avatar,bu.name,bu.another,bu.title,bu.team,bu.hide FROM ".DB::table('buglist_log')." bl
-				LEFT JOIN  ".DB::table('buglist_user')." bu USING(uid) WHERE bl.tid='{$_G['thread']['tid']}' ORDER BY bl.`dateline` DESC");
+				$query = DB::query("SELECT * FROM ".DB::table('buglist_log')." bl WHERE bl.tid='{$_G['thread']['tid']}' ORDER BY bl.`dateline` DESC");
 				while($value = DB::fetch($query)) {
 					//转换全部状态信息
-					$value['showname'] = $value['dist']?$value['another']:$value['username'];
 					$value['handlings'] = unserialize($value['handlings']);
 					$value['handlingtxt'] = $_Data['buglist_handling'][$value['handling']]['title'];
 					$value['note'] = unserialize($value['note']);
-					unset($value['itcode'] );
 					$bthread['hlogs'][] = $value;
 				}
 				

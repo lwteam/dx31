@@ -1,7 +1,7 @@
 <?php
 
 class Library {
-	function randstring($length = 5,$mod = 'UMN', $starthash = '') {
+	public function randstring($length = 5,$mod = 'UMN', $starthash = '') {
 		$hash = $starthash;
 
 		if (preg_match ( "/U/i", $mod )) {
@@ -252,6 +252,24 @@ class Library {
 		}
 		return $ret;
 	}
+	public function ajax_output($template = '',$dir = ''){
+		global $response,$globalvar;
+		if ($globalvar) {
+			extract($globalvar);
+		}
+		if ($template) {
+			if ($dir) {
+				include template($template,0, $dir);
+			}else{
+				include template($template);
+			}
+			$response['content']  = ob_get_clean();
+		}
+		echo json_encode($response);
+		exit();
+	}
+
 
 }
 
+?>

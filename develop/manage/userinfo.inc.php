@@ -14,7 +14,7 @@ if(!defined('IN_DISCUZ')) {
 
 $loadtemplate = 'userinfo';
 //必须填写的用户POST字段
-$FieldsMustComplete = array('another'=>0,'avatar'=>1, 'itcode'=>1, 'email'=>1, 'phone'=>1, 'title'=>1, 'hide'=>0);
+$FieldsMustComplete = array('itcode'=>1, 'email'=>1, 'phone'=>1, 'title'=>1);
 
 
 
@@ -29,13 +29,10 @@ if($_POST){
 	
 	$myinfo = $_POST['myinfo'];
 
+		
+
 	foreach($FieldsMustComplete as $key=>$value){
-		if( $key == 'avatar'){
-			if(!$_FILES['avatar']['name'] && !$mydata['avatar']){
-				$error = 'avatar';
-				$errormsg = '请设置您的马甲头像';
-			}
-		}elseif($value && !isset($myinfo[$key])) {
+		if($value && !$myinfo[$key]) {
 			$error = $key;
 			$errormsg = '必填项不能为空';;
 		}
@@ -47,12 +44,7 @@ if($_POST){
 	}
 	unset($mydata['name'],$mydata['team']);
 
-	if ($mydata['title']) {
-		$mydata['hide'] = '0';
-	}else{
-		$mydata['title'] = '';
-		$mydata['hide'] = '1';
-	}
+
 
 	if(!$error){
 		if( $_FILES['avatar']) {

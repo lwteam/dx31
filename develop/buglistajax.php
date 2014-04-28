@@ -25,12 +25,12 @@ $action = in_array($_REQUEST['action'], array('samenum','membersupply','getattr'
 
 if(!$action){
 	$response['error'] = '请求错误, 请确认后操作!';
-	ajax_output();
+	Library::ajax_output();
 }
 
 if(!$_G['uid']){
 	$response['error'] = '您还没有登陆,请登陆重试';
-	ajax_output();
+	Library::ajax_output();
 }
 
 
@@ -41,7 +41,7 @@ if ($action == 'getattr') {
 	$classid = (int)$_REQUEST['classid'];
 	if (!$classid || !$_Data['buglistrelation'][$classid]['bugattr']) {
 		$response['error'] = '请求分类不存在!';
-		ajax_output();
+		Library::ajax_output();
 	}
 
 	if($_GET['tid']){
@@ -100,7 +100,7 @@ if ($action == 'getattr') {
 	$response['scode'] = 1;
 	$response['num'] = count($bugattrlist);
 	$response['must'] =$ElementMust;
-	ajax_output('buglist/post_bugattr_ajax');
+	Library::ajax_output('buglist/post_bugattr_ajax');
 
 }elseif ($action == 'membersupply') {
 
@@ -115,22 +115,22 @@ if ($action == 'getattr') {
 		$bthread['property'] = unserialize($bthread['property']);
 		if ($bthread['uid'] != $_G['uid']) {
 			$response['error'] = '您不是该问题的作者,不能补充信息!';
-			ajax_output('buglist/buglist_error');
+			Library::ajax_output('buglist/buglist_error');
 		}
 		if (!$bthread[supply] || $bthread[supplytime]) {
 			$response['error'] = '该问题已经或不需要补充信息!';
-			ajax_output('buglist/buglist_error');
+			Library::ajax_output('buglist/buglist_error');
 		}
 		$globalvar['bthread'] = &$bthread;
 	}else{
 		$response['error'] = '该问题流程信息不存在!';
-		ajax_output('buglist/buglist_error');
+		Library::ajax_output('buglist/buglist_error');
 	}
 
 	if ($_POST) {
 		if (!$message ) {
 			$response['error'] = '请填写您需要内容,谢谢';
-			ajax_output('buglist/buglist_error');
+			Library::ajax_output('buglist/buglist_error');
 		}
 		$insert = array();
 		$insert['tid']		= $bthread['tid'];
@@ -148,9 +148,9 @@ if ($action == 'getattr') {
 		DB::update('buglist', $update, "`tid`='$tid'");
 
 		$response['message'] = '已经完成操作,正在返回';
-		ajax_output('buglist/buglist_suss');
+		Library::ajax_output('buglist/buglist_suss');
 	}else{
-		ajax_output('buglist/buglist_membersupply');
+		Library::ajax_output('buglist/buglist_membersupply');
 	}
 
 }elseif ($action == 'samenum') {
@@ -164,12 +164,12 @@ if ($action == 'getattr') {
 		$bthread['property'] = unserialize($bthread['property']);
 		if ($bthread['uid'] == $_G['uid']) {
 			$response['error'] = '您不能操作自己的帖子!';
-			ajax_output('buglist/buglist_error');
+			Library::ajax_output('buglist/buglist_error');
 		}
 		$globalvar['bthread'] = &$bthread;
 	}else{
 		$response['error'] = '该问题流程信息不存在!';
-		ajax_output('buglist/buglist_error');
+		Library::ajax_output('buglist/buglist_error');
 	}
 
 		
@@ -177,7 +177,7 @@ if ($action == 'getattr') {
 	$isdo = DB::fetch_first("SELECT *  FROM ".DB::table('buglist_urecords')."  WHERE `keytype`='samenum' AND `keyid`='$tid' AND `uid`='{$_G['uid']}'" );
 	if ($isdo) {
 		$response['error'] = '你已经操作过,不能重复操作!';
-		ajax_output('buglist/buglist_error');
+		Library::ajax_output('buglist/buglist_error');
 	}else{
 		$response['scode'] = '1';
 		$response['num'] = $bthread['samenum']+1;
@@ -188,26 +188,11 @@ if ($action == 'getattr') {
 		
 		DB::query('UPDATE '.DB::table('buglist')." SET `samenum`=`samenum`+1   WHERE `tid`='$tid' ");
 		$response['message'] = '已经完成操作';
-		ajax_output();
+		Library::ajax_output();
 	}
 	
 }
 
-
-function ajax_output($template = ''){
-	global $response,$globalvar;
-	if ($globalvar) {
-		extract($globalvar);
-	}
-	if ($template) {
-		include template($template);
-		$response['content']  = ob_get_clean();
-		ajax_output();
-	}
-
-	echo json_encode($response);
-	exit();
-}
 
 
 ?>

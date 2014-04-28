@@ -6,7 +6,24 @@
 </tr>
 <tr>
 	<td class="last">
-	<button type="button" onclick="javascript:BMDialog.close(1);" class="graysmallbutton"> 关 闭 </button>
+		<button type="button" onclick="javascript:pagetimerend();" class="graysmallbutton"> {if $response['botton']}$response['botton']{else}关 闭{/if} <em id="timenum"></em></button>
 	</td>
 </tr>
 </tbody></table></div>
+<script>
+
+var leavetime = 5;
+var pagetimer = setTimeout(function(){
+	pagetimertodo('#timenum',function(){
+		clearTimeout(pagetimer);
+		pagetimerend();
+	});
+},1000);
+function pagetimerend(){
+<!--{if $response['location']}-->
+	location.href = "$response[location]";
+<!--{else}-->
+	BMDialog.close(1);
+<!--{/if}-->
+}
+</script>

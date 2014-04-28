@@ -149,6 +149,20 @@ function loaddingtext(){
 		loaddingtext();
 	},500);
 }
+var pagetimer;
+function pagetimertodo(ptime,ptimerfunction){
+	var $ = jQuery;
+	leavetime --;
+	$(ptime).html(leavetime);
+	if (leavetime <= 0) {
+		ptimerfunction();
+	}else{
+		pagetimer = setTimeout(function(){
+			pagetimertodo(ptime,ptimerfunction);
+		},1000);
+	}
+}
+
 var BMDialog = {
 	'obj':false,
 	'boxid':'#buglist_box',
@@ -186,13 +200,13 @@ var BMDialog = {
 		if (typeof(ismember)=="undefined") {
 			todo = typeof(todo)=="undefined"?'process':todo;
 			var _this = this;
-			$.getJSON('manage.php?action=buglist&operation='+todo+'&id='+id, function(response){
+			$.getJSON('manage.php?action=buglist&operation='+todo+'&id='+id+'&inajax=1', function(response){
 				$(_this.boxid).html(response.content);
 				_this.auto();
 			});			
 		}else{
 			var _this = this;
-			$.getJSON('buglistajax.php?action=membersupply&tid='+id, function(response){
+			$.getJSON('buglistajax.php?action=membersupply&tid='+id+'&inajax=1', function(response){
 				$(_this.boxid).html(response.content);
 				_this.auto();
 			});	
@@ -204,7 +218,7 @@ var BMDialog = {
 		var html = $(obj_id).html();
 		
 		$(obj_id).html('<img src="static/image/common/buglistloading.gif" />');
-		$.getJSON('buglistajax.php?action=samenum&tid='+tid, function(response){
+		$.getJSON('buglistajax.php?action=samenum&tid='+tid+'&inajax=1', function(response){
 			if (response.scode == '1') {
 				$(obj_id).html(response.num);
 				showError(response.message);
@@ -219,7 +233,7 @@ var BMDialog = {
 		$(obj_id).parent().show();
 		$(obj_id).show();
 		$(obj_id).html('Loading....');
-		$.getJSON('manage.php?action=buglist&operation=property&id='+tid, function(response){
+		$.getJSON('manage.php?action=buglist&operation=property&id='+tid+'&inajax=1', function(response){
 			if ($('._buglog').length>0) {
 				$('._buglog').html(response.buglogs);
 			};
@@ -240,14 +254,14 @@ var BMDialog = {
 			
 			todo = typeof(todo)=="undefined"?'process':todo;
 			
-			$.post('manage.php?action=buglist&operation='+todo+'&id='+id, postdata , function(response){
+			$.post('manage.php?action=buglist&operation='+todo+'&id='+id+'&inajax=1', postdata , function(response){
 				//console.dir(response);
 				$(_this.boxid).html(response.content);
 				_this.auto();
 			}, "json");	
 		}else{
 
-			$.post('buglistajax.php?action=membersupply&tid='+id, postdata , function(response){
+			$.post('buglistajax.php?action=membersupply&tid='+id+'&inajax=1', postdata , function(response){
 				//console.dir(response);
 				$(_this.boxid).html(response.content);
 				_this.auto();

@@ -17,14 +17,21 @@ require_once _Data('buglistfid');
 require_once _Data('hwver');
 require_once _Data('buglist_handling');
 
+$globalvar = array();
+
 $bfid = $_Data['buglistfid'];
 
 $id = (int)$_REQUEST['id'];
+
 $operation = $_REQUEST['operation']?$_REQUEST['operation']:'list'; 
 $handling = isset($_GET['handling'])?$_GET['handling']:1; 
 $page = $_G['page'];
 $pagenum = $_G['tpp'];
 
+$globalvar['id'] = $id;
+$globalvar['_Data'] = $_Data;
+$globalvar['onebuglist'] = &$onebuglist;
+$globalvar['myPermission'] = &$myPermission;
 
 if($id){
 	$onebuglist = DB::fetch_first("SELECT *  FROM ".DB::table('buglist')."  WHERE tid='$id'" );
@@ -34,7 +41,19 @@ if($id){
 }
 $myPermission = MyCompletion($myPermission);
 if (!$myPermission['itcode']) {
-	showmessage('你那需要完善您的个人信息才能继续操作', 'manage.php?action=userinfo');
+	if ($_GET['inajax']) {
+		$response = array();
+		$response['scode'] = 0;
+		$response['error'] = '您需要完善个人信息才能继续操作,<br>稍后会自动跳转完善页面';
+		$response['location'] = 'manage.php?action=userinfo';
+		$response['botton'] = '马上去完善';
+
+		Library::ajax_output('buglist_error','./develop/manage/template');
+
+	}else{
+		showmessage('你那需要完善您的个人信息才能继续操作', 'manage.php?action=userinfo');
+	}
+	
 }
 
 
@@ -96,11 +115,13 @@ if($operation == 'supply'){
 					$insert['username']	= $myPermission['username'];
 					$insert['name'] 	= $myPermission['name'];
 					$insert['itcode']	= $myPermission['itcode'];
+					$insert['title']	= $myPermission['title'];
 					$insert['dateline'] = $_G['timestamp'];
 					$insert['handling']	= $onebuglist['handling'];
 					$insert['message']	= $message;
 					$insert['note']		= $note;
 					$insert['dist']		= $myPermission['dist'];
+
 					$insert['status']	= Library::setstatus(1,1);
 					
 
@@ -113,12 +134,8 @@ if($operation == 'supply'){
 			}
 		}
 	}
-	if ($template) {
-		include template($template,0, './develop/manage/template');
-		$response['content']  = ob_get_clean();
-	}
-	echo json_encode($response);
-	exit();
+	Library::ajax_output($template,'./develop/manage/template');
+
 }elseif($operation == 'property'){
 	@header("Expires: -1");
 	@header("Cache-Control: no-store, private, post-check=0, pre-check=0, max-age=0", FALSE);
@@ -142,11 +159,11 @@ if($operation == 'supply'){
 		include template($template,0, './develop/manage/template');
 		$response['content']  = ob_get_clean();
 		if ($response['scode'] == '1' && $template == 'buglist_property') {
-			$query = DB::query("SELECT bl.*,bu.avatar,bu.title,bu.name,bu.itcode FROM ".DB::table('buglist_log')." bl
+			$query = DB::query("SELECT bl.*,bu.title FROM ".DB::table('buglist_log')." bl
 			LEFT JOIN  ".DB::table('buglist_user')." bu USING(uid) WHERE bl.tid='$id' ORDER BY bl.`dateline` DESC");
 			while($value = DB::fetch($query)) {
 				//转换全部状态信息
-				$value['showname'] = $value['dist']?$value['name'].' / '.$value['itcode']:$value['username'];
+				
 				$value['handlings'] = unserialize($value['handlings']);
 				$value['handlingtxt'] = $_Data['buglist_handling'][$value['handling']]['title'];
 				
@@ -158,9 +175,7 @@ if($operation == 'supply'){
 		}
 		
 	}
-
-	echo json_encode($response);
-	exit();
+	Library::ajax_output();
 
 
 }elseif($operation == 'note'){
@@ -211,12 +226,10 @@ if($operation == 'supply'){
 			}
 		}
 	}
-	if ($template) {
-		include template($template,0, './develop/manage/template');
-		$response['content']  = ob_get_clean();
-	}
-	echo json_encode($response);
-	exit();
+
+	Library::ajax_output($template,'./develop/manage/template');
+
+
 }elseif($operation == 'process'){
 	@header("Expires: -1");
 	@header("Cache-Control: no-store, private, post-check=0, pre-check=0, max-age=0", FALSE);
@@ -304,6 +317,7 @@ if($operation == 'supply'){
 					$insert['username']	= $myPermission['username'];
 					$insert['name'] 	= $myPermission['name'];
 					$insert['itcode']	= $myPermission['itcode'];
+					$insert['title']	= $myPermission['title'];
 					$insert['dateline'] = $_G['timestamp'];
 					$insert['handling']	= $handling;
 					$insert['message']	= $message;
@@ -325,14 +339,7 @@ if($operation == 'supply'){
 			}
 		}
 	}
-	if ($template) {
-		include template($template ,0, './develop/manage/template');
-		$response['content']  = ob_get_clean();
-	}
-	
-	echo json_encode($response);
-	exit();
-
+	Library::ajax_output($template,'./develop/manage/template');
 }else{
 	$loadtemplate = 'buglist_list';
 	

@@ -69,8 +69,8 @@
 					<ul class="sboxsubrecommend sboxsubhot">
 						<!--{loop $HotEngineers $value}-->
 						<li>
-							<div><img src="$value[avatar]" width="48" height="48"></div>
-							<p><strong><!--{if $value[hide]}-->$value[another]<!--{else}-->$value[name]<!--{/if}--></strong></p>
+							<div><!--{avatar($value[uid],'small')}--></div>
+							<p><strong>$value[username]</strong></p>
 							<p>$value[title]</p>
 							<i title="本月处理了 $value[hnum] 个问题">$value[hnum]</i>
 						</li>
