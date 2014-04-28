@@ -32,6 +32,13 @@ if(defined('CURSCRIPT') && CURSCRIPT == 'home'){
 	ModuleAdd('HomeSpacecpExtend/hooks');
 }
 
+		
+if(constant('CURSCRIPT') == 'member' &&  $_GET['mod'] == 'logging' && $_GET['action'] == 'logout'){
+
+	ModuleAdd('LenovoMemberLogout/hooks');
+}
+
+
 ModuleAdd('BugListScript/hookscript');
 
 
