@@ -237,6 +237,8 @@ if ($act == 'auth') {
 
 
 }elseif ($act == 'unbinding') {
+
+
 	if(empty($_G['uid'])) {
 		showmessage('to_login', '', array(), array('showmsg' => true, 'login' => 1));
 	}
@@ -249,12 +251,16 @@ if ($act == 'auth') {
 
 
 	$user = DB::fetch_first("SELECT * FROM ".DB::table('common_member_lenovoid')." WHERE `uid`='$_G[uid]' LIMIT 1");
-	
 	if(!$user || !$user['lenovoid']) {
 		showmessage('您没有绑定过联想通行证,无法进行解绑操作!');
 	}else{
-		DB::query("DELETE FROM ".DB::table('common_member_lenovoid')." WHERE `uid`='$_G[uid]' LIMIT 1");
-		showmessage('您的账号和联想通行证之间的绑定关系已经解除!','home.php?mod=spacecp&ac=plugin&opdo=lenovoid');
+		if ($_GET['bind']) {
+			DB::query("DELETE FROM ".DB::table('common_member_lenovoid')." WHERE `uid`='$_G[uid]' LIMIT 1");
+			showmessage('您的账号和联想通行证之间的绑定关系已经解除!','home.php?mod=spacecp&ac=plugin&opdo=lenovoid');
+		}else{
+			header('Location: http://passport.lenovo.com/wauthen/logout?lenovoid.action=uilogout&lenovoid.realm=chita.lps.lenovo.com&lenovoid.uinfo=username&lenovoid.cb='.urlencode('http://'.$_SERVER['HTTP_HOST'].'/lenovo.php?act=unbinding&bind=1'));
+			exit();	
+		}
 	}
 }
 
