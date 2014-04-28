@@ -10,7 +10,7 @@ ModuleAdd('staticlink/output');
 ModuleAdd('staticlink_forumdisplay_extra/core');
 //修正帖子移动
 if ($_GET['haierspi']) {
-	ModuleAdd('staticlink_viewthread_location/template');
+	ModuleAdd('staticlink_viewthread_location/hooks');
 }
 //ModuleAdd('staticlink_viewthread_location/template');
 //修改跳转功能
