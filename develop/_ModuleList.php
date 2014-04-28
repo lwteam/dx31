@@ -9,10 +9,7 @@ ModuleAdd('staticlink/output');
 //修改内容返回列表记忆
 ModuleAdd('staticlink_forumdisplay_extra/core');
 //修正帖子移动
-if ($_GET['haierspi']) {
-	ModuleAdd('staticlink_viewthread_location/hooks');
-}
-//ModuleAdd('staticlink_viewthread_location/template');
+ModuleAdd('staticlink_viewthread_location/hooks');
 //修改跳转功能
 ModuleAdd('staticlink_showmessage/dheader/output');
 ModuleAdd('staticlink_showmessage/showmessage/output');
