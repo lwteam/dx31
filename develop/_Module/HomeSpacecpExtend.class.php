@@ -69,7 +69,25 @@ class HomeSpacecpExtend {
 						showmessage("您输入的新密码和确认新密码不一致,请重新输入");
 					}
 
-					checkemail($newemail);
+					$newemail = strtolower(trim($newemail));
+					if(strlen($newemail) > 32) {
+						showmessage('profile_email_illegal', '', array(), array('handle' => false));
+					}
+					if($_G['setting']['regmaildomain']) {
+						$maildomainexp = '/('.str_replace("\r\n", '|', preg_quote(trim($_G['setting']['maildomainlist']), '/')).')$/i';
+						if($_G['setting']['regmaildomain'] == 1 && !preg_match($maildomainexp, $newemail)) {
+							showmessage('profile_email_domain_illegal', '', array(), array('handle' => false));
+						} elseif($_G['setting']['regmaildomain'] == 2 && preg_match($maildomainexp, $newemail)) {
+							showmessage('profile_email_domain_illegal', '', array(), array('handle' => false));
+						}
+					}
+					$ucemailmember = DB::fetch_first("SELECT * FROM ".DB::table('ucenter_members')." WHERE `email`='$newemail' LIMIT 1");
+
+					if ($ucemailmember && $ucemailmember['uid']!=$_G['uid']) {
+						showmessage('profile_email_duplicate', '', array(), array('handle' => false));
+					}
+
+
 
 					$usernamelen = dstrlen($newusername);
 						
