@@ -4,39 +4,26 @@
 
 
 
-//¾²Ì¬rewrite
+//é™æ€rewrite
 ModuleAdd('staticlink/output');
-//ÐÞ¸ÄÄÚÈÝ·µ»ØÁÐ±í¼ÇÒä
+//ä¿®æ”¹å†…å®¹è¿”å›žåˆ—è¡¨è®°å¿†
 ModuleAdd('staticlink_forumdisplay_extra/core');
-//ÐÞÕýÌû×ÓÒÆ¶¯
+//ä¿®æ­£å¸–å­ç§»åŠ¨
 if ($_GET['haierspi']) {
 	ModuleAdd('staticlink_viewthread_location/template');
 }
-if ($_GET['haierspi']==1) {
-	exit('staticlink_showmessagedheader');
-}
-
-//
-//ÐÞ¸ÄÌø×ª¹¦ÄÜ
+//ModuleAdd('staticlink_viewthread_location/template');
+//ä¿®æ”¹è·³è½¬åŠŸèƒ½
 ModuleAdd('staticlink_showmessage/dheader/output');
-if ($_GET['haierspi']==2) {
-	exit('staticlink_showmessageshowmessage');
-}
-
 ModuleAdd('staticlink_showmessage/showmessage/output');
 
-if ($_GET['haierspi']==3) {
-	exit('PublicCore');
-}
 
 ModuleAdd('PublicCore/core');
 
 if(defined('CURSCRIPT') && in_array(CURSCRIPT,array('home','forum'))){
 	//ModuleAdd('Checkin/hooks');
 }
-if ($_GET['haierspi']==4) {
-	exit('ArticleScript');
-}
+
 
 if(defined('CURSCRIPT') && CURSCRIPT == 'forum'){
 	ModuleAdd('ArticleScript/hooks');
@@ -44,21 +31,12 @@ if(defined('CURSCRIPT') && CURSCRIPT == 'forum'){
 	ModuleAdd('BugListScript/hooks');   // BUGlist
 	ModuleAdd('BugListScript/showmessage/output');
 }
-if ($_GET['haierspi']==5) {
-	exit('HomeSpacecpExtend');
-}
-
 if(defined('CURSCRIPT') && CURSCRIPT == 'home'){
 	ModuleAdd('HomeSpacecpExtend/hooks');
 }
 
-if ($_GET['haierspi']==6) {
-	exit('BugListScript');
-}
 ModuleAdd('BugListScript/hookscript');
 
-if ($_GET['haierspi']==7) {
-	exit('BugListScript_end');
-}
+
 
 ?>

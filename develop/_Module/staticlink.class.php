@@ -137,7 +137,7 @@ class staticlink_viewthread_location {
 
 			if($staticlink[$fid] && $staticlink[$fid]['staticname']){
 				echo'<pre>';
-				var_dump( debug_backtrace() );
+				var_dump( debug::die() );
 				echo'</pre>';exit;
 					
 			//	header( "HTTP/1.1 301 Moved Permanently" );

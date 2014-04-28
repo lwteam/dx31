@@ -84,4 +84,24 @@ class debug {
 			$var = $var[$keyvar];
 		}
 	}
+	static function die($sError)
+	 {
+	     echo "<hr /><div>".$sError."<br /><table border='1'>";
+	     $sOut=""; $aCallstack=debug_backtrace();
+	     
+	     echo "<thead><tr><th>file</th><th>line</th><th>function</th>".
+	         "</tr></thead>";
+	     foreach($aCallstack as $aCall)
+	     {
+	         if (!isset($aCall['file'])) $aCall['file'] = '[PHP Kernel]';
+	         if (!isset($aCall['line'])) $aCall['line'] = '';
+
+	         echo "<tr><td>{$aCall["file"]}</td><td>{$aCall["line"]}</td>".
+	             "<td>{$aCall["function"]}</td></tr>";
+	     }
+	     echo "</table></div><hr /></p>";
+	     die();
+	 }
 }
+
+?>
