@@ -212,6 +212,7 @@ class BugListScript {
 					}
 				}
 				// 一周热门遇到的问题
+				global $HotBugs;
 				if(($HotBugs = discuz_table::fetch_cache(0, 'buglist_hotbugs')) === false){
 					$thisyear=date( 'Y', TIMESTAMP );
 					$thismonth=date( 'm', TIMESTAMP );
