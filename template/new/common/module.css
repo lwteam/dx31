@@ -1069,7 +1069,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		Last Modify:	Pony 1205241556
 	*/
 	.pl .quote, .pl .blockcode { margin: 10px 0; padding: 10px 10px 10px 65px; zoom: 1; }
-	.pl .quote { padding-bottom: 5px; background: #F9F9F9 url({IMGDIR}/icon_quote_s.gif) no-repeat 20px 6px; }
+	.pl .quote { border-radius:3px padding-bottom: 5px; background: #F9F9F9 url({IMGDIR}/icon_quote_s.gif) no-repeat 20px 6px; }
 		.pl .quote blockquote { display: inline-block; margin: 0; padding: 0 65px 5px 0; background: url({IMGDIR}/icon_quote_e.gif) no-repeat 100% 100%; line-height: 1.6; zoom: 1; }
 			.ie6 .pl .quote blockquote, .ie7 .pl .quote blockquote { display: inline }
 
