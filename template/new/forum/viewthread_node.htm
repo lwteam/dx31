@@ -21,7 +21,7 @@ $postshowavatars = !($_G['setting']['bannedmessages'] & 2 && ($post['memberstatu
 						<!--{/if}-->
 					</div>
 					<div class="viewtheadauthor">
-						<!--{if $_G['setting']['authoronleft']}--><a href="home.php?mod=space&uid=$post['authorid']" target="_blank" {if $post[groupcolor]}><strong>$post[author]</strong></a><!--{/if}-->
+						<!--{if $_G['setting']['authoronleft']}--><a href="home.php?mod=space&uid=$post['authorid']" target="_blank"><strong>$post[author]</strong></a><!--{/if}-->
 					</div>
 					<div class="viewtheadauthorinfo">
 						<!--{if !($_G['setting']['threadguestlite'] && !$_G['uid'])}-->{eval viewthread_profile_node('left', $post);}<!--{/if}-->
