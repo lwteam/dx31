@@ -187,8 +187,10 @@ if ($action == 'getattr') {
 		
 		DB::query("insert into ".DB::table('buglist_urecords')." 
 				(`keytype`,`keyid`,`uid`,`num`) values ('samenum', '$tid','{$_G['uid']}','1');");
+
+
 		
-		DB::query('UPDATE '.DB::table('buglist')." SET `samenum`=`samenum`+1   WHERE `tid`='$tid' ");
+		DB::query('UPDATE '.DB::table('buglist')." SET `samenum`=`samenum`+1,`lasttime`='$_G[timestamp]'   WHERE `tid`='$tid' ");
 		$response['message'] = '已经完成操作';
 		Library::ajax_output();
 	}
