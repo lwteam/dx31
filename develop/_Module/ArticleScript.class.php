@@ -7,7 +7,7 @@ class ArticleScript {
 		$this->actionStorage = $GLOBALS['_ModuleActionStorage'];
 		$this->point = $point;
 		$this->action = '';
-		if (defined('DEFAULT') && constant('DEFAULT') == 'INDEX' ) {
+		if (defined('DEFAULT') && constant('DEFAULT') == 'INDEX' && !defined('IN_MOBILE') ) {
 			$this->action = 'index';
 			return true;
 		}else{

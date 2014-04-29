@@ -8,6 +8,19 @@ class ForumExtendScript {
 		require_once _Data('buglistfid');
 		require_once _Data('forumextend');
 
+		if ( !defined('IN_MOBILE') && defined('CURSCRIPT') &&  constant('CURSCRIPT')  == 'forum' && in_array(constant('CURMODULE'),array('index','forumdisplay','viewthread','post'))) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function execute() {
+		global $_G,$_Data;
+
+		require_once libfile('function/forumlist');
+
+		$operation = $_GET['operation'];
+
 		if(($_Data['forumextend_fup'] = Library::fetch_cache(0, 'forumextend_fup')) === false){
 			$_Data['forumextend_fup'] = $fuparray = array();
 			foreach ($_Data['forumextend'] as $key => $array) {
@@ -25,21 +38,7 @@ class ForumExtendScript {
 			Library::store_cache(0, $_Data['forumextend_fup'], 86400 , 'forumextend_fup');
 		}
 
-
-
-		if (defined('CURSCRIPT') && constant('CURSCRIPT')  == 'forum' && in_array(constant('CURMODULE'),array('index','forumdisplay','viewthread','post'))) {
-			return true;
-		}else{
-			return false;
-		}
-	}
-	public function execute() {
-		global $_G,$_Data;
-			
 		
-		require_once libfile('function/forumlist');
-
-		$operation = $_GET['operation'];
 		if (in_array($operation, array('model','vibeui','apps','portal'))) {
 			
 			define('TopPoint',$operation);
