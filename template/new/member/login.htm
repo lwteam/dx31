@@ -13,7 +13,7 @@
 		</div>
 </div>
 	
-<div id="sign">
+<div id="sign" class="loginmain">
 
 	<div class="mn" id="main_message">
 		<div class="signtop">
@@ -21,10 +21,10 @@
 		</div>
 
 <div id="main_messaqge_$loginhash" class="signbox">
-	<div id="layer_login_$loginhash">
+	<div id="layer_login_$loginhash" class="loginleft">
 		<h3 class="loginboxtitle">
 			<em>
-				<!--{if !$secchecklogin2}-->{lang login}<!--{else}-->{lang login_seccheck2}<!--{/if}-->
+				社区用户登录
 			</em>
 			<span>{lang login_guest}</span>
 		</h3>
@@ -145,18 +145,18 @@
 						</li>
 					</ul>
 				</div>
-
-				<!--{if !empty($_G['setting']['pluginhooks']['logging_method'])}-->
-				<div class="loginbox loginboxmethod">
-					<ul>
-						<li class="loginboxname"><strong>{lang login_method}:</strong></li>
-						<li class="loginboxinput"><!--{hook/logging_method}--> <font color="red">← 原乐粉帮用户请点击此链接登录</font></li>
-					</ul>
-				</div>
-				<!--{/if}-->
-
 			</div>
 		</form>
+	</div>
+	<div class="" style="float:left; width:359px; ">
+		<h3 class="loginboxtitle">
+			<strong>其他登陆方式</strong>
+		</h3>
+
+		<div class="methodlogin">
+			<div>已有联想通行帐号请直接点击下方按钮登录，同时即可登录联想相关站点，轻松享受更多服务。</div>
+			<div class="lenovo"><a href="lenovo.php" class="redsmallbutton">使用 联想通行证 登陆</a></div>
+		</div>
 	</div>
 	<!--{if $_G['setting']['pwdsafety']}-->
 		<script type="text/javascript" src="{$_G['setting']['jspath']}md5.js?{VERHASH}" reload="1"></script>
