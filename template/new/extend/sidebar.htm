@@ -50,16 +50,18 @@
 			</div>
 		</div>
 		<!--{elseif TopPoint == 'apps'}-->
-		<div class="sbox">
-			<div class="sboxtitle"><h3 class="ht">热门产品</h3></div>
-			<div class="sboxsub">
-				<ul class="sboxsubtable">
-					<!--{loop $HotForums $key $value}-->
-					<li><span {if $key<3}class="toprank"{else}class="topranks"{/if}>{echo $key+1}</span><a href="forum.php?mod=forumdisplay&fid=$value[fid]">$value[name]</a></li>
-					<!--{/loop}-->
-				</ul>
+			<!--{if !$_G['fid']}-->
+			<div class="sbox">
+				<div class="sboxtitle"><h3 class="ht">热门产品</h3></div>
+				<div class="sboxsub">
+					<ul class="sboxsubtable">
+						<!--{loop $HotForums $key $value}-->
+						<li><span {if $key<3}class="toprank"{else}class="topranks"{/if}>{echo $key+1}</span><a href="forum.php?mod=forumdisplay&fid=$value[fid]">$value[name]</a></li>
+						<!--{/loop}-->
+					</ul>
+				</div>
 			</div>
-		</div>
+			<!--{/if}-->
 		<!--{elseif TopPoint == 'portal'}-->
 		<!--{elseif TopPoint == 'buglist'}-->
 			<!--{if CURMODULE == 'forumdisplay'}-->
