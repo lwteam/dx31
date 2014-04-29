@@ -105,7 +105,7 @@
 	.bm_h h2 a { display:block; margin:0 31px 0 10px; padding-left:10px; font-size:18px; line-height:54px; font-weight:400; }
 	
 	.sub_forum { background: #FFF; border:1px solid #EDEDED; border-top:0; border-radius: 0 0 5px 5px;}
-	.sub_forum li { height:38px; line-height:38px; border-bottom:1px solid #EDEDED; font-size:16px; overflow:hidden; }
+	.sub_forum li { height:60px; line-height:60px; border-bottom:1px solid #EDEDED; font-size:16px; overflow:hidden; }
 	.sub_forum li:last-child { border-bottom:none;}
 	.sub_forum li a { display: block; padding:0 10px; }
 	.sub_forum li .num { background:#35A3E6; color:#FFF; float: right; font-size: 14px; height: 25px; line-height: 25px; margin-top: 7px; padding: 0 10px;border-radius:10px; }
