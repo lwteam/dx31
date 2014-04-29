@@ -17,12 +17,12 @@ CREATE TABLE `pre_article` (
   `tid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `fid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `order` int(5) unsigned NOT NULL DEFAULT '0',
-  `index` tinyint(1) NOT NULL DEFAULT '0',
+  `top` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `category` (`category`),
   KEY `tags` (`tags`),
-  KEY `index` (`index`)，
-  KEY `order` (`order`)
+  KEY `index` (`index`),
+  KEY `order` (`top`,`order`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- TAG列表
