@@ -1,7 +1,7 @@
 <!--{template common/header}-->
 
 <div class="breadcrumbs">
-		<a href="./" title="{lang homepage}">$_G[setting][bbname]</a><span class="pipe">&raquo;</span><a href="$_G[setting][navs][2][filename]">$_G[setting][navs][2][navname]</a> <span class="pipe">&raquo;</span><a href="forum.php?mod=modcp">{lang forum_manager}</a>
+		<a href="./" title="{lang homepage}">$_G[setting][bbname]</a><span class="pipe">&raquo;</span><a href="forum.php?mod=modcp">{lang forum_manager}</a>
 </div>
 
 <div id="ct" class="ct2_a wp cl">
@@ -40,9 +40,9 @@
 				<!--{if $modforums['fids']}-->
 					<li{if $_GET[action] == 'thread' || $_GET[action] == 'recyclebin'} class="a"{/if}><a href="{$cpscript}?mod=modcp&action=thread&op=thread{$forcefid}">{lang mod_option_subject}</a></li>
 					<!--{if $_G['group']['allowrecommendthread']}--><li{if $_GET[action] == 'forum' && $op == 'recommend'} class="a"{/if}><a href="{$cpscript}?mod=modcp&action=forum&op=recommend&show=all{$forcefid}">{lang mod_option_forum_recommend}</a></li><!--{/if}-->
+					<!--{if $_G['group']['alloweditforum']}--><li{if $_GET[action] == 'forum' && $op == 'editforum'} class="a"{/if}><a href="{$cpscript}?mod=modcp&action=forum&op=editforum{$forcefid}">{lang mod_option_forum_edit}</a></li><!--{/if}-->
 				<!--{/if}-->
 				<!--{if $_G['group']['allowpostannounce'] || $_G['group']['allowviewlog']}-->
-					<!--{if $_G['group']['allowpostannounce']}--><li{if $_GET[action] == 'announcement'} class="a"{/if}><a href="{$cpscript}?mod=modcp&action=announcement$forcefid">{lang announcements}</a></li><!--{/if}-->
 					<!--{if $_G['group']['allowviewlog']}--><li{if $_GET[action] == 'log'} class="a"{/if}><a href="{$cpscript}?mod=modcp&action=log$forcefid">{lang modcp_logs}</a></li><!--{/if}-->
 				<!--{/if}-->
 				<!--{if !empty($_G['setting']['plugins']['modcp_tools'])}-->
