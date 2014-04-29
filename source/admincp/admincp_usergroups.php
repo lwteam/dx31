@@ -4,7 +4,7 @@
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
  *
- *      $Id: admincp_usergroups.php 33099 2013-04-25 05:49:35Z nemohou $
+ *      $Id: admincp_usergroups.php 34297 2013-12-26 03:36:51Z hypowang $
  */
 
 if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
@@ -378,7 +378,7 @@ EOT;
 		} elseif($_GET['type'] == 'system') {
 			if(is_array($_GET['group_title'])) {
 				foreach($_GET['group_title'] as $id => $title) {
-					C::t('common_usergroup')->update($id, array('grouptitle' => $_GET['group_title'][$id], 'stars' => $_GET['group_stars'][$id], 'color' => $_GET['group_color'][$id], 'icon' => $_GET['group_icon'][$id]));
+					C::t('common_usergroup')->update($id, array('grouptitle' => $_GET['group_title'][$id], 'stars' => $_GET['group_stars'][$id], 'color' => $_GET['group_color'][$id]));
 					C::t('forum_onlinelist')->update_by_groupid($id, array('title' => $_GET['group_title'][$id]));
 				}
 			}
@@ -609,6 +609,13 @@ EOT;
 		showsetting('usergroups_edit_basic_hour_posts', 'maxpostsperhournew', intval($group['maxpostsperhour']), 'text');
 		showsetting('usergroups_edit_basic_seccode', 'seccodenew', $group['seccode'], 'radio', $group['groupid'] == 7);
 		showsetting('usergroups_edit_basic_forcesecques', 'forcesecquesnew', $group['forcesecques'], 'radio');
+		if(!in_array($gid, array(7, 8))) {
+			showsetting('usergroups_edit_basic_forcelogin', array('forceloginnew', array(
+				array(0, $lang['usergroups_edit_basic_forcelogin_none']),
+				array(1, $lang['usergroups_edit_basic_forcelogin_qq']),
+				array(2, $lang['usergroups_edit_basic_forcelogin_mail']),
+			)), $group['forcelogin'], 'mradio');
+		}
 		showsetting('usergroups_edit_basic_disable_postctrl', 'disablepostctrlnew', $group['disablepostctrl'], 'radio');
 		showsetting('usergroups_edit_basic_ignore_censor', 'ignorecensornew', $group['ignorecensor'], 'radio');
 		showsetting('usergroups_edit_basic_allowcreatecollection', 'allowcreatecollectionnew', intval($group['allowcreatecollection']), 'text');
@@ -1091,6 +1098,7 @@ EOT;
 			'maxfriendnum' => $_GET['maxfriendnumnew'],
 			'seccode' => $_GET['seccodenew'],
 			'forcesecques' => $_GET['forcesecquesnew'],
+			'forcelogin' => $_GET['forceloginnew'],
 			'domainlength' => $_GET['domainlengthnew'],
 			'disablepostctrl' => $_GET['disablepostctrlnew'],
 			'allowblog' => $_GET['allowblognew'],
