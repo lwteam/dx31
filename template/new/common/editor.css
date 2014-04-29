@@ -18,7 +18,7 @@ http://www.comsenz.com
 		.edt .esbs p { float: left; clear: none; }
 			.edt .b1r a { padding-top: 27px; width: 35px; height: 15px; text-align: center; font-size: 11px; font-family: Arial, PMingLiU, sans-serif; -webkit-text-size-adjust: none; }
 			.edt .b2r a { float: left; border-right:1px solid #e6e6e6; width: 20px; height: 39px; padding:0 9px; background: url(/images/common/editor.png) no-repeat; text-indent: -9999px; overflow: hidden;}
-				.edt .b2r a.dp { display:none; }
+				.edt .b2r a.dp { }
 			.edt .nbl { border-left: none; padding-left: 0; }
 				.edt .nbr { border-right: none; padding-right: 0; }
 			.edt .bar a:hover, .edt .bar a.hover { background-color: {WRAPBG}; text-decoration: none; }
@@ -35,7 +35,7 @@ http://www.comsenz.com
 	.bar_swch { display: block; clear: both; }
 
 	#e_bold			{ background-position: 0 0; }
-	#e_fontsize		{ display:none; }
+	#e_fontsize		{ background: none; text-indent: 1px; text-align: center; font-size: 14px; font-weight: 700; }
 	#e_italic		{ background-position: -80px 0; }
 	#e_underline		{ background-position: -40px 0; }
 	#e_forecolor		{ background-position: -120px 0; }
@@ -76,7 +76,7 @@ http://www.comsenz.com
 	#e_code			{ background-position: -123px -80px; }
 		.b2r #e_code	{ background-position: -120px -20px; }
 	#e_quote		{ background-position: -163px -80px; }
-		.b2r #e_quote	{ background-position: -140px -20px; }
+		.b2r #e_quote	{ background-position: -80px -80px; }
 	#e_pasteword		{ background-position: -60px -60px; }
 	#e_downremoteimg	{ background-position: -120px -40px; }
 
