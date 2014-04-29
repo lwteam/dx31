@@ -10,11 +10,12 @@
 		<tr class="managetablehead">
 			<td width="10%">用户名</td>
 			<td width="8%">姓名</td>
-			<td width="30%">享有权限</td>
+			<td width="15%">团队</td>
+			<td width="10%">反馈分类</td>
 			<td width="10%">级别</td>
 			<td width="13%">分发人</td>
 			<td width="10%">创建时间</td>
-			<td width="15%">管理</td>
+			<td width="20%">管理</td>
 		</tr>
 		<!--{if $Permissionlist}-->
 		<!--{loop $Permissionlist $i $value}-->
@@ -23,23 +24,25 @@
 			<td class="first"> <a href="home.php?mod=space&uid={$value[uid]}" title="{$value[uid]}">{$value[username]}</a> </td>
 			<td>$value[name]</td>
 			
-			<td>$value['permissiontxt']</td>
+			<td>$value[team]</td>
+			<td>{$_Data['buglist'][$value['buglist']]}</td>
 			<td>{if $value[dist]==1}产品经理{elseif $value[dist]==2}产品工程师{elseif $value[dist]==3}反馈工程师{elseif $value[dist]==4}信息专员{/if}</td>
 			<td><!--{if $value[distuid]}-->{$value[distusername]}<!--{/if}--></td>
 			<td>{echo date('m-d H:i',$value[dateline]);}</td>
 			<td  class="last">
-		<!--{if $value[dist] != -1}-->
-			<a href="manage.php?action={$action}&operation=update&id={$value[uid]}" class="greensmallbutton">编辑</a><a href="manage.php?action={$action}&operation=delete&id={$value[uid]}" class="graysmallbutton">删除</a><!--{/if}--></td>
+				<a href="javascript:;" onclick="displayshow('#show_$value[uid]')" class="graysmallbutton">权限</a>
+				<!--{if $value[dist] != -1}-->
+				<a href="manage.php?action={$action}&operation=update&id={$value[uid]}" class="greensmallbutton">编辑</a><a href="manage.php?action={$action}&operation=delete&id={$value[uid]}" class="graysmallbutton">删除</a><!--{/if}--></td>
 		</tr>
 
-		<tr id="show_$value[uid]" style="display:none">
-			<td class="bob" colspan="6"><!--{if $value[titlepic]}--><img height="100" src="{$value[titlepic]}" /><!--{else}--><img  src="develop/manage/template/images/no.gif" /><!--{/if}--> <br> $value['content']</td>
+		<tr id="show_$value[uid]" class="displayshow" style="display:none">
+			<td class="bob" colspan="8">$value['permissiontxt']</td>
 		</tr>
 
 		<!--{/loop}-->
 		<!--{else}-->
 		<tr class="managetablehead">
-			<td colspan="6">查询不到任何数据</th>
+			<td colspan="8">查询不到任何数据</th>
 		</tr>
 		<!--{/if}-->
 		</table>
@@ -48,5 +51,20 @@
 </div><!-- manage -->
 
 </div>
+
+
+<script>
+function displayshow(id){
+	if (jQuery(id).is(":hidden")) {
+		jQuery('.displayshow').hide();
+		jQuery(id).show();
+	}else{
+		jQuery(id).hide();
+		
+	}
+}
+</script>
+
+
 
 <!--{subtemplate common/footer}-->

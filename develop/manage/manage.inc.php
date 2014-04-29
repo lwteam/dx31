@@ -134,7 +134,10 @@ if($operation == 'delete'){
 	//添加
 }else{
 	$loadtemplate = 'manage_list';
-	$query = DB::query("SELECT * FROM ".DB::table('manage_user')."  ORDER BY `distuid` DESC");
+
+	$query = DB::query("SELECT mu.*,bu.team FROM ".DB::table('manage_user')." mu
+							LEFT JOIN ".DB::table('buglist_user')." bu USING(`uid`) ORDER BY mu.`distuid` DESC");	
+
 	while($value = DB::fetch($query)) {
 		$permission = unserialize($value['permission']);
 		if($permission){
