@@ -50,15 +50,16 @@
 				<!--{hook/post_editorctrl_left}-->
 			</div>
 			<div class="b2r esb" id="{$editorid}_adv_s3">
-				<a id="{$editorid}_quote" title="{lang e_quote_title}">{lang e_quote}</a>
 				<!--{hook/post_editorctrl_top}-->
 				<!--{if $isfirstpost}-->
 					<!--{if $_G['group']['allowhidecode']}--><a id="{$editorid}_hide" adv="1" title="{lang e_hide}">Hide</a><!--{/if}-->
 				<!--{/if}-->
-				<!--{if $_G['group']['allowdownremoteimg']}--><!--{if !($_G['setting']['magicstatus'] && !empty($_G['setting']['magics']['doodle']))}--><!--{/if}--><a id="{$editorid}_downremoteimg" adv="1" title="{lang e_downremoteimg_title}">{lang e_downremoteimg}</a><!--{/if}-->
-
 
 				<!--{hook/post_editorctrl_bottom}-->
+			</div>
+			<div class="b2r esb" id="{$editorid}_adv_s4">
+				<a id="{$editorid}_quote" title="{lang e_quote_title}">{lang e_quote}</a>
+				<!--{if $_G['group']['allowdownremoteimg']}--><!--{if !($_G['setting']['magicstatus'] && !empty($_G['setting']['magics']['doodle']))}--><!--{/if}--><a id="{$editorid}_downremoteimg" adv="1" title="{lang e_downremoteimg_title}">{lang e_downremoteimg}</a><!--{/if}-->
 			</div>
 		</div>
 	</div>
