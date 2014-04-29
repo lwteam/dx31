@@ -19,7 +19,7 @@ loaducenter();
 
 http://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin&lenovoid.realm=chita.lps.lenovo.com&lenovoid.uinfo=username&lenovoid.cb=http://bbs.lenovo.com/lenovo.php
 
-
+lenovoid.display=small
 */
 
 $act = $_REQUEST['act']?$_REQUEST['act']:'auth'; 
@@ -27,7 +27,7 @@ $act = $_REQUEST['act']?$_REQUEST['act']:'auth';
 
 if ($act == 'auth') {
 
-	header('Location: http://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin&lenovoid.realm=chita.lps.lenovo.com&lenovoid.uinfo=username&lenovoid.cb='.urlencode('http://'.$_SERVER['HTTP_HOST'].'/lenovo.php?act=callback'));
+	header('Location: http://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin'.(defined('IN_MOBILE')?'&lenovoid.display=small':'') .'&lenovoid.realm=chita.lps.lenovo.com&lenovoid.uinfo=username&lenovoid.cb='.urlencode('http://'.$_SERVER['HTTP_HOST'].'/lenovo.php?act=callback'));
 	exit();	
 }elseif ($act == 'callback') {
 
