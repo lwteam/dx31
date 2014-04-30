@@ -1,7 +1,7 @@
 <?php
 
 $_Data['forumextend'] = array(
-	'model'=>array(738,739,745,744),
+	'model'=>array(738,739,745,744,763),
 	'vibeui'=>array(665),
 	'apps'=>array(255,752),
 	'portal'=>array(746,748,749,750),
