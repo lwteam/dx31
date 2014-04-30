@@ -139,10 +139,10 @@ if($_GET['from'] == 'portal') {
 				$SuperiorHtml = '<span class="pipe">&raquo;</span><a href="forum.php?gid='.$forum_up['fid'].'">'.$forum_up['name'].'</a>';
 			}
 
-			$navigation = $SuperiorHtml.'<span class="pipe">&raquo;</span><a href="forum.php?mod=forumdisplay&fid='.$_G['forum']['fid'].'">'.$_G['forum']['name'].'</a>';
+			$navigation = $SuperiorHtml.'<span class="pipe">&raquo;</span><a href="forum.php?mod=forumdisplay&fid='.$_G['forum']['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '').'">'.$_G['forum']['name'].'</a>';
 			unset($TopPoint, $TopPointtxt, $SuperiorName, $SuperiorHtml);
 		} else {
-			$navigation = '<span class="pipe">&raquo;</span>'.'<a href="forum.php?mod=forumdisplay&fid='.$_G['fid'].'">'.$_G['forum']['name'].'</a><span class="pipe">&raquo;</span>'.$forumarchive[$_GET['archiveid']]['displayname'];
+			$navigation = '<span class="pipe">&raquo;</span>'.'<a href="forum.php?mod=forumdisplay&fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '').'">'.$_G['forum']['name'].'</a><span class="pipe">&raquo;</span>'.$forumarchive[$_GET['archiveid']]['displayname'];
 		}
 	} else {
 		$fgroupid = $forum_up['fup'];
@@ -162,11 +162,11 @@ if($_GET['from'] == 'portal') {
 				$SuperiorHtml = '<span class="pipe">&raquo;</span><a href="forum.php?gid='.$forum_top['fid'].'">'.$forum_top['name'].'</a>';
 			}
 
-			$navigation = $SuperiorHtml.'<span class="pipe">&raquo;</span><a href="forum.php?mod=forumdisplay&fid='.$forum_up['fid'].'">'.$forum_up['name'].'</a><span class="pipe">&raquo;</span>'.$_G['forum']['name'];
+			$navigation = $SuperiorHtml.'<span class="pipe">&raquo;</span><a href="forum.php?mod=forumdisplay&fid='.$forum_up['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '').'">'.$forum_up['name'].'</a><span class="pipe">&raquo;</span>'.$_G['forum']['name'];
 			
 			unset($TopPoint, $TopPointtxt, $SuperiorName, $SuperiorHtml);
 		} else {
-			$navigation = '<span class="pipe">&raquo;</span><a href="forum.php?mod=forumdisplay&fid='.$_G['forum']['fup'].'">'.$forum_up['name'].'</a><span class="pipe">&raquo;</span>'.'<a href="forum.php?mod=forumdisplay&fid='.$_G['fid'].'">'.$_G['forum']['name'].'</a>'.$forumarchive[$_GET['archiveid']]['displayname'];
+			$navigation = '<span class="pipe">&raquo;</span><a href="forum.php?mod=forumdisplay&fid='.$_G['forum']['fup'].'">'.$forum_up['name'].'</a><span class="pipe">&raquo;</span>'.'<a href="forum.php?mod=forumdisplay&fid='.$_G['fid'].($_GET['extra'] && !IS_ROBOT ? '&amp;'.$_GET['extra'] : '').'">'.$_G['forum']['name'].'</a>'.$forumarchive[$_GET['archiveid']]['displayname'];
 		}
 	}
 
