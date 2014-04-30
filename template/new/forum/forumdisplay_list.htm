@@ -113,12 +113,11 @@
 		</form>
 </div>
 
-
-
+<!--{eval $statictpl = class_exists('staticlink')?staticlink::forumdisplay_staticjsload($multipage_more,$_G['fid']):'';}-->
 
 <!--{if $multipage && $filter != 'hot'}-->
 	<!--{if !($_G[forum][picstyle] && !$_G[cookie][forumdefstyle])}-->
-		<div class="nextpage" ><a href="javascript:;" rel="$multipage_more" curpage="$page" id="autopbn" totalpage="$maxpage" picstyle="$_G[forum][picstyle]" forumdefstyle="$_G[cookie][forumdefstyle]">{lang next_page_extra}</a></div>
+		<div class="nextpage" ><a href="javascript:;" rel="$multipage_more" statictpl="$statictpl" curpage="$page" id="autopbn" totalpage="$maxpage" picstyle="$_G[forum][picstyle]" forumdefstyle="$_G[cookie][forumdefstyle]">{lang next_page_extra}</a></div>
 		<script type="text/javascript" src="{$_G[setting][jspath]}autoloadpage.js?{VERHASH}"></script>
 	<!--{else}-->
 		<div class="nextpage" ><a href="forum.php?mod=forumdisplay&fid={$_G[fid]}&filter={$filter}&orderby={$_GET[orderby]}{$forumdisplayadd[page]}&{$multipage_archive}&page=$nextpage" hidefocus="true">{lang next_page_extra}</a></div>

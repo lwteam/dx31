@@ -9,6 +9,7 @@
 
 	var autopbn = $('autopbn');
 	var nextpageurl = autopbn.getAttribute('rel').valueOf();
+	var statictpl = autopbn.getAttribute('statictpl').valueOf();
 	var curpage = parseInt(autopbn.getAttribute('curpage').valueOf());
 	var totalpage = parseInt(autopbn.getAttribute('totalpage').valueOf());
 	var picstyle = parseInt(autopbn.getAttribute('picstyle').valueOf());
@@ -89,7 +90,12 @@
 				}
 			}
 			var pageinfo = s.match(/\<span id="fd_page_bottom"\>(.+?)\<\/span\>/);
-			nextpageurl = nextpageurl.replace(/&page=\d+/, '&page=' + (curpage + 1));
+			if (statictpl) {
+				nextpageurl = statictpl.replace(/#_page_#/, (curpage + 1));
+			}else{
+				nextpageurl = nextpageurl.replace(/&page=\d+/, '&page=' + (curpage + 1));
+			}
+			
 
 			$('fd_page_bottom').innerHTML = pageinfo[1];
 			if(curpage + 1 > totalpage) {

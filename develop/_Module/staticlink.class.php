@@ -83,6 +83,53 @@ class staticlink {
 
 		return $thislink;
 	}
+
+	function forumdisplay_staticjsload($url,$fid) {
+
+			
+		global $_G;
+		if(!$_G['cache']['staticlink']){
+			loadcache('staticlink');
+		}
+		$staticlink = & $_G['cache']['staticlink'];
+		if(!$staticlink[$fid] || !$staticlink[$fid]['staticname']){
+			return '';
+		}
+		$parseurl = parse_url($url);
+		if (!$parseurl['query']) {
+			return '';
+		}
+		parse_str(str_replace('&amp;','&',$parseurl['query']), $extrary);
+
+		if( $extrary && isset($extrary['page']) ) {
+			$page = $extrary['page'];
+			unset($extrary['page']);
+		}
+		if( $extrary && isset($extrary['mod']) ) {
+			unset($extrary['mod']);
+		}
+		if( $extrary && isset($extrary['fid']) ) {
+			unset($extrary['fid']);
+		}
+		//板块
+		$thislink .= $staticlink[$fid]['staticname'].'/';
+		if($tid) {
+			$thislink .= 't'.$tid.'/';
+		}
+
+		$thislink .= '#_page_#/';
+
+		if($extrary){
+			$i=0;
+			foreach($extrary as $key=>$value){
+				$thislink .= ($i?'&amp;':'?').$key.'='.$value;
+				$i++;
+			}
+		}
+
+		return $thislink;
+	}
+
 }
 
 //处理COOKIE 细节
