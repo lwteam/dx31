@@ -1,0 +1,14 @@
+<!--{template common/header}-->
+
+
+			<div class=" bg br3" style="width:580px; margin:100px auto 0; padding:100px 0 100px 100px; box-shadow: 0 2px 3px rgba(0,0,0,0.05);"> 
+				<h3 class="hfont" style="margin:-20px 0 15px;">输入密码</h3>
+				<div class="o">
+					<form method="post" autocomplete="off" action="forum.php?mod=forumdisplay&fid=$_G[fid]&action=pwverify">
+						<input type="hidden" name="formhash" value="{FORMHASH}" />
+						<input type="password" name="pw" class="ps vm" size="25" style="line-height: 26px;height: 26px;padding: 6px 30px 6px 10px;margin: 0;" />
+						<button class="greenbutton" style="border:0;" type="submit" name="loginsubmit" value="true">芝麻开门</button>
+					</form>
+				</div>
+			</div>
+<!--{template common/footer}-->
