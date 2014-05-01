@@ -104,7 +104,7 @@ class ForumExtendScript {
 
 			unset($_G['cache']['forumlinks']);
 
-			if (($operation == 'model' || $operation == 'apps') && !$_G['fid']) {
+			if (($operation == 'model' || $operation == 'apps' || $operation == 'portal') && !$_G['fid']) {
 
 				//热门论坛
 				if(($HotForums = Library::fetch_cache(0, 'HotForums_'.$operation)) === false){
