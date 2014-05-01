@@ -27,9 +27,13 @@ while($forum = DB::fetch($query)) {
 		$partforumslist[$forum['fid']] = $forum;
 	}elseif($forum['type'] == 'forum'){
 		$partforumslist[$forum['fup']]['subforums'][$forum['fid']] = $forum;
+	}else{
+		$upforum = $forumslist[$forum['fup']];
+		$partforumslist[$upforum['fup']]['subforums'][$upforum['fid']]['subforums'][$forum['fid']] = $forum;
 	}
 	$forumslist[$forum['fid']] = $forum;
 }
+
 
 if($_POST){
 	$forumstatic = $_G['gp_forumstatic'];

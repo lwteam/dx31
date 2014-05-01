@@ -53,6 +53,9 @@ if($_TP['scriptype'] == 'fid'){
 	}elseif($_TP['forumsinfo'] && $_TP['forumsinfo']['type']=='forum'){
 		$_TP['_GET']['fid']=$_TP['forumsinfo']['fid'];
 		$_TP['_GET']['mod']='forumdisplay';
+	}elseif($_TP['forumsinfo'] && $_TP['forumsinfo']['type']=='sub'){
+		$_TP['_GET']['fid']=$_TP['forumsinfo']['fid'];
+		$_TP['_GET']['mod']='forumdisplay';
 	}
 }elseif($_TP['scriptype'] =='tid'){
 	$_TP['forumstr'] = $_TP['request'][0];

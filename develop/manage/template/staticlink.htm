@@ -5,28 +5,32 @@
 		<div class="mhead"><h3>$manageitem_array[$action]</h3></div>
 		<div class="mlist">
 
-<table cellpadding="2" cellspacing="2" width="100%">
+<table cellpadding="2" cellspacing="2" width="100%" >
 <tr class="managetablehead">
-	<td width="5%">排序</td>
-	<td width="15%">版区名称</td>
-	<td width="15%">版块名称</td>
-	<td width="30%">静态URL别名</td>
-	<td width="10%">管理</td>
+	<td >版区名称</td>
+	<td >版块名称</td>
+	<td >静态URL别名</td>
+	<td >管理</td>
 </tr>
 <!--{loop $partforumslist $value}-->
 	<tr class="managetr">
-		<td width="5%">{$value[order]}</td>
-		<td width="15%" colspan="2"  style="text-align: left;padding-left:20px"><a href="forum.php?mod=forumdisplay&fid={$value[fid]}" target="_blank" style="color:red"> {$value[name]} / $value[fid]<!--{if $value[name] != $forumslist[$value[fid]][name]}--> <SUB>/ {$forumslist[$value[fid]][name]}</SUB><!--{/if}--></a></td>
-		<td width="30%"><!--{if $value[staticname]}--><a href="/{$value[staticname]}/" target="_blank" style="color:red">/{$value[staticname]}/</a><!--{/if}--></td>
-		<td width="10%"><a href="manage.php?action={$action}&id={$value[fid]}#staticlink">自定义</a></td>
+		<td  colspan="2"  style="text-align: left;"><a href="forum.php?mod=forumdisplay&fid={$value[fid]}" target="_blank" style="color:red"> {$value[name]} / $value[fid]<!--{if $value[name] != $forumslist[$value[fid]][name]}--> <SUB>/ {$forumslist[$value[fid]][name]}</SUB><!--{/if}--> <!--{if $value[staticname]}--><a href="/{$value[staticname]}/" target="_blank" style="color:red">/{$value[staticname]}/</a><!--{/if}--></a></td>
+		<td ></td>
+		<td ><a href="manage.php?action={$action}&id={$value[fid]}#staticlink">自定义</a></td>
 	</tr>
 	<!--{loop $value['subforums'] $value2}-->
-	<tr>
-		<td width="5%">{$value[order]}</td>
-		<td width="15%" colspan="2"  style="text-align: right;padding-right:20px"><a href="forum.php?mod=forumdisplay&fid={$value2[fid]}" target="_blank"> {$value2[name]} / $value2[fid]<!--{if $value2[name] != $forumslist[$value2[fid]][name]}--> <SUB>/ {$forumslist[$value2[fid]][name]}</SUB><!--{/if}-->
-		<td width="30%"><!--{if $value2[staticname]}--><a href="/{$value2[staticname]}/" target="_blank" style="color:red">/{$value2[staticname]}/</a><!--{/if}--></td>
-		<td width="10%"><a href="manage.php?action={$action}&id={$value2[fid]}#staticlink">自定义</a></td>
-	</tr>
+		<tr>
+			<td colspan="2"  style="text-align: left;padding-left:60px"><a href="forum.php?mod=forumdisplay&fid={$value2[fid]}" target="_blank"> {$value2[name]} / $value2[fid]<!--{if $value2[name] != $forumslist[$value2[fid]][name]}--> <SUB>/ {$forumslist[$value2[fid]][name]}</SUB><!--{/if}--></td>
+			<td ><!--{if $value2[staticname]}--><a href="/{$value2[staticname]}/" target="_blank" style="color:red">/{$value2[staticname]}/</a><!--{/if}--></td>
+			<td ><a href="manage.php?action={$action}&id={$value2[fid]}#staticlink">自定义</a></td>
+		</tr>
+		<!--{loop $value2['subforums'] $value3}-->
+			<tr>
+				<td  colspan="2"  style="text-align: left;padding-left:120px"><a href="forum.php?mod=forumdisplay&fid={$value3[fid]}" target="_blank"> {$value3[name]} / $value3[fid]<!--{if $value3[name] != $forumslist[$value3[fid]][name]}--> <SUB>/ {$forumslist[$value3[fid]][name]}</SUB><!--{/if}--></td>
+				<td ><!--{if $value3[staticname]}--><a href="/{$value3[staticname]}/" target="_blank" style="color:red">/{$value3[staticname]}/</a><!--{/if}--></td>
+				<td ><a href="manage.php?action={$action}&id={$value3[fid]}#staticlink">自定义</a></td>
+			</tr>
+		<!--{/loop}-->
 	<!--{/loop}-->
 <!--{/loop}-->
 </table>
@@ -45,7 +49,11 @@
 	<option value ="$value[fid]" style="color:red" {if $value[fid] == $forumstatic[fid]}selected="selected"{/if}>$value[name]</option>
 	<!--{loop $value['subforums'] $value2}-->
 	<option value ="$value2[fid]" value ="$value2[fid]" {if $value2[fid] == $forumstatic[fid]}selected="selected"{/if}>&nbsp;&nbsp;&nbsp;|- $value2[name]</option>
+		<!--{loop $value2['subforums'] $value3}-->
+		<option value ="$value3[fid]" value ="$value3[fid]" {if $value3[fid] == $forumstatic[fid]}selected="selected"{/if}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|- $value3[name]</option>
+		<!--{/loop}-->
 	<!--{/loop}-->
+
 <!--{/loop}-->
 					</select>
 
