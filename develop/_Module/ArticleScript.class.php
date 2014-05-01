@@ -272,6 +272,9 @@ class ArticleScript {
 				$HotThreads = DB::fetch_all("SELECT * FROM ".DB::table('forum_thread')." WHERE dateline>'$selecttime' AND `displayorder` IN('0','1','2','3','4') ORDER BY `replies` DESC LIMIT 10");
 				Library::store_cache(0, $HotThreads, 43200 , 'HotThreads_index');
 			}
+
+
+			dsetcookie('welcome_lenovo','', -31536000);
 			include template('article/index');
 			exit;
 		}

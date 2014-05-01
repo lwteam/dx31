@@ -52,7 +52,7 @@ if ($act == 'auth') {
 			LEFT JOIN  ".DB::table('common_member')." m USING(`uid`)
 		WHERE ml.`lenovoid`='{$AccountID}' LIMIT 1");
 
-		
+					
 	if($member && $member['lenovoid'] ){
 		//登陆
 		setloginstatus($member, 2592000);
@@ -72,6 +72,8 @@ if ($act == 'auth') {
 			'locationtime' => true,
 			'extrajs' => $ucsynlogin
 		);
+
+
 		$loginmessage = $_G['groupid'] == 8 ? 'login_succeed_inactive_member' : 'login_succeed';
 		$location = $invite || $_G['groupid'] == 8 ? 'home.php?mod=space&do=home' : dreferer();
 
@@ -83,14 +85,23 @@ if ($act == 'auth') {
 		
 		$i = 0;
 		do {
-			$username = 'LW'.date('Y',TIMESTAMP).Library::randstring(8,'N');
+
+			if (isemail($Username)) {
+				list($username) = explode('@', $Username);
+			}else{
+				$username = $Username;
+			}
+			$username = $username.($i?Library::randstring($i,'N'):'');
+
 			if ($i == 0 && isemail($Username)) {
 				$uc_emailexist = uc_user_checkemail($Username);
 			}
 			$email = (isemail($Username) && !$uc_emailexist)?$Username:$username.'@bbs.lenovo.com';
 
 			$uid = uc_user_register(addslashes($username), $password, $email, '', '', $_G['clientip']);
+			$i++;
 		} while ($uid <= 0);
+
 		$_G['username'] = $username;
 
 		$password = md5(random(10));
@@ -194,6 +205,7 @@ if ($act == 'auth') {
 		DB::insert('common_member_lenovoid',  array('uid'=>$uid,'lenovoid'=>$AccountID, 'dateline'=>TIMESTAMP));
 		DB::insert('common_member_accountchange', array('uid'=>$uid,'username'=>$username,'email'=>$email));
 
+		dsetcookie('welcome_lenovo', 1, 86400);
 			
 		showmessage($message, $url_forward, $param, $extra);
 
