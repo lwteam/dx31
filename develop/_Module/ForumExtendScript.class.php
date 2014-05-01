@@ -205,11 +205,9 @@ class ForumExtendScript {
 					}
 				}
 					
-			}
-
-				
+			}	
 		}elseif(constant('CURMODULE')  == 'index'){
-			//dheader("Location: ./");
+			dheader("Location: ./");
 		}
 
 	}
