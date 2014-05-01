@@ -274,7 +274,7 @@ class ArticleScript {
 			}
 
 
-			dsetcookie('welcome_lenovo','', -31536000);
+			//dsetcookie('welcome_lenovo','', -31536000);
 			include template('article/index');
 			exit;
 		}
