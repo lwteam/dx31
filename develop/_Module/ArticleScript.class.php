@@ -256,7 +256,7 @@ class ArticleScript {
 				$opfids_csv = join(',',$opfids);
 				$query = DB::query("SELECT ffc.* FROM ".DB::table('forum_threadmod')." ftm
 							LEFT JOIN ".DB::table('forum_forumrecommend')." ffc ON (ffc.tid=ftm.tid )
-						WHERE ffc.`position` IN('0','1') AND  ftm.action = 'REC' ORDER by ftm.dateline DESC LIMIT 5");
+						WHERE ffc.`aid`>0   AND ffc.`position` IN('0','1') AND  ftm.action = 'REC' ORDER by ftm.dateline DESC LIMIT 5");
 				while($thread = DB::fetch($query)) {
 					$imgd = explode("\t", $thread['filename']);
 					if($imgd[0] && $imgd[3]) {
