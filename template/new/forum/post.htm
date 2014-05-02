@@ -146,6 +146,31 @@
 				<!--{/if}-->
 			</ul>
 
+			<div id="draftlist_menu" style="display:none">
+				<ul class="xl xl1">
+					<!--{if $savethreads}-->
+						<!--{loop $savethreads $savethread}-->
+							<li>
+								<label>[<a href="javascript:;" title="{lang reply_quote}" onclick="insertsave($savethread[pid])">{lang reply_quote}</a>]</label>
+								<a href="forum.php?mod=post&action=edit&fid=$savethread[fid]&tid=$savethread[tid]&pid=$savethread[pid]" class="xi2" target="_blank">$savethread[subject]</a>
+								<span class="xg1">$savethread[dateline]</span>
+							</li>
+						<!--{/loop}-->
+					<!--{/if}-->
+
+					<!--{if $savethreadothers}-->
+						<!--{loop $savethreadothers $savethread}-->
+							<li>
+								<label>[<a href="javascript:;" title="{lang reply_quote}" onclick="insertsave($savethread[pid])">{lang reply_quote}</a>]</label>
+								<a href="forum.php?mod=post&action=edit&fid=$savethread[fid]&tid=$savethread[tid]&pid=$savethread[pid]" class="xi2" target="_blank">$savethread[subject]</a>
+								<span class="xg1">$savethread[dateline]</span>
+							</li>
+						<!--{/loop}-->
+					<!--{/if}-->
+					<li class="xi2"><a href="home.php?mod=space&uid=1&do=thread&view=me&from=space&filter=save&fid=0" target="_blank">{lang post_message3}</a></li>
+				</ul>
+			</div>
+
 		<!--{elseif $_GET[action] == 'edit' && $isfirstpost && !$thread['sortid']}-->
 			<ul class="tb cl mbw">
 				<li{if !$sortid} class="a"{/if}><a href="javascript:;" onclick="switchpost('forum.php?mod=post&action=edit&tid=$_G[tid]&pid=$pid')">$actiontitle</a></li>
@@ -169,6 +194,7 @@
 					</div>
 				<!--{/if}-->
 					<div class="pnpost clear">
+						
 						<button type="submit" id="postsubmit" class="greenbutton" value="true" name="{if $_GET[action] == 'newthread'}topicsubmit{elseif $_GET[action] == 'reply'}replysubmit{elseif $_GET[action] == 'edit'}editsubmit{/if}">
 						<!--{if $_GET[action] == 'newthread'}-->
 							<!--{if $special == 0}--><span>{lang post_newthread}</span>
@@ -183,7 +209,12 @@
 						<!--{elseif $_GET[action] == 'edit'}--><span>{lang edit_save}</span>
 						<!--{/if}-->
 						</button>
-
+						<!--{if $_G['uid']}-->
+					<!--{if $_GET[action] == 'newthread' && !$modnewthreads || $_GET[action] == 'edit' && $isfirstpost && !$modnewreplies && $thread['displayorder'] == -4}-->
+					<input type="hidden" id="postsave" name="save" value="" />
+						<button type="button" id="postsubmit" class="graysmallbutton" value="true" onclick="$('postsave').value = 1;$('postsubmit').click();"><em>{lang save_draft}</em></button>
+					<!--{/if}-->
+				<!--{/if}-->
 						<!--{if helper_access::check_module('follow') && $_GET[action] != 'edit'}-->
 						<span id="adddynamicspan"><label><input type="checkbox" name="adddynamic" id="adddynamic" value="true" class="pc" {if $_G['forum']['allowfeed'] && !$_G[tid] && empty($_G['forum']['viewperm'])}checked="checked"{/if} />{lang post_relay}</label></span>
 						<!--{/if}-->

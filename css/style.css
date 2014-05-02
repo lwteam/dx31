@@ -1641,6 +1641,9 @@ caption, th {
 .gototop:hover a {
   background-position: -123px -95px; }
 
+#nv_forum {
+  position: relative; }
+
 .oicon {
   background: url(../images/common/pulldown.png);
   background-repeat: no-repeat; }
@@ -2035,7 +2038,7 @@ caption, th {
 .pnpost {
   margin-top: 15px;
   text-align: right;
-  background-position: -365px -88px; }
+  background-position: -245px -85px; }
 
 .pnpost button {
   border-width: 0; }
@@ -2049,6 +2052,12 @@ a.pn {
 
 .pnpost .pn {
   height: 26px; }
+
+.pnpost .graysmallbutton, .pnpost .viewcontent .snslink a, .viewcontent .snslink .pnpost a {
+  border-width: 1px;
+  line-height: 40px;
+  height: 40px;
+  float: left; }
 
 .tb {
   margin-top: 10px;
