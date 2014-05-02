@@ -46,7 +46,7 @@ var disablepostctrl = parseInt('{$_G['group']['disablepostctrl']}');
 						</div>
 					</div>
 					<div id="seccheck_fastpost">
-						<!--{if $allowpostreply && ($secqaacheck || $seccodecheck)}-->
+						<!--{if $_G['uid'] && $allowpostreply && ($secqaacheck || $seccodecheck)}-->
 							<!--{subtemplate forum/seccheck_post}-->
 						<!--{/if}-->
 					</div>
