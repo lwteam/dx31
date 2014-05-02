@@ -9,9 +9,13 @@ $_SERVER['SCRIPT_NAME'] = basename($_SERVER['SCRIPT_FILENAME']);
 
 require "data/cache/cache_forums_rewrite.php";
 
+
+$QUERY_STRING = substr($_SERVER['QUERY_STRING'],-1) == '/'?substr($_SERVER['QUERY_STRING'],0,-1):$_SERVER['QUERY_STRING'];
+
+
 $_TP = Array();
 $_TP['request'] = $_TP['_GET'] = array();
-$_TP['request'] = explode('/',substr($_SERVER['QUERY_STRING'],0,-1));
+$_TP['request'] = explode('/',$QUERY_STRING);
 
 if( isset($_TP['request'][1]) ){
 

@@ -9,14 +9,10 @@ require './source/class/class_core.php';
 $discuz = & discuz_core::instance();
 $discuz->init();
 
-require 'function.php';
+
 
 ini_set('memory_limit','12800M');
 
-
-define('LEFEN_OLD', DISCUZ_ROOT.'convert/lefen/data/attachment/forum/');
-
-define('LEPHONE_OLD', DISCUZ_ROOT.'convert/lephone/data/attachment/forum/');
 
 define('ATTACHPATH', DISCUZ_ROOT.'data/attachment/forum/');
 
@@ -63,6 +59,29 @@ showmnextpage("附件数据正在整理中.....".loadingdata(),'http://'.$_SERVE
 
 
 
+function mv_attach($aid,$tableid) {
+	global $_G;
+	$attach= DB::fetch_first("SELECT * FROM ".DB::table('forum_attachment_'.$tableid)." WHERE `aid`='$aid'" );
+
+	
+
+	if (stripos($attach['attachment'], 'lephonecc/') === false) {
+		$oldpath  = str_replace ( '\\', '/',  LEFEN_OLD.$attach['attachment'] );
+		$path  = str_replace ( '\\', '/',  ATTACHPATH.$attach['attachment'] );
+	}else{
+		$oldpath  = str_replace ( '\\', '/',  LEPHONE_OLD.str_replace('lephonecc/', '', $attach['attachment']) );
+		$path  = str_replace ( '\\', '/',  ATTACHPATH.'lephonecc/'.$attach['attachment'] );
+	}
+	
+
+	nmkdir($path);
+	if (file_exists($oldpath.'.thumb.jpg')) {
+		@copy($oldpath.'.thumb.jpg',$path.'.thumb.jpg');
+	}
+	$_G['oldpath'] = $oldpath;
+	$_G['path'] = $path;
+	return copy($oldpath,$path);
+}
 
 
 
