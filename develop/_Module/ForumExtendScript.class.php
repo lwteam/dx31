@@ -115,7 +115,7 @@ class ForumExtendScript {
 				//推荐主题
 				if(($RecomThreads = Library::fetch_cache(0, 'RecomThreads_'.$operation)) === false){
 					$opfids_csv = join(',',$opfids);
-					$query = DB::query("SELECT ffc.* FROM ".DB::table('forum_threadmod')." ftm
+					$query = DB::query("SELECT distinct ffc.tid,ffc.* FROM ".DB::table('forum_threadmod')." ftm
 							LEFT JOIN ".DB::table('forum_forumrecommend')." ffc ON (ffc.tid=ftm.tid )
 						WHERE ffc.`aid`>0 AND ffc.fid IN ($opfids_csv) AND ffc.`position` IN('0','1') AND  ftm.action = 'REC' ORDER by ftm.dateline DESC LIMIT 5");
 					while($thread = DB::fetch($query)) {
@@ -155,7 +155,7 @@ class ForumExtendScript {
 				global $RecomThreads;
 				if(($RecomThreads = Library::fetch_cache($_G['fid'], 'RecomThreads')) === false){
 					$opfids_csv = join(',',array($_G['fid']));
-					$query = DB::query("SELECT ffc.* FROM ".DB::table('forum_threadmod')." ftm
+					$query = DB::query("SELECT distinct ffc.tid,ffc.* FROM ".DB::table('forum_threadmod')." ftm
 							LEFT JOIN ".DB::table('forum_forumrecommend')." ffc ON (ffc.tid=ftm.tid )
 						WHERE ffc.`aid`>0 AND ffc.fid IN ($opfids_csv) AND ffc.`position` IN('0','1') AND  ftm.action = 'REC' ORDER by ftm.dateline DESC LIMIT 5");
 					while($thread = DB::fetch($query)) {
