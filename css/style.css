@@ -55,7 +55,7 @@ caption, th {
   width: 1180px;
   margin: 0 auto; }
 
-.g1, .nav li, #pmore, .checkin, .checkinbutton, .bbsinfoabout, .bbsinfomenu a, .bbsinfostatmod, .meetbutton a, .loginbox, .rewardfloortoptile, .fasticon, .pinf, .forumlink, .foot {
+.g1, .nav li, #pmore, .checkin, .checkinbutton, .bbsinfoabout, .bbsinfomenu a, .bbsinfostatmod, .meetbutton a, .loginbox, .rewardfloortoptile, .pinf, .forumlink, .foot {
   height: 50px; }
 
 .g1lh, .nav li a, #pmore, .bbsinfostatmod, .meetbutton a, .loginboxmethod, .loginboxmethod .loginboxname, .rewardfloortoptile, .rewardfloorothrt, #forumnew, .pinf, .forumlink, .foot {
@@ -94,13 +94,13 @@ caption, th {
 .color4, .pn {
   color: #777; }
 
-.color5, .listcontentclass, .sboxsubhot p, .forumorderlist li a, .viewtheadtop, .viewinfo p a, .solvelisttop {
+.color5, .listcontentclass, .sboxsubhot p, .forumorderlist li a, .viewtheadtop, .viewinfo p a, .solvelisttop, .fasticon div {
   color: #999; }
 
 .color6, .pipe, .userinfo, #atarget {
   color: #ccc; }
 
-.bluecolor, .bluesmallbutton, .userinfolist strong a, .listcontent h2 a:hover, .listcontentclass a, .listcontentreadmore a, #pmore a, .vibeuirenew span, .forumlist .ht, .bbslist li:hover .forumname a, .bbslist li:hover .foruminfo, .twolist .forumname span, .bbsinfoname h1 small, .forumclasslists li.on a, .forumclasslists a span, .tpostname a:hover, .viewtheadauthorinfo table a, .viewcontent .pl table a, .viewinfo p strong, .solvelisttop em, .solvelisttop small, .loginboxtitle, .loginboxmethod a, .pg a, .pg strong, .forumtbale .fpostname a:hover, .forumtbale tr:hover .freply a, #autopbn, .ftid a:hover, .ftid a:focus, .sltm li.current, .tedt .pt a {
+.bluecolor, .bluesmallbutton, .userinfolist strong a, .listcontent h2 a:hover, .listcontentclass a, .listcontentreadmore a, #pmore a, .vibeuirenew span, .forumlist .ht, .bbslist li:hover .forumname a, .bbslist li:hover .foruminfo, .twolist .forumname span, .bbsinfoname h1 small, .forumclasslists li.on a, .forumclasslists a span, .tpostname a:hover, .viewtheadauthorinfo table a, .viewcontent .pl table a, .viewinfo p strong, .solvelisttop em, .solvelisttop small, .loginboxtitle, .loginboxmethod a, .fasticon:hover div, .pg a, .pg strong, .forumtbale .fpostname a:hover, .forumtbale tr:hover .freply a, #autopbn, .ftid a:hover, .ftid a:focus, .sltm li.current, .tedt .pt a {
   color: #5990de; }
 
 .greencolor, .greensmallbutton, .checkincredit, .processinfo strong, .process .on h3, .process .on p, .forumorderlist li a:hover, .forumorderlist li.on a, .viewcontent .snslink i span, .solvelisttop strong, #forumnewshow td a, .pnc, a.pnc {
@@ -109,7 +109,7 @@ caption, th {
 .redcolor, .redsmallbutton, .bbsinfostatmod strong, .viewinfo em, .meetcount, .loginboxtip kbd, .rewardfloorothrt a, .rewardfloor, .rewardfloor a, .userinfo .new, .er, .locked, .locked a, .showhide a, .showhide h4 {
   color: #dd4422; }
 
-.whitecolor, .greenbutton, .greenbutton:hover, .bluebutton, .bluebutton:hover, .redbutton, .redbutton:hover, .bluesmallbutton:hover, .greensmallbutton:hover, .redsmallbutton:hover, .bluesolidsmallbutton, .bluesolidsmallbutton:hover, .greensolidsmallbutton, .greensolidsmallbutton:hover, .nav li a, .scbarbox input, .listheadline, .checkinbutton, .toprank, .sboxsubhot i, .fivelist li:hover .forumname a, .twolist li:hover .forumname span, .bbsinfomenu h2 em, .bbsinfomenu a.on, .forumclasslists li.on span, .viewtheadtopstorey a.floor, .meetbutton a, .methodlogin .lenovo a, .rewardfloortoptile, .fasticon div, .pg strong, .pg a:hover, .pnc, a.pnc {
+.whitecolor, .greenbutton, .greenbutton:hover, .bluebutton, .bluebutton:hover, .redbutton, .redbutton:hover, .bluesmallbutton:hover, .greensmallbutton:hover, .redsmallbutton:hover, .bluesolidsmallbutton, .bluesolidsmallbutton:hover, .greensolidsmallbutton, .greensolidsmallbutton:hover, .nav li a, .scbarbox input, .listheadline, .checkinbutton, .toprank, .sboxsubhot i, .fivelist li:hover .forumname a, .twolist li:hover .forumname span, .bbsinfomenu h2 em, .bbsinfomenu a.on, .forumclasslists li.on span, .viewtheadtopstorey a.floor, .meetbutton a, .methodlogin .lenovo a, .rewardfloortoptile, .pg strong, .pg a:hover, .pnc, a.pnc {
   color: white; }
 
 .smallfont, .nav .beta, .scbarbox input, .listcontentclass, .listcontentauthor .author a, .toprank, .topranks, .sboxsubhot p, .sboxsubhot i, .vibeuirenew p, .processinfo div, .processlist p, .twolist .forumname span, .bbsinfoname h1 small, .bbsinfomenu h2 em, .forumclasslists a span, .classttxt, .viewtheadauthorinfo table, .viewtheadtopstorey a.floor, .solvelisttop small, .loginboxtip, .p_pof, .ftid a, .sltm, .numstat {
@@ -159,7 +159,7 @@ caption, th {
 .bluelightborder, .viewlistli:hover, .viewcontent .snslink a, .solve h3 {
   border: 1px solid #ebf0f7; }
 
-.bluedarkborder, .listcontent, #pmore, .sbox, .listbg, .bbsinfostat, .forumclass, .forumclasslists a span, .forumclasslists li i, .viewthead, .postbox, .ftid a:hover, .sltm, .sltm li {
+.bluedarkborder, .listcontent, #pmore, .sbox, .listbg, .bbsinfostat, .forumclass, .forumclasslists a span, .forumclasslists li i, .viewthead, .postbox, .fasticon, .fasticon div, .ftid a:hover, .sltm, .sltm li {
   border: 1px solid #e3e5e8; }
 
 .greenborder, .greensmallbutton, .pnc, a.pnc {
@@ -183,7 +183,7 @@ caption, th {
 .borderstyle, .processlist, .forumclasslistli, .viewtheadauthorinfo .infobox, .viewtheadauthorinfo table th, .solvemain, .rewardfloorothrt, .rewardfloor, .p_pop a, .postquote, .er, .locked, .showhide {
   border-style: dashed; }
 
-.bg, .shadeline, .graysmallbutton:hover, .viewcontent .snslink a:hover, #header, #scbar:hover, .listcontent, .sbox, .listbg, .bbsinfostat, .forumclasslists a span, .forumclasslistdrop select, .viewtheadright, #main .firstfloor, .solve h3, .solvelisttop small, #sign, .signtop, .loginboxtip i, .loginboxtip kbd, .buglist_loading, .buglist_inbox, .p_pop, .p_pof, .sllt, .fpd a:hover, .pn:hover, .tb .a a, .tb .current a, .showhide, #footer {
+.bg, .shadeline, .graysmallbutton:hover, .viewcontent .snslink a:hover, #header, #scbar:hover, .listcontent, .sbox, .listbg, .bbsinfostat, .forumclasslists a span, .forumclasslistdrop select, .viewtheadright, #main .firstfloor, .solve h3, .solvelisttop small, #sign, .signtop, .loginboxtip i, .loginboxtip kbd, .buglist_loading, .buglist_inbox, .fasticon:hover div, .fasticon:hover, .p_pop, .p_pof, .sllt, .fpd a:hover, .pn:hover, .tb .a a, .tb .current a, .showhide, #footer {
   background-color: white; }
 
 .bg1, .loginboxtitle, .post #sidebar, .m_c .o, .tedt .bar, .postquote, .tb a {
@@ -204,7 +204,7 @@ caption, th {
 .greenlightbg, .process .on, #forumnewshow td, .newthread tr, .forumtbale .newthread tr:hover, .pinf {
   background: #f3f7ee; }
 
-.bluebg, .bluebutton, .bluesmallbutton:hover, .bluesolidsmallbutton, #menu, .toprank, .fivelist li:hover .forumname a, .twolist li:hover .forumname span, .bbsinfomenu h2 em, .bbsinfomenu a.on, .forumclasslists li.on span, .viewtheadtopstorey a.floor:hover, .signtop, .fasticon div, .fasticon:hover, .pg strong, .pg a:hover, .pg a.prev:hover, .pg a.nxt:hover, .p_pop a:hover em {
+.bluebg, .bluebutton, .bluesmallbutton:hover, .bluesolidsmallbutton, #menu, .toprank, .fivelist li:hover .forumname a, .twolist li:hover .forumname span, .bbsinfomenu h2 em, .bbsinfomenu a.on, .forumclasslists li.on span, .viewtheadtopstorey a.floor:hover, .signtop, .pg strong, .pg a:hover, .pg a.prev:hover, .pg a.nxt:hover, .p_pop a:hover em {
   background-color: #5990de; }
 
 .bluedarkbg, .bluebutton:hover, .bluesolidsmallbutton:hover, .nav .beta {
@@ -213,7 +213,7 @@ caption, th {
 .bluelightbg, .listcontentauthor .author, .bbsinfomenu a, .p_pop em, .forumtbale tr:hover .freply a, #autopbn:hover, #links {
   background: #d1dced; }
 
-.bluelightbg1, #pmore, .bbslist li:hover .foruminfo, .forumclass, .viewlistli:hover, .classttxt, .viewthead, .viewcontent .snslink a, .solve h3, .loginboxinput input:focus, .buglist_inbox textarea, .forumtbale tr:hover, #autopbn {
+.bluelightbg1, #pmore, .bbslist li:hover .foruminfo, .forumclass, .viewlistli:hover, .classttxt, .viewthead, .viewcontent .snslink a, .solve h3, .loginboxinput input:focus, .buglist_inbox textarea, .fasticon, .fasticon div, .forumtbale tr:hover, #autopbn {
   background-color: #f5f7f9; }
 
 .redbg, .redbutton, .redsmallbutton:hover, .meetbutton a, .methodlogin .lenovo a, .rewardfloortoptile, .p_pop em.new {
@@ -235,13 +235,13 @@ caption, th {
 .brround, .viewtheadavatar img {
   border-radius: 50%; }
 
-.br3, .greenbutton, .bluebutton, .redbutton, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .viewcontent .snslink a, .redsmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton, .nav .beta, .listheadline, .listcontent, .listcontentimg, #pmore, .sbox, .checkinbutton:hover, .toprank, .topranks, .sboxsubrecommend img, .sboxsubimg a, .listbg, .fivelist .forumname a, .twolist .forumicon a, .twolist li:hover .foruminfo, .bbsinfoname h1 small, .forumclasslistdrop select, .viewlistli:hover, .classttxt, .viewthead, .viewtheadright, .solve h3, .solvemain, #sign, .buglist_loading, .buglist_inbox, .buglist_inbox textarea, .p_pop, .p_pof, .sllt, .tm_c .dpbtn, .forumtbale tr:hover .freply a, #forumnewshow td, #autopbn, .inputboxtitle, .tedt, .postquote, .px, .pt, .ps, select, .pn, .locked, .showhide, #links {
+.br3, .greenbutton, .bluebutton, .redbutton, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .viewcontent .snslink a, .redsmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton, .nav .beta, .listheadline, .listcontent, .listcontentimg, #pmore, .sbox, .checkinbutton:hover, .toprank, .topranks, .sboxsubrecommend img, .sboxsubimg a, .listbg, .fivelist .forumname a, .twolist .forumicon a, .twolist li:hover .foruminfo, .bbsinfoname h1 small, .forumclasslistdrop select, .viewlistli:hover, .classttxt, .viewthead, .viewtheadright, .solve h3, .solvemain, #sign, .buglist_loading, .buglist_inbox, .buglist_inbox textarea, .fasticon, .p_pop, .p_pof, .sllt, .tm_c .dpbtn, .forumtbale tr:hover .freply a, #forumnewshow td, #autopbn, .inputboxtitle, .tedt, .postquote, .px, .pt, .ps, select, .pn, .locked, .showhide, #links {
   border-radius: 3px; }
 
 .bs, #sign, #footer {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05); }
 
-.ta, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .viewcontent .snslink a, .redsmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton, #scbar, .scbarbox, .scbarbutton button, .more a, .pg a, .pg strong, #autopbn, .pn {
+.ta, .bluesmallbutton, .greensmallbutton, .graysmallbutton, .viewcontent .snslink a, .redsmallbutton, .bluesolidsmallbutton, .greensolidsmallbutton, #scbar, .scbarbox, .scbarbutton button, .more a, .fasticon a, .pg a, .pg strong, #autopbn, .pn {
   transition: all 0.2s ease-in-out; }
 
 .bsin {
@@ -1596,22 +1596,21 @@ caption, th {
   width: 50px; }
 
 .fasticon {
-  background-color: #5f5f5f;
-  width: 50px;
+  height: 48px;
+  width: 48px;
   background-position: -5px -124px;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   cursor: pointer; }
 
 .fasticon div {
-  left: 50px;
-  top: 0;
-  height: 22px;
-  width: 60px;
-  padding: 14px 10px 14px 0;
-  display: none; }
-
-.fasticon:hover div {
-  display: inherit; }
+  left: 46px;
+  top: -1px;
+  width: 30px;
+  height: 48px;
+  line-height: 48px;
+  border-radius: 0 3px 3px;
+  border-left-width: 0;
+  padding: 0 12px 0 3px; }
 
 .fasticon:hover {
   background-position: -5px -74px; }
@@ -1640,9 +1639,6 @@ caption, th {
 
 .gototop:hover a {
   background-position: -123px -95px; }
-
-#nv_forum {
-  position: relative; }
 
 .oicon {
   background: url(../images/common/pulldown.png);
