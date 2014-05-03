@@ -19,7 +19,7 @@ $operation = $_GET['operation']?$_GET['operation']:'list';
 if($operation == 'delete'){
 	
 	//删除硬件
-	$DeleteOne = DB::fetch_first("SELECT * FROM ".DB::table('buglist_hardware')." WHERE `uid`='$id' LIMIT 1");
+	$DeleteOne = DB::fetch_first("SELECT * FROM ".DB::table('buglist_hardware')." WHERE `id`='$id' LIMIT 1");
 	if($DeleteOne){
 		if (!isMyHW($DeleteOne['type'])) {
 			showmessage('您没权限执行该操作!', 'manage.php?action='.$action);
@@ -31,7 +31,7 @@ if($operation == 'delete'){
 	}
 }elseif($operation == 'vdelete'){
 	//删除版本
-	$DeleteOne = DB::fetch_first("SELECT * FROM ".DB::table('buglist_version')." WHERE `uid`='$id' LIMIT 1");
+	$DeleteOne = DB::fetch_first("SELECT * FROM ".DB::table('buglist_version')." WHERE `id`='$id' LIMIT 1");
 	if($DeleteOne){
 		if (!isMyVER($DeleteOne['type'])) {
 			showmessage('您没权限执行该操作!', 'manage.php?action='.$action);
@@ -43,7 +43,7 @@ if($operation == 'delete'){
 	}	
 }elseif($operation == 'adelete'){
 	//删除版本
-	$DeleteOne = DB::fetch_first("SELECT * FROM ".DB::table('buglist_bugattr')." WHERE `uid`='$id' LIMIT 1");
+	$DeleteOne = DB::fetch_first("SELECT * FROM ".DB::table('buglist_bugattr')." WHERE `id`='$id' LIMIT 1");
 	if($DeleteOne){
 		if (!isMyATT($DeleteOne['type'])) {
 			showmessage('您没权限执行该操作!', 'manage.php?action='.$action);
@@ -166,21 +166,21 @@ if($operation == 'delete'){
 }else{
 	$loadtemplate = 'bughwver_list';
 	if ($myPermission['hardware']) {
-		$query = DB::query("SELECT * FROM ".DB::table('buglist_hardware')." WHERE type IN (".join(',',$myPermission['hardware']).") ORDER BY `id` DESC");
+		$query = DB::query("SELECT * FROM ".DB::table('buglist_hardware')." WHERE type IN (".join(',',$myPermission['hardware']).") ORDER BY `order` ASC, `id` DESC");
 		while($value = DB::fetch($query)) {
 			$bughwlist[] = $value;
 		}
 	}
 
 	if ($myPermission['version']) {
-		$query = DB::query("SELECT * FROM ".DB::table('buglist_version')." WHERE type ='$myPermission[version]' ORDER BY `id` DESC");
+		$query = DB::query("SELECT * FROM ".DB::table('buglist_version')." WHERE type ='$myPermission[version]' ORDER BY `order` ASC, `id` DESC");
 		while($value = DB::fetch($query)) {
 			$bugverlist[] = $value;
 		}
 	}
 
 	if ($myPermission['bugattr']) {
-		$query = DB::query("SELECT * FROM ".DB::table('buglist_bugattr')." WHERE type ='$myPermission[bugattr]' ORDER BY `id` DESC");
+		$query = DB::query("SELECT * FROM ".DB::table('buglist_bugattr')." WHERE type ='$myPermission[bugattr]' ORDER BY `order` ASC, `id` DESC");
 		while($value = DB::fetch($query)) {
 			$bugattrlist[] = $value;
 		}

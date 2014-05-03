@@ -59,7 +59,7 @@ if ($action == 'getattr') {
 		$sqlwhere = " WHERE type ".(is_array($Relations[$value])?'IN ('.JOIN(',',$Relations[$value]).')':"='{$Relations[$value]}'");
 			
 		if ($sqlwhere) {
-			$query = DB::query("SELECT * FROM ".DB::table('buglist_'.$value).$sqlwhere.' ORDER BY dateline DESC');
+			$query = DB::query("SELECT * FROM ".DB::table('buglist_'.$value).$sqlwhere.' ORDER BY `order` ASC,`dateline` DESC');
 			while($rvalue = DB::fetch($query)) {
 				if ($bthread && $bthread[$value] ==$rvalue['id'] ) {
 					$rvalue['selected'] = true;
@@ -75,7 +75,7 @@ if ($action == 'getattr') {
 	}
 
 	
-	$query = DB::query("SELECT * FROM ".DB::table('buglist_bugattr')." WHERE type ='$Relations[bugattr]' ORDER BY `id` DESC");
+	$query = DB::query("SELECT * FROM ".DB::table('buglist_bugattr')." WHERE type ='$Relations[bugattr]' ORDER BY `order` ASC,`dateline` DESC");
 	while($value = DB::fetch($query)) {
 		$value['elementid'] = 'bugattr_'.$value['id'];
 		if ($value['inputtype']) {

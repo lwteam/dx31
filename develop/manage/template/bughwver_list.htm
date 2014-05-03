@@ -23,7 +23,7 @@
 			<td colspan="5"><strong>硬件列表 ( 用于列表检索 )</strong></td>
 		</tr>
 		<tr class="managetablehead">
-			<td width="10%">ID</td>
+			<td width="10%">排序</td>
 			<td width="45%" >名称</td>
 			<td width="15%">类型</td>
 			<td width="15%">创建时间</td>
@@ -32,7 +32,7 @@
 		<!--{if $bughwlist}-->
 			<!--{loop $bughwlist $i $value}-->
 		<tr>
-			<td class="first">$value[id]</td>
+			<td class="first">{echo $value[order]?$value[order]:''}</td>
 			<td>$value[title]</td>
 			<td>{$_Data['hardware'][$value[type]]}</td>
 			<td>{echo date('m-d H:i',$value[dateline]);}</td>
@@ -54,7 +54,7 @@
 			<td colspan="5"><strong>版本列表 ( 用于列表检索 )</strong></td>
 		</tr>
 		<tr class="managetablehead">
-			<td width="10%">ID</td>
+			<td width="10%">排序</td>
 			<td width="45%">名称</td>
 			<td width="15%">类型</td>
 			<td width="15%">创建时间</td>
@@ -63,7 +63,7 @@
 		<!--{if $bugverlist}-->
 			<!--{loop $bugverlist $i $value}-->
 		<tr>
-			<td class="first">$value[id]</td>
+			<td class="first">{echo $value[order]?$value[order]:''}</td>
 			<td>$value[title]</td>
 			<td>{$_Data['version'][$value[type]]}</td>
 			<td>{echo date('m-d H:i',$value[dateline]);}</td>
@@ -86,7 +86,7 @@
 			<td colspan="5"><strong>BUG问题属性 ( 用于用户信息收集 )</strong></td>
 		</tr>
 		<tr class="managetablehead">
-			<td width="10%">ID</td>
+			<td width="10%">排序</td>
 			<td width="45%">名称</td>
 			<td width="15%">类型</td>
 			<td width="15%">创建时间</td>
@@ -95,7 +95,7 @@
 		<!--{if $bugattrlist}-->
 			<!--{loop $bugattrlist $i $value}-->
 		<tr class="managetablehead">
-			<td class="first">$value[id]</td>
+			<td class="first">{echo $value[order]?$value[order]:''}</td>
 			<td>$value[title] {if $value[inputtype]}[选择框]{else}[输入框]{/if}</td>
 			<td >{$_Data['bugattr'][$value[type]]}</td>
 			<td>{echo date('m-d H:i',$value[dateline]);}</td>

@@ -305,9 +305,10 @@ CREATE TABLE `pre_buglist_hardware` (
   `type` smallint(6) unsigned NOT NULL DEFAULT '0', -- 分类
   `title` char(255) NOT NULL DEFAULT '', -- 名称
   `dateline` int(10) unsigned NOT NULL DEFAULT '0', -- 提交时间
+  `order` int(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `dateline` (`dateline`)
+  KEY `orderdateline` (`order`, `dateline`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8; 
 
 -- 分类版本关联表
@@ -317,9 +318,10 @@ CREATE TABLE `pre_buglist_version` (
   `type` smallint(6) unsigned NOT NULL DEFAULT '0', -- 分类
   `title` char(255) NOT NULL DEFAULT '', -- 名称
   `dateline` int(10) unsigned NOT NULL DEFAULT '0', -- 提交时间
+  `order` int(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `dateline` (`dateline`)
+  KEY `orderdateline` (`order`, `dateline`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8; 
 
 
@@ -333,9 +335,10 @@ CREATE TABLE `pre_buglist_bugattr` (
   `inputtype` smallint(6) unsigned NOT NULL DEFAULT '0', -- 输入框类型  {0 输入框 1. 选择框}
   `text` char(255) NOT NULL DEFAULT '', -- 属性内容
   `must` tinyint(1)  NOT NULL DEFAULT '0', -- 是否必填选项
+  `order` int(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `dateline` (`dateline`)
+   KEY `orderdateline` (`order`, `dateline`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8; 
 
 
@@ -461,5 +464,18 @@ DROP COLUMN `avatar`,
 DROP COLUMN `hide`;
 
 
-ALTER TABLE `pre_buglist_log`
-ADD COLUMN `title` char(255) NOT NULL DEFAULT ''  AFTER `itcode`;
+ALTER TABLE `pre_buglist_hardware`
+ADD COLUMN `order`  int(10) UNSIGNED NOT NULL DEFAULT 0 AFTER `dateline`,
+DROP INDEX `dateline` ,
+ADD INDEX `orderdateline` (`order`, `dateline`);
+
+ALTER TABLE `pre_buglist_version`
+ADD COLUMN `order`  int(10) UNSIGNED NOT NULL DEFAULT 0 AFTER `dateline`,
+DROP INDEX `dateline` ,
+ADD INDEX `orderdateline` (`order`, `dateline`) ;
+
+
+ALTER TABLE `pre_buglist_bugattr`
+ADD COLUMN `order`  int(10) UNSIGNED NOT NULL DEFAULT 0 AFTER `dateline`,
+DROP INDEX `dateline` ,
+ADD INDEX `orderdateline` (`order`, `dateline`);
