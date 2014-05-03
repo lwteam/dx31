@@ -36,7 +36,7 @@
 			<td>$value[title]</td>
 			<td>{$_Data['hardware'][$value[type]]}</td>
 			<td>{echo date('m-d H:i',$value[dateline]);}</td>
-			<td class="last"><a href="manage.php?action={$action}&operation=update&id={$value[id]}" class="greensmallbutton">编辑</a><a href="manage.php?action={$action}&operation=delete&id={$value[id]}" class="graysmallbutton">删除</a></td>
+			<td class="last"><a href="manage.php?action={$action}&operation=update&id={$value[id]}" class="greensmallbutton">编辑</a><a href="manage.php?action={$action}&operation=delete&id={$value[id]}" onclick="return confirm('确认要删除 硬件类型: 「 $value[title] 」吗？')" class="graysmallbutton">删除</a></td>
 		</tr>
 			<!--{/loop}-->
 		<!--{else}-->
@@ -67,7 +67,7 @@
 			<td>$value[title]</td>
 			<td>{$_Data['version'][$value[type]]}</td>
 			<td>{echo date('m-d H:i',$value[dateline]);}</td>
-			<td class="last"><a href="manage.php?action={$action}&operation=vupdate&id={$value[id]}" class="greensmallbutton">编辑</a><a href="manage.php?action={$action}&operation=vdelete&id={$value[id]}" class="graysmallbutton">删除</a></td>
+			<td class="last"><a href="manage.php?action={$action}&operation=vupdate&id={$value[id]}" class="greensmallbutton">编辑</a><a href="manage.php?action={$action}&operation=vdelete&id={$value[id]}" onclick="return confirm('确认要删除 版本类型: 「 $value[title] 」吗？')" class="graysmallbutton">删除</a></td>
 		</tr>
 			<!--{/loop}-->
 		<!--{else}-->
@@ -99,7 +99,7 @@
 			<td>$value[title] {if $value[inputtype]}[选择框]{else}[输入框]{/if}</td>
 			<td >{$_Data['bugattr'][$value[type]]}</td>
 			<td>{echo date('m-d H:i',$value[dateline]);}</td>
-			<td class="last"><a href="manage.php?action={$action}&operation=aupdate&id={$value[id]}" class="greensmallbutton">编辑</a><a href="manage.php?action={$action}&operation=adelete&id={$value[id]}" class="graysmallbutton">删除</a></td>
+			<td class="last"><a href="manage.php?action={$action}&operation=aupdate&id={$value[id]}" class="greensmallbutton">编辑</a><a href="manage.php?action={$action}&operation=adelete&id={$value[id]}" onclick="return confirm('确认要删除 BUG属性类型: 「 $value[title] 」吗？')" class="graysmallbutton">删除</a></td>
 		</tr>
 			<!--{/loop}-->
 		<!--{else}-->
