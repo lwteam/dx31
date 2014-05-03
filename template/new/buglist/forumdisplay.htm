@@ -15,7 +15,10 @@
 				</div>
 				<div class="bbsinfomenu">
 					<a href="forum.php?mod=forumdisplay&fid=$_G[fid]" {if !$view}class="on"{/if}>所有反馈</a>
-					<a href="forum.php?mod=forumdisplay&fid=$_G[fid]&view=me" {if $view}class="on"{/if}>我的反馈</a>
+					<a href="forum.php?mod=forumdisplay&fid=$_G[fid]&view=me" {if $view == 'me'}class="on"{/if}>我的反馈</a>
+					<!--{if in_array($GLOBALS[myPermission]['dist'],array(1,3,4))}-->
+					<a href="forum.php?mod=forumdisplay&fid=$_G[fid]&view=mydo" {if $view == 'mydo'}class="on"{else} style="background: #ECCFEA;"{/if}>我的处理</a>
+					<!--{/if}-->
 				</div>
 			</div>
 			<div class="bbsinfostat">
@@ -28,12 +31,15 @@
 
 		<div class="listbg">
 
+
 			<div class="forumorder">
+				<!--{if $view != 'mydo'}-->
 				<div class="right"><a href="forum.php?mod=post&action=newthread&fid=$_G[fid]" class="greenbutton">提交反馈</a></div>
+				<!--{/if}-->
 				<div class="forumorderlist">
 					<ul>
 					<!--{loop $_Data['buglist_handling'] $key $value}-->
-						<!--{eval if ($key>3)continue;}-->
+						<!--{eval if ($key>3 || $view == 'mydo'&&$key==0)continue;}-->
 						{if isset($handling) && $handling == $key}
 							<li class="on"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]{echo $view?'&view=me':''}{echo $this->GetSelectUrl($classid,NULL,$hardware,$version)}"><i class="$value[icon]"></i>$value[title]<img src="images/common/cancel.png"></a></li>
 						{else}
@@ -116,7 +122,12 @@
 		    	<div class="viewlistli">
 		    	 	<ul>
 		    	 		<li class="ttime">$thread[dateline]</li>
-		    	 		<li class="tstatus"><em class="$thread[handlingstylec]">$thread['handlingtxt']</em></li>
+		    	 		<li class="tstatus"><em class="$thread[handlingstylec]">$thread['handlingtxt']</em>
+						<!--{if $view == 'mydo'}-->
+							<p>
+							<span title="[ {$thread['handlingarray']['username']} ] $thread['handlingarray']['name'] $thread['handlingarray']['itcode']  {echo date('Y-m-d H:i',$thread['handlingarray']['dateline']);}">$thread['handlingarray']['name']</span></p>
+						<!--{/if}-->
+						</li>
 		    	 		<li class="tpostname">
 		    	 			<div class="pin">
 										<!--{if in_array($thread['displayorder'], array(1, 2, 3, 4))}-->
@@ -155,6 +166,16 @@
 											<!--{/if}-->
 										<!--{/if}-->
 							<!--{if $classtxt}--><i class="classttxt" title="{if $classtoptxt}$classtoptxt -> {/if}$classtxt">$classtxt</i><!--{/if}-->
+							<!--{if $thread[supply] && !$thread[supplytime]}--><i class="redcolor">需补充</i><!--{/if}-->
+
+
+						<!--{if $view == 'mydo'}-->
+							<!--{if $thread['note']}-->
+							<br><span class="buglist_note" style="color: #5fb336;" title="[ {$thread['note']['username']} ] $thread['note']['name'] $thread['note']['itcode'] {echo date('Y-m-d H:i',$thread[note][dateline]);} 备注">$thread['note']['message']</span>
+							<!--{/if}-->
+						<!--{/if}-->
+
+
 		    	 		</li>
 		    	 		<li class="tcounter">$thread[samenum]</li>
 		    	 		<li class="tauthor"><a href="home.php?mod=space&uid=$thread[authorid]">$thread[author]</a></li>

@@ -14,6 +14,20 @@
 </div>
 <!--{/if}-->
 
+<!--{if CURMODULE == 'forumdisplay' ||  CURMODULE == 'viewthread'}-->
+<!-- <div id="gotop" style="position: fixed; display:none; right:200px; bottom:0;">
+	<!--{if CURMODULE == 'forumdisplay' ||  CURMODULE == 'viewthread'}-->
+		<div class="fasticon gorelease"><a href="javascript:void(0);"></a><div>发布</div></div>
+	<!--{/if}-->
+	<!--{if CURMODULE == 'viewthread'}-->
+		<div class="fasticon goback" onclick="location.href='forum.php?mod=forumdisplay&fid=$_G[fid]'"><a href="forum.php?mod=forumdisplay&fid=$_G[fid]"></a><div>返回</div></div>
+		<div class="fasticon goreply"><a href="javascript:void(0);" ></a><div>回复</div></div>
+	<!--{/if}-->
+	<div class="fasticon gototop"><a href="javascript:void(0);"></a><div>顶部</div></div>
+</div> -->
+<!--{/if}-->
+
+
 <!--{if empty($topic) || ($topic[usefooter])}-->
 	<!--{eval $focusid = getfocus_rand($_G[basescript]);}-->
 

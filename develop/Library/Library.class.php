@@ -45,9 +45,9 @@ class Library {
 		return $t & 0xFFFFFFFF;
 	}
 	
-	public function HandlingRecord($timestamp,$classid,$handling = 0,$bhandling = NULL,$add = TRUE){
-
+	public function HandlingRecord($timestamp,$classid,$handling = 0,$bhandling = NULL,$add = TRUE,$uid=0){
 		global $_G,$_Data;
+		$uid = $uid?$uid:$_G['uid'];
 		$thisyear=date( 'Y', $timestamp );
 		$thismonth=date( 'm', $timestamp );
 		$thisday=date( 'd', $timestamp );
@@ -86,7 +86,7 @@ class Library {
 			}elseif ($handling == 1) {
 				$record =FALSE;
 				$hrecord =TRUE;
-				if ($_G['uid']!=$bugMuser['uid']) {
+				if ($uid!=$bugMuser['uid']) {
 					$mhrecord =TRUE;
 				}
 			}elseif ($handling == 2) {
@@ -96,7 +96,7 @@ class Library {
 			}elseif ($handling == 4 && $bhandling == 0 ) {
 				$record =FALSE;
 				$hrecord =TRUE;
-				if ($_G['uid']!=$bugMuser['uid']) {
+				if ($uid!=$bugMuser['uid']) {
 					$mhrecord =TRUE;
 				}
 			}
@@ -133,11 +133,11 @@ class Library {
 		if($mhrecord){
 			DB::query("insert into ".DB::table('buglist_mstatus')." 
 				(`uid`,`username`, `month`,`dateline`, `hnum`) values 
-				('{$_G['uid']}', '{$_G['username']}','{$selectmonth}','{$_G['timestamp']}','1') on duplicate key update 
+				('{$uid}', '{$_G['username']}','{$selectmonth}','{$_G['timestamp']}','1') on duplicate key update 
 				`dateline`='{$_G['timestamp']}', `hnum`=`hnum`+1;");
 			DB::query("insert into ".DB::table('buglist_wstatus')." 
 				(`uid`,`username`, `week`,`dateline`, `hnum`) values 
-				('{$_G['uid']}', '{$_G['username']}','{$selectmonth}','{$_G['timestamp']}','1') on duplicate key update 
+				('{$uid}', '{$_G['username']}','{$selectmonth}','{$_G['timestamp']}','1') on duplicate key update 
 				`dateline`='{$_G['timestamp']}', `hnum`=`hnum`+1;");	
 		}
 		if ( $crecord) {

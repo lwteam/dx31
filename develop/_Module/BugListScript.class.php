@@ -77,6 +77,20 @@ class BugListScript {
 				if ($handling!==NULL) {
 					$sqlwhere .= " AND b.`handling`='$handling'";
 				}
+			}elseif ($view == 'mydo') {
+			
+				if(empty($_G['uid'])) {
+					showmessage('to_login', '', array(), array('showmsg' => true, 'login' => 1));
+				}
+				if(!in_array($GLOBALS['myPermission']['dist'],array(1,3,4))) {
+					showmessage('您没有权限访问这个页面');
+				}
+				$sqlwhere = "WHERE `touid`='$_G[uid]'";
+				if ($handling!==NULL) {
+					$sqlwhere .= " AND b.`handling`='$handling'";
+				}
+
+
 			}else{
 				$sqlwhere = 'WHERE 1 ';
 				if ($classid) {
@@ -120,6 +134,10 @@ class BugListScript {
 
 				$thread['dbdateline'] = $thread['dateline'];
 				$thread['dateline'] = dgmdate($thread['dateline'], 'u', '9999', getglobal('setting/dateformat'));
+				$thread['handlings'] = unserialize($thread['handlings']);
+				$thread['handlingarray'] = end($thread['handlings']);
+
+				$thread['note'] = unserialize($thread['note']);
 				$threadlist[] = $thread;
 			}
 
