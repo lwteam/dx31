@@ -97,7 +97,7 @@ http://www.comsenz.com
 	.b2r #e_imagen, .b2r #e_attachn { top: -4px; left: 60px; }
 		.b2r #e_attachn { left: 100px; }
 
-	#e_switcher input{ margin-right: 4px; vertical-align: middle; }
+	#e_switcher input{ margin-right:-9px; vertical-align: middle; }
 	#e_simple, #e_fullswitcher { padding: 0 2px; text-align: right; border: 1px solid {SPECIALBORDER}; background: url({IMGDIR}/card_btn.png) repeat-x 0 100%; }
 		#e_fullswitcher { margin-right: 3px; }
 
