@@ -13,12 +13,10 @@ http://www.comsenz.com
 		.edt .bbar, .edt .bbar a { color: #999; }
 		.edt .btn { float: left;}
 			.edt .b1r, .edt .b2r { position: relative; float: left; }
-			.edt .b2r p, .edt .b2r br { clear: both; }
-		.edt .esb p { float: left; }
-		.edt .esbs p { float: left; clear: none; }
+			.edt .b2r br { clear: both; }
+		.edt p { float: left; clear: none; }
 			.edt .b1r a { padding-top: 27px; width: 35px; height: 15px; text-align: center; font-size: 11px; font-family: Arial, PMingLiU, sans-serif; -webkit-text-size-adjust: none; }
 			.edt .b2r a { float: left; border-right:1px solid #e6e6e6; width: 20px; height: 39px; padding:0 9px; background: url(/images/common/editor.png) no-repeat; text-indent: -9999px; overflow: hidden;}
-				.edt .b2r a.dp { }
 			.edt .nbl { border-left: none; padding-left: 0; }
 				.edt .nbr { border-right: none; padding-right: 0; }
 			.edt .bar a:hover, .edt .bar a.hover { background-color: {WRAPBG}; text-decoration: none; }
@@ -43,16 +41,16 @@ http://www.comsenz.com
 
 	#e_url			{ background-position: -40px -40px; }
 	#e_unlink		{ background-position: -80px -40px; }
-	#e_justifyleft		{ background-position: -80px -20px; }
-	#e_justifycenter	{ background-position: -240px -40px; }
-	#e_justifyright		{ background-position: -260px -40px; }
+	#e_justifyleft		{ background-position: -160px -80px; }
+	#e_justifycenter	{ background-position: -200px -80px; }
+	#e_justifyright		{ background-position: -240px -80px; }
 	#e_autotypeset		{ background-position: -220px -40px; }
 	#e_floatleft		{ background-position: -100px -60px; }
 	#e_floatright		{ background-position: -120px -60px; }
 	#e_insertorderedlist	{ background-position: -200px 0; }
 	#e_insertunorderedlist	{ background-position: -160px 0; }
 	#e_inserthorizontalrule	{ background-position: -20px -60px; }
-	#e_tbl			{ background-position: -160px -20px; }
+	#e_tbl			{ background-position: -120px -80px; }
 	.tblbtn_disabled	{ background-position: -180px -20px !important; }
 
 	#e_tool			{ background-position: 0 -40px; }
