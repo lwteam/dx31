@@ -59,7 +59,7 @@ if ($action == 'getattr') {
 		$sqlwhere = " WHERE type ".(is_array($Relations[$value])?'IN ('.JOIN(',',$Relations[$value]).')':"='{$Relations[$value]}'");
 			
 		if ($sqlwhere) {
-			$query = DB::query("SELECT * FROM ".DB::table('buglist_'.$value).$sqlwhere.' ORDER BY dateline DESC'.($value=='version'?' LIMIT 10':''));
+			$query = DB::query("SELECT * FROM ".DB::table('buglist_'.$value).$sqlwhere.' ORDER BY dateline DESC');
 			while($rvalue = DB::fetch($query)) {
 				if ($bthread && $bthread[$value] ==$rvalue['id'] ) {
 					$rvalue['selected'] = true;

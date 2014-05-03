@@ -130,7 +130,7 @@ class BugListScript {
 					$sqlwhere = " WHERE type ".(is_array($Relations[$value])?'IN ('.JOIN(',',$Relations[$value]).')':"='{$Relations[$value]}'");
 						
 					if ($sqlwhere) {
-						$query = DB::query("SELECT * FROM ".DB::table('buglist_'.$value).$sqlwhere.' ORDER BY dateline DESC'.($value=='version'?' LIMIT 10':''));
+						$query = DB::query("SELECT * FROM ".DB::table('buglist_'.$value).$sqlwhere.' ORDER BY dateline DESC');
 						while($rvalue = DB::fetch($query)) {
 							$rvalue['self'] = $Relations['self'];
 							${$value.'list'}[] = $rvalue;
