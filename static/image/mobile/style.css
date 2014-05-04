@@ -16,7 +16,7 @@
 	em, cite, i { font-style: normal; }
 		a img { border: none; }
 	label { cursor: pointer; }
-	.bg { background: #eee; }
+	.bg { background: #eceef1; }
 	.rq { color: red; }
 
 	a:link,a:visited,a:hover { color:#4C4C4C; text-decoration:none; }
