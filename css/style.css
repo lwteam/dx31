@@ -94,7 +94,7 @@ caption, th {
 .color4, .pn {
   color: #777; }
 
-.color5, .listcontentclass, .sboxsubhot p, .forumorderlist li a, .viewtheadtop, .viewinfo p a, .solvelisttop, .fasticon div {
+.color5, .listcontentclass, .sboxsubhot p, .forumorderlist li a, .viewtheadtop, .viewinfo p a, .solvelisttop, .fasticon {
   color: #999; }
 
 .color6, .pipe, .userinfo, #atarget {
@@ -159,7 +159,7 @@ caption, th {
 .bluelightborder, .viewlistli:hover, .viewcontent .snslink a, .solve h3 {
   border: 1px solid #ebf0f7; }
 
-.bluedarkborder, .listcontent, #pmore, .sbox, .listbg, .bbsinfostat, .forumclass, .forumclasslists a span, .forumclasslists li i, .viewthead, .postbox, .fasticon, .fasticon div, .ftid a:hover, .sltm, .sltm li {
+.bluedarkborder, .listcontent, #pmore, .sbox, .listbg, .bbsinfostat, .forumclass, .forumclasslists a span, .forumclasslists li i, .viewthead, .postbox, .fasticon, .ftid a:hover, .sltm, .sltm li {
   border: 1px solid #e3e5e8; }
 
 .greenborder, .greensmallbutton, .pnc, a.pnc {
@@ -213,7 +213,7 @@ caption, th {
 .bluelightbg, .listcontentauthor .author, .bbsinfomenu a, .p_pop em, .forumtbale tr:hover .freply a, #autopbn:hover, #links {
   background: #d1dced; }
 
-.bluelightbg1, #pmore, .bbslist li:hover .foruminfo, .forumclass, .viewlistli:hover, .classttxt, .viewthead, .viewcontent .snslink a, .solve h3, .loginboxinput input:focus, .buglist_inbox textarea, .fasticon, .fasticon div, .forumtbale tr:hover, #autopbn {
+.bluelightbg1, #pmore, .bbslist li:hover .foruminfo, .forumclass, .viewlistli:hover, .classttxt, .viewthead, .viewcontent .snslink a, .solve h3, .loginboxinput input:focus, .buglist_inbox textarea, .fasticon, .forumtbale tr:hover, #autopbn {
   background-color: #f5f7f9; }
 
 .redbg, .redbutton, .redsmallbutton:hover, .meetbutton a, .methodlogin .lenovo a, .rewardfloortoptile, .p_pop em.new {
@@ -1515,7 +1515,7 @@ caption, th {
   padding: 0 20px 30px; }
 
 .post #sidebar {
-  width: 298px;
+  width: 288px;
   border-radius: 0 3px 3px 0;
   padding-bottom: 99999px;
   margin-bottom: -99999px; }
@@ -1591,26 +1591,27 @@ caption, th {
 .handling {
   display: inline; }
 
-.gotop {
+#gotop {
   float: left;
-  width: 50px; }
+  width: 92px; }
 
 .fasticon {
+  line-height: 48px;
   height: 48px;
-  width: 48px;
+  width: 90px;
   background-position: -5px -124px;
   margin-bottom: 5px;
   cursor: pointer; }
 
 .fasticon div {
-  left: 46px;
-  top: -1px;
+  left: 45px;
+  top: 0;
   width: 30px;
-  height: 48px;
-  line-height: 48px;
-  border-radius: 0 3px 3px;
-  border-left-width: 0;
-  padding: 0 12px 0 3px; }
+  padding: 0 12px 0 3px;
+  border-radius: 0 3px 3px 0; }
+
+.fasticon:hover div {
+  z-index: 100; }
 
 .fasticon:hover {
   background-position: -5px -74px; }

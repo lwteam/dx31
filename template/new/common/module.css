@@ -269,7 +269,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 		#post_extra_tb label.a {  background: #f5f5f5; box-shadow: none; border-bottom-color:#f5f5f5; }
 			#post_extra_tb label span { line-height: 40px;  }
 				#post_extra_tb span.a {  }
-				#post_extra_tb #extra_rushreplyset_b,#post_extra_tb #extra_tag_b { width:68px; }
+				#post_extra_tb #extra_rushreplyset_b,#post_extra_tb #extra_tag_b { width:63px; }
 
 #post_extra_c { position: relative; z-index: 1; }
 #post_extra_c .extratop { border-bottom:1px solid #eee; }
