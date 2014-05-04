@@ -60,7 +60,7 @@
 	.nav { background: url(./images/header_bg.jpg); height: 32px; text-align:center; font-size:19px; padding:8px 10px 8px 0; }
 	.nav .name {display:inline-block; height:30px; overflow:hidden; white-space:nowrap; width:50%;}
 	
-	.hdc { padding:10px 10px 0; border-bottom: 1px solid #dadada;border-bottom: #fff; margin-bottom:15px; }
+	.hdc { padding:10px 10px 0; border-bottom: 1px solid #dadada; background: #fff; margin-bottom:15px; }
 	.hdc h2 { float: left; padding: 0 20px 8px 10px; }
 	.user_fun { }
 	.user_fun li { float:right; padding:15px 5px 20px; margin-bottom:-1px;}
