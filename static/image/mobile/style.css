@@ -60,10 +60,10 @@
 	.nav { background: url(./images/header_bg.jpg); height: 32px; text-align:center; font-size:19px; padding:8px 10px 8px 0; }
 	.nav .name {display:inline-block; height:30px; overflow:hidden; white-space:nowrap; width:50%;}
 	
-	.hdc { padding:10px 10px 0; background: url(./images/nav_b_line.png) repeat-x 0 100%; margin-bottom:10px; }
+	.hdc { padding:10px 10px 0; border-bottom: 1px solid #dadada;border-bottom: #fff; margin-bottom:15px; }
 	.hdc h2 { float: left; padding: 0 20px 8px 10px; }
 	.user_fun { }
-	.user_fun li { float:right; padding:15px 5px 20px; }
+	.user_fun li { float:right; padding:15px 5px 20px; margin-bottom:-1px;}
 	.user_fun li a,.nav .icon_edit a { display:block; width:28px; height:28px; background: url(./images/icon.png) no-repeat; line-height:2000px; overflow:hidden; }
 	.user_fun .on { background: url(./images/arrow_top.png) no-repeat 50% 100%;}
 	.user_fun a.icon_userinfo { background-position:0 0;}
