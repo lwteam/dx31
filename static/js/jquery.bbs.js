@@ -39,6 +39,10 @@ jQuery(function($) {
 			});
 		}
 	}
+	
+	if ($("#newsact").length > 0){
+		newsact();
+	}
 
 	//BUGLIST选项
 	if ($("#pmore").length > 0) {
@@ -321,103 +325,156 @@ var BMDialog = {
 
 
 
-function gUpgDown(){
-   var $ = jQuery;
-
+ function gUpgDown(){
+    var $ = jQuery;
 	var side_height = $("#sidebar").height() + $("#sidebar").offset().top;
 	var gotop_height = $("#gotop").height() ;
-	var spaceWhite = ($(window).width()- $("#container").width())/2;
+    var spaceWhite = ($(window).width()- $("#container").width())/2;
 	var gotop_disright = spaceWhite + $("#sidebar").width() - $("#gotop").width();
 	var footerdis = $("html,body").height() - $("#footer").offset().top + 60; //页脚以上内容底端距离最下面的尺寸
-	var gotop_disbottom1 = $("html,body").height() - gotop_height -  $("#gotop").offset().top;//gotop每次距离底端的尺寸
+	var shortwid = $("#main").width() + $("#sidebar").width() + 20 ; //gotop出现的最小宽度
 
-	$("#gotop").css({'right':gotop_disright,'display':'inherit'});
-	$(".gorelease,.goback,.goreply").css('display','inherit');
-   if ($("#gotop").length > 0) { 
-		if (gotop_disbottom1 <= footerdis){
-			$("#gotop").css("bottom",footerdis);
-		}else{
-			$("#gotop").css("bottom","20px");
-		}
-		$(window).scroll(function(){
-			var spaceWhite1 = ($(window).width()- $("#container").width())/2;//页面一侧空白宽度
-			var gotop_disright1 =spaceWhite1 + $("#sidebar").width() - $("#gotop").width(); //gotop定位距离右边的尺寸
-			var shortwid = $("#main").width() + $("#sidebar").width() + 20 ; //gotop出现的最小宽度
-			var gotop_disbottom = $("html,body").height() - gotop_height -  $("#gotop").offset().top;//gotop每次距离底端的尺寸
+    $("#gotop").css('right',gotop_disright);
 
-			$("#gotop").css('right',gotop_disright1);
-			if( (side_height + gotop_height) <= $(window).height() ){
-				if ($(window).scrollTop() > 0 ){
-					$(".gototop").slideDown('100');
-					if (gotop_disbottom <= footerdis){
-						$("#gotop").css("bottom",footerdis);
-					}else{
-						$("#gotop").css("bottom","20px");
-					}
-				}
-			}else if (($(window).scrollTop() > side_height- 200) && ($(window).height() > gotop_height + 300) && ($(window).width() > shortwid)){
-					$(".gototop").slideDown('100');
-					if (gotop_disbottom <= footerdis){
-						$("#gotop").css("bottom",footerdis);
-					}else{
-						$("#gotop").css("bottom","20px");
-					}
-			}else{
-				$("#gotop").css("bottom","0");
-				$(".gototop").slideUp('fast');
-			}
+    if ($("#gotop").length > 0) { 
+ 	    if( (side_height + gotop_height) <= $(window).height() ) {// 侧边栏加上#gotop的高小于屏幕高度
+    		$("#gotop").slideDown('100');
+    		var gotop_disbottom1 = $("html,body").height() - gotop_height  - $("#gotop").offset().top ;//-  $("#gotop").offset().topgotop每次距离底端的尺寸
+    		if (gotop_disbottom1  < footerdis){
+    			$("#gotop").css("bottom",footerdis);
+     	    }else{
+     	    	$("#gotop").css("bottom","20px");
+     	    }
+        }else if (($(window).scrollTop() > side_height- 200) && ($(window).height() > gotop_height + 300) && ($(window).width() > shortwid)) {
+         // 侧边栏加上#gotop的高大于屏幕高度
+    		$("#gotop").slideDown('100');
+    		var gotop_disbottom1 = $("html,body").height() - gotop_height  - $("#gotop").offset().top ;//gotop每次距离底端的尺寸
+    		if (gotop_disbottom1   < footerdis){
+    			$("#gotop").css("bottom",footerdis);
+     	    }else{
+     	    	$("#gotop").css("bottom","20px");
+     	    }
+	    }else{
+            $("#gotop").css("bottom","0");
+         	$("#gotop").slideUp('fast');
+	    }
+
+	    $(window).scroll(function(){
+
+		    if ($(window).width() <= 1279) {
+		    	 $("#gotop").hide();
+		    }else{
+		        var spaceWhite1 = ($(window).width()- $("#container").width())/2;//页面一侧空白宽度
+			    var gotop_disright1 =spaceWhite1 + $("#sidebar").width() - $("#gotop").width(); //gotop定位距离右边的尺寸
+			 	var gotop_disbottom = $("html,body").height() - gotop_height -  $("#gotop").offset().top;//gotop每次距离底端的尺寸
+			 	var shortwid1 = $("#main").width() + $("#sidebar").width() + 20 ; //gotop出现的最小宽度
+
+		        if( (side_height + gotop_height) <= $(window).height() ) {// 侧边栏加上#gotop的高小于屏幕高度
+			    	if ($(window).scrollTop() > 0 ){
+			    		$("#gotop,.gototop").slideDown('100');
+			    		if (gotop_disbottom <= footerdis){
+			    			$("#gotop").css("bottom",footerdis);
+		         	    }else {
+		         	    	$("#gotop").css("bottom","20px");
+		         	    }
+			    	}else{
+			         	$(".gototop").slideUp('fast');
+			    	}
+			    }else if (($(window).scrollTop() > (side_height+ gotop_height+80 -$(window).height())) && ($(window).width() > shortwid1)){ 
+
+			    	// && ($(window).height() > gotop_height + 300) 
+			      // 侧边栏加上#gotop的高大于屏幕高度
+		      		$("#gotop,.gototop").slideDown('100');
+		    		if (gotop_disbottom <= footerdis){
+		    			$("#gotop").css("bottom",footerdis);
+		     	    }else{
+		     	    	$("#gotop").css("bottom","20px");
+		     	    }
+		        }else{
+			        $("#gotop,.gototop").slideUp('fast');
+		        }
+	        }
 		});
+		//$(window).scroll()结束
 
-		$(window).resize(function(){
-
-			var spaceWhite2 = ($(window).width()- $("#container").width())/2;
+	    $(window).resize(function(){
+		  	var spaceWhite2 = ($(window).width()- $("#container").width())/2;
 			var gotop_disright2 =spaceWhite2 + $("#sidebar").width() - $("#gotop").width();
-			var gotop_disbottomre = $("html,body").height() - gotop_height -  $("#gotop").offset().top;//gotop每次距离底端的尺寸 
-			$("#gotop").css('right',gotop_disright2);
+		    var gotop_disbottomre = $("html,body").height() - gotop_height -  $("#gotop").offset().top;//gotop每次距离底端的尺寸 
+		    var shortwid2 = $("#main").width() + $("#sidebar").width() + 20 ; //gotop出现的最小宽度
+		    $("#gotop").css('right',gotop_disright2);
+		    if ($(window).width() <= 1279) {
+		    	 $("#gotop").hide();
+		    }else{
+		 	    if( (side_height + gotop_height) <= $(window).height() ) {// 侧边栏加上#gotop的高小于屏幕高度
+		    		$("#gotop").slideDown('100');
+		    		var gotop_disbottom1 = $("html,body").height() - gotop_height - $("#gotop").offset().top ;//gotop每次距离底端的尺寸
+		    		if (gotop_disbottom1  < footerdis){
+		    			$("#gotop").css("bottom",footerdis);
+		     	    }else{
+		     	    	$("#gotop").css("bottom","20px");
+		     	    }
+		        }else if (($(window).scrollTop() > (side_height+ gotop_height+80 -$(window).height())) && ($(window).width() > shortwid2)) {
+		         // 侧边栏加上#gotop的高大于屏幕高度
+		    		$("#gotop").slideDown('100');
+		    		var gotop_disbottom1 = $("html,body").height() - gotop_height  - $("#gotop").offset().top ;//gotop每次距离底端的尺寸
+		    		if (gotop_disbottom1   < footerdis){
+		    			$("#gotop").css("bottom",footerdis);
+		     	    }else{
+		     	    	$("#gotop").css("bottom","20px");
+		     	    }
+			    }else{
+		            $("#gotop").css("bottom","0");
+		         	$("#gotop").slideUp('fast');
+				}  
+		    }
 
-			if( (side_height + gotop_height) <= $(window).height() ){
-				$(".gototop").slideDown('100');
-				if (gotop_disbottomre <= footerdis){
-					$("#gotop").css("bottom",footerdis);
-				}else {
-					$("#gotop").css("bottom","20px");
-				}
-			}else if (($(window).scrollTop() > side_height- 200) && ($(window).height() > gotop_height + 300) && ($(window).width() > shortwid)){
-				$(".gototop").slideDown('100');
-				if (gotop_disbottomre <= footerdis){
-					$("#gotop").css("bottom",footerdis);
-				}else {
-					$("#gotop").css("bottom","20px");
-				}
-			}else{
-				$("#gotop").css("bottom","0");
-				$(".gototop").slideUp('fast');
 
-			}
-		});
-	}
-}
-
+	    });
+    }
+ } 
 
 //函数gUpgDown结束
 
 function newsact(){
 	 var $ = jQuery;
+	 var news_shortdiss = $("#sidebar").height() + $("#sidebar").offset().top - $("#newsact").height();
+	 var shortwid = $("#main").width() + $("#sidebar").width() + 20 ; //#newsact出现的最小宽度
+	 var shortheight = $("#newsact").height() + 300;
 	
-	 $(window).scroll(function(){
-	 	var spaceWhite = ($(window).width()- $("#container").width())/2;
-		var newsact_disright = spaceWhite + $("#sidebar").width() - $("#newsact").width();
-		var news_topdis= $("#newsact").offset().top - $(window).scrollTop();//活动版块浮动的最小距离top尺寸
-		//var news_shortdis = $("#sidebar").height() + $("#sidebar").offset().top - $("#newsact").offset().top;
-		var news_shortdiss = $("#sidebar").height() + $("#sidebar").offset().top - $("#newsact").height();
-		
+	if ($("#newsact").length > 0) {
+		$(window).scroll(function(){
+		 	var spaceWhite = ($(window).width()- $("#container").width())/2;
+			var newsact_disright = spaceWhite + $("#sidebar").width() - $("#newsact").width() - 3;
+			var news_topdis= $("#newsact").offset().top - $(window).scrollTop();//活动版块浮动的最小距离top尺寸
 
-		if ((news_topdis <=35) && ($("#newsact").offset().top > news_shortdiss -50) )
-		{
-			$("#newsact").css({'position':"fixed",'right':newsact_disright,'top':"20px"});
+		 	if(( $(window).width() > shortwid) && ($(window).height() > shortheight)){
+				if ((news_topdis <=35) && ($("#newsact").offset().top > news_shortdiss - 20) ){
+					$("#newsact").css({'position':"fixed",'right':newsact_disright,'top':"20px"});
+				}else{
+					$("#newsact").css({'position':"Static",'right':"0",'top':"0"});
+				}
+			}else{
+				$("#newsact").css({'position':"Static",'right':"0",'top':"0"});
+			}
+		});
+	 
+		$(window).resize(function(){
+			var spaceWhite = ($(window).width()- $("#container").width())/2;
+			var newsact_disright = spaceWhite + $("#sidebar").width() - $("#newsact").width() - 3;
+			var news_topdis= $("#newsact").offset().top - $(window).scrollTop();//活动版块浮动的最小距离top尺寸
 
-		}else{
-			$("#newsact").css('position',"Static");
-		}
-	});
+		 	if(( $(window).width() > shortwid) && ($(window).height() > shortheight)){
+				if ((news_topdis <=35) && ($("#newsact").offset().top > news_shortdiss - 20) ){
+					$("#newsact").css({'position':"fixed",'right':newsact_disright,'top':"20px"});
+				}else{
+					$("#newsact").css({'position':"Static",'right':"0",'top':"0"});
+				}
+			}else{
+				$("#newsact").css({'position':"Static",'right':"0",'top':"0"});
+			}
+		});
+	}
+	
 }
+//函数newsact结束
