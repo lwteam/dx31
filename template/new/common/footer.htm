@@ -17,7 +17,7 @@
 <!--{if CURMODULE == 'forumdisplay' ||  CURMODULE == 'viewthread'}-->
 <div id="gotop" style="position: fixed;display:none; bottom:0;">
 	<!--{if CURMODULE == 'forumdisplay' ||  CURMODULE == 'viewthread'}-->
-		<!--{if defined('BUGLIST')}-->
+		<!--{if defined('BUGLIST') || CURMODULE == 'viewthread'}-->
 		<div class="fasticon" onclick="location.href='forum.php?mod=post&action=newthread&fid=$_G[fid]'"><a href="javascript:void(0);"></a><div>发布</div></div>
 		<!--{else}-->
 		<div class="fasticon gorelease"><a href="javascript:void(0);"></a><div>发布</div></div>
