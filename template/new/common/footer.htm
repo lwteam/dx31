@@ -40,6 +40,10 @@
 			© 1998 - 2014 Lenovo Inc. All Rights Reserved <!--{if debuginfo()}-->, Processed in $_G[debuginfo][time] second(s), $_G[debuginfo][queries] queries
 					<!--{if $_G['gzipcompress']}-->, Gzip On<!--{/if}--><!--{if C::memory()->type}-->, <!--{echo ucwords(C::memory()->type)}--> On<!--{/if}-->.
 				<!--{/if}-->
+
+				<!--{if checkmobile()}-->
+				<a href="{echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']}&mobile=2">切换到手机版</a>
+				<!--{/if}-->
 		</div>
 	</div>
 
