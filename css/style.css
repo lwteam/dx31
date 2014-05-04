@@ -630,12 +630,16 @@ caption, th {
 @media screen and (max-width: 1200px) {
   .sboxsubtable li {
     width: 99px; } }
+#newsact {
+  *width: 280px;
+  *float: left; }
+
 .sboxsubimg a {
   margin-bottom: 15px;
-  float: left;
   height: 100px;
   width: 238px;
-  clear: both; }
+  clear: both;
+  float: left; }
 
 @media screen and (max-width: 1370px) {
   .sboxsubimg a {
