@@ -150,7 +150,7 @@ caption, th {
 .grayborder1, .graysmallbutton, .viewcontent .snslink a, .processinfo div, .twolist .forumicon a, .viewtheadauthorinfo .infobox, .m_c .o, .ftid a, .sltm, .inputboxtitle, .tedt, .tedt .bar, .fpd a, .fpd .swfupload, .postquote {
   border: 1px solid #e6e6e6; }
 
-.grayborder2, .processlist, .forumclasslistli, .forumclasslistdrop select, .viewtheadauthorinfo table th, .solve, .solvemain, .buglist_loading, .buglist_inbox, .buglist_inbox textarea, .p_pop, .p_pof, .sllt, .px, .pt, .ps, select, .pn, .showhide, #footer {
+.grayborder2, .processlist, .forumclasslistli, .forumclasslistdrop select, .viewtheadauthorinfo table th, .solve, .solvemain, .buglist_loading, .buglist_inbox, .buglist_inbox textarea, .p_pop, .p_pof, .sllt, #separatorline td, .px, .pt, .ps, select, .pn, .showhide, #footer {
   border: 1px solid #dadada; }
 
 .blueborder, .bluesmallbutton, .forumlist .ht, .bbsinfoabout, .bbsinfoname h1 small, .loginboxinput input:focus, .pg a, .pg strong {
@@ -159,7 +159,7 @@ caption, th {
 .bluelightborder, .viewlistli:hover, .viewcontent .snslink a, .solve h3 {
   border: 1px solid #ebf0f7; }
 
-.bluedarkborder, .listcontent, #pmore, .sbox, .listbg, .bbsinfostat, .forumclass, .forumclasslists a span, .forumclasslists li i, .viewthead, .postbox, .fasticon, .fasticon div, #separatorline td, .ftid a:hover, .sltm, .sltm li {
+.bluedarkborder, .listcontent, #pmore, .sbox, .listbg, .bbsinfostat, .forumclass, .forumclasslists a span, .forumclasslists li i, .viewthead, .postbox, .fasticon, .fasticon div, .ftid a:hover, .sltm, .sltm li {
   border: 1px solid #e3e5e8; }
 
 .greenborder, .greensmallbutton, .pnc, a.pnc {
