@@ -99,12 +99,12 @@
 		.bm_h .o img { float: right; cursor: pointer; }
 	.bm_h .i { padding-left: 10px; }
 	.bm_h .pn { margin-top: 4px; }
-	.bm_h { height: 44px; border: 1px solid #e3e5e8;border-radius: 5px 5px 0 0;background: #f5f7f9; line-height: 44px; white-space: nowrap; overflow: hidden; }
+	.bm_h { height: 44px; border: 1px solid #e3e5e8;border-radius: 5px 5px 0 0;background: #fff; line-height: 44px; white-space: nowrap; overflow: hidden; }
 	.bm_h h2 { height: 44px;  }
 	.bm_h:hover { background: #fff; }
 	.bm_h h2 a { display:block; margin:0 31px 0 10px; padding-left:10px; font-size:16px; color:#5990de; line-height:44px; font-weight:400; }
 	
-	.sub_forum { background: #FFF; border:1px solid #e3e5e8; border-top:0; border-radius: 0 0 5px 5px;}
+	.sub_forum { background: #f5f7f9; border:1px solid #e3e5e8; border-top:0; border-radius: 0 0 5px 5px;}
 	.sub_forum li { height:50px; line-height:50px; border-bottom:1px solid #eee; font-size:16px; overflow:hidden; }
 	.sub_forum li:last-child { border-bottom:none;}
 	.sub_forum li a { display: block; padding:0 10px; }
