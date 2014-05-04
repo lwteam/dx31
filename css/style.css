@@ -634,7 +634,8 @@ caption, th {
   margin-bottom: 15px;
   float: left;
   height: 100px;
-  width: 238px; }
+  width: 238px;
+  clear: both; }
 
 @media screen and (max-width: 1370px) {
   .sboxsubimg a {
