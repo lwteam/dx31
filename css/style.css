@@ -159,7 +159,7 @@ caption, th {
 .bluelightborder, .viewlistli:hover, .viewcontent .snslink a, .solve h3 {
   border: 1px solid #ebf0f7; }
 
-.bluedarkborder, .listcontent, #pmore, .sbox, .listbg, .bbsinfostat, .forumclass, .forumclasslists a span, .forumclasslists li i, .viewthead, .postbox, .fasticon, .fasticon div, .ftid a:hover, .sltm, .sltm li {
+.bluedarkborder, .listcontent, #pmore, .sbox, .listbg, .bbsinfostat, .forumclass, .forumclasslists a span, .forumclasslists li i, .viewthead, .postbox, .fasticon, .fasticon div, #separatorline td, .ftid a:hover, .sltm, .sltm li {
   border: 1px solid #e3e5e8; }
 
 .greenborder, .greensmallbutton, .pnc, a.pnc {
@@ -278,7 +278,7 @@ caption, th {
   zoom: 1;
   *display: inline; }
 
-.pr, .nav .beta, .listcontent, .sboxsubhot li, .processlist, .forumlist .ht, .twolist .forumname span, .bbsinfoname h1, .bbsinfomenu h2 em, .bbsinfostat, .forumclass, .forumclasslists li.on, .forumclasslists li.on span, .viewlistli:hover, .viewtheadavatar, .viewtheadtop, .quickauthormanage, .solvemain, .rewardfloortop, .fasticon, .forumtbale tr:hover .fleft, .forumtbale tr:hover .fright, .forumtbale .newthread .fleft, .forumtbale .newthread .fright, .ftid, .pinf {
+.pr, .nav .beta, .listcontent, .sboxsubhot li, .processlist, .forumlist .ht, .twolist .forumname span, .bbsinfoname h1, .bbsinfomenu h2 em, .bbsinfostat, .forumclass, .forumclasslists li.on, .forumclasslists li.on span, .viewlistli:hover, .viewtheadavatar, .viewtheadtop, .quickauthormanage, .solvemain, .rewardfloortop, .fasticon, .forumtbale tr:hover .fleft, .forumtbale tr:hover .fright, #separatorline td, .forumtbale .newthread .fleft, .forumtbale .newthread .fright, .ftid, .pinf {
   position: relative; }
 
 .pa, .shadeline, .listcontentauthor, .sboxsubhot i, .processlist i, .twolist .forumname span i, .bbsinfoname h1 small, .bbsinfostatspread, .shadow, .viewtheadavatar i, .solvelisttop small, .solvelisttop i, .rewardfloor, .fasticon div {
@@ -1816,6 +1816,17 @@ caption, th {
   vertical-align: -15%;
   margin-left: 1px;
   *vertical-align: middle; }
+
+#separatorline td {
+  top: -1px;
+  height: 0; }
+
+#separatorline .fleft, #separatorline .fright {
+  background: none;
+  border: 0; }
+
+#separatorline td:hover {
+  background: 0; }
 
 .forumtbale tr.tablehead {
   font-weight: 100; }
