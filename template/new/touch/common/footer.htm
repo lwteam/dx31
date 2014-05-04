@@ -22,7 +22,7 @@
 	</div>
     <div>
 		<a href="javascript:;" style="color:#D7D7D7;">{lang mobile2version}</a> | 
-		<a href="{$_G['setting']['mobile']['nomobileurl']}">{lang nomobiletype}</a>
+		<a href="{echo $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING']}&mobile=no">{lang nomobiletype}</a>
     </div>
 </div>
 <!--{/if}-->

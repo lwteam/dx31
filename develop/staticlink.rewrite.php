@@ -3,6 +3,8 @@
 define('BIGQI', TRUE);
 chdir('../');
 
+error_reporting(0);
+
 $position = strpos($_SERVER['SCRIPT_FILENAME'],'develop/');
 $_SERVER['SCRIPT_FILENAME'] = substr($_SERVER['SCRIPT_FILENAME'],0,$position).'forum.php';
 $_SERVER['SCRIPT_NAME'] = basename($_SERVER['SCRIPT_FILENAME']);
@@ -10,12 +12,17 @@ $_SERVER['SCRIPT_NAME'] = basename($_SERVER['SCRIPT_FILENAME']);
 require "data/cache/cache_forums_rewrite.php";
 
 
-$QUERY_STRING = substr($_SERVER['QUERY_STRING'],-1) == '/'?substr($_SERVER['QUERY_STRING'],0,-1):$_SERVER['QUERY_STRING'];
+$QUERYSTEP1 = explode('&',$_SERVER['QUERY_STRING']);
+$QUERY_STRING = substr($QUERYSTEP1[0],-1) == '/'?substr($QUERYSTEP1[0],0,-1):$QUERYSTEP1[0];
 
 
+	
 $_TP = Array();
 $_TP['request'] = $_TP['_GET'] = array();
 $_TP['request'] = explode('/',$QUERY_STRING);
+$_TP['OQUERY'] = isset($QUERYSTEP1[1])?$QUERYSTEP1[1]:'';
+
+
 
 if( isset($_TP['request'][1]) ){
 
@@ -73,6 +80,28 @@ if($_TP['scriptype'] == 'fid'){
 	$_TP['_GET']['fid']=$_TP['forumsinfo']['fid'];
 	$_TP['_GET']['mod']='viewthread';
 }
+
+$QUERY_ARRAY = array();
+if ($_TP['_GET']['mod']) {
+	$QUERY_ARRAY[] = 'mod='.$_TP['_GET']['mod'];
+}
+if ($_TP['_GET']['fid']) {
+	$QUERY_ARRAY[] = 'fid='.$_TP['_GET']['fid'];
+}
+if ($_TP['_GET']['tid']) {
+	$QUERY_ARRAY[] = 'tid='.$_TP['_GET']['tid'];
+}
+if ($_TP['_GET']['page']) {
+	$QUERY_ARRAY[] = 'page='.$_TP['_GET']['page'];
+}
+if ($_TP['_GET']['extra']) {
+	$QUERY_ARRAY[] = 'extra='.$_TP['_GET']['extra'];
+}
+
+
+$_SERVER['QUERY_STRING'] = join('&',$QUERY_ARRAY ).($_TP['OQUERY']?'&'.$_TP['OQUERY']:'');
+$_SERVER['PHP_SELF'] ="/forum.php";
+$_SERVER['REQUEST_URI'] = $_SERVER['PHP_SELF'] . ($_SERVER['QUERY_STRING']?'?'.$_SERVER['QUERY_STRING']:'');
 
 foreach($_TP['_GET'] as $key => $value){
 	$_GET[$key] = $value;
