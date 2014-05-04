@@ -16,7 +16,7 @@
 	em, cite, i { font-style: normal; }
 		a img { border: none; }
 	label { cursor: pointer; }
-	.bg { background: url(./images/pic_bg.jpg); }
+	.bg { background: #eee; }
 	.rq { color: red; }
 
 	a:link,a:visited,a:hover { color:#4C4C4C; text-decoration:none; }
@@ -104,8 +104,8 @@
 	.bm_h:hover { background: #eceef1; }
 	.bm_h h2 a { display:block; margin:0 31px 0 10px; padding-left:10px; font-size:16px; color:#5990de; line-height:44px; font-weight:400; }
 	
-	.sub_forum { background: #FFF; border:1px solid #EDEDED; border-top:0; border-radius: 0 0 5px 5px;}
-	.sub_forum li { height:60px; line-height:60px; border-bottom:1px solid #EDEDED; font-size:16px; overflow:hidden; }
+	.sub_forum { background: #FFF; border:1px solid #e3e5e8; border-top:0; border-radius: 0 0 5px 5px;}
+	.sub_forum li { height:50px; line-height:50px; border-bottom:1px solid #eee; font-size:16px; overflow:hidden; }
 	.sub_forum li:last-child { border-bottom:none;}
 	.sub_forum li a { display: block; padding:0 10px; }
 	.sub_forum li .num { background:#35A3E6; color:#FFF; float: right; font-size: 14px; height: 25px; line-height: 25px; margin-top: 7px; padding: 0 10px;border-radius:10px; }
